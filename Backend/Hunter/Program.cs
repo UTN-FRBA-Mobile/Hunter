@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System;
 
 namespace Hunter
 {
@@ -13,6 +9,9 @@ namespace Hunter
     {
         public static void Main(string[] args)
         {
+            Database.HunterContext.ConnectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+            //Database.InitializeDatabase.Run();
+
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -20,7 +19,10 @@ namespace Hunter
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder
+                        .UseKestrel()
+                        .UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"))
+                        .UseStartup<Startup>();
                 });
     }
 }

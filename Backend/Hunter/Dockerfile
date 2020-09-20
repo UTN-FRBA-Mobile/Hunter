@@ -16,6 +16,10 @@ RUN dotnet build "Hunter.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "Hunter.csproj" -c Release -o /app/publish
 
+ENV DATABASE_URL=postgres://ouaqzwgabbxhxt:0687c2478f0521a595632a35a7638252b71b6db73f35badddf40bcc5fdc2153d@ec2-3-216-92-193.compute-1.amazonaws.com:5432/d5qpniim1huq2a
+ENV ASPNETCORE_Environment=Production
+ENV ASPNETCORE_URLS http://+:5000
+
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
