@@ -7,6 +7,7 @@ namespace Hunter.Database
 {
     public class InitializeDatabase
     {
+        /*
         public static void Run()
         {
             using (var context = new HunterContext())
@@ -14,5 +15,6 @@ namespace Hunter.Database
                 var users = context.Users.ToList();
             }
         }
+        */
     }
 }

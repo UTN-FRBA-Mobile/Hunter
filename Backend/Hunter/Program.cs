@@ -10,8 +10,6 @@ namespace Hunter
         public static void Main(string[] args)
         {
             Database.HunterContext.ConnectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
-            //Database.InitializeDatabase.Run();
-
             CreateHostBuilder(args).Build().Run();
         }
 

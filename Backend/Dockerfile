@@ -8,4 +8,4 @@ COPY . ./
 
 RUN dotnet publish -c Release -o publish
 
-CMD ["dotnet","publish/Hunter.dll"]
+CMD ["dotnet","ef migrations add initial --startup-project publish/Hunter.dll --context HunterContext"]

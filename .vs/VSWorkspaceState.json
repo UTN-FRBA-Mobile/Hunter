@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Backend",
-    "\\Backend\\Hunter"
+    "\\Backend\\Hunter",
+    "\\Backend\\Hunter\\Migrations"
   ],
-  "SelectedNode": "\\Backend\\Hunter\\Controllers",
   "PreviewInSolutionExplorer": false
 }

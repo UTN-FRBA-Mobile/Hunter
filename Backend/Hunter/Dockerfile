@@ -23,4 +23,4 @@ ENV ASPNETCORE_URLS http://+:5000
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Hunter.dll"]
+ENTRYPOINT ["dotnet", "ef migrations add initial --startup-project publish/Hunter.dll --context HunterContext"]]
