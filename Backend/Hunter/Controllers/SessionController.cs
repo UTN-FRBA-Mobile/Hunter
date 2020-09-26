@@ -13,7 +13,8 @@ namespace Hunter.Controllers
         [HttpGet]
         public string Get()
         {
-            return Database.HunterContext.ConnectionString;
+            //return Database.HunterContext.ConnectionString;
+            return "";
         }
     }
 }
