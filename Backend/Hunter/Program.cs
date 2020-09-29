@@ -20,8 +20,8 @@ namespace Hunter
                 {
                     webBuilder
                         .UseKestrel()
-                        //.UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"))
-                        .UseUrls("http://0.0.0.0:80")
+                        .UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"))
+                        //.UseUrls("http://0.0.0.0:80")
                         .UseStartup<Startup>();
                 });
     }

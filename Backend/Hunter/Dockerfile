@@ -23,4 +23,5 @@ ENV PORT=80
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ef migrations add initial --startup-project publish/Hunter.dll --context HunterContext"]]
+ENTRYPOINT ["dotnet", "--startup-project publish/Hunter.dll"]]
+#ENTRYPOINT ["dotnet", "ef migrations add initial --startup-project publish/Hunter.dll --context HunterContext"]]
