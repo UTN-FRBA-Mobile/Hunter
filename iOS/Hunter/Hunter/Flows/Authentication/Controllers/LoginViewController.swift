@@ -43,16 +43,22 @@ fileprivate extension LoginViewController {
             stack.axis = .vertical
             stack.spacing = 16.0
         }
-        let userField: UITextField = UIView.loadFromCode()
-        let passwordField: UITextField = UIView.loadFromCode() { (field: UITextField) in
-            field.isSecureTextEntry = true
-        }
+        let userField: UITextField = textField(returnKey: .next)
+        let passwordField: UITextField = textField(returnKey: .done) { (field) in field.isSecureTextEntry = true }
         containerView.addArrangedSubviews([userField, passwordField])
         view.addSubview(containerView)
         userTextField = userField
         passwordTextField = passwordField
         containerView.center(to: view)
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).activate()
+    }
+    
+    private func textField(returnKey: UIReturnKeyType, customizing: ((UITextField) -> Void) = { _ in }) -> UITextField {
+        UIView.loadFromCode { (textField: UITextField) in
+            customizing(textField)
+            textField.returnKeyType = returnKey
+            textField.delegate = self
+        }
     }
     
     func setupButtonView() {
@@ -65,5 +71,14 @@ fileprivate extension LoginViewController {
              view.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 32)]
                 .activate()
         }
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) { refreshStatus() }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == userTextField { passwordTextField.becomeFirstResponder() }
+        return false
     }
 }

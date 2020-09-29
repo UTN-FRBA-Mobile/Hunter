@@ -3,7 +3,6 @@
 import Foundation
 
 protocol AuthenticationFlow {
-    
 }
 
 protocol AuthenticationCaseUse {
@@ -19,5 +18,7 @@ class AuthenticationCoordinator<CaseUse: AuthenticationCaseUse, Flow: Authentica
         self.caseUse = caseUse
     }
     
-    func start() {}
+    func start() {
+        
+    }
 }

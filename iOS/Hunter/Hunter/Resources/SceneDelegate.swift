@@ -18,9 +18,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigation = UINavigationController()
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
-        IQKeyboardManager.shared.enable = true
-        showLogin()
+        setupKeyboard()
+        //showLogin()
+        //showAuthentication(from: navigation)
+        start(navigation)
     }
+    
+    private func setupKeyboard() {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.toolbarManageBehaviour = .byPosition
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
+    }
+    
+    private func start<Navigation: UINavigationController>(_ nav: Navigation) {
+        let flow = iOSGuestFlow(navigation: nav, factory: iOSGuestFactory())
+        let caseUse = SignUpLogic(registers: [])
+        GuestCoordinator(flow: flow, caseUse: caseUse).start()
+    }
+    
+    private func showAuthentication(from navigation: UINavigationController) {
+        let controller = AuthenticationViewController()
+        navigation.pushViewController(controller, animated: true)
+    }
+    
+    var textHandlers = [TextFieldHandler]()
     
     private func showLogin() {
         let controller = LoginViewController()
@@ -28,6 +51,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         controller.onAceppt = { print("Lo logree!") }
         (window?.rootViewController as? UINavigationController)?.pushViewController(controller, animated: true)
         controller.acceptButton.setTitle("Login", for: .normal)
+        textHandlers.append(controller.userTextField.addHandler(TextFieldHandler { print("Fleto UserName: \($0)") }))
+        textHandlers.append(controller.passwordTextField.addHandler(TextFieldHandler { print("Fleto Pass: \($0)") }))
         controller.userTextField.placeholder = "Title"
         controller.passwordTextField.placeholder = "Password"
     }
@@ -59,7 +84,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-

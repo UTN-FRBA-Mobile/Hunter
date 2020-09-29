@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,16 @@
 		ADA782D2251C242B005840AB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782D1251C242B005840AB /* Color.swift */; };
 		ADA782D7251C247B005840AB /* UIColor+Hexadecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782D6251C247B005840AB /* UIColor+Hexadecimal.swift */; };
 		ADA782DC251C299D005840AB /* UIView+Centered.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782DB251C299D005840AB /* UIView+Centered.swift */; };
+		ADADF666252299FF003364C7 /* TextFieldHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF665252299FF003364C7 /* TextFieldHandler.swift */; };
+		ADADF66F2522CAA1003364C7 /* GuestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF66E2522CAA1003364C7 /* GuestCoordinator.swift */; };
+		ADADF6762522CBC9003364C7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6752522CBC9003364C7 /* Router.swift */; };
+		ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF67A2522CD9F003364C7 /* GuestViewController.swift */; };
+		ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */; };
+		ADADF6852522CDED003364C7 /* GuestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6842522CDED003364C7 /* GuestFactory.swift */; };
+		ADADF68A2522CE1E003364C7 /* GuestFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6892522CE1E003364C7 /* GuestFlow.swift */; };
+		ADADF68F2522CE83003364C7 /* iOSGuestFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF68E2522CE83003364C7 /* iOSGuestFlow.swift */; };
+		ADADF6972522CEFE003364C7 /* GuestCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6962522CEFE003364C7 /* GuestCaseUse.swift */; };
+		ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF69E2522CF15003364C7 /* RegisterMethod.swift */; };
 		B360CEBC1BB327E616411986 /* Pods_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118BCF7AD09771CAD36D8BB2 /* Pods_Hunter.framework */; };
 		C19F7AC29346E9949FDF9596 /* Pods_Hunter_HunterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0414FC799329DCE8482D95DC /* Pods_Hunter_HunterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +88,16 @@
 		ADA782D1251C242B005840AB /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		ADA782D6251C247B005840AB /* UIColor+Hexadecimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hexadecimal.swift"; sourceTree = "<group>"; };
 		ADA782DB251C299D005840AB /* UIView+Centered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Centered.swift"; sourceTree = "<group>"; };
+		ADADF665252299FF003364C7 /* TextFieldHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHandler.swift; sourceTree = "<group>"; };
+		ADADF66E2522CAA1003364C7 /* GuestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCoordinator.swift; sourceTree = "<group>"; };
+		ADADF6752522CBC9003364C7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		ADADF67A2522CD9F003364C7 /* GuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
+		ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSGuestFactory.swift; sourceTree = "<group>"; };
+		ADADF6842522CDED003364C7 /* GuestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFactory.swift; sourceTree = "<group>"; };
+		ADADF6892522CE1E003364C7 /* GuestFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFlow.swift; sourceTree = "<group>"; };
+		ADADF68E2522CE83003364C7 /* iOSGuestFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSGuestFlow.swift; sourceTree = "<group>"; };
+		ADADF6962522CEFE003364C7 /* GuestCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCaseUse.swift; sourceTree = "<group>"; };
+		ADADF69E2522CF15003364C7 /* RegisterMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMethod.swift; sourceTree = "<group>"; };
 		B22C1F04A2DEDEB70B975CC0 /* Pods-Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hunter.release.xcconfig"; path = "Target Support Files/Pods-Hunter/Pods-Hunter.release.xcconfig"; sourceTree = "<group>"; };
 		C9AE6D3A76F45A65280B1283 /* Pods-HunterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.release.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.release.xcconfig"; sourceTree = "<group>"; };
 		E909DD6C60921D71CC7A7787 /* Pods-HunterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.debug.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,11 +156,11 @@
 		AD4A0B92251C11A000DC9900 /* Hunter */ = {
 			isa = PBXGroup;
 			children = (
+				AD9064C4251C1715005DC31D /* Engine */,
 				ADA78284251C182E005840AB /* Flows */,
+				AD9064C3251C1711005DC31D /* Utils */,
 				AD4A0BA1251C11A100DC9900 /* Info.plist */,
 				AD9064C5251C171A005DC31D /* Resources */,
-				AD9064C4251C1715005DC31D /* Engine */,
-				AD9064C3251C1711005DC31D /* Utils */,
 			);
 			path = Hunter;
 			sourceTree = "<group>";
@@ -166,6 +186,8 @@
 		AD9064C3251C1711005DC31D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ADADF6742522CBBF003364C7 /* Navigation */,
+				ADADF664252299F8003364C7 /* Handlers */,
 				ADA782B4251C1AB3005840AB /* UI */,
 				ADA782D1251C242B005840AB /* Color.swift */,
 			);
@@ -175,6 +197,7 @@
 		AD9064C4251C1715005DC31D /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				ADADF6732522CAAF003364C7 /* Guest */,
 				ADA7828F251C18D8005840AB /* Authentication */,
 			);
 			path = Engine;
@@ -194,6 +217,7 @@
 		ADA78284251C182E005840AB /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				ADADF66D2522CA90003364C7 /* Guest */,
 				ADA7828E251C18CF005840AB /* Game */,
 				ADA7828D251C18C9005840AB /* Authentication */,
 			);
@@ -263,6 +287,44 @@
 			path = HunterButton;
 			sourceTree = "<group>";
 		};
+		ADADF664252299F8003364C7 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				ADADF665252299FF003364C7 /* TextFieldHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		ADADF66D2522CA90003364C7 /* Guest */ = {
+			isa = PBXGroup;
+			children = (
+				ADADF68E2522CE83003364C7 /* iOSGuestFlow.swift */,
+				ADADF6842522CDED003364C7 /* GuestFactory.swift */,
+				ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */,
+				ADADF67A2522CD9F003364C7 /* GuestViewController.swift */,
+			);
+			path = Guest;
+			sourceTree = "<group>";
+		};
+		ADADF6732522CAAF003364C7 /* Guest */ = {
+			isa = PBXGroup;
+			children = (
+				ADADF66E2522CAA1003364C7 /* GuestCoordinator.swift */,
+				ADADF6892522CE1E003364C7 /* GuestFlow.swift */,
+				ADADF6962522CEFE003364C7 /* GuestCaseUse.swift */,
+				ADADF69E2522CF15003364C7 /* RegisterMethod.swift */,
+			);
+			path = Guest;
+			sourceTree = "<group>";
+		};
+		ADADF6742522CBBF003364C7 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				ADADF6752522CBC9003364C7 /* Router.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		BC749D5EA1166B2913CDFEAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,7 +345,6 @@
 				E909DD6C60921D71CC7A7787 /* Pods-HunterTests.debug.xcconfig */,
 				C9AE6D3A76F45A65280B1283 /* Pods-HunterTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -524,20 +585,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADADF666252299FF003364C7 /* TextFieldHandler.swift in Sources */,
+				ADADF6852522CDED003364C7 /* GuestFactory.swift in Sources */,
 				ADA782C4251C1C6F005840AB /* NSLayoutConstraint+Activate.swift in Sources */,
 				ADA782BF251C1C02005840AB /* UIStackView+Subviews.swift in Sources */,
 				ADA782B7251C1ACF005840AB /* UIView+Initialize.swift in Sources */,
+				ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */,
+				ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */,
 				ADA782AB251C1A13005840AB /* SignUpViewController.swift in Sources */,
 				ADA782CA251C2290005840AB /* HunterButton.swift in Sources */,
+				ADADF68F2522CE83003364C7 /* iOSGuestFlow.swift in Sources */,
 				ADA782D2251C242B005840AB /* Color.swift in Sources */,
 				AD4A0B94251C11A000DC9900 /* AppDelegate.swift in Sources */,
 				ADA78286251C1840005840AB /* AuthenticationModule.swift in Sources */,
 				ADA782D7251C247B005840AB /* UIColor+Hexadecimal.swift in Sources */,
+				ADADF6762522CBC9003364C7 /* Router.swift in Sources */,
 				ADA782B0251C1A2A005840AB /* AuthenticationViewController.swift in Sources */,
 				AD4A0B96251C11A000DC9900 /* SceneDelegate.swift in Sources */,
+				ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */,
 				ADA782DC251C299D005840AB /* UIView+Centered.swift in Sources */,
+				ADADF6972522CEFE003364C7 /* GuestCaseUse.swift in Sources */,
+				ADADF66F2522CAA1003364C7 /* GuestCoordinator.swift in Sources */,
 				ADA782A3251C19F0005840AB /* LoginViewController.swift in Sources */,
 				ADA7829A251C1902005840AB /* AuthenticationCoordinator.swift in Sources */,
+				ADADF68A2522CE1E003364C7 /* GuestFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
