@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Hunter</string>
+
+    <string name="login_title">Ingresar</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+
+    <string name="logout">Cerrar sesión</string>
+
+    <string name="login_mail_missing">Debe ingresar su email</string>
+    <string name="login_pass_missing">Debe ingresar su password</string>
+    <string name="login_bad_credentials">Las credenciales no son correctas</string>
 </resources>
