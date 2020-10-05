@@ -10,6 +10,6 @@ heroku container:release web --app utn-mobile-hunter
 ## View Logs
 heroku logs --tail --app utn-mobile-hunter
 
-##ENV
+## ENV
 DATABASE_URL=postgres://{user}:{password}@{host}:5432/{database}
 PORT=8080
