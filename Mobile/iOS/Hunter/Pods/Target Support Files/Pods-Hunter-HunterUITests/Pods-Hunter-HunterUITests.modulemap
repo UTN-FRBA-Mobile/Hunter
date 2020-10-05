@@ -1,0 +1,6 @@
+framework module Pods_Hunter_HunterUITests {
+  umbrella header "Pods-Hunter-HunterUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
