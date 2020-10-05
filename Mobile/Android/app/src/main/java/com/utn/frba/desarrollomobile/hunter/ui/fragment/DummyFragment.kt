@@ -3,16 +3,19 @@ package com.utn.frba.desarrollomobile.hunter.ui.fragment
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.*
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.utils.PermissionHandler
@@ -45,11 +48,9 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //TODO check if GPS is ON and alert user otherwise
+        checkGPSIsON()
 
         mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
-        locationManager = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
         target = Location(GPS_PROVIDER)
 
@@ -192,5 +193,24 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
                 locationListener
             )
         }
+    }
+
+    private fun checkGPSIsON() {
+        locationManager = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        if (!locationManager.isProviderEnabled(GPS_PROVIDER)) {
+            showGPSDialog()
+        }
+    }
+
+    private fun showGPSDialog() {
+        val alert: AlertDialog?
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setMessage("GPS apagado, querés prenderlo?")
+            .setCancelable(false)
+            .setPositiveButton("SI") { _, _ -> startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
+            .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
+        alert = builder.create();
+        alert.show();
     }
 }
