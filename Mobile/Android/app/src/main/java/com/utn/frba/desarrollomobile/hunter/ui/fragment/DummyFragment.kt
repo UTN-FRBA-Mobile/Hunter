@@ -104,7 +104,7 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
             }
 
             override fun onProviderDisabled(provider: String?) {
-                //TODO alert user to turn GPS on
+                checkGPSIsON()
                 Log.d("GPS", "onProviderDisabled")
             }
 
