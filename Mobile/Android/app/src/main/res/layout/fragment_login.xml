@@ -8,7 +8,7 @@
     android:paddingHorizontal="25dp"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Loginfragment"
+    tools:context=".LoginFragment"
     >
     <TextView
         android:layout_width="match_parent"
@@ -42,6 +42,7 @@
         android:layout_height="50dp"
         android:layout_marginVertical="10dp"
         android:gravity="center"
+        android:enabled="false"
         android:text="Login"
         app:layout_constraintTop_toBottomOf="@+id/login_password" />
 </androidx.appcompat.widget.LinearLayoutCompat>
