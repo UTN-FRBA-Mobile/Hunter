@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "135287266617",
+    "firebase_url": "https://desarrollo-mobile---hunter.firebaseio.com",
+    "project_id": "desarrollo-mobile---hunter",
+    "storage_bucket": "desarrollo-mobile---hunter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135287266617:android:9ff0e4c00d0a0bac2bdce8",
+        "android_client_info": {
+          "package_name": "com.utn.frba.desarrollomobile.hunter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135287266617-25d03vco37p99s25k8lbmn0ue0139d2n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5eAZurdGdjJDnVHfu2igLlbWLba4mwFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135287266617-25d03vco37p99s25k8lbmn0ue0139d2n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
