@@ -7,11 +7,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_register.*
 
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private lateinit var auth: FirebaseAuth
 
@@ -22,16 +21,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         setTextWatchers()
 
-        login_button.setOnClickListener { login() }
-        login_register_button.setOnClickListener { goToRegister() }
-    }
-
-    private fun goToRegister() {
-        showFragment(RegisterFragment(), false)
+        register_button.setOnClickListener { register() }
     }
 
     private fun setTextWatchers() {
-        login_email.addTextChangedListener(object : TextWatcher {
+        register_email.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // not implemented
             }
@@ -46,7 +40,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
         })
 
-        login_password.addTextChangedListener(object : TextWatcher {
+        register_password.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // not implemented
             }
@@ -63,21 +57,32 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun validateInputs() {
-        val email = login_email.text.toString()
-        val pass = login_password.text.toString()
+        val email = register_email.text.toString()
+        val pass = register_password.text.toString()
+        val pass_confirm = register_password_confirmation.text.toString()
+        val alias = register_alias.text.toString()
 
-        login_button.isEnabled = email.isNotEmpty() && pass.isNotEmpty()
+        if (pass != pass_confirm)
+        {
+            register_password_confirmation.error = getString(R.string.register_password_not_match)
+        }
+
+        register_button.isEnabled = email.isNotEmpty() && pass.isNotEmpty()
+                && (pass == pass_confirm) && alias.isNotEmpty()
     }
 
-    private fun login() {
-        val email = login_email.text.toString()
-        val pass = login_password.text.toString()
+    private fun register() {
+        val email = register_email.text.toString()
+        val pass = register_password.text.toString()
 
-        auth.signInWithEmailAndPassword(email, pass)
+        auth.createUserWithEmailAndPassword(email, pass)
             .addOnCompleteListener { task ->
                 if(!task.isSuccessful) {
-                    Toast.makeText(activity, R.string.login_bad_credentials, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, R.string.regiter_error, Toast.LENGTH_SHORT).show()
+
                 }
             }
+
+        //aca hay que mandar al backend los datos
     }
 }
