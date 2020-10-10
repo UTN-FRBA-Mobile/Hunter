@@ -10,4 +10,13 @@
     <string name="login_mail_missing">Debe ingresar su email</string>
     <string name="login_pass_missing">Debe ingresar su password</string>
     <string name="login_bad_credentials">Las credenciales no son correctas</string>
+
+    <string name="game_join">Unirse a un Juego</string>
+    <string name="game_create">Create Juego</string>
+
+    <string name="play">Jugar!</string>
+    <string name="game_code">Código de juego</string>
+    <string name="game_give_clue">Pista (Breve descripcion del lugar donde esta escondido)</string>
+    <string name="create">Crear</string>
+    <string name="upload_photo">Subir Foto</string>
 </resources>
