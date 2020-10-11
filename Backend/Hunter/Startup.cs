@@ -1,20 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using Hunter.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -34,10 +27,6 @@ namespace Hunter
         {
             ConfigureAuthentication(services);
             services.AddControllers();
-            /*
-            services.AddEntityFrameworkNpgsql().AddDbContext<Database.HunterContext>(opt =>
-                opt.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_URL")));
-            */
 
             // Register the Swagger generator, defining 1 or more Swagger documents
 
@@ -67,8 +56,8 @@ namespace Hunter
 
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -79,6 +68,8 @@ namespace Hunter
         private static void ConfigureAuthentication(IServiceCollection serviceCollection)
         {
             serviceCollection
+                //.AddFirebaseAuthentication("https://securetoken.google.com/desarrollo-mobile---hunter", "desarrollo-mobile---hunter")
+
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
