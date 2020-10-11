@@ -1,16 +1,30 @@
 <resources>
+  // Global
     <string name="app_name">Hunter</string>
 
+  // Login - Register
     <string name="login_title">Ingresar</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
-
-    <string name="logout">Cerrar sesión</string>
-
+  
     <string name="login_mail_missing">Debe ingresar su email</string>
     <string name="login_pass_missing">Debe ingresar su password</string>
     <string name="login_bad_credentials">Las credenciales no son correctas</string>
 
+    <string name="logout">Cerrar sesión</string>
+
+    <string name="register_title">Registrarse</string>
+    <string name="register_first_name">Nombre</string>
+    <string name="register_last_name">Apellido</string>
+    <string name="register_alias">Alias</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Password</string>
+    <string name="register_password_confirmation">Confirmar Password</string>
+
+    <string name="register_password_not_match">Estas contraseñas no coinciden</string>
+    <string name="regiter_error">Error En la regitración</string>
+
+  // Game
     <string name="game_join">Unirse a un Juego</string>
     <string name="game_create">Create Juego</string>
 
@@ -19,4 +33,5 @@
     <string name="game_give_clue">Pista (Breve descripcion del lugar donde esta escondido)</string>
     <string name="create">Crear</string>
     <string name="upload_photo">Subir Foto</string>
+
 </resources>
