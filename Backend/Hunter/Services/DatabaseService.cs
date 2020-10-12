@@ -14,7 +14,7 @@ namespace Hunter.Services
         {
             using (var context = new Database.postgresContext())
             {
-                return ParseUser(context.User.First(u => u.Sub == sub));
+                return ParseUser(context.User.FirstOrDefault(u => u.Sub == sub));
             }
         }
 
@@ -22,7 +22,7 @@ namespace Hunter.Services
         {
             using (var context = new Database.postgresContext())
             {
-                return ParseUser(context.User.First(u => u.Alias == alias));
+                return ParseUser(context.User.FirstOrDefault(u => u.Alias == alias));
             }
         }
 
@@ -30,7 +30,7 @@ namespace Hunter.Services
         {
             using (var context = new Database.postgresContext())
             {
-                var user = context.User.First(u => u.Sub == sub); 
+                var user = context.User.FirstOrDefault(u => u.Sub == sub); 
                 user.Alias = alias;
                 user.FirstName = first_name;
                 user.LastName = last_name;
@@ -49,7 +49,7 @@ namespace Hunter.Services
         {
             using (var context = new Database.postgresContext())
             {
-                var user = context.User.First(u => u.Sub == sub);
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
                 var game_ids = context.GameUser.Where(gu => gu.UserId == user.Id).Select(gu => gu.GameId);
 
                 return context.Game.Where(g => game_ids.Contains(g.Id) && g.Ended.Get(0)).Select(g => ParseGame(g)).ToArray();
@@ -60,7 +60,7 @@ namespace Hunter.Services
         {
             using (var context = new Database.postgresContext())
             {
-                var user = context.User.First(u => u.Sub == sub);
+                var user = context.User.FirstOrDefault(x => x.Sub == sub);
                 return context.Game.Where(g => g.CreatorId == user.Id).Select(g => ParseGame(g)).ToArray();
             }
         }
@@ -69,8 +69,8 @@ namespace Hunter.Services
         {
             using (var context = new Database.postgresContext())
             {
-                var user = context.User.First(u => u.Sub == sub);
-                var game = context.Game.Include("Clue").First(g => g.Id == game_id);
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+                var game = context.Game.Include("Clue").FirstOrDefault(g => g.Id == game_id);
 
                 if (game.CreatorId != user.Id) game.WinCode = String.Empty;
 
@@ -82,11 +82,11 @@ namespace Hunter.Services
         {
             using (var context = new Database.postgresContext())
             {
-                var user = context.User.First(u => u.Sub == sub);
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
 
                 using (var dbContextTransaction = context.Database.BeginTransaction())
                 {
-                    var game = context.Game.First(g => g.Id == game_id);
+                    var game = context.Game.FirstOrDefault(g => g.Id == game_id);
 
                     if (game.Ended.Get(0) == false)
                     {
@@ -143,6 +143,8 @@ namespace Hunter.Services
 
         private static User ParseUser(Database.User u)
         {
+            if (u == null || u.Id == 0) throw new Database.UserNotFoundException(); 
+
             return new User()
             {
                 Id = u.Id,
@@ -156,6 +158,8 @@ namespace Hunter.Services
 
         private static Game ParseGame(Database.Game g)
         {
+            if (g == null || g.Id == 0) throw new Database.GameNotFoundException();
+
             return new Game()
             {
                 Id = g.Id,
