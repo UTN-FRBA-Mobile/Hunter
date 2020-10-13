@@ -30,7 +30,10 @@ namespace Hunter.Services
         {
             using (var context = new Database.postgresContext())
             {
-                var user = context.User.FirstOrDefault(u => u.Sub == sub); 
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) user = new Database.User();
+
                 user.Alias = alias;
                 user.FirstName = first_name;
                 user.LastName = last_name;
@@ -50,6 +53,9 @@ namespace Hunter.Services
             using (var context = new Database.postgresContext())
             {
                 var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
                 var game_ids = context.GameUser.Where(gu => gu.UserId == user.Id).Select(gu => gu.GameId);
 
                 return context.Game.Where(g => game_ids.Contains(g.Id) && g.Ended.Get(0)).Select(g => ParseGame(g)).ToArray();
@@ -61,6 +67,9 @@ namespace Hunter.Services
             using (var context = new Database.postgresContext())
             {
                 var user = context.User.FirstOrDefault(x => x.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
                 return context.Game.Where(g => g.CreatorId == user.Id).Select(g => ParseGame(g)).ToArray();
             }
         }
@@ -70,7 +79,12 @@ namespace Hunter.Services
             using (var context = new Database.postgresContext())
             {
                 var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
                 var game = context.Game.Include("Clue").FirstOrDefault(g => g.Id == game_id);
+
+                if (game == null) throw new Database.GameNotFoundException();
 
                 if (game.CreatorId != user.Id) game.WinCode = String.Empty;
 
@@ -84,9 +98,13 @@ namespace Hunter.Services
             {
                 var user = context.User.FirstOrDefault(u => u.Sub == sub);
 
+                if (user == null) throw new Database.UserNotFoundException();
+
                 using (var dbContextTransaction = context.Database.BeginTransaction())
                 {
                     var game = context.Game.FirstOrDefault(g => g.Id == game_id);
+
+                    if (game == null) throw new Database.GameNotFoundException();
 
                     if (game.Ended.Get(0) == false)
                     {
@@ -111,7 +129,9 @@ namespace Hunter.Services
         {
             using (var context = new Database.postgresContext())
             {
-                var user = context.User.First(u => u.Sub == sub);
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
 
                 var game = new Database.Game()
                 {
