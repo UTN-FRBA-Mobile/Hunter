@@ -17,8 +17,11 @@ import android.view.animation.RotateAnimation
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.utn.frba.desarrollomobile.hunter.R
+import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.utils.PermissionHandler
+import com.utn.frba.desarrollomobile.hunter.viewmodel.LocationViewModel
 import kotlinx.android.synthetic.main.fragment_dummy.*
 import java.lang.Double.valueOf
 
@@ -31,6 +34,7 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
     private lateinit var target: Location
     private lateinit var geoField: GeomagneticField
     private lateinit var locationListener: LocationListener
+    private lateinit var locationViewModel: LocationViewModel
 
     //PERMISSION
     private val GPS_CODE = 1
@@ -48,6 +52,8 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        locationViewModel = ViewModelProvider(requireActivity()).get(LocationViewModel::class.java)
+
         checkGPSIsON()
 
         mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -57,6 +63,8 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
         setTargetLocation()
 
         submitLocationBtn.setOnClickListener { setTargetLocation() }
+
+        goToMapBtn.setOnClickListener { goToMapFragment() }
 
         locationListener = getLocationListener()
 
@@ -212,5 +220,9 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
             .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
         alert = builder.create();
         alert.show();
+    }
+
+    private fun goToMapFragment() {
+        showFragment(MapFragment(), true)
     }
 }
