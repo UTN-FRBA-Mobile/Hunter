@@ -4,9 +4,6 @@ import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdate
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -14,22 +11,27 @@ import com.google.android.gms.maps.model.Circle
 import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.utn.frba.desarrollomobile.hunter.R
-import com.utn.frba.desarrollomobile.hunter.viewmodel.LocationViewModel
+import com.utn.frba.desarrollomobile.hunter.extensions.removeFragment
+import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import kotlinx.android.synthetic.main.fragment_map.*
 
-class MapFragment : Fragment(R.layout.fragment_map) {
+class MapFragment : BaseLocationFragment(R.layout.fragment_map) {
+
+    /**
+     * Unirse a un juego -> ingresa codigo -> GET /game -> Loading -> MapFragment
+     *
+     * Viewmodel location
+     * Zoom del mapa -> que se vea el circulo y la ubicacion actual
+     * MapFragment -> onLocationChanged calcula target - actual <= radio entonces remove MapFragment y show CompassFragment y send Push al resto de participantes
+     * En CompassFragment -> onLocationChanged calcula target - actual > radio entonces remove CompassFragment y show MapFragment.
+     * En CompassFragment -> si target - actual <= 15 mostrar PistaButton
+     */
 
     private lateinit var googleMap: GoogleMap
-    private lateinit var locationViewModel: LocationViewModel
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        locationViewModel = ViewModelProvider(requireActivity()).get(LocationViewModel::class.java)
-
+    override fun init(savedInstanceState: Bundle?) {
         map.onCreate(savedInstanceState)
         map.getMapAsync { onMapReady(it) }
-
     }
 
     private fun onMapReady(gMap: GoogleMap) {
@@ -37,18 +39,15 @@ class MapFragment : Fragment(R.layout.fragment_map) {
         googleMap.isMyLocationEnabled = true
         googleMap.uiSettings.isRotateGesturesEnabled = false
 
-        locationViewModel.getTargetLocation()
-            .observe(viewLifecycleOwner, Observer { targetLocation ->
-                drawCircle(targetLocation)
-                centerMapForLocation(targetLocation, true, false)
-            })
+        drawCircle(target)
+        centerMapForLocation(target, true, false)
     }
 
     private fun drawCircle(targetLocation: Location) {
         val circle: Circle = googleMap.addCircle(
             CircleOptions()
                 .center(LatLng(targetLocation.latitude, targetLocation.longitude))
-                .radius(200.0)
+                .radius(TARGET_RADIUS)
                 .strokeColor(Color.RED)
                 .fillColor(ContextCompat.getColor(requireContext(), R.color.circle_fill_color))
         )
@@ -101,4 +100,11 @@ class MapFragment : Fragment(R.layout.fragment_map) {
         super.onStop()
     }
 
+    override fun onLocationUpdated(actualLocation: Location) {
+        //target - actual <= radio entonces remove MapFragment
+        if (target.distanceTo(actualLocation) <= TARGET_RADIUS) {
+            removeFragment()
+            showFragment(DummyFragment(), true)
+        }
+    }
 }

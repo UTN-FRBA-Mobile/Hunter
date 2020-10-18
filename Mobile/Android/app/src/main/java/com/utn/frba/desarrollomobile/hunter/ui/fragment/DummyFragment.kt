@@ -1,150 +1,31 @@
 package com.utn.frba.desarrollomobile.hunter.ui.fragment
 
-import android.Manifest
-import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.hardware.*
 import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
-import android.provider.Settings
-import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import android.widget.Toast.LENGTH_LONG
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
-import com.utn.frba.desarrollomobile.hunter.utils.PermissionHandler
-import com.utn.frba.desarrollomobile.hunter.viewmodel.LocationViewModel
 import kotlinx.android.synthetic.main.fragment_dummy.*
-import java.lang.Double.valueOf
+import java.lang.Double
 
 
-class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
-
-    private lateinit var mSensorManager: SensorManager
-    private lateinit var locationManager: LocationManager
-    private var actualLocation: Location? = null
-    private lateinit var target: Location
-    private lateinit var geoField: GeomagneticField
-    private lateinit var locationListener: LocationListener
-    private lateinit var locationViewModel: LocationViewModel
-
-    //PERMISSION
-    private val GPS_CODE = 1
-    private val GPS_FINE_PERMISSION = Manifest.permission.ACCESS_FINE_LOCATION
-    private val GPS_COARSE_PERMISSION = Manifest.permission.ACCESS_COARSE_LOCATION
-    private val GPS_PROVIDER = LocationManager.GPS_PROVIDER
+class DummyFragment : BaseLocationFragment(R.layout.fragment_dummy), SensorEventListener {
 
     // compass arrow degree direction
     private var currentDegree = 0f
-
-    private val UPDATE_TIME = 5000L
-    private val UPDATE_DISTANCE = 10f
-
-    @SuppressLint("MissingPermission")
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        locationViewModel = ViewModelProvider(requireActivity()).get(LocationViewModel::class.java)
-
-        checkGPSIsON()
-
-        mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
-        target = Location(GPS_PROVIDER)
-
-        setTargetLocation()
-
-        submitLocationBtn.setOnClickListener { setTargetLocation() }
-
-        goToMapBtn.setOnClickListener { goToMapFragment() }
-
-        locationListener = getLocationListener()
-
-        if (PermissionHandler.arePermissionsGranted(
-                requireContext(),
-                arrayOf(GPS_FINE_PERMISSION, GPS_COARSE_PERMISSION)
-            )
-        ) {
-            locationManager.requestLocationUpdates(
-                GPS_PROVIDER,
-                UPDATE_TIME,
-                UPDATE_DISTANCE,
-                locationListener
-            )
-        } else {
-            PermissionHandler.requestPermissions(
-                this,
-                arrayOf(GPS_FINE_PERMISSION, GPS_COARSE_PERMISSION),
-                GPS_CODE
-            )
-        }
-    }
 
     private fun setTargetLocation() {
         target.latitude = latitudeEditText.text.toString().toDouble()
         target.longitude = longitudeEditText.text.toString().toDouble()
     }
 
-    private fun getLocationListener() =
-        object : LocationListener {
-            override fun onLocationChanged(location: Location?) {
-                actualLocation = location
-
-                actualLocation?.let {
-                    with(it) {
-
-                        geoField = GeomagneticField(
-                            valueOf(latitude).toFloat(),
-                            valueOf(longitude).toFloat(),
-                            valueOf(altitude).toFloat(),
-                            System.currentTimeMillis()
-                        )
-                    }
-                }
-            }
-
-            override fun onProviderDisabled(provider: String?) {
-                checkGPSIsON()
-                Log.d("GPS", "onProviderDisabled")
-            }
-
-            override fun onProviderEnabled(provider: String?) {
-                Toast.makeText(context, "GPS ENABLED", Toast.LENGTH_SHORT).show()
-                Log.d("GPS", "onProviderENabled")
-
-            }
-
-            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-                Log.d("GPS", "onStatusChanged")
-            }
-        }
-
-
-    override fun onResume() {
-        super.onResume()
-        // for the system's orientation sensor registered listeners
-        mSensorManager.registerListener(
-            this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
-            SensorManager.SENSOR_DELAY_GAME
-        )
-    }
-
-    override fun onPause() {
-        super.onPause()
-        // to stop the listener and save battery
-        mSensorManager.unregisterListener(this)
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        // not in use
+    override fun init(savedInstanceState: Bundle?) {
+        mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
 
     override fun onSensorChanged(event: SensorEvent) { // get the angle around the z-axis rotated
@@ -182,47 +63,44 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
         }
     }
 
-    @SuppressLint("MissingPermission")
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == GPS_CODE && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            PermissionHandler.arePermissionsGranted(
-                context!!,
-                arrayOf(GPS_COARSE_PERMISSION, GPS_FINE_PERMISSION)
-            )
-            locationManager.requestLocationUpdates(
-                GPS_PROVIDER,
-                UPDATE_TIME,
-                UPDATE_DISTANCE,
-                locationListener
-            )
-        }
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        // not in use
     }
 
-    private fun checkGPSIsON() {
-        locationManager = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
-        if (!locationManager.isProviderEnabled(GPS_PROVIDER)) {
-            showGPSDialog()
-        }
-    }
-
-    private fun showGPSDialog() {
-        val alert: AlertDialog?
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setMessage("GPS apagado, querés prenderlo?")
-            .setCancelable(false)
-            .setPositiveButton("SI") { _, _ -> startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
-            .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
-        alert = builder.create();
-        alert.show();
-    }
 
     private fun goToMapFragment() {
         showFragment(MapFragment(), true)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // for the system's orientation sensor registered listeners
+        mSensorManager.registerListener(
+            this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+            SensorManager.SENSOR_DELAY_GAME
+        )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // to stop the listener and save battery
+        mSensorManager.unregisterListener(this)
+    }
+
+    override fun onLocationUpdated(actualLocation: Location) {
+        with(actualLocation) {
+            geoField = GeomagneticField(
+                Double.valueOf(latitude).toFloat(),
+                Double.valueOf(longitude).toFloat(),
+                Double.valueOf(altitude).toFloat(),
+                System.currentTimeMillis()
+            )
+            val distance = target.distanceTo(actualLocation)
+            if (distance > TARGET_RADIUS) {
+                showFragment(MapFragment(), true)
+            } else if (distance <= 15) {
+                Toast.makeText(context, "ESTAS MUY CERCA! PEDI PISTA!", LENGTH_LONG).show()
+            }
+        }
     }
 }
