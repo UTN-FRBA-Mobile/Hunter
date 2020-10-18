@@ -104,7 +104,7 @@ class MapFragment : BaseLocationFragment(R.layout.fragment_map) {
         //target - actual <= radio entonces remove MapFragment
         if (target.distanceTo(actualLocation) <= TARGET_RADIUS) {
             removeFragment()
-            showFragment(DummyFragment(), true)
+            showFragment(CompassFragment(), true)
         }
     }
 }

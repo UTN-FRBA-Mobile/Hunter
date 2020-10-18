@@ -64,9 +64,6 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
             .observe(viewLifecycleOwner, Observer { targetLocation ->
                 target = targetLocation
             })
-//        submitLocationBtn.setOnClickListener { setTargetLocation() }
-
-//        goToMapBtn.setOnClickListener { goToMapFragment() }
 
         locationListener = getLocationListener()
 

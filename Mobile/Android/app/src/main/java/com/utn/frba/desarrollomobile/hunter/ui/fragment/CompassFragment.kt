@@ -10,11 +10,11 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
-import kotlinx.android.synthetic.main.fragment_dummy.*
+import kotlinx.android.synthetic.main.fragment_compass.*
 import java.lang.Double
 
 
-class DummyFragment : BaseLocationFragment(R.layout.fragment_dummy), SensorEventListener {
+class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorEventListener {
 
     // compass arrow degree direction
     private var currentDegree = 0f
@@ -26,6 +26,11 @@ class DummyFragment : BaseLocationFragment(R.layout.fragment_dummy), SensorEvent
 
     override fun init(savedInstanceState: Bundle?) {
         mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
+        submitLocationBtn.setOnClickListener { setTargetLocation() }
+
+        goToMapBtn.setOnClickListener { goToMapFragment() }
+
     }
 
     override fun onSensorChanged(event: SensorEvent) { // get the angle around the z-axis rotated
