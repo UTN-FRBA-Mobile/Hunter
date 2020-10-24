@@ -4,6 +4,8 @@ import UIKit
 
 class HunterButton: UIButton {
     
+    var onTap: (() -> Void) = { }
+    
     override var isEnabled: Bool {
         set {
             super.isEnabled = newValue
@@ -21,12 +23,19 @@ class HunterButton: UIButton {
     
     private func setupUI() { heightAnchor.constraint(equalToConstant: 44).activate() }
     
+    func setup(forTap action: @escaping (() -> Void)) {
+        onTap = action
+        addTarget(self, action: #selector(onButtonDidTapped), for: .touchUpInside)
+    }
+    
     func applyBorders() { layer.borderWidth = 2.0 }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 16.0
     }
+    
+    @objc private func onButtonDidTapped() { onTap() }
     
     private func refreshEnabledStyle() {
         setTitleColor(Color.Hunter.white, for: .normal)

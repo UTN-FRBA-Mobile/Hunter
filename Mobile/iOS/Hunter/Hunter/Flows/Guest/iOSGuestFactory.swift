@@ -4,6 +4,7 @@ import Foundation
 import UIKit
 class iOSGuestFactory: GuestFactory {
     func guestController<Cu: GuestCaseUse>(_ caseUse: Cu) -> UIViewController {
-        GuestViewController()
+        let controller = GuestViewController()
+        return controller
     }
 }

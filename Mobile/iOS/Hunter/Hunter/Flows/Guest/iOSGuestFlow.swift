@@ -4,7 +4,7 @@ import Foundation
 import UIKit
 
 class iOSGuestFlow<Navigation: UINavigationController, Factory: GuestFactory>: GuestFlow, Router {
-    weak var navigation: Navigation?
+    let navigation: Navigation
     let factory: Factory
     init(navigation: Navigation, factory: Factory) {
         self.navigation = navigation

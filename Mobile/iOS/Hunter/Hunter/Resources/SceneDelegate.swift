@@ -19,9 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
         setupKeyboard()
-        //showLogin()
-        //showAuthentication(from: navigation)
-        start(navigation)
+        //start(navigation)
+//        showLogin()
+        let controller = GuestViewController()
+        navigation.pushViewController(controller, animated: true)
     }
     
     private func setupKeyboard() {
