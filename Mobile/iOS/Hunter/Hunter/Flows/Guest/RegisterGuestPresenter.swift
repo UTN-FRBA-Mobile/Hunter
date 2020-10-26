@@ -5,6 +5,8 @@ protocol GuestPresenter {
     func actionsButton() -> [UIButton]
 }
 
+typealias SingleAction<A> = ((A) -> Void)
+
 struct RegisterGuestPresenter: GuestPresenter {
     let methods: [(RegisterMethod, SingleAction<Void>)]
     

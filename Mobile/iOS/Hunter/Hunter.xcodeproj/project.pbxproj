@@ -27,14 +27,12 @@
 		ADA782D7251C247B005840AB /* UIColor+Hexadecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782D6251C247B005840AB /* UIColor+Hexadecimal.swift */; };
 		ADA782DC251C299D005840AB /* UIView+Centered.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782DB251C299D005840AB /* UIView+Centered.swift */; };
 		ADADF666252299FF003364C7 /* TextFieldHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF665252299FF003364C7 /* TextFieldHandler.swift */; };
-		ADADF66F2522CAA1003364C7 /* GuestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF66E2522CAA1003364C7 /* GuestCoordinator.swift */; };
 		ADADF6762522CBC9003364C7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6752522CBC9003364C7 /* Router.swift */; };
 		ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF67A2522CD9F003364C7 /* GuestViewController.swift */; };
 		ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */; };
 		ADADF6852522CDED003364C7 /* GuestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6842522CDED003364C7 /* GuestFactory.swift */; };
 		ADADF68A2522CE1E003364C7 /* GuestFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6892522CE1E003364C7 /* GuestFlow.swift */; };
-		ADADF68F2522CE83003364C7 /* iOSGuestFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF68E2522CE83003364C7 /* iOSGuestFlow.swift */; };
-		ADADF6972522CEFE003364C7 /* GuestCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6962522CEFE003364C7 /* GuestCaseUse.swift */; };
+		ADADF68F2522CE83003364C7 /* GuestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF68E2522CE83003364C7 /* GuestRouter.swift */; };
 		ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF69E2522CF15003364C7 /* RegisterMethod.swift */; };
 		ADC1AA472547725900036470 /* LaunchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC1AA462547725900036470 /* LaunchFlow.swift */; };
 		ADC1AA4C2547727100036470 /* LaunchCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */; };
@@ -96,14 +94,12 @@
 		ADA782D6251C247B005840AB /* UIColor+Hexadecimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hexadecimal.swift"; sourceTree = "<group>"; };
 		ADA782DB251C299D005840AB /* UIView+Centered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Centered.swift"; sourceTree = "<group>"; };
 		ADADF665252299FF003364C7 /* TextFieldHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHandler.swift; sourceTree = "<group>"; };
-		ADADF66E2522CAA1003364C7 /* GuestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCoordinator.swift; sourceTree = "<group>"; };
 		ADADF6752522CBC9003364C7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		ADADF67A2522CD9F003364C7 /* GuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
 		ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSGuestFactory.swift; sourceTree = "<group>"; };
 		ADADF6842522CDED003364C7 /* GuestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFactory.swift; sourceTree = "<group>"; };
 		ADADF6892522CE1E003364C7 /* GuestFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFlow.swift; sourceTree = "<group>"; };
-		ADADF68E2522CE83003364C7 /* iOSGuestFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSGuestFlow.swift; sourceTree = "<group>"; };
-		ADADF6962522CEFE003364C7 /* GuestCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCaseUse.swift; sourceTree = "<group>"; };
+		ADADF68E2522CE83003364C7 /* GuestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestRouter.swift; sourceTree = "<group>"; };
 		ADADF69E2522CF15003364C7 /* RegisterMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMethod.swift; sourceTree = "<group>"; };
 		ADC1AA462547725900036470 /* LaunchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchFlow.swift; sourceTree = "<group>"; };
 		ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCaseUse.swift; sourceTree = "<group>"; };
@@ -308,7 +304,7 @@
 		ADADF66D2522CA90003364C7 /* Guest */ = {
 			isa = PBXGroup;
 			children = (
-				ADADF68E2522CE83003364C7 /* iOSGuestFlow.swift */,
+				ADADF68E2522CE83003364C7 /* GuestRouter.swift */,
 				ADADF6842522CDED003364C7 /* GuestFactory.swift */,
 				ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */,
 				ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */,
@@ -321,9 +317,7 @@
 		ADADF6732522CAAF003364C7 /* Guest */ = {
 			isa = PBXGroup;
 			children = (
-				ADADF66E2522CAA1003364C7 /* GuestCoordinator.swift */,
 				ADADF6892522CE1E003364C7 /* GuestFlow.swift */,
-				ADADF6962522CEFE003364C7 /* GuestCaseUse.swift */,
 				ADADF69E2522CF15003364C7 /* RegisterMethod.swift */,
 			);
 			path = Guest;
@@ -651,7 +645,7 @@
 				ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */,
 				ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */,
 				ADA782CA251C2290005840AB /* HunterButton.swift in Sources */,
-				ADADF68F2522CE83003364C7 /* iOSGuestFlow.swift in Sources */,
+				ADADF68F2522CE83003364C7 /* GuestRouter.swift in Sources */,
 				ADCB7221253B304C007B3F14 /* UIViewController+AddingSubviews.swift in Sources */,
 				ADA782D2251C242B005840AB /* Color.swift in Sources */,
 				AD4A0B94251C11A000DC9900 /* AppDelegate.swift in Sources */,
@@ -663,8 +657,6 @@
 				AD4A0B96251C11A000DC9900 /* SceneDelegate.swift in Sources */,
 				ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */,
 				ADA782DC251C299D005840AB /* UIView+Centered.swift in Sources */,
-				ADADF6972522CEFE003364C7 /* GuestCaseUse.swift in Sources */,
-				ADADF66F2522CAA1003364C7 /* GuestCoordinator.swift in Sources */,
 				ADA782A3251C19F0005840AB /* LoginViewController.swift in Sources */,
 				ADA7829A251C1902005840AB /* AuthenticationCoordinator.swift in Sources */,
 				ADADF68A2522CE1E003364C7 /* GuestFlow.swift in Sources */,

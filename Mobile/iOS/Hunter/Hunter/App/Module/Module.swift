@@ -31,13 +31,10 @@ fileprivate extension Module {
         let facebookAuth: Method = (.facebook, { _ in print("Facebook!") })
         let emailAuth: Method = (.email, { _ in self.signUpWithEmail() })
         let methods: [Method] = [googleAuth, facebookAuth, emailAuth]
-        let register = SignUpLogic(registers: methods)
         let presenter = RegisterGuestPresenter(methods: methods)
         let viewResolver = iOSGuestFactory(presenter: presenter)
-        let router = GuestRouter(navigation: dependencies.navigation,
-                                 factory: viewResolver)
-        let coordinator = GuestCoordinator(flow: router, caseUse: register)
-        coordinator.start()
+        let router = GuestRouter(navigation: dependencies.navigation, factory: viewResolver)
+        router.showGuestScreen()
     }
     
     func signUpWithEmail() {
