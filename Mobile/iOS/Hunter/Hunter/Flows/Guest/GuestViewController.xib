@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuestViewController" customModule="Hunter" customModuleProvider="target">
             <connections>
+                <outlet property="buttonStack" destination="CGF-E4-LJf" id="AFs-Ps-Ka0"/>
                 <outlet property="titleLabel" destination="NDY-iw-fTr" id="mjN-EI-isi"/>
                 <outlet property="view" destination="iN0-l3-epB" id="oxJ-L4-wom"/>
             </connections>
@@ -26,20 +27,20 @@
                     <color key="textColor" name="AccentColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8WR-Go-o4h">
-                    <rect key="frame" x="16" y="139" width="382" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="350" placeholderIntrinsicHeight="148" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CGF-E4-LJf">
+                    <rect key="frame" x="32" y="379" width="350" height="148"/>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="CGF-E4-LJf" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="5tj-en-P1Z"/>
                 <constraint firstItem="NDY-iw-fTr" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="GSk-ER-iJ8"/>
+                <constraint firstItem="CGF-E4-LJf" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="IA0-JB-9Aw"/>
                 <constraint firstItem="NDY-iw-fTr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="32" id="PhL-dZ-P0x"/>
-                <constraint firstItem="8WR-Go-o4h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Qeh-lJ-CDT"/>
-                <constraint firstItem="8WR-Go-o4h" firstAttribute="centerX" secondItem="NDY-iw-fTr" secondAttribute="centerX" id="Tkd-Xi-83m"/>
+                <constraint firstItem="CGF-E4-LJf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NDY-iw-fTr" secondAttribute="bottom" constant="32" id="eJ2-n7-hB9"/>
                 <constraint firstItem="NDY-iw-fTr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="iIi-yG-dH6"/>
-                <constraint firstItem="8WR-Go-o4h" firstAttribute="top" secondItem="NDY-iw-fTr" secondAttribute="bottom" constant="32" id="l9O-9w-pSS"/>
+                <constraint firstItem="CGF-E4-LJf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="ynm-TC-ePZ"/>
             </constraints>
             <point key="canvasLocation" x="139" y="69"/>
         </view>

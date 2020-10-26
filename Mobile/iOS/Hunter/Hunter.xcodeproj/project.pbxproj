@@ -42,6 +42,7 @@
 		ADCB722A253B3A40007B3F14 /* LaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */; };
 		ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7232253B44B5007B3F14 /* Networking.swift */; };
 		ADCB723C253B4A15007B3F14 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB723B253B4A15007B3F14 /* Module.swift */; };
+		ADDA769D2547879300CB11F0 /* RegisterGuestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */; };
 		B360CEBC1BB327E616411986 /* Pods_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118BCF7AD09771CAD36D8BB2 /* Pods_Hunter.framework */; };
 		C19F7AC29346E9949FDF9596 /* Pods_Hunter_HunterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0414FC799329DCE8482D95DC /* Pods_Hunter_HunterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -110,6 +111,7 @@
 		ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCoordinator.swift; sourceTree = "<group>"; };
 		ADCB7232253B44B5007B3F14 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		ADCB723B253B4A15007B3F14 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterGuestPresenter.swift; sourceTree = "<group>"; };
 		B22C1F04A2DEDEB70B975CC0 /* Pods-Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hunter.release.xcconfig"; path = "Target Support Files/Pods-Hunter/Pods-Hunter.release.xcconfig"; sourceTree = "<group>"; };
 		C9AE6D3A76F45A65280B1283 /* Pods-HunterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.release.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.release.xcconfig"; sourceTree = "<group>"; };
 		E909DD6C60921D71CC7A7787 /* Pods-HunterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.debug.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				ADADF68E2522CE83003364C7 /* iOSGuestFlow.swift */,
 				ADADF6842522CDED003364C7 /* GuestFactory.swift */,
 				ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */,
+				ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */,
 				ADADF67A2522CD9F003364C7 /* GuestViewController.swift */,
 				AD4C8FCE252BDFC100AA2AB4 /* GuestViewController.xib */,
 			);
@@ -642,6 +645,7 @@
 				ADC1AA4C2547727100036470 /* LaunchCaseUse.swift in Sources */,
 				ADA782C4251C1C6F005840AB /* NSLayoutConstraint+Activate.swift in Sources */,
 				ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */,
+				ADDA769D2547879300CB11F0 /* RegisterGuestPresenter.swift in Sources */,
 				ADA782BF251C1C02005840AB /* UIStackView+Subviews.swift in Sources */,
 				ADA782B7251C1ACF005840AB /* UIView+Initialize.swift in Sources */,
 				ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */,

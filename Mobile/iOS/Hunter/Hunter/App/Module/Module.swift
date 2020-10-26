@@ -25,13 +25,23 @@ fileprivate extension Module {
                handleNonExistentUser: showGuestFlow)
             .checkStatus(onHaveLocalToken: startAuthenticate)
     }
-    
+    private typealias Method = (RegisterMethod, SingleAction<Void>)
     func showGuestFlow() {
-        let router = GuestRouter(navigation: dependencies.navigation, factory: iOSGuestFactory())
-        let methods: [(RegisterMethod, SingleAction<Void>)] = []
+        let googleAuth: Method = (.google, { _ in print("Google!") })
+        let facebookAuth: Method = (.facebook, { _ in print("Facebook!") })
+        let emailAuth: Method = (.email, { _ in self.signUpWithEmail() })
+        let methods: [Method] = [googleAuth, facebookAuth, emailAuth]
         let register = SignUpLogic(registers: methods)
+        let presenter = RegisterGuestPresenter(methods: methods)
+        let viewResolver = iOSGuestFactory(presenter: presenter)
+        let router = GuestRouter(navigation: dependencies.navigation,
+                                 factory: viewResolver)
         let coordinator = GuestCoordinator(flow: router, caseUse: register)
         coordinator.start()
+    }
+    
+    func signUpWithEmail() {
+        #warning("To Be Coded!")
     }
     
     func startAuthenticate(with token: Token) {

@@ -1,10 +1,13 @@
 //  Created by Franco Leto on 28/09/2020.
 
-import Foundation
 import UIKit
-class iOSGuestFactory: GuestFactory {
+
+struct iOSGuestFactory: GuestFactory {
+    let presenter: GuestPresenter
     func guestController<Cu: GuestCaseUse>(_ caseUse: Cu) -> UIViewController {
         let controller = GuestViewController()
+        _ = controller.view
+        controller.buttonStack.addArrangedSubviews(presenter.actionsButton())
         return controller
     }
 }
