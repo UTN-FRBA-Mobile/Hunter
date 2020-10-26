@@ -25,8 +25,11 @@ fileprivate extension Module {
                handleNonExistentUser: showGuestFlow)
             .checkStatus(onHaveLocalToken: startAuthenticate)
     }
+    
     private typealias Method = (RegisterMethod, SingleAction<Void>)
     func showGuestFlow() {
+        #warning("We need to wire methods!")
+        #warning("Maybe Case use/Coordinator was necesary to see what methods are available to authenticate")
         let googleAuth: Method = (.google, { _ in print("Google!") })
         let facebookAuth: Method = (.facebook, { _ in print("Facebook!") })
         let emailAuth: Method = (.email, { _ in self.signUpWithEmail() })
