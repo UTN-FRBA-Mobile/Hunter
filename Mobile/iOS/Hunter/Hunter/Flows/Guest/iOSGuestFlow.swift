@@ -3,7 +3,7 @@
 import Foundation
 import UIKit
 
-class iOSGuestFlow<Navigation: UINavigationController, Factory: GuestFactory>: GuestFlow, Router {
+class GuestRouter<Navigation: UINavigationController, Factory: GuestFactory>: GuestFlow, Router {
     let navigation: Navigation
     let factory: Factory
     init(navigation: Navigation, factory: Factory) {
