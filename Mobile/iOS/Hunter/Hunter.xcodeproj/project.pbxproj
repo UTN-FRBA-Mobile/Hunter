@@ -36,6 +36,8 @@
 		ADADF68F2522CE83003364C7 /* iOSGuestFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF68E2522CE83003364C7 /* iOSGuestFlow.swift */; };
 		ADADF6972522CEFE003364C7 /* GuestCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6962522CEFE003364C7 /* GuestCaseUse.swift */; };
 		ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF69E2522CF15003364C7 /* RegisterMethod.swift */; };
+		ADC1AA472547725900036470 /* LaunchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC1AA462547725900036470 /* LaunchFlow.swift */; };
+		ADC1AA4C2547727100036470 /* LaunchCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */; };
 		ADCB7221253B304C007B3F14 /* UIViewController+AddingSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7220253B304C007B3F14 /* UIViewController+AddingSubviews.swift */; };
 		ADCB722A253B3A40007B3F14 /* LaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */; };
 		ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7232253B44B5007B3F14 /* Networking.swift */; };
@@ -102,6 +104,8 @@
 		ADADF68E2522CE83003364C7 /* iOSGuestFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSGuestFlow.swift; sourceTree = "<group>"; };
 		ADADF6962522CEFE003364C7 /* GuestCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCaseUse.swift; sourceTree = "<group>"; };
 		ADADF69E2522CF15003364C7 /* RegisterMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMethod.swift; sourceTree = "<group>"; };
+		ADC1AA462547725900036470 /* LaunchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchFlow.swift; sourceTree = "<group>"; };
+		ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCaseUse.swift; sourceTree = "<group>"; };
 		ADCB7220253B304C007B3F14 /* UIViewController+AddingSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddingSubviews.swift"; sourceTree = "<group>"; };
 		ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCoordinator.swift; sourceTree = "<group>"; };
 		ADCB7232253B44B5007B3F14 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 		AD9064C4251C1715005DC31D /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				ADC1AA50254772AE00036470 /* New Group */,
 				ADCB7231253B44AA007B3F14 /* Networking */,
 				ADCB7228253B3A0E007B3F14 /* Launch */,
 				ADADF6732522CAAF003364C7 /* Guest */,
@@ -329,10 +334,19 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		ADC1AA50254772AE00036470 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		ADCB7228253B3A0E007B3F14 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
 				ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */,
+				ADC1AA462547725900036470 /* LaunchFlow.swift */,
+				ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -625,6 +639,7 @@
 				ADADF666252299FF003364C7 /* TextFieldHandler.swift in Sources */,
 				ADADF6852522CDED003364C7 /* GuestFactory.swift in Sources */,
 				ADCB723C253B4A15007B3F14 /* Module.swift in Sources */,
+				ADC1AA4C2547727100036470 /* LaunchCaseUse.swift in Sources */,
 				ADA782C4251C1C6F005840AB /* NSLayoutConstraint+Activate.swift in Sources */,
 				ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */,
 				ADA782BF251C1C02005840AB /* UIStackView+Subviews.swift in Sources */,
@@ -636,6 +651,7 @@
 				ADCB7221253B304C007B3F14 /* UIViewController+AddingSubviews.swift in Sources */,
 				ADA782D2251C242B005840AB /* Color.swift in Sources */,
 				AD4A0B94251C11A000DC9900 /* AppDelegate.swift in Sources */,
+				ADC1AA472547725900036470 /* LaunchFlow.swift in Sources */,
 				ADA78286251C1840005840AB /* AuthenticationModule.swift in Sources */,
 				ADA782D7251C247B005840AB /* UIColor+Hexadecimal.swift in Sources */,
 				ADADF6762522CBC9003364C7 /* Router.swift in Sources */,
