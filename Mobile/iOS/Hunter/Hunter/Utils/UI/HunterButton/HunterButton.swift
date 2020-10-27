@@ -19,7 +19,10 @@ class HunterButton: UIButton {
         setupUI()
     }
     
-    required init?(coder: NSCoder) { super.init(coder: coder) }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
     
     private func setupUI() { heightAnchor.constraint(equalToConstant: 44).activate() }
     

@@ -32,7 +32,7 @@ fileprivate extension Module {
         #warning("Maybe Case use/Coordinator was necesary to see what methods are available to authenticate")
         let googleAuth: Method = (.google, { _ in print("Google!") })
         let facebookAuth: Method = (.facebook, { _ in print("Facebook!") })
-        let emailAuth: Method = (.email, { _ in self.signUpWithEmail() })
+        let emailAuth: Method = (.email, { _ in self.startRegistryWithEmail() })
         let methods: [Method] = [googleAuth, facebookAuth, emailAuth]
         let presenter = RegisterGuestPresenter(methods: methods)
         let viewResolver = iOSGuestFactory(presenter: presenter)
@@ -40,8 +40,12 @@ fileprivate extension Module {
         router.showGuestScreen()
     }
     
-    func signUpWithEmail() {
-        #warning("To Be Coded!")
+    func startRegistryWithEmail() {
+        let signUp = SignUpWithEmail()
+        let viewResolver = LocalSignUpViewResolver()
+        let router = LocalSignUpRouter(navigation: dependencies.navigation, factory: viewResolver)
+        let coordinator = LocalSignUpCoordinator(flow: router, caseUse: signUp)
+        coordinator.start()
     }
     
     func startAuthenticate(with token: Token) {

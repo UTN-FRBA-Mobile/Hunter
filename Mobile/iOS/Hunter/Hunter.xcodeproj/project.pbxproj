@@ -15,6 +15,7 @@
 		AD4A0BAB251C11A100DC9900 /* HunterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BAA251C11A100DC9900 /* HunterTests.swift */; };
 		AD4A0BB6251C11A100DC9900 /* HunterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */; };
 		AD4C8FCF252BDFC100AA2AB4 /* GuestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4C8FCE252BDFC100AA2AB4 /* GuestViewController.xib */; };
+		AD5646E1254842C900BEBFB7 /* LocalSignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5646E0254842C900BEBFB7 /* LocalSignUpCoordinator.swift */; };
 		ADA78286251C1840005840AB /* AuthenticationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA78285251C1840005840AB /* AuthenticationModule.swift */; };
 		ADA7829A251C1902005840AB /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA78299251C1902005840AB /* AuthenticationCoordinator.swift */; };
 		ADA782A3251C19F0005840AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782A2251C19F0005840AB /* LoginViewController.swift */; };
@@ -41,6 +42,8 @@
 		ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7232253B44B5007B3F14 /* Networking.swift */; };
 		ADCB723C253B4A15007B3F14 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB723B253B4A15007B3F14 /* Module.swift */; };
 		ADDA769D2547879300CB11F0 /* RegisterGuestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */; };
+		ADDA76B925478BB400CB11F0 /* LocalSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA76B725478BB400CB11F0 /* LocalSignUpViewController.swift */; };
+		ADDA76BA25478BB400CB11F0 /* LocalSignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDA76B825478BB400CB11F0 /* LocalSignUpViewController.xib */; };
 		B360CEBC1BB327E616411986 /* Pods_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118BCF7AD09771CAD36D8BB2 /* Pods_Hunter.framework */; };
 		C19F7AC29346E9949FDF9596 /* Pods_Hunter_HunterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0414FC799329DCE8482D95DC /* Pods_Hunter_HunterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +85,7 @@
 		AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterUITests.swift; sourceTree = "<group>"; };
 		AD4A0BB7251C11A100DC9900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD4C8FCE252BDFC100AA2AB4 /* GuestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuestViewController.xib; sourceTree = "<group>"; };
+		AD5646E0254842C900BEBFB7 /* LocalSignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpCoordinator.swift; sourceTree = "<group>"; };
 		ADA78285251C1840005840AB /* AuthenticationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModule.swift; sourceTree = "<group>"; };
 		ADA78299251C1902005840AB /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		ADA782A2251C19F0005840AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 		ADCB7232253B44B5007B3F14 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		ADCB723B253B4A15007B3F14 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterGuestPresenter.swift; sourceTree = "<group>"; };
+		ADDA76B725478BB400CB11F0 /* LocalSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpViewController.swift; sourceTree = "<group>"; };
+		ADDA76B825478BB400CB11F0 /* LocalSignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalSignUpViewController.xib; sourceTree = "<group>"; };
 		B22C1F04A2DEDEB70B975CC0 /* Pods-Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hunter.release.xcconfig"; path = "Target Support Files/Pods-Hunter/Pods-Hunter.release.xcconfig"; sourceTree = "<group>"; };
 		C9AE6D3A76F45A65280B1283 /* Pods-HunterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.release.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.release.xcconfig"; sourceTree = "<group>"; };
 		E909DD6C60921D71CC7A7787 /* Pods-HunterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.debug.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,7 +214,7 @@
 		AD9064C4251C1715005DC31D /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				ADC1AA50254772AE00036470 /* New Group */,
+				ADC1AA50254772AE00036470 /* LocalSignUp */,
 				ADCB7231253B44AA007B3F14 /* Networking */,
 				ADCB7228253B3A0E007B3F14 /* Launch */,
 				ADADF6732522CAAF003364C7 /* Guest */,
@@ -231,6 +237,7 @@
 		ADA78284251C182E005840AB /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				ADDA76B625478A3800CB11F0 /* LocalSignUp */,
 				ADADF66D2522CA90003364C7 /* Guest */,
 				ADA7828D251C18C9005840AB /* Authentication */,
 			);
@@ -331,11 +338,12 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		ADC1AA50254772AE00036470 /* New Group */ = {
+		ADC1AA50254772AE00036470 /* LocalSignUp */ = {
 			isa = PBXGroup;
 			children = (
+				AD5646E0254842C900BEBFB7 /* LocalSignUpCoordinator.swift */,
 			);
-			path = "New Group";
+			path = LocalSignUp;
 			sourceTree = "<group>";
 		};
 		ADCB7228253B3A0E007B3F14 /* Launch */ = {
@@ -370,6 +378,15 @@
 				ADCB723A253B4A0A007B3F14 /* Module */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		ADDA76B625478A3800CB11F0 /* LocalSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				ADDA76B725478BB400CB11F0 /* LocalSignUpViewController.swift */,
+				ADDA76B825478BB400CB11F0 /* LocalSignUpViewController.xib */,
+			);
+			path = LocalSignUp;
 			sourceTree = "<group>";
 		};
 		BC749D5EA1166B2913CDFEAD /* Frameworks */ = {
@@ -505,6 +522,7 @@
 			files = (
 				AD4A0BA0251C11A100DC9900 /* LaunchScreen.storyboard in Resources */,
 				AD4A0B9D251C11A100DC9900 /* Assets.xcassets in Resources */,
+				ADDA76BA25478BB400CB11F0 /* LocalSignUpViewController.xib in Resources */,
 				AD4C8FCF252BDFC100AA2AB4 /* GuestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,6 +659,7 @@
 				ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */,
 				ADDA769D2547879300CB11F0 /* RegisterGuestPresenter.swift in Sources */,
 				ADA782BF251C1C02005840AB /* UIStackView+Subviews.swift in Sources */,
+				AD5646E1254842C900BEBFB7 /* LocalSignUpCoordinator.swift in Sources */,
 				ADA782B7251C1ACF005840AB /* UIView+Initialize.swift in Sources */,
 				ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */,
 				ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */,
@@ -654,6 +673,7 @@
 				ADA782D7251C247B005840AB /* UIColor+Hexadecimal.swift in Sources */,
 				ADADF6762522CBC9003364C7 /* Router.swift in Sources */,
 				ADA782B0251C1A2A005840AB /* AuthenticationViewController.swift in Sources */,
+				ADDA76B925478BB400CB11F0 /* LocalSignUpViewController.swift in Sources */,
 				AD4A0B96251C11A000DC9900 /* SceneDelegate.swift in Sources */,
 				ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */,
 				ADA782DC251C299D005840AB /* UIView+Centered.swift in Sources */,
