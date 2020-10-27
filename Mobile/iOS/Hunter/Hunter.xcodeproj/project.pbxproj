@@ -41,6 +41,17 @@
 		ADCB722A253B3A40007B3F14 /* LaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */; };
 		ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7232253B44B5007B3F14 /* Networking.swift */; };
 		ADCB723C253B4A15007B3F14 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB723B253B4A15007B3F14 /* Module.swift */; };
+		ADD0164E25485A2D00B0C13C /* HunterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0164D25485A2D00B0C13C /* HunterTextField.swift */; };
+		ADD016532548657200B0C13C /* Array+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD016522548657200B0C13C /* Array+Get.swift */; };
+		ADD0165825486BA300B0C13C /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0165725486BA300B0C13C /* UserRegister.swift */; };
+		ADD0165E25486BC300B0C13C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0165D25486BC300B0C13C /* Validation.swift */; };
+		ADD0166625486BD900B0C13C /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0166525486BD900B0C13C /* TextValidator.swift */; };
+		ADD0166C25486BF400B0C13C /* FieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0166B25486BF400B0C13C /* FieldViewModel.swift */; };
+		ADD0167425486C0A00B0C13C /* RegistryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0167325486C0A00B0C13C /* RegistryPresenter.swift */; };
+		ADD0167925486C8400B0C13C /* LocalSignUpFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0167825486C8400B0C13C /* LocalSignUpFactory.swift */; };
+		ADD0168125486CA900B0C13C /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0168025486CA900B0C13C /* String+Localizable.swift */; };
+		ADD0168925486CF900B0C13C /* LocalSignUpFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0168825486CF900B0C13C /* LocalSignUpFlow.swift */; };
+		ADD0168E25486D4E00B0C13C /* LocalSignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0168D25486D4E00B0C13C /* LocalSignUpRouter.swift */; };
 		ADDA769D2547879300CB11F0 /* RegisterGuestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */; };
 		ADDA76B925478BB400CB11F0 /* LocalSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA76B725478BB400CB11F0 /* LocalSignUpViewController.swift */; };
 		ADDA76BA25478BB400CB11F0 /* LocalSignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDA76B825478BB400CB11F0 /* LocalSignUpViewController.xib */; };
@@ -111,6 +122,17 @@
 		ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCoordinator.swift; sourceTree = "<group>"; };
 		ADCB7232253B44B5007B3F14 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		ADCB723B253B4A15007B3F14 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		ADD0164D25485A2D00B0C13C /* HunterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterTextField.swift; sourceTree = "<group>"; };
+		ADD016522548657200B0C13C /* Array+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Get.swift"; sourceTree = "<group>"; };
+		ADD0165725486BA300B0C13C /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
+		ADD0165D25486BC300B0C13C /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		ADD0166525486BD900B0C13C /* TextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
+		ADD0166B25486BF400B0C13C /* FieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldViewModel.swift; sourceTree = "<group>"; };
+		ADD0167325486C0A00B0C13C /* RegistryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryPresenter.swift; sourceTree = "<group>"; };
+		ADD0167825486C8400B0C13C /* LocalSignUpFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpFactory.swift; sourceTree = "<group>"; };
+		ADD0168025486CA900B0C13C /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		ADD0168825486CF900B0C13C /* LocalSignUpFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpFlow.swift; sourceTree = "<group>"; };
+		ADD0168D25486D4E00B0C13C /* LocalSignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpRouter.swift; sourceTree = "<group>"; };
 		ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterGuestPresenter.swift; sourceTree = "<group>"; };
 		ADDA76B725478BB400CB11F0 /* LocalSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpViewController.swift; sourceTree = "<group>"; };
 		ADDA76B825478BB400CB11F0 /* LocalSignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalSignUpViewController.xib; sourceTree = "<group>"; };
@@ -214,6 +236,7 @@
 		AD9064C4251C1715005DC31D /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				ADD0165C25486BBD00B0C13C /* Validation */,
 				ADC1AA50254772AE00036470 /* LocalSignUp */,
 				ADCB7231253B44AA007B3F14 /* Networking */,
 				ADCB7228253B3A0E007B3F14 /* Launch */,
@@ -273,7 +296,7 @@
 		ADA782B4251C1AB3005840AB /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				ADA782C8251C227C005840AB /* HunterButton */,
+				ADA782C8251C227C005840AB /* Hunter */,
 				ADA782B5251C1AB6005840AB /* Extensions */,
 			);
 			path = UI;
@@ -288,16 +311,19 @@
 				ADA782DB251C299D005840AB /* UIView+Centered.swift */,
 				ADA782D6251C247B005840AB /* UIColor+Hexadecimal.swift */,
 				ADCB7220253B304C007B3F14 /* UIViewController+AddingSubviews.swift */,
+				ADD016522548657200B0C13C /* Array+Get.swift */,
+				ADD0168025486CA900B0C13C /* String+Localizable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		ADA782C8251C227C005840AB /* HunterButton */ = {
+		ADA782C8251C227C005840AB /* Hunter */ = {
 			isa = PBXGroup;
 			children = (
 				ADA782C9251C2290005840AB /* HunterButton.swift */,
+				ADD0164D25485A2D00B0C13C /* HunterTextField.swift */,
 			);
-			path = HunterButton;
+			path = Hunter;
 			sourceTree = "<group>";
 		};
 		ADADF664252299F8003364C7 /* Handlers */ = {
@@ -342,6 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				AD5646E0254842C900BEBFB7 /* LocalSignUpCoordinator.swift */,
+				ADD0168825486CF900B0C13C /* LocalSignUpFlow.swift */,
+				ADD0165725486BA300B0C13C /* UserRegister.swift */,
 			);
 			path = LocalSignUp;
 			sourceTree = "<group>";
@@ -380,11 +408,24 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		ADD0165C25486BBD00B0C13C /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				ADD0165D25486BC300B0C13C /* Validation.swift */,
+				ADD0166525486BD900B0C13C /* TextValidator.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
 		ADDA76B625478A3800CB11F0 /* LocalSignUp */ = {
 			isa = PBXGroup;
 			children = (
+				ADD0167825486C8400B0C13C /* LocalSignUpFactory.swift */,
+				ADD0167325486C0A00B0C13C /* RegistryPresenter.swift */,
+				ADD0166B25486BF400B0C13C /* FieldViewModel.swift */,
 				ADDA76B725478BB400CB11F0 /* LocalSignUpViewController.swift */,
 				ADDA76B825478BB400CB11F0 /* LocalSignUpViewController.xib */,
+				ADD0168D25486D4E00B0C13C /* LocalSignUpRouter.swift */,
 			);
 			path = LocalSignUp;
 			sourceTree = "<group>";
@@ -651,17 +692,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD0167425486C0A00B0C13C /* RegistryPresenter.swift in Sources */,
 				ADADF666252299FF003364C7 /* TextFieldHandler.swift in Sources */,
 				ADADF6852522CDED003364C7 /* GuestFactory.swift in Sources */,
 				ADCB723C253B4A15007B3F14 /* Module.swift in Sources */,
 				ADC1AA4C2547727100036470 /* LaunchCaseUse.swift in Sources */,
 				ADA782C4251C1C6F005840AB /* NSLayoutConstraint+Activate.swift in Sources */,
+				ADD0168E25486D4E00B0C13C /* LocalSignUpRouter.swift in Sources */,
 				ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */,
 				ADDA769D2547879300CB11F0 /* RegisterGuestPresenter.swift in Sources */,
 				ADA782BF251C1C02005840AB /* UIStackView+Subviews.swift in Sources */,
+				ADD0168925486CF900B0C13C /* LocalSignUpFlow.swift in Sources */,
 				AD5646E1254842C900BEBFB7 /* LocalSignUpCoordinator.swift in Sources */,
 				ADA782B7251C1ACF005840AB /* UIView+Initialize.swift in Sources */,
+				ADD0168125486CA900B0C13C /* String+Localizable.swift in Sources */,
 				ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */,
+				ADD0166C25486BF400B0C13C /* FieldViewModel.swift in Sources */,
 				ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */,
 				ADA782CA251C2290005840AB /* HunterButton.swift in Sources */,
 				ADADF68F2522CE83003364C7 /* GuestRouter.swift in Sources */,
@@ -669,13 +715,19 @@
 				ADA782D2251C242B005840AB /* Color.swift in Sources */,
 				AD4A0B94251C11A000DC9900 /* AppDelegate.swift in Sources */,
 				ADC1AA472547725900036470 /* LaunchFlow.swift in Sources */,
+				ADD0164E25485A2D00B0C13C /* HunterTextField.swift in Sources */,
 				ADA78286251C1840005840AB /* AuthenticationModule.swift in Sources */,
+				ADD0167925486C8400B0C13C /* LocalSignUpFactory.swift in Sources */,
+				ADD016532548657200B0C13C /* Array+Get.swift in Sources */,
 				ADA782D7251C247B005840AB /* UIColor+Hexadecimal.swift in Sources */,
 				ADADF6762522CBC9003364C7 /* Router.swift in Sources */,
+				ADD0166625486BD900B0C13C /* TextValidator.swift in Sources */,
 				ADA782B0251C1A2A005840AB /* AuthenticationViewController.swift in Sources */,
 				ADDA76B925478BB400CB11F0 /* LocalSignUpViewController.swift in Sources */,
 				AD4A0B96251C11A000DC9900 /* SceneDelegate.swift in Sources */,
+				ADD0165E25486BC300B0C13C /* Validation.swift in Sources */,
 				ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */,
+				ADD0165825486BA300B0C13C /* UserRegister.swift in Sources */,
 				ADA782DC251C299D005840AB /* UIView+Centered.swift in Sources */,
 				ADA782A3251C19F0005840AB /* LoginViewController.swift in Sources */,
 				ADA7829A251C1902005840AB /* AuthenticationCoordinator.swift in Sources */,
