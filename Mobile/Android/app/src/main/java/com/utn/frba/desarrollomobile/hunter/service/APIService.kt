@@ -1,8 +1,7 @@
 package com.utn.frba.desarrollomobile.hunter.service
 
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
-import com.utn.frba.desarrollomobile.hunter.service.models.GameResponse
-import com.utn.frba.desarrollomobile.hunter.service.models.UserResponse
+import com.utn.frba.desarrollomobile.hunter.service.models.User
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -11,12 +10,12 @@ interface APIService {
     fun getGame(
         @Header("Authorization") token: String,
         @Query("id") game_id: Int
-    ): Call<GameResponse>
+    ): Call<Game>
 
     @GET("/api/Game/GetMyGames")
     fun getMyCreatedGames(
         @Header("Authorization") token: String
-    ): Call<ArrayList<GameResponse>>
+    ): Call<ArrayList<Game>>
 
     @POST("/api/Game/Post")
     @FormUrlEncoded
@@ -28,7 +27,7 @@ interface APIService {
         @Field("clues") clues: ArrayList<String>,
         @Field("user_ids") user_ids: ArrayList<Int>,
         @Field("photo") photo: String
-    ): Call<GameResponse>
+    ): Call<Game>
 
     @POST("/api/Game/Win")
     @FormUrlEncoded
@@ -36,14 +35,14 @@ interface APIService {
         @Header("Authorization") token: String,
         @Field("game_id") game_id: Int,
         @Field("win_code") win_code: String
-    ): Call<GameResponse>
+    ): Call<Game>
 
     @GET("/api/User/Get")
-    fun getUser(@Header("Authorization") token: String): Call<UserResponse>
+    fun getUser(@Header("Authorization") token: String): Call<User>
 
     @GET("/api/User/History")
     fun getMyHistoryGames(@Header("Authorization") token: String
-    ): Call<ArrayList<GameResponse>>
+    ): Call<ArrayList<Game>>
 
     @POST("/api/User/Post")
     @FormUrlEncoded
@@ -53,5 +52,5 @@ interface APIService {
         @Field("mail") mail: String,
         @Field("first_name") first_name: String,
         @Field("last_name") last_name: String
-    ): Call<UserResponse>
+    ): Call<User>
 }

@@ -1,4 +1,4 @@
-package com.utn.frba.desarrollomobile.hunter
+package com.utn.frba.desarrollomobile.hunter.ui.fragment
 
 import android.os.Bundle
 import android.text.Editable
@@ -7,8 +7,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
-import com.utn.frba.desarrollomobile.hunter.service.models.UserResponse
+import com.utn.frba.desarrollomobile.hunter.service.models.User
+import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -94,15 +96,15 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         var callSetUserResponse =
             APIAdapter.createConection()?.setUser("Bearer " + token.toString(), alias, email, first_name, last_name)
 
-        callSetUserResponse?.enqueue(object : Callback<UserResponse> {
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+        callSetUserResponse?.enqueue(object : Callback<User> {
+            override fun onFailure(call: Call<User>, t: Throwable) {
                 print("throw Message" + t.message)
                 register_password_confirmation.error = "Error reading JSON"
             }
 
             override fun onResponse(
-                call: Call<UserResponse>,
-                response: Response<UserResponse>
+                call: Call<User>,
+                response: Response<User>
             ) {
                 val body = response?.body()
                 if (body != null) {
@@ -113,6 +115,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     }
 
     private fun register() {
+        (activity as MainActivity).showLoading("Registrando nuevo usuario...")
+
         val email = register_email.text.toString()
         val pass = register_password.text.toString()
         var alias = register_alias.text.toString()
@@ -121,6 +125,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
         auth.createUserWithEmailAndPassword(email, pass)
             .addOnCompleteListener { task ->
+                (activity as MainActivity).hideLoading()
+
                 if (!task.isSuccessful) {
                     Toast.makeText(activity, R.string.regiter_error, Toast.LENGTH_SHORT).show()
 

@@ -18,7 +18,7 @@ fun Fragment.showFragment(
     addToBackStack: Boolean,
     clearStack: Boolean = false
 ) {
-    doShowFragment(requireFragmentManager(), fragment, addToBackStack, clearStack)
+    doShowFragment(parentFragmentManager, fragment, addToBackStack, clearStack)
 }
 
 private fun doShowFragment(
@@ -43,4 +43,11 @@ private fun doShowFragment(
         fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
     transaction.commitAllowingStateLoss()
+}
+
+fun Fragment.removeFragment() {
+    parentFragmentManager.findFragmentById(R.id.fragment_container)?.let {
+        parentFragmentManager.beginTransaction().remove(it).commit()
+        parentFragmentManager.popBackStack()
+    }
 }

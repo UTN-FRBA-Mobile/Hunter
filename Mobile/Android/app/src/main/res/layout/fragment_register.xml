@@ -1,86 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="25dp"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".RegisterFragment"
-    >
-    <TextView
+    android:fillViewport="true">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register_title"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        android:layout_marginBottom="55dp"
-        android:textSize="75dp"/>
-
-
-    <EditText
-        android:id="@+id/register_first_name"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginVertical="10dp"
         android:gravity="center"
-        android:hint="@string/register_first_name"
-        android:inputType="textPersonName" />
+        android:orientation="vertical"
+        android:paddingHorizontal="25dp"
+        tools:context=".ui.fragment.RegisterFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="55dp"
+            android:gravity="center_horizontal"
+            android:text="@string/register_title"
+            android:textAlignment="center"
+            android:textSize="40sp" />
 
 
-    <EditText
-        android:id="@+id/register_last_name"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginVertical="10dp"
-        android:gravity="center"
-        android:hint="@string/register_last_name"
-        android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/register_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:hint="@string/register_first_name"
+            android:inputType="textPersonName" />
 
 
-    <EditText
-        android:id="@+id/register_alias"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginVertical="10dp"
-        android:gravity="center"
-        android:hint="@string/register_alias"
-        android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/register_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:hint="@string/register_last_name"
+            android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/register_email"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginVertical="10dp"
-        android:gravity="center"
-        android:hint="@string/register_email"
-        android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/register_password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginVertical="10dp"
-        android:gravity="center"
-        android:hint="@string/register_password"
-        android:inputType="textPassword" />
-    <EditText
-        android:id="@+id/register_password_confirmation"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginVertical="10dp"
-        android:gravity="center"
-        android:hint="@string/register_password_confirmation"
-        android:inputType="textPassword" />
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginVertical="10dp"
-        android:gravity="center"
-        android:enabled="false"
-        android:text="@string/common_signin_button_text"
-        app:layout_constraintTop_toBottomOf="@+id/login_password" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <EditText
+            android:id="@+id/register_alias"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:hint="@string/register_alias"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/register_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:hint="@string/register_email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/register_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:hint="@string/register_password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/register_password_confirmation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:hint="@string/register_password_confirmation"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="10dp"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/common_signin_button_text"
+            app:layout_constraintTop_toBottomOf="@+id/login_password" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
+

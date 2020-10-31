@@ -6,7 +6,7 @@
     <string name="login_title">Ingresar</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
-  
+
     <string name="login_mail_missing">Debe ingresar su email</string>
     <string name="login_pass_missing">Debe ingresar su password</string>
     <string name="login_bad_credentials">Las credenciales no son correctas</string>
@@ -33,5 +33,12 @@
     <string name="game_give_clue">Pista (Breve descripcion del lugar donde esta escondido)</string>
     <string name="create">Crear</string>
     <string name="upload_photo">Subir Foto</string>
+
+    <string name="enable_gps_text">GPS apagado, querés prenderlo?</string>
+    <string name="enable_gps_positive_text">SI</string>
+    <string name="enable_gps_negative_text">NO</string>
+    <string name="show_clue">Ver Pista!</string>
+  <string name="register">Registrarme</string>
+  <string name="login">Ingresar</string>
 
 </resources>
