@@ -18,7 +18,7 @@ namespace Hunter.Controllers
         {
             get
             {
-                var sub = User.Claims.FirstOrDefault(x => x.Type == "sub")?.Value;
+                var sub = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
                 if (string.IsNullOrEmpty(sub))
                 {
                     throw new UnauthorizedAccessException();

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -22,6 +23,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         setTextWatchers()
 
         login_button.setOnClickListener { login() }
+        login_register_button.setOnClickListener { goToRegister() }
+    }
+
+    private fun goToRegister() {
+        showFragment(RegisterFragment(), false)
     }
 
     private fun setTextWatchers() {
