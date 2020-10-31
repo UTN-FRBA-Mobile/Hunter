@@ -38,5 +38,7 @@
     <string name="enable_gps_positive_text">SI</string>
     <string name="enable_gps_negative_text">NO</string>
     <string name="show_clue">Ver Pista!</string>
+  <string name="register">Registrarme</string>
+  <string name="login">Ingresar</string>
 
 </resources>
