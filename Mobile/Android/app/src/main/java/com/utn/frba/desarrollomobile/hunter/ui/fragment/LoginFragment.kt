@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
+import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.RegisterFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -28,7 +29,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun goToRegister() {
-        showFragment(RegisterFragment(), false)
+        showFragment(RegisterFragment(), true)
     }
 
     private fun setTextWatchers() {
@@ -71,12 +72,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun login() {
+        (activity as MainActivity).showLoading("Cargando...")
         val email = login_email.text.toString()
         val pass = login_password.text.toString()
 
         auth.signInWithEmailAndPassword(email, pass)
             .addOnCompleteListener { task ->
+                (activity as MainActivity).hideLoading()
+
                 if(!task.isSuccessful) {
+
                     Toast.makeText(activity, R.string.login_bad_credentials, Toast.LENGTH_SHORT).show()
                 }
             }
