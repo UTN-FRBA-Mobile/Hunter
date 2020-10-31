@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.utils.PermissionHandler
 import com.utn.frba.desarrollomobile.hunter.viewmodel.LocationViewModel
 
@@ -57,8 +58,6 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
         locationViewModel = ViewModelProvider(requireActivity()).get(LocationViewModel::class.java)
 
         checkGPSIsON()
-
-        target = Location(GPS_PROVIDER)
 
         locationViewModel.getTargetLocation()
             .observe(viewLifecycleOwner, Observer { targetLocation ->
@@ -148,10 +147,14 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
     private fun showGPSDialog() {
         val alert: AlertDialog?
         val builder = AlertDialog.Builder(requireContext())
-        builder.setMessage("GPS apagado, querés prenderlo?")
+        builder.setMessage(getString(R.string.enable_gps_text))
             .setCancelable(false)
-            .setPositiveButton("SI") { _, _ -> startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
-            .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
+            .setPositiveButton(getString(R.string.enable_gps_positive_text)) { _, _ ->
+                startActivity(
+                    Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                )
+            }
+            .setNegativeButton(getString(R.string.enable_gps_negative_text)) { dialog, _ -> dialog.dismiss() }
         alert = builder.create();
         alert.show();
     }

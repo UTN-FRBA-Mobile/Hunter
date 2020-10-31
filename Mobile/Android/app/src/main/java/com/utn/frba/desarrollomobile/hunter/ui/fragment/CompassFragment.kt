@@ -4,6 +4,8 @@ import android.content.Context
 import android.hardware.*
 import android.location.Location
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.Toast
@@ -18,19 +20,10 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
 
     // compass arrow degree direction
     private var currentDegree = 0f
-
-    private fun setTargetLocation() {
-        target.latitude = latitudeEditText.text.toString().toDouble()
-        target.longitude = longitudeEditText.text.toString().toDouble()
-    }
+    private val CLUE_RADIUS = 15
 
     override fun init(savedInstanceState: Bundle?) {
         mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
-        submitLocationBtn.setOnClickListener { setTargetLocation() }
-
-        goToMapBtn.setOnClickListener { goToMapFragment() }
-
     }
 
     override fun onSensorChanged(event: SensorEvent) { // get the angle around the z-axis rotated
@@ -102,9 +95,12 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
             )
             val distance = target.distanceTo(actualLocation)
             if (distance > TARGET_RADIUS) {
-                showFragment(MapFragment(), true)
-            } else if (distance <= 15) {
+                goToMapFragment()
+            } else if (distance <= CLUE_RADIUS) {
+                showClueButton.visibility = VISIBLE
                 Toast.makeText(context, "ESTAS MUY CERCA! PEDI PISTA!", LENGTH_LONG).show()
+            } else {
+                showClueButton.visibility = GONE
             }
         }
     }

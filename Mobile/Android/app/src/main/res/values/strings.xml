@@ -10,4 +10,8 @@
     <string name="login_mail_missing">Debe ingresar su email</string>
     <string name="login_pass_missing">Debe ingresar su password</string>
     <string name="login_bad_credentials">Las credenciales no son correctas</string>
+    <string name="enable_gps_text">GPS apagado, querés prenderlo?</string>
+    <string name="enable_gps_positive_text">SI</string>
+    <string name="enable_gps_negative_text">NO</string>
+    <string name="show_clue">Ver Pista!</string>
 </resources>
