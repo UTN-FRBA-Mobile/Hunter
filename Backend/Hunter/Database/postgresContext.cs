@@ -57,6 +57,7 @@ namespace Hunter.Database
                 entity.Property(e => e.CreatorId).HasColumnName("creator_id");
 
                 entity.Property(e => e.EndDatetime).HasColumnName("end_datetime");
+                entity.Property(e => e.StartDatetime).HasColumnName("start_datetime");
 
                 entity.Property(e => e.Ended)
                     .HasColumnName("ended")

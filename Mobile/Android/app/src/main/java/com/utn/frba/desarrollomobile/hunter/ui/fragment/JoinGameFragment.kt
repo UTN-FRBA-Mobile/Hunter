@@ -6,12 +6,8 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.utn.frba.desarrollomobile.hunter.R
-import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
-import kotlinx.android.synthetic.main.fragment_choose_game.*
 import kotlinx.android.synthetic.main.fragment_choose_game.join_game_button
 import kotlinx.android.synthetic.main.fragment_join_game.*
-import kotlinx.android.synthetic.main.fragment_login.*
-import org.w3c.dom.Text
 
 class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,6 +36,6 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
 
     private fun routeToGame() {
         TODO("Missing routing")
-        showFragment(DummyFragment(), addToBackStack = false)
+//        showFragment(DummyFragment(), addToBackStack = false)
     }
 }

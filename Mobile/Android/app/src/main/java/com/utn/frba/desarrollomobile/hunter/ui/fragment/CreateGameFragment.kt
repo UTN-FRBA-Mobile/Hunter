@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
@@ -19,13 +20,11 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import com.utn.frba.desarrollomobile.hunter.R
-import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import kotlinx.android.synthetic.main.fragment_create_game.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.security.Permission
 import java.security.Permissions
-
 
 class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
 
@@ -33,6 +32,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
     private val PICK_IMAGE_REQUEST = 100
     private val TAKE_PICTURE__REQUEST = 101
     private val REQUEST_READ_EXTERNAL_STORAGE = 102
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -111,7 +111,6 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
 
     private fun routeToGameCreated() {
         TODO("Missing routing")
-        showFragment(DummyFragment(), addToBackStack = false)
     }
 
     private fun loadImage(image: Bitmap) {
