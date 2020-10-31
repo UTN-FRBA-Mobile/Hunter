@@ -1,15 +1,18 @@
 package com.utn.frba.desarrollomobile.hunter.ui.fragment
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import com.google.firebase.ktx.Firebase
@@ -20,12 +23,16 @@ import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import kotlinx.android.synthetic.main.fragment_create_game.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.security.Permission
+import java.security.Permissions
+
 
 class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
 
     private lateinit var storage: FirebaseStorage
     private val PICK_IMAGE_REQUEST = 100
     private val TAKE_PICTURE__REQUEST = 101
+    private val REQUEST_READ_EXTERNAL_STORAGE = 102
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -67,11 +74,14 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
     }
 
     private fun selectImage() {
-        val intent = Intent()
-            .setType("image/*")
-            .setAction(Intent.ACTION_GET_CONTENT)
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(requireActivity(), arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_READ_EXTERNAL_STORAGE)
+        }
 
-        startActivityForResult(Intent.createChooser(intent, "Select a file"), PICK_IMAGE_REQUEST)
+        Intent(Intent.ACTION_GET_CONTENT).also { getContentIntent ->
+            getContentIntent.type = "image/*"
+            startActivityForResult(Intent.createChooser(getContentIntent, "Select a file"), PICK_IMAGE_REQUEST)
+        }
     }
 
     private fun uploadImage() {
@@ -110,8 +120,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
             imagePreview.tag = "1"
             refreshStatus()
         } catch (e: IOException) {
-            Toast.makeText(activity, R.string.upload_image_error, Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(activity, R.string.upload_image_error, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -126,8 +135,7 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
                     }
 
                     val filePath = data.data
-                    val bitmap =
-                        MediaStore.Images.Media.getBitmap(activity?.contentResolver, filePath)
+                    val bitmap = MediaStore.Images.Media.getBitmap(activity?.contentResolver, filePath)
                     loadImage(bitmap)
                 }
                 TAKE_PICTURE__REQUEST -> {
@@ -138,6 +146,20 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
                     val bitmap = data.extras?.get("data") as Bitmap
                     loadImage(bitmap)
                 }
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        when (requestCode) {
+            REQUEST_READ_EXTERNAL_STORAGE -> {
+                Toast.makeText(activity, "Permiso concedido", Toast.LENGTH_LONG).show()
             }
         }
     }
