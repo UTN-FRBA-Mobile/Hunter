@@ -30,9 +30,13 @@
 
     <string name="play">Jugar!</string>
     <string name="game_code">Código de juego</string>
-    <string name="game_give_clue">Pista (Breve descripcion del lugar donde esta escondido)</string>
+    <string name="game_give_clue">Pista\n (Breve descripcion del lugar donde esta escondido)</string>
     <string name="create">Crear</string>
-    <string name="upload_photo">Subir Foto</string>
+    <string name="upload_image">Subir imagen</string>
+    <string name="take_photo">Tomar foto</string>
+    <string name="select_image">Seleccionar una imagen</string>
+    <string name="upload_image_error">"Error al cargar imagen"</string>
+
 
     <string name="enable_gps_text">GPS apagado, querés prenderlo?</string>
     <string name="enable_gps_positive_text">SI</string>

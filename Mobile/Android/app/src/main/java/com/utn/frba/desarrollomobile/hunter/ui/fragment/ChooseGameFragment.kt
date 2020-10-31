@@ -18,7 +18,7 @@ class ChooseGameFragment: Fragment(R.layout.fragment_choose_game) {
     }
 
     private fun createGame() {
-        showFragment(CreateGameFragment(), false)
+        showFragment(CreateGameFragment(), true)
     }
 
     private fun joinAGame() {
