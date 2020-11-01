@@ -26,6 +26,34 @@ namespace Hunter.Services
             }
         }
 
+        public static User FindUser(User user)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var u = context.User.FirstOrDefault(u => String.IsNullOrEmpty(user.Alias) ? u.Mail == user.Mail : u.Alias == user.Alias );
+                return ParseUser(u);
+            }
+        }
+
+        public static User SaveUser(User userNew)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var user = context.User.FirstOrDefault(u => u.Sub == userNew.Sub);
+                user.Alias = userNew.Alias;
+                user.FirstName = userNew.FirstName;
+                user.LastName = userNew.LastName;
+                user.Mail = userNew.Mail;
+                user.Sub = userNew.Sub;
+
+                if (user.Id == 0) context.User.Add(user);
+
+                context.SaveChanges();
+
+                return ParseUser(user);
+            }
+        }
+
         public static User SaveUser(string sub, string alias, string mail, string first_name, string last_name)
         {
             using (var context = new Database.postgresContext())
@@ -104,6 +132,32 @@ namespace Hunter.Services
 
                     return ParseGame(game);
                 }
+            }
+        }
+
+        internal static Game SaveGame(string sub, Game gameNew)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var user = context.User.First(u => u.Sub == sub);
+
+                var game = new Database.Game()
+                {
+                    CreatorId = user.Id,
+                    Ended = new BitArray(8, false),
+                    Latitude = gameNew.Latitude,
+                    Longitude = gameNew.Longitude,
+                    Photo = gameNew.Photo,
+                    StartDatetime = DateTime.Now,
+                    EndDatetime = gameNew.EndDatetime,
+                    WinCode = GenerateRandomCode()
+                };
+
+                context.Game.Add(game);
+
+                context.SaveChanges();
+
+                return ParseGame(game);
             }
         }
 
