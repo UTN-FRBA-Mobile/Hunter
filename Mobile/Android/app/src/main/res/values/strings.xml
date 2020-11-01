@@ -33,5 +33,7 @@
     <string name="game_give_clue">Pista (Breve descripcion del lugar donde esta escondido)</string>
     <string name="create">Crear</string>
     <string name="upload_photo">Subir Foto</string>
+  <string name="choose_game">Elegir Juego</string>
+  <string name="go_to_compass">Ir a Brújula</string>
 
 </resources>

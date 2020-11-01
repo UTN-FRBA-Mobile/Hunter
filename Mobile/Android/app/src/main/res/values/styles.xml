@@ -6,6 +6,38 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/Button</item>
+        <item name="android:editTextStyle">@style/EditText</item>
+        <item name="android:textViewStyle">@style/TextView</item>
+    </style>
+
+    <style name="EditText" parent="TextAppearance.AppCompat">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_margin">@dimen/marginFullWith</item>
+    <item name="android:gravity">center</item>
+</style>
+
+    <style name="TextInputEditText" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/marginFullWith</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextView" parent="TextAppearance.AppCompat">
+    </style>
+
+    <style name="Button" parent="TextAppearance.AppCompat">
+        <item name="android:background">@drawable/button</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/button</item>
+    </style>
+
+    <style name="TextTitleView" parent="TextAppearance.AppCompat">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
 </resources>

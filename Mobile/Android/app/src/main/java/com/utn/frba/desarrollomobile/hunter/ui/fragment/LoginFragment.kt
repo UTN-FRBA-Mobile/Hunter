@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
+import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -75,8 +76,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         auth.signInWithEmailAndPassword(email, pass)
             .addOnCompleteListener { task ->
-                if(!task.isSuccessful) {
-                    Toast.makeText(activity, R.string.login_bad_credentials, Toast.LENGTH_SHORT).show()
+                if (!task.isSuccessful) {
+                    Toast.makeText(activity, R.string.login_bad_credentials, Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    auth.currentUser?.getIdToken(true)?.addOnCompleteListener { token ->
+                        APIAdapter.Token = token?.result?.token.toString()
+                    }
                 }
             }
     }
