@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorNotification">#3949AB</color>
-
-    <color name="colorPrimary">#007FDB</color>
-    <color name="colorPrimaryDark">#00e0db</color>
-    <color name="colorAccent">#ffffff</color>
-
-    <color name="degradeEnd">#007FDB</color>
-    <color name="degradeStart">#00e0db</color>
-
-    <color name="shadow">#4D7776</color>
-
-    <color name="buttonText">#3949AB</color>
-    <color name="titleText">#3949AB</color>
-
-    <color name="tableHeaderText">#3949AB</color>
-    <color name="tableText">#3949AB</color>
-
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#348637</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="circle_fill_color">#66FF9800</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="button_bg_color">@color/colorPrimary</color>
+    <color name="btn_disabled">#CCBEBEBE</color>
 </resources>

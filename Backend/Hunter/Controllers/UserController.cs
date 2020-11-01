@@ -9,15 +9,22 @@ namespace Hunter.Controllers
     public class UserController : SecuredController
     {
         [HttpGet]
+        public User Find([FromBody] User user)
+        {
+            return DatabaseService.FindUser(user);
+        }
+
+        [HttpGet]
         public User Get()
         {
             return DatabaseService.GetUser(Sub);
         }
 
         [HttpPost]
-        public User Post([FromForm] string alias, [FromForm] string mail, [FromForm] string first_name, [FromForm] string last_name)
+        public User Post([FromBody] User user)
         {
-            return DatabaseService.SaveUser(Sub, alias, mail, first_name, last_name);
+            user.Sub = Sub;
+            return DatabaseService.SaveUser(user);
         }
 
         [HttpGet]

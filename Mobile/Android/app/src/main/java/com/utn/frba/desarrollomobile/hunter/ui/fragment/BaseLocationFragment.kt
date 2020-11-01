@@ -5,32 +5,32 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.hardware.*
+import android.hardware.GeomagneticField
+import android.hardware.SensorManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import android.view.animation.Animation
-import android.view.animation.RotateAnimation
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.utils.PermissionHandler
-import kotlinx.android.synthetic.main.fragment_dummy.*
-import java.lang.Double.valueOf
+import com.utn.frba.desarrollomobile.hunter.viewmodel.LocationViewModel
 
+abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
 
-class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
-
-    private lateinit var mSensorManager: SensorManager
+    protected lateinit var mSensorManager: SensorManager
     private lateinit var locationManager: LocationManager
-    private var actualLocation: Location? = null
-    private lateinit var target: Location
-    private lateinit var geoField: GeomagneticField
+    protected lateinit var geoField: GeomagneticField
     private lateinit var locationListener: LocationListener
+
+    protected var actualLocation: Location? = null
+    protected lateinit var target: Location
 
     //PERMISSION
     private val GPS_CODE = 1
@@ -38,25 +38,31 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
     private val GPS_COARSE_PERMISSION = Manifest.permission.ACCESS_COARSE_LOCATION
     private val GPS_PROVIDER = LocationManager.GPS_PROVIDER
 
-    // compass arrow degree direction
-    private var currentDegree = 0f
-
     private val UPDATE_TIME = 5000L
     private val UPDATE_DISTANCE = 10f
+
+    private lateinit var locationViewModel: LocationViewModel
+
+    protected abstract fun init(savedInstanceState: Bundle?)
+    protected abstract fun onLocationUpdated(actualLocation: Location)
+
+    companion object {
+
+        const val TARGET_RADIUS = 200.0
+    }
 
     @SuppressLint("MissingPermission")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        locationViewModel = ViewModelProvider(requireActivity()).get(LocationViewModel::class.java)
+
         checkGPSIsON()
 
-        mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
-        target = Location(GPS_PROVIDER)
-
-        setTargetLocation()
-
-        submitLocationBtn.setOnClickListener { setTargetLocation() }
+        locationViewModel.getTargetLocation()
+            .observe(viewLifecycleOwner, Observer { targetLocation ->
+                target = targetLocation
+            })
 
         locationListener = getLocationListener()
 
@@ -78,11 +84,8 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
                 GPS_CODE
             )
         }
-    }
 
-    private fun setTargetLocation() {
-        target.latitude = latitudeEditText.text.toString().toDouble()
-        target.longitude = longitudeEditText.text.toString().toDouble()
+        init(savedInstanceState)
     }
 
     private fun getLocationListener() =
@@ -91,15 +94,7 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
                 actualLocation = location
 
                 actualLocation?.let {
-                    with(it) {
-
-                        geoField = GeomagneticField(
-                            valueOf(latitude).toFloat(),
-                            valueOf(longitude).toFloat(),
-                            valueOf(altitude).toFloat(),
-                            System.currentTimeMillis()
-                        )
-                    }
+                    onLocationUpdated(it)
                 }
             }
 
@@ -120,60 +115,6 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
         }
 
 
-    override fun onResume() {
-        super.onResume()
-        // for the system's orientation sensor registered listeners
-        mSensorManager.registerListener(
-            this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
-            SensorManager.SENSOR_DELAY_GAME
-        )
-    }
-
-    override fun onPause() {
-        super.onPause()
-        // to stop the listener and save battery
-        mSensorManager.unregisterListener(this)
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        // not in use
-    }
-
-    override fun onSensorChanged(event: SensorEvent) { // get the angle around the z-axis rotated
-        actualLocation?.let {
-            var degree = Math.round(event.values[0]).toFloat()
-            val declination = geoField.getDeclination()
-            degree += declination
-            val bearing: Float = it.bearingTo(target)
-            degree = (bearing - degree) * -1
-            degree = normalizeDegree(degree)
-
-            // create a rotation animation (reverse turn degree degrees)
-            val ra = RotateAnimation(
-                currentDegree,
-                -degree,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF,
-                0.5f
-            )
-            // how long the animation will take place
-            ra.duration = 210
-            // set the animation after the end of the reservation status
-            ra.fillAfter = true
-            // Start the animation
-            compassView.startAnimation(ra)
-            currentDegree = -degree
-        }
-    }
-
-    private fun normalizeDegree(value: Float): Float {
-        return if (value < 0) {
-            value + 360
-        } else {
-            value
-        }
-    }
-
     @SuppressLint("MissingPermission")
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -183,7 +124,7 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == GPS_CODE && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             PermissionHandler.arePermissionsGranted(
-                context!!,
+                requireContext(),
                 arrayOf(GPS_COARSE_PERMISSION, GPS_FINE_PERMISSION)
             )
             locationManager.requestLocationUpdates(
@@ -206,10 +147,14 @@ class DummyFragment : Fragment(R.layout.fragment_dummy), SensorEventListener {
     private fun showGPSDialog() {
         val alert: AlertDialog?
         val builder = AlertDialog.Builder(requireContext())
-        builder.setMessage("GPS apagado, querés prenderlo?")
+        builder.setMessage(getString(R.string.enable_gps_text))
             .setCancelable(false)
-            .setPositiveButton("SI") { _, _ -> startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
-            .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
+            .setPositiveButton(getString(R.string.enable_gps_positive_text)) { _, _ ->
+                startActivity(
+                    Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                )
+            }
+            .setNegativeButton(getString(R.string.enable_gps_negative_text)) { dialog, _ -> dialog.dismiss() }
         alert = builder.create();
         alert.show();
     }

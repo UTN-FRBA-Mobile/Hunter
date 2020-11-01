@@ -26,11 +26,42 @@ namespace Hunter.Services
             }
         }
 
+        public static User FindUser(User user)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var u = context.User.FirstOrDefault(u => String.IsNullOrEmpty(user.Alias) ? u.Mail == user.Mail : u.Alias == user.Alias );
+                return ParseUser(u);
+            }
+        }
+
+        public static User SaveUser(User userNew)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var user = context.User.FirstOrDefault(u => u.Sub == userNew.Sub);
+                user.Alias = userNew.Alias;
+                user.FirstName = userNew.FirstName;
+                user.LastName = userNew.LastName;
+                user.Mail = userNew.Mail;
+                user.Sub = userNew.Sub;
+
+                if (user.Id == 0) context.User.Add(user);
+
+                context.SaveChanges();
+
+                return ParseUser(user);
+            }
+        }
+
         public static User SaveUser(string sub, string alias, string mail, string first_name, string last_name)
         {
             using (var context = new Database.postgresContext())
             {
-                var user = context.User.FirstOrDefault(u => u.Sub == sub); 
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) user = new Database.User();
+
                 user.Alias = alias;
                 user.FirstName = first_name;
                 user.LastName = last_name;
@@ -50,6 +81,9 @@ namespace Hunter.Services
             using (var context = new Database.postgresContext())
             {
                 var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
                 var game_ids = context.GameUser.Where(gu => gu.UserId == user.Id).Select(gu => gu.GameId);
 
                 return context.Game.Where(g => game_ids.Contains(g.Id) && g.Ended.Get(0)).Select(g => ParseGame(g)).ToArray();
@@ -61,6 +95,9 @@ namespace Hunter.Services
             using (var context = new Database.postgresContext())
             {
                 var user = context.User.FirstOrDefault(x => x.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
                 return context.Game.Where(g => g.CreatorId == user.Id).Select(g => ParseGame(g)).ToArray();
             }
         }
@@ -70,7 +107,12 @@ namespace Hunter.Services
             using (var context = new Database.postgresContext())
             {
                 var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
                 var game = context.Game.Include("Clue").FirstOrDefault(g => g.Id == game_id);
+
+                if (game == null) throw new Database.GameNotFoundException();
 
                 if (game.CreatorId != user.Id) game.WinCode = String.Empty;
 
@@ -84,9 +126,13 @@ namespace Hunter.Services
             {
                 var user = context.User.FirstOrDefault(u => u.Sub == sub);
 
+                if (user == null) throw new Database.UserNotFoundException();
+
                 using (var dbContextTransaction = context.Database.BeginTransaction())
                 {
                     var game = context.Game.FirstOrDefault(g => g.Id == game_id);
+
+                    if (game == null) throw new Database.GameNotFoundException();
 
                     if (game.Ended.Get(0) == false)
                     {
@@ -97,6 +143,8 @@ namespace Hunter.Services
                             game.Ended.SetAll(true);
 
                             context.SaveChanges();
+
+                            FirebaseAuthService.GameEnded(game_id, user);
                         }
                     }
 
@@ -107,11 +155,61 @@ namespace Hunter.Services
             }
         }
 
-        internal static Game SaveGame(string sub, DateTime endGame, double latitude, double longitude, string[] clues, int[] user_ids, string photo)
+        internal static Game SaveGame(string sub, Game gameNew)
         {
             using (var context = new Database.postgresContext())
             {
                 var user = context.User.First(u => u.Sub == sub);
+
+                var game = new Database.Game()
+                {
+                    CreatorId = user.Id,
+                    Ended = new BitArray(8, false),
+                    Latitude = gameNew.Latitude,
+                    Longitude = gameNew.Longitude,
+                    Photo = gameNew.Photo,
+                    StartDatetime = DateTime.Now,
+                    EndDatetime = gameNew.EndDatetime,
+                    WinCode = GenerateRandomCode()                    
+                };
+
+                context.Game.Add(game);
+
+                context.SaveChanges();
+
+                foreach (string clue in gameNew.Clues)
+                {
+                    Database.Clue c = new Database.Clue();
+                    c.GameId = game.Id;
+                    c.Text = clue;
+                    context.Clue.Add(c);
+                }
+
+                foreach (int user_id in gameNew.UserIds)
+                {
+                    var u = context.User.Find(user_id);
+                    Database.GameUser gu = new Database.GameUser();
+                    gu.GameId = game.Id;
+                    gu.UserId = user_id;
+                    context.GameUser.Add(gu);
+                    FirebaseAuthService.GameInvitation(user.Sub, game.Id);
+                }
+
+                context.SaveChanges();
+
+
+
+                return ParseGame(game);
+            }
+        }
+
+        internal static Game SaveGame(string sub, DateTime endGame, double latitude, double longitude, string[] clues, int[] user_ids, string photo)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
 
                 var game = new Database.Game()
                 {
