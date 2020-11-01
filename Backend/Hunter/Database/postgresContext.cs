@@ -61,8 +61,7 @@ namespace Hunter.Database
 
                 entity.Property(e => e.Ended)
                     .HasColumnName("ended")
-                    .HasColumnType("bit(1)")
-                    .HasDefaultValueSql("NULL::\"bit\"");
+                    .HasColumnType("boolean");
 
                 entity.Property(e => e.Latitude).HasColumnName("latitude");
 

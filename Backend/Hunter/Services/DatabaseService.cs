@@ -40,6 +40,9 @@ namespace Hunter.Services
             using (var context = new Database.postgresContext())
             {
                 var user = context.User.FirstOrDefault(u => u.Sub == userNew.Sub);
+                
+                if (user == null) user = new Database.User();
+
                 user.Alias = userNew.Alias;
                 user.FirstName = userNew.FirstName;
                 user.LastName = userNew.LastName;
@@ -86,7 +89,7 @@ namespace Hunter.Services
 
                 var game_ids = context.GameUser.Where(gu => gu.UserId == user.Id).Select(gu => gu.GameId);
 
-                return context.Game.Where(g => game_ids.Contains(g.Id) && g.Ended.Get(0)).Select(g => ParseGame(g)).ToArray();
+                return context.Game.Where(g => game_ids.Contains(g.Id) && g.Ended).Select(g => ParseGame(g)).ToArray();
             }
         }
 
@@ -134,13 +137,13 @@ namespace Hunter.Services
 
                     if (game == null) throw new Database.GameNotFoundException();
 
-                    if (game.Ended.Get(0) == false)
+                    if (!game.Ended)
                     {
                         if (game.WinCode == win_code)
                         {
                             game.WinId = user.Id;
                             game.WinTimestamp = DateTime.Now;
-                            game.Ended.SetAll(true);
+                            game.Ended = true;
 
                             context.SaveChanges();
 
@@ -164,7 +167,7 @@ namespace Hunter.Services
                 var game = new Database.Game()
                 {
                     CreatorId = user.Id,
-                    Ended = new BitArray(8, false),
+                    Ended = false,
                     Latitude = gameNew.Latitude,
                     Longitude = gameNew.Longitude,
                     Photo = gameNew.Photo,
@@ -214,7 +217,7 @@ namespace Hunter.Services
                 var game = new Database.Game()
                 {
                     CreatorId = user.Id,
-                    Ended = new BitArray(8, false),
+                    Ended = false,
                     Latitude = latitude,
                     Longitude = longitude,
                     Photo = photo,
@@ -263,7 +266,7 @@ namespace Hunter.Services
                 Id = g.Id,
                 CreatorId = g.CreatorId,
                 EndDatetime = g.EndDatetime,
-                Ended = g.Ended.Get(0),
+                Ended = g.Ended,
                 Latitude = g.Latitude,
                 Longitude = g.Longitude,
                 Photo = g.Photo,

@@ -13,7 +13,7 @@ namespace Hunter.Database
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public string Photo { get; set; }
-        public BitArray Ended { get; set; }
+        public Boolean Ended { get; set; }
         public int? WinId { get; set; }
         public DateTime? WinTimestamp { get; set; }
         public string WinCode { get; set; }
