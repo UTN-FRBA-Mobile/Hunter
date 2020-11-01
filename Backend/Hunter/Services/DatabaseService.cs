@@ -143,6 +143,8 @@ namespace Hunter.Services
                             game.Ended.SetAll(true);
 
                             context.SaveChanges();
+
+                            FirebaseAuthService.GameEnded(game_id, user);
                         }
                     }
 
@@ -168,12 +170,34 @@ namespace Hunter.Services
                     Photo = gameNew.Photo,
                     StartDatetime = DateTime.Now,
                     EndDatetime = gameNew.EndDatetime,
-                    WinCode = GenerateRandomCode()
+                    WinCode = GenerateRandomCode()                    
                 };
 
                 context.Game.Add(game);
 
                 context.SaveChanges();
+
+                foreach (string clue in gameNew.Clues)
+                {
+                    Database.Clue c = new Database.Clue();
+                    c.GameId = game.Id;
+                    c.Text = clue;
+                    context.Clue.Add(c);
+                }
+
+                foreach (int user_id in gameNew.UserIds)
+                {
+                    var u = context.User.Find(user_id);
+                    Database.GameUser gu = new Database.GameUser();
+                    gu.GameId = game.Id;
+                    gu.UserId = user_id;
+                    context.GameUser.Add(gu);
+                    FirebaseAuthService.GameInvitation(user.Sub, game.Id);
+                }
+
+                context.SaveChanges();
+
+
 
                 return ParseGame(game);
             }
