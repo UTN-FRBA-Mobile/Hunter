@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_title"
-        style="@style/TextTitleView"
         android:gravity="center_horizontal"
         android:textAlignment="center"
         android:layout_marginBottom="55dp"

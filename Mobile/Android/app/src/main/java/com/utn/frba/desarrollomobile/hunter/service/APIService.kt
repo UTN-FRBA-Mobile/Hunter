@@ -17,11 +17,11 @@ interface APIService {
     @POST("/api/Game/Post")
     @FormUrlEncoded
     fun setGame(
-        @Field("endDatetime") endDatetime: String,
+        @Field("durationMins") durationMins: Int,
         @Field("latitude") latitude: Float,
         @Field("longitude") longitude: Float,
-        @Field("clues") clues: ArrayList<String>,
-        @Field("userIds") userIds: ArrayList<Int>,
+        @Field("clues") clues: Array<String>,
+        @Field("userIds") userIds: Array<Int>,
         @Field("photo") photo: String) : Call<Game>
 
     @POST("/api/Game/Win")
