@@ -18,5 +18,7 @@ namespace Hunter.Models
         public int? WinId { get; set; }
         public DateTime? WinTimestamp { get; set; }
         public string WinCode { get; set; }
+        public string[] Clues { get; set; }
+        public int[] UserIds { get; set; }
     }
 }
