@@ -11,7 +11,7 @@ public class Module<Nav: UINavigationController, Net: Networking> {
     private let dependencies: Dependencies<Nav, Net>
     public init(_ dependencies: Dependencies<Nav, Net>) { self.dependencies = dependencies }
 
-    func launch() { checkAuthentication() }
+    func launch() { onUserDidAuthenticated() } //checkAuthentication() }
 }
 
 fileprivate extension Module {
@@ -49,6 +49,43 @@ fileprivate extension Module {
     }
     
     func startAuthenticate(with token: Token) {
-        #warning("To Be Coded!")
+        #warning("For now we send to Home")
+        onUserDidAuthenticated()
+    }
+    
+    func onUserDidAuthenticated() {
+        let viewResolver = HomeViewResolver()
+        let router = HomeRouter(navigation: dependencies.navigation, factory: viewResolver)
+        let home = Home(newGameFlow: createNewGame, joinGameFlow: joinGame)
+        let coordinator = HomeCoordinator(flow: router, caseUse: home)
+        coordinator.start()
+    }
+    
+    func createNewGame() {
+        let viewResolver = CreateGameViewResolver()
+        let router = CreateGameRouter(navigation: dependencies.navigation, factory: viewResolver)
+        let createGame = CreateGame(imageProvider: LocaliOSImageModule())
+        let coordinator =  CreateGameCoordinator(flow: router, caseUse: createGame, onCreated: sendToActiveGame)
+        coordinator.start()
+    }
+    
+    #warning("Missing implementation of Active Game")
+    func sendToActiveGame() {
+        print("Hunter: Send to your Active Game")
+    }
+    
+    #warning("Missing implementation of Join Game!")
+    func joinGame() { print("Hunter: Join Game") }
+}
+
+#warning("We need to put final implementation!")
+class LocaliOSImageModule: ImageCaseUse {
+
+    func userWantsToTakePhoto(_ callback: @escaping ((ImageResultFlow) -> Void)) {
+        callback(.didSelectAn(UIImage()))
+    }
+
+    func userWantsToUploadPhoto(_ callback: @escaping ((ImageResultFlow) -> Void)) {
+        callback(.didSelectAn(UIImage()))
     }
 }

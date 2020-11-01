@@ -34,3 +34,5 @@ public extension Http {
         case post(body: Body)
     }
 }
+
+struct NoReply: Codable {}

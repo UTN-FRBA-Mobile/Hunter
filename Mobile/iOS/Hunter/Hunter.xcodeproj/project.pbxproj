@@ -35,6 +35,22 @@
 		ADADF68A2522CE1E003364C7 /* GuestFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6892522CE1E003364C7 /* GuestFlow.swift */; };
 		ADADF68F2522CE83003364C7 /* GuestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF68E2522CE83003364C7 /* GuestRouter.swift */; };
 		ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF69E2522CF15003364C7 /* RegisterMethod.swift */; };
+		ADAE6F3A254F74E20048C90A /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F39254F74E20048C90A /* HomeCoordinator.swift */; };
+		ADAE6F42254F74EC0048C90A /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F41254F74EC0048C90A /* HomeFlow.swift */; };
+		ADAE6F47254F74F40048C90A /* HomeCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F46254F74F40048C90A /* HomeCaseUse.swift */; };
+		ADAE6F50254F758A0048C90A /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F4F254F758A0048C90A /* HomeFactory.swift */; };
+		ADAE6F55254F75960048C90A /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F54254F75960048C90A /* HomePresenter.swift */; };
+		ADAE6F5B254F75A60048C90A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F59254F75A60048C90A /* HomeViewController.swift */; };
+		ADAE6F5C254F75A60048C90A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAE6F5A254F75A60048C90A /* HomeViewController.xib */; };
+		ADAE6F61254F75B40048C90A /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F60254F75B40048C90A /* HomeRouter.swift */; };
+		ADAE6F6F254F7C550048C90A /* CreateGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F6E254F7C550048C90A /* CreateGameCoordinator.swift */; };
+		ADAE6F77254F7C5B0048C90A /* CreateGameFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F76254F7C5B0048C90A /* CreateGameFlow.swift */; };
+		ADAE6F7C254F7C720048C90A /* CreateGameCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F7B254F7C720048C90A /* CreateGameCaseUse.swift */; };
+		ADAE6F83254F7DBB0048C90A /* CreateGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F82254F7DBB0048C90A /* CreateGameRouter.swift */; };
+		ADAE6F88254F7DC60048C90A /* CreateGameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F87254F7DC60048C90A /* CreateGameFactory.swift */; };
+		ADAE6F8D254F7DCC0048C90A /* CreateGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F8C254F7DCC0048C90A /* CreateGamePresenter.swift */; };
+		ADAE6F93254F7DD60048C90A /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F91254F7DD60048C90A /* CreateGameViewController.swift */; };
+		ADAE6F94254F7DD60048C90A /* CreateGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAE6F92254F7DD60048C90A /* CreateGameViewController.xib */; };
 		ADC1AA472547725900036470 /* LaunchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC1AA462547725900036470 /* LaunchFlow.swift */; };
 		ADC1AA4C2547727100036470 /* LaunchCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */; };
 		ADCB7221253B304C007B3F14 /* UIViewController+AddingSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7220253B304C007B3F14 /* UIViewController+AddingSubviews.swift */; };
@@ -116,6 +132,22 @@
 		ADADF6892522CE1E003364C7 /* GuestFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFlow.swift; sourceTree = "<group>"; };
 		ADADF68E2522CE83003364C7 /* GuestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestRouter.swift; sourceTree = "<group>"; };
 		ADADF69E2522CF15003364C7 /* RegisterMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMethod.swift; sourceTree = "<group>"; };
+		ADAE6F39254F74E20048C90A /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		ADAE6F41254F74EC0048C90A /* HomeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlow.swift; sourceTree = "<group>"; };
+		ADAE6F46254F74F40048C90A /* HomeCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCaseUse.swift; sourceTree = "<group>"; };
+		ADAE6F4F254F758A0048C90A /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		ADAE6F54254F75960048C90A /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		ADAE6F59254F75A60048C90A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ADAE6F5A254F75A60048C90A /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		ADAE6F60254F75B40048C90A /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		ADAE6F6E254F7C550048C90A /* CreateGameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameCoordinator.swift; sourceTree = "<group>"; };
+		ADAE6F76254F7C5B0048C90A /* CreateGameFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameFlow.swift; sourceTree = "<group>"; };
+		ADAE6F7B254F7C720048C90A /* CreateGameCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameCaseUse.swift; sourceTree = "<group>"; };
+		ADAE6F82254F7DBB0048C90A /* CreateGameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameRouter.swift; sourceTree = "<group>"; };
+		ADAE6F87254F7DC60048C90A /* CreateGameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameFactory.swift; sourceTree = "<group>"; };
+		ADAE6F8C254F7DCC0048C90A /* CreateGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGamePresenter.swift; sourceTree = "<group>"; };
+		ADAE6F91254F7DD60048C90A /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
+		ADAE6F92254F7DD60048C90A /* CreateGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateGameViewController.xib; sourceTree = "<group>"; };
 		ADC1AA462547725900036470 /* LaunchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchFlow.swift; sourceTree = "<group>"; };
 		ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCaseUse.swift; sourceTree = "<group>"; };
 		ADCB7220253B304C007B3F14 /* UIViewController+AddingSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddingSubviews.swift"; sourceTree = "<group>"; };
@@ -236,6 +268,8 @@
 		AD9064C4251C1715005DC31D /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				ADAE6F69254F7C1F0048C90A /* Game */,
+				ADAE6F35254F74CF0048C90A /* Home */,
 				ADD0165C25486BBD00B0C13C /* Validation */,
 				ADC1AA50254772AE00036470 /* LocalSignUp */,
 				ADCB7231253B44AA007B3F14 /* Networking */,
@@ -260,6 +294,8 @@
 		ADA78284251C182E005840AB /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				ADAE6F80254F7DA60048C90A /* Game */,
+				ADAE6F4E254F757D0048C90A /* Home */,
 				ADDA76B625478A3800CB11F0 /* LocalSignUp */,
 				ADADF66D2522CA90003364C7 /* Guest */,
 				ADA7828D251C18C9005840AB /* Authentication */,
@@ -362,6 +398,66 @@
 				ADADF6752522CBC9003364C7 /* Router.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		ADAE6F35254F74CF0048C90A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ADAE6F39254F74E20048C90A /* HomeCoordinator.swift */,
+				ADAE6F41254F74EC0048C90A /* HomeFlow.swift */,
+				ADAE6F46254F74F40048C90A /* HomeCaseUse.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ADAE6F4E254F757D0048C90A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ADAE6F60254F75B40048C90A /* HomeRouter.swift */,
+				ADAE6F4F254F758A0048C90A /* HomeFactory.swift */,
+				ADAE6F54254F75960048C90A /* HomePresenter.swift */,
+				ADAE6F59254F75A60048C90A /* HomeViewController.swift */,
+				ADAE6F5A254F75A60048C90A /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ADAE6F69254F7C1F0048C90A /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				ADAE6F6A254F7C280048C90A /* Create */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		ADAE6F6A254F7C280048C90A /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				ADAE6F6E254F7C550048C90A /* CreateGameCoordinator.swift */,
+				ADAE6F76254F7C5B0048C90A /* CreateGameFlow.swift */,
+				ADAE6F7B254F7C720048C90A /* CreateGameCaseUse.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		ADAE6F80254F7DA60048C90A /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				ADAE6F81254F7DA90048C90A /* Create */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		ADAE6F81254F7DA90048C90A /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				ADAE6F82254F7DBB0048C90A /* CreateGameRouter.swift */,
+				ADAE6F87254F7DC60048C90A /* CreateGameFactory.swift */,
+				ADAE6F8C254F7DCC0048C90A /* CreateGamePresenter.swift */,
+				ADAE6F91254F7DD60048C90A /* CreateGameViewController.swift */,
+				ADAE6F92254F7DD60048C90A /* CreateGameViewController.xib */,
+			);
+			path = Create;
 			sourceTree = "<group>";
 		};
 		ADC1AA50254772AE00036470 /* LocalSignUp */ = {
@@ -563,6 +659,8 @@
 			files = (
 				AD4A0BA0251C11A100DC9900 /* LaunchScreen.storyboard in Resources */,
 				AD4A0B9D251C11A100DC9900 /* Assets.xcassets in Resources */,
+				ADAE6F94254F7DD60048C90A /* CreateGameViewController.xib in Resources */,
+				ADAE6F5C254F75A60048C90A /* HomeViewController.xib in Resources */,
 				ADDA76BA25478BB400CB11F0 /* LocalSignUpViewController.xib in Resources */,
 				AD4C8FCF252BDFC100AA2AB4 /* GuestViewController.xib in Resources */,
 			);
@@ -697,26 +795,34 @@
 				ADADF6852522CDED003364C7 /* GuestFactory.swift in Sources */,
 				ADCB723C253B4A15007B3F14 /* Module.swift in Sources */,
 				ADC1AA4C2547727100036470 /* LaunchCaseUse.swift in Sources */,
+				ADAE6F3A254F74E20048C90A /* HomeCoordinator.swift in Sources */,
 				ADA782C4251C1C6F005840AB /* NSLayoutConstraint+Activate.swift in Sources */,
 				ADD0168E25486D4E00B0C13C /* LocalSignUpRouter.swift in Sources */,
 				ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */,
 				ADDA769D2547879300CB11F0 /* RegisterGuestPresenter.swift in Sources */,
 				ADA782BF251C1C02005840AB /* UIStackView+Subviews.swift in Sources */,
 				ADD0168925486CF900B0C13C /* LocalSignUpFlow.swift in Sources */,
+				ADAE6F7C254F7C720048C90A /* CreateGameCaseUse.swift in Sources */,
 				AD5646E1254842C900BEBFB7 /* LocalSignUpCoordinator.swift in Sources */,
 				ADA782B7251C1ACF005840AB /* UIView+Initialize.swift in Sources */,
 				ADD0168125486CA900B0C13C /* String+Localizable.swift in Sources */,
+				ADAE6F6F254F7C550048C90A /* CreateGameCoordinator.swift in Sources */,
 				ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */,
 				ADD0166C25486BF400B0C13C /* FieldViewModel.swift in Sources */,
+				ADAE6F93254F7DD60048C90A /* CreateGameViewController.swift in Sources */,
 				ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */,
 				ADA782CA251C2290005840AB /* HunterButton.swift in Sources */,
+				ADAE6F5B254F75A60048C90A /* HomeViewController.swift in Sources */,
 				ADADF68F2522CE83003364C7 /* GuestRouter.swift in Sources */,
 				ADCB7221253B304C007B3F14 /* UIViewController+AddingSubviews.swift in Sources */,
 				ADA782D2251C242B005840AB /* Color.swift in Sources */,
 				AD4A0B94251C11A000DC9900 /* AppDelegate.swift in Sources */,
 				ADC1AA472547725900036470 /* LaunchFlow.swift in Sources */,
 				ADD0164E25485A2D00B0C13C /* HunterTextField.swift in Sources */,
+				ADAE6F55254F75960048C90A /* HomePresenter.swift in Sources */,
+				ADAE6F88254F7DC60048C90A /* CreateGameFactory.swift in Sources */,
 				ADA78286251C1840005840AB /* AuthenticationModule.swift in Sources */,
+				ADAE6F50254F758A0048C90A /* HomeFactory.swift in Sources */,
 				ADD0167925486C8400B0C13C /* LocalSignUpFactory.swift in Sources */,
 				ADD016532548657200B0C13C /* Array+Get.swift in Sources */,
 				ADA782D7251C247B005840AB /* UIColor+Hexadecimal.swift in Sources */,
@@ -724,9 +830,15 @@
 				ADD0166625486BD900B0C13C /* TextValidator.swift in Sources */,
 				ADA782B0251C1A2A005840AB /* AuthenticationViewController.swift in Sources */,
 				ADDA76B925478BB400CB11F0 /* LocalSignUpViewController.swift in Sources */,
+				ADAE6F77254F7C5B0048C90A /* CreateGameFlow.swift in Sources */,
 				AD4A0B96251C11A000DC9900 /* SceneDelegate.swift in Sources */,
+				ADAE6F83254F7DBB0048C90A /* CreateGameRouter.swift in Sources */,
+				ADAE6F61254F75B40048C90A /* HomeRouter.swift in Sources */,
+				ADAE6F47254F74F40048C90A /* HomeCaseUse.swift in Sources */,
+				ADAE6F8D254F7DCC0048C90A /* CreateGamePresenter.swift in Sources */,
 				ADD0165E25486BC300B0C13C /* Validation.swift in Sources */,
 				ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */,
+				ADAE6F42254F74EC0048C90A /* HomeFlow.swift in Sources */,
 				ADD0165825486BA300B0C13C /* UserRegister.swift in Sources */,
 				ADA782DC251C299D005840AB /* UIView+Centered.swift in Sources */,
 				ADA782A3251C19F0005840AB /* LoginViewController.swift in Sources */,
