@@ -20,11 +20,19 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import com.utn.frba.desarrollomobile.hunter.R
+import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
+import com.utn.frba.desarrollomobile.hunter.service.models.Game
+import com.utn.frba.desarrollomobile.hunter.service.models.User
 import kotlinx.android.synthetic.main.fragment_create_game.*
+import kotlinx.android.synthetic.main.fragment_register.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.IOException
-import java.security.Permission
-import java.security.Permissions
+import java.time.DateTimeException
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
 
@@ -107,6 +115,30 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
 
     private fun createGame() {
         uploadImage()
+        var callSetGameResponse =
+            APIAdapter.createConection()?.setGame(20,
+                0.toFloat(),
+                0.toFloat(),
+                arrayOf<String>(game_clue_edit_text.text.toString()),
+                emptyArray<Int>(),
+            "")
+
+        callSetGameResponse?.enqueue(object : Callback<Game> {
+            override fun onFailure(call: Call<Game>, t: Throwable) {
+                print("throw Message" + t.message)
+                register_password_confirmation.error = "Error reading JSON"
+            }
+
+            override fun onResponse(
+                call: Call<Game>,
+                response: Response<Game>
+            ) {
+                val body = response?.body()
+                if (body != null) {
+                    //do your work
+                }
+            }
+        })
     }
 
     private fun routeToGameCreated() {

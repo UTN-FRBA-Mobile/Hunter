@@ -1,4 +1,4 @@
-package com.utn.frba.desarrollomobile.hunter.ui.fragment
+package com.utn.frba.desarrollomobile.hunter
 
 import android.os.Bundle
 import android.text.Editable
@@ -7,10 +7,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.service.models.User
-import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -92,9 +90,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 && (pass == pass_confirm) && alias.isNotEmpty()
     }
 
-    private fun SaveUserData(token: String? = "", email:String, alias:String, first_name:String, last_name:String) {
+    private fun SaveUserData(user: User) {
         var callSetUserResponse =
-            APIAdapter.createConection()?.setUser("Bearer " + token.toString(), alias, email, first_name, last_name)
+            APIAdapter.createConection()?.setUser(user)
 
         callSetUserResponse?.enqueue(object : Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {
@@ -115,30 +113,23 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     }
 
     private fun register() {
-        (activity as MainActivity).showLoading("Registrando nuevo usuario...")
-
-        val email = register_email.text.toString()
         val pass = register_password.text.toString()
-        var alias = register_alias.text.toString()
-        var first_name = register_first_name.text.toString()
-        var last_name = register_last_name.text.toString()
 
-        auth.createUserWithEmailAndPassword(email, pass)
+        val user = User()
+        user.mail = register_email.text.toString()
+        user.alias = register_alias.text.toString()
+        user.firstName = register_first_name.text.toString()
+        user.lastName = register_last_name.text.toString()
+
+        auth.createUserWithEmailAndPassword(user.mail.toString(), pass)
             .addOnCompleteListener { task ->
-                (activity as MainActivity).hideLoading()
-
                 if (!task.isSuccessful) {
                     Toast.makeText(activity, R.string.regiter_error, Toast.LENGTH_SHORT).show()
 
                 } else {
                     auth.currentUser?.getIdToken(true)?.addOnCompleteListener { token ->
-                        SaveUserData(
-                            token?.result?.token,
-                            email,
-                            alias,
-                            first_name,
-                            last_name
-                        )
+                        APIAdapter.Token = token?.result?.token.toString()
+                        SaveUserData(user)
                     }
                 }
             }

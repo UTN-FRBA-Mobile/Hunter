@@ -36,7 +36,9 @@
     <string name="take_photo">Tomar foto</string>
     <string name="select_image">Seleccionar una imagen</string>
     <string name="upload_image_error">"Error al cargar imagen"</string>
+<string name="go_to_compass">Ir a Brújula</string>
 
+  <string name="choose_game">Elegir Juego</string>
 
     <string name="enable_gps_text">GPS apagado, querés prenderlo?</string>
     <string name="enable_gps_positive_text">SI</string>

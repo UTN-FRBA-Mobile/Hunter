@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title">36sp</dimen>
+    <dimen name="button">24sp</dimen>
+    <dimen name="marginFullWith">10dip</dimen>
+    <dimen name="tableHeaderText">18sp</dimen>
+    <dimen name="tableText">18sp</dimen>
+    <dimen name="marginMainMenuButton">30dp</dimen>
+</resources>

@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.utn.frba.desarrollomobile.hunter.LoginFragment
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
+import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.ui.customviews.LoadingView
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.AppFragment
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.ChooseGameFragment
@@ -30,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             if(firebaseAuth.currentUser != null) {
                 firebaseAuth.currentUser?.getIdToken(true)?.addOnCompleteListener{task ->
                     if(task.isSuccessful){
-                        Log.d("DEBUG", task.result?.token.toString())
+                        APIAdapter.Token = task?.result?.token.toString()
+                        Log.d("DEBUG", APIAdapter.Token)
                     }
                 }
             // ----

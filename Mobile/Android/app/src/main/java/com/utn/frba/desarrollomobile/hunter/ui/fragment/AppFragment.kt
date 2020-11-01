@@ -25,5 +25,9 @@ class AppFragment : Fragment(R.layout.fragment_app) {
         compassButton.setOnClickListener {
             showFragment(MapFragment(), true)
         }
+
+        chooseGameButoon.setOnClickListener {
+            showFragment(ChooseGameFragment(), true)
+        }
     }
 }
