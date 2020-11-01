@@ -19,9 +19,9 @@ RUN dotnet publish "Hunter.csproj" -c Release -o /app/publish
 ENV DATABASE_URL=postgres://ouaqzwgabbxhxt:0687c2478f0521a595632a35a7638252b71b6db73f35badddf40bcc5fdc2153d@ec2-3-216-92-193.compute-1.amazonaws.com:5432/d5qpniim1huq2a
 ENV PORT=80
 
+ENV FIREBASE_APIKEY=AAAAH3-_3Tk:APA91bHvQK5-cfCO_nAmWXAFSq8pMbSA42a4KMs6u7_3JSoEVH_E1FW41NP8kIJOxHuz0Bb6UoNqD_dYbOKEcC1nW07STxL23qEwMYXAmQXOxLLByY17JE8fm0o-Axi8haiPKqDNqQKJ
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "--startup-project publish/Hunter.dll"]]
-#ENTRYPOINT ["dotnet", "ef migrations add initial --startup-project publish/Hunter.dll --context HunterContext"]]
