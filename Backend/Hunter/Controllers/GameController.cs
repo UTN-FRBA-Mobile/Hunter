@@ -26,9 +26,10 @@ namespace Hunter.Controllers
         }
 
         [HttpPost]
-        public Game Post([FromBody] Game game)
+        public Game Post([FromForm] int durationMins, [FromForm] float latitude, [FromForm] float longitude, [FromForm] string[] clues, [FromForm] int[] userIds, [FromForm] string photo)
         {
-            return DatabaseService.SaveGame(Sub, game);
+            var endDatetime = DateTime.Now.Subtract(new TimeSpan(0, 0, durationMins));
+            return DatabaseService.SaveGame(Sub, endDatetime, latitude, longitude, clues, userIds, photo);
         }
 
         [HttpPost]
