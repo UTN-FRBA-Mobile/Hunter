@@ -125,6 +125,8 @@ namespace Hunter.Services
                             game.Ended.SetAll(true);
 
                             context.SaveChanges();
+
+                            FirebaseAuthService.GameEnded(game_id, user);
                         }
                     }
 
