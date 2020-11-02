@@ -3,7 +3,6 @@ package com.utn.frba.desarrollomobile.hunter.ui.fragment
 import android.content.Context
 import android.hardware.*
 import android.location.Location
-import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.animation.Animation
@@ -22,7 +21,7 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
     private var currentDegree = 0f
     private val CLUE_RADIUS = 15
 
-    override fun init(savedInstanceState: Bundle?) {
+    override fun init() {
         mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
 

@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
@@ -22,7 +21,6 @@ import com.google.firebase.storage.ktx.storage
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
-import com.utn.frba.desarrollomobile.hunter.service.models.User
 import kotlinx.android.synthetic.main.fragment_create_game.*
 import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Call
@@ -30,9 +28,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.IOException
-import java.time.DateTimeException
-import java.util.*
-import kotlin.collections.ArrayList
 
 class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
 
@@ -116,7 +111,8 @@ class CreateGameFragment : Fragment(R.layout.fragment_create_game) {
     private fun createGame() {
         uploadImage()
         var callSetGameResponse =
-            APIAdapter.createConection()?.setGame(20,
+            APIAdapter.getAPI().setGame(
+                20,
                 0.toFloat(),
                 0.toFloat(),
                 arrayOf<String>(game_clue_edit_text.text.toString()),
