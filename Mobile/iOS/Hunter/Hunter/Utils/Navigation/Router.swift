@@ -10,6 +10,10 @@ protocol Router {
 
 extension Router {
     
+    func replaceAll(with controller: UIViewController, animated: Bool = true) {
+        navigation.setViewControllers([controller], animated: animated)
+    }
+    
     func replaceLast(with controller: UIViewController, animated: Bool = true) {
         guard navigation.viewControllers.count >= 1 else { return }
         var controllers = navigation.viewControllers.dropLast()
