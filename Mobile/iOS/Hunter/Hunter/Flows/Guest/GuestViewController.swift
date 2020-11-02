@@ -4,8 +4,6 @@ import Foundation
 import UIKit
 
 class GuestViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.Hunter.darkBlue
-    }
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var buttonStack: UIStackView!
 }

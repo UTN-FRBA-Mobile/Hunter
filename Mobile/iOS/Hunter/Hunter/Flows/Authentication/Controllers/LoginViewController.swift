@@ -26,8 +26,6 @@ class LoginViewController: UIViewController {
         let shouldBeEnabled = userTextField.hasText && passwordTextField.text?.count ?? 0 > 4
         acceptButton.isEnabled = shouldBeEnabled
     }
-    
-    @objc private func onAcceptButtonTap() { onAceppt() }
 }
 
 fileprivate extension LoginViewController {
@@ -46,11 +44,11 @@ fileprivate extension LoginViewController {
         let userField: UITextField = textField(returnKey: .next)
         let passwordField: UITextField = textField(returnKey: .done) { (field) in field.isSecureTextEntry = true }
         containerView.addArrangedSubviews([userField, passwordField])
-        view.addSubview(containerView)
+        view.addSubview(containerView.flexible(for: .horizontal,
+                                               spacing: 32.0,
+                                               with: view))
         userTextField = userField
         passwordTextField = passwordField
-        containerView.center(to: view)
-        containerView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).activate()
     }
     
     private func textField(returnKey: UIReturnKeyType, customizing: ((UITextField) -> Void) = { _ in }) -> UITextField {
@@ -64,7 +62,7 @@ fileprivate extension LoginViewController {
     func setupButtonView() {
         acceptButton = UIView.loadFromCode() { (button: HunterButton) in
             button.applyBorders()
-            button.addTarget(self, action: #selector(onAcceptButtonTap), for: .touchUpInside)
+            button.setup(forTap: onAceppt)
             view.addSubview(button)
             [button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
              view.rightAnchor.constraint(equalTo: button.rightAnchor, constant: 32),

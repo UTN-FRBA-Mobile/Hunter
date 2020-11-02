@@ -11,4 +11,6 @@ extension UIView {
         customizing(view)
         return view
     }
+    
+    static func Clear<View: UIView>() -> View { loadFromCode { $0.backgroundColor = .clear } }
 }

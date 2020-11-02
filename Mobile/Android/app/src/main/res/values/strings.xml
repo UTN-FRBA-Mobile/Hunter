@@ -24,17 +24,26 @@
     <string name="register_password_not_match">Estas contraseñas no coinciden</string>
     <string name="regiter_error">Error En la regitración</string>
 
-    // Game
-    <string name="game_join">Unirse a un Juego</string>
-    <string name="game_create">Create Juego</string>
-
-    <string name="play">Jugar!</string>
-    <string name="game_code">Código de juego</string>
-    <string name="game_give_clue">Pista\n (Breve descripcion del lugar donde esta escondido)</string>
-    <string name="create">Crear</string>
+    // Create Game
+    <string name="game_create">Crear Juego</string>
     <string name="upload_image">Subir imagen</string>
     <string name="take_photo">Tomar foto</string>
     <string name="select_image">Seleccionar una imagen</string>
+    <string name="enter_clue">Ingrese una pista</string>
+    <string name="enter_image">Agregue una imagen</string>
+    <string name="search">Buscar</string>
+    <string name="add_players">Agregar jugadores</string>
+    <string name="summary">Resumen</string>
+
+    // Game
+    <string name="game_join">Unirse a un Juego</string>
+
+    <string name="play">Jugar!</string>
+    <string name="game_code">Código de juego</string>
+    <string name="game_give_clue">Breve descripcion del lugar donde esta escondido</string>
+    <string name="create">Crear</string>
+
+
     <string name="upload_image_error">"Error al cargar imagen"</string>
     <string name="go_to_compass">Ir a Brújula</string>
 
@@ -47,5 +56,9 @@
     <string name="register">Registrarme</string>
     <string name="login">Ingresar</string>
     <string name="default_notification_channel_id">all</string>
+
+
+    <string name="next">Siguiente</string>
+    <string name="previous">Anterior</string>
 
 </resources>

@@ -19,8 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
         setupKeyboard()
-        //showLogin()
-        //showAuthentication(from: navigation)
         start(navigation)
     }
     
@@ -33,28 +31,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func start<Navigation: UINavigationController>(_ nav: Navigation) {
-        let flow = iOSGuestFlow(navigation: nav, factory: iOSGuestFactory())
-        let caseUse = SignUpLogic(registers: [])
-        GuestCoordinator(flow: flow, caseUse: caseUse).start()
-    }
-    
-    private func showAuthentication(from navigation: UINavigationController) {
-        let controller = AuthenticationViewController()
-        navigation.pushViewController(controller, animated: true)
-    }
-    
-    var textHandlers = [TextFieldHandler]()
-    
-    private func showLogin() {
-        let controller = LoginViewController()
-        _ = controller.view
-        controller.onAceppt = { print("Lo logree!") }
-        (window?.rootViewController as? UINavigationController)?.pushViewController(controller, animated: true)
-        controller.acceptButton.setTitle("Login", for: .normal)
-        textHandlers.append(controller.userTextField.addHandler(TextFieldHandler { print("Fleto UserName: \($0)") }))
-        textHandlers.append(controller.passwordTextField.addHandler(TextFieldHandler { print("Fleto Pass: \($0)") }))
-        controller.userTextField.placeholder = "Title"
-        controller.passwordTextField.placeholder = "Password"
+        let client = RestClient()
+        let module = Module(Module.Dependencies(navigation: nav,
+                                                networking: client))
+        module.launch()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
