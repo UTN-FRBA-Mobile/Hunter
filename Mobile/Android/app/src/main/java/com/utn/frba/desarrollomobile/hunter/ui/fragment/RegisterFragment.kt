@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.service.models.User
+import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -92,9 +93,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private fun SaveUserData(user: User) {
         var callSetUserResponse =
-            APIAdapter.createConection()?.setUser(user)
+            APIAdapter.getAPI().setUser(user)
 
-        callSetUserResponse?.enqueue(object : Callback<User> {
+        callSetUserResponse.enqueue(object : Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {
                 print("throw Message" + t.message)
                 register_password_confirmation.error = "Error reading JSON"
@@ -121,8 +122,13 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         user.firstName = register_first_name.text.toString()
         user.lastName = register_last_name.text.toString()
 
+        (activity as MainActivity).showLoading("Ingresando...")
+
         auth.createUserWithEmailAndPassword(user.mail.toString(), pass)
             .addOnCompleteListener { task ->
+
+                (activity as MainActivity).hideLoading()
+
                 if (!task.isSuccessful) {
                     Toast.makeText(activity, R.string.regiter_error, Toast.LENGTH_SHORT).show()
 
