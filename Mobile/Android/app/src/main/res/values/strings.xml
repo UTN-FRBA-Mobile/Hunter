@@ -1,8 +1,8 @@
 <resources>
-  // Global
+    // Global
     <string name="app_name">Hunter</string>
 
-  // Login - Register
+    // Login - Register
     <string name="login_title">Ingresar</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
@@ -24,7 +24,7 @@
     <string name="register_password_not_match">Estas contraseñas no coinciden</string>
     <string name="regiter_error">Error En la regitración</string>
 
-  // Game
+    // Game
     <string name="game_join">Unirse a un Juego</string>
     <string name="game_create">Create Juego</string>
 
@@ -36,15 +36,16 @@
     <string name="take_photo">Tomar foto</string>
     <string name="select_image">Seleccionar una imagen</string>
     <string name="upload_image_error">"Error al cargar imagen"</string>
-<string name="go_to_compass">Ir a Brújula</string>
+    <string name="go_to_compass">Ir a Brújula</string>
 
-  <string name="choose_game">Elegir Juego</string>
+    <string name="choose_game">Elegir Juego</string>
 
     <string name="enable_gps_text">GPS apagado, querés prenderlo?</string>
     <string name="enable_gps_positive_text">SI</string>
     <string name="enable_gps_negative_text">NO</string>
     <string name="show_clue">Ver Pista!</string>
-  <string name="register">Registrarme</string>
-  <string name="login">Ingresar</string>
+    <string name="register">Registrarme</string>
+    <string name="login">Ingresar</string>
+    <string name="default_notification_channel_id">all</string>
 
 </resources>

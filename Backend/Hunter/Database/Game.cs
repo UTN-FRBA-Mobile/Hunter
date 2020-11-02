@@ -19,5 +19,8 @@ namespace Hunter.Database
         public string WinCode { get; set; }
 
         public virtual User Creator { get; set; }
+
+        public int[] UserIds;
+        public string[] Clues;
     }
 }

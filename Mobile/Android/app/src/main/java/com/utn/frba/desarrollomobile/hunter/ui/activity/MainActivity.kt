@@ -12,6 +12,7 @@ import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.ui.customviews.LoadingView
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.AppFragment
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.ChooseGameFragment
+import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             if(firebaseAuth.currentUser != null) {
                 firebaseAuth.currentUser?.getIdToken(true)?.addOnCompleteListener{task ->
                     if(task.isSuccessful){
-                        APIAdapter.Token = task?.result?.token.toString()
+                        LoginHandler.loginComplete()
                         Log.d("DEBUG", APIAdapter.Token)
                     }
                 }
