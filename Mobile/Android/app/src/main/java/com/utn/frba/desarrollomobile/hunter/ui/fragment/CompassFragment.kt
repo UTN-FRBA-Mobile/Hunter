@@ -5,12 +5,16 @@ import android.hardware.*
 import android.location.Location
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.Window
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
+import androidx.appcompat.app.AlertDialog
+import com.squareup.picasso.Picasso
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
+import kotlinx.android.synthetic.main.dialog_clue_layout.view.*
 import kotlinx.android.synthetic.main.fragment_compass.*
 import java.lang.Double
 
@@ -19,10 +23,12 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
 
     // compass arrow degree direction
     private var currentDegree = 0f
-    private val CLUE_RADIUS = 15
+    private val CLUE_RADIUS = 150000
 
     override fun init() {
         mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
+        showClueButton.setOnClickListener { showClue() }
     }
 
     override fun onSensorChanged(event: SensorEvent) { // get the angle around the z-axis rotated
@@ -72,8 +78,8 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
     override fun onResume() {
         super.onResume()
         // for the system's orientation sensor registered listeners
-        mSensorManager.registerListener(
-            this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+        mSensorManager?.registerListener(
+            this, mSensorManager?.getDefaultSensor(Sensor.TYPE_ORIENTATION),
             SensorManager.SENSOR_DELAY_GAME
         )
     }
@@ -81,7 +87,7 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
     override fun onPause() {
         super.onPause()
         // to stop the listener and save battery
-        mSensorManager.unregisterListener(this)
+        mSensorManager?.unregisterListener(this)
     }
 
     override fun onLocationUpdated(actualLocation: Location) {
@@ -93,14 +99,38 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
                 System.currentTimeMillis()
             )
             val distance = target.distanceTo(actualLocation)
-            if (distance > TARGET_RADIUS) {
-                goToMapFragment()
-            } else if (distance <= CLUE_RADIUS) {
-                showClueButton.visibility = VISIBLE
-                Toast.makeText(context, "ESTAS MUY CERCA! PEDI PISTA!", LENGTH_LONG).show()
-            } else {
-                showClueButton.visibility = GONE
+            when {
+                distance > TARGET_RADIUS -> {
+                    goToMapFragment()
+                }
+                distance <= CLUE_RADIUS -> {
+                    showClueButton.visibility = VISIBLE
+                    Toast.makeText(context, "ESTAS MUY CERCA! PEDI PISTA!", LENGTH_LONG).show()
+                }
+                else -> {
+                    showClueButton.visibility = GONE
+                }
             }
         }
+    }
+
+    private fun showClue() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_clue_layout, null)
+
+        val alert: AlertDialog?
+        val builder = AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .setCancelable(false)
+        alert = builder.create()
+        alert.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialogView.clueText.text = game.clues.first()
+
+        dialogView.clueCloseBtn.setOnClickListener { alert.dismiss() }
+        dialogView.clueImage.layoutParams.width =
+            (resources.displayMetrics.widthPixels * 0.8).toInt()
+
+        Picasso.get().load(game.photo).into(dialogView.clueImage)
+
+        alert.show()
     }
 }

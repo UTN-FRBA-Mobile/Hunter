@@ -27,7 +27,7 @@ import com.utn.frba.desarrollomobile.hunter.viewmodel.GameViewModel
 
 abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
 
-    protected lateinit var mSensorManager: SensorManager
+    protected var mSensorManager: SensorManager? = null
     private lateinit var locationManager: LocationManager
     protected lateinit var geoField: GeomagneticField
     private lateinit var locationListener: LocationListener
@@ -47,12 +47,14 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
     private lateinit var gameViewModel: GameViewModel
     protected var gameID: Int = 0
 
+    protected lateinit var game: Game
+
     protected abstract fun init()
     protected abstract fun onLocationUpdated(actualLocation: Location)
 
     companion object {
 
-        const val TARGET_RADIUS = 200.0
+        const val TARGET_RADIUS = 200000.0
         const val GAME_ID = "gameID"
     }
 
@@ -107,6 +109,7 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
         }
 
     private fun onGameFetched(game: Game) {
+        this.game = game
         target = Location(GPS_PROVIDER).apply {
             longitude = game.longitude.toDouble()
             latitude = game.latitude.toDouble()
@@ -198,5 +201,11 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
 
     protected fun hideLoading() {
         (activity as MainActivity).hideLoading()
+    }
+
+    override fun onStop() {
+        // stop location updating
+        locationManager.removeUpdates(locationListener)
+        super.onStop()
     }
 }
