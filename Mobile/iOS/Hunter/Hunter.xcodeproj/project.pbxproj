@@ -8,69 +8,78 @@
 
 /* Begin PBXBuildFile section */
 		886A55BCA3B89A3E5C48C530 /* Pods_HunterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63CDBA3B5252C7FD3354783A /* Pods_HunterTests.framework */; };
-		AD4A0B94251C11A000DC9900 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0B93251C11A000DC9900 /* AppDelegate.swift */; };
-		AD4A0B96251C11A000DC9900 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0B95251C11A000DC9900 /* SceneDelegate.swift */; };
-		AD4A0B9D251C11A100DC9900 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD4A0B9C251C11A100DC9900 /* Assets.xcassets */; };
-		AD4A0BA0251C11A100DC9900 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4A0B9E251C11A100DC9900 /* LaunchScreen.storyboard */; };
 		AD4A0BAB251C11A100DC9900 /* HunterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BAA251C11A100DC9900 /* HunterTests.swift */; };
 		AD4A0BB6251C11A100DC9900 /* HunterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */; };
-		AD4C8FCF252BDFC100AA2AB4 /* GuestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4C8FCE252BDFC100AA2AB4 /* GuestViewController.xib */; };
-		AD5646E1254842C900BEBFB7 /* LocalSignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5646E0254842C900BEBFB7 /* LocalSignUpCoordinator.swift */; };
-		ADA78286251C1840005840AB /* AuthenticationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA78285251C1840005840AB /* AuthenticationModule.swift */; };
-		ADA7829A251C1902005840AB /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA78299251C1902005840AB /* AuthenticationCoordinator.swift */; };
-		ADA782A3251C19F0005840AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782A2251C19F0005840AB /* LoginViewController.swift */; };
-		ADA782B0251C1A2A005840AB /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782AF251C1A2A005840AB /* AuthenticationViewController.swift */; };
-		ADA782B7251C1ACF005840AB /* UIView+Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782B6251C1ACF005840AB /* UIView+Initialize.swift */; };
-		ADA782BF251C1C02005840AB /* UIStackView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782BE251C1C02005840AB /* UIStackView+Subviews.swift */; };
-		ADA782C4251C1C6F005840AB /* NSLayoutConstraint+Activate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782C3251C1C6F005840AB /* NSLayoutConstraint+Activate.swift */; };
-		ADA782CA251C2290005840AB /* HunterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782C9251C2290005840AB /* HunterButton.swift */; };
-		ADA782D2251C242B005840AB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782D1251C242B005840AB /* Color.swift */; };
-		ADA782D7251C247B005840AB /* UIColor+Hexadecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782D6251C247B005840AB /* UIColor+Hexadecimal.swift */; };
-		ADA782DC251C299D005840AB /* UIView+Centered.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA782DB251C299D005840AB /* UIView+Centered.swift */; };
-		ADADF666252299FF003364C7 /* TextFieldHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF665252299FF003364C7 /* TextFieldHandler.swift */; };
-		ADADF6762522CBC9003364C7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6752522CBC9003364C7 /* Router.swift */; };
-		ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF67A2522CD9F003364C7 /* GuestViewController.swift */; };
-		ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */; };
-		ADADF6852522CDED003364C7 /* GuestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6842522CDED003364C7 /* GuestFactory.swift */; };
-		ADADF68A2522CE1E003364C7 /* GuestFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF6892522CE1E003364C7 /* GuestFlow.swift */; };
-		ADADF68F2522CE83003364C7 /* GuestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF68E2522CE83003364C7 /* GuestRouter.swift */; };
-		ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADF69E2522CF15003364C7 /* RegisterMethod.swift */; };
-		ADAE6F3A254F74E20048C90A /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F39254F74E20048C90A /* HomeCoordinator.swift */; };
-		ADAE6F42254F74EC0048C90A /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F41254F74EC0048C90A /* HomeFlow.swift */; };
-		ADAE6F47254F74F40048C90A /* HomeCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F46254F74F40048C90A /* HomeCaseUse.swift */; };
-		ADAE6F50254F758A0048C90A /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F4F254F758A0048C90A /* HomeFactory.swift */; };
-		ADAE6F55254F75960048C90A /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F54254F75960048C90A /* HomePresenter.swift */; };
-		ADAE6F5B254F75A60048C90A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F59254F75A60048C90A /* HomeViewController.swift */; };
-		ADAE6F5C254F75A60048C90A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAE6F5A254F75A60048C90A /* HomeViewController.xib */; };
-		ADAE6F61254F75B40048C90A /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F60254F75B40048C90A /* HomeRouter.swift */; };
-		ADAE6F6F254F7C550048C90A /* CreateGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F6E254F7C550048C90A /* CreateGameCoordinator.swift */; };
-		ADAE6F77254F7C5B0048C90A /* CreateGameFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F76254F7C5B0048C90A /* CreateGameFlow.swift */; };
-		ADAE6F7C254F7C720048C90A /* CreateGameCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F7B254F7C720048C90A /* CreateGameCaseUse.swift */; };
-		ADAE6F83254F7DBB0048C90A /* CreateGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F82254F7DBB0048C90A /* CreateGameRouter.swift */; };
-		ADAE6F88254F7DC60048C90A /* CreateGameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F87254F7DC60048C90A /* CreateGameFactory.swift */; };
-		ADAE6F8D254F7DCC0048C90A /* CreateGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F8C254F7DCC0048C90A /* CreateGamePresenter.swift */; };
-		ADAE6F93254F7DD60048C90A /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE6F91254F7DD60048C90A /* CreateGameViewController.swift */; };
-		ADAE6F94254F7DD60048C90A /* CreateGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAE6F92254F7DD60048C90A /* CreateGameViewController.xib */; };
-		ADC1AA472547725900036470 /* LaunchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC1AA462547725900036470 /* LaunchFlow.swift */; };
-		ADC1AA4C2547727100036470 /* LaunchCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */; };
-		ADCB7221253B304C007B3F14 /* UIViewController+AddingSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7220253B304C007B3F14 /* UIViewController+AddingSubviews.swift */; };
-		ADCB722A253B3A40007B3F14 /* LaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */; };
-		ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB7232253B44B5007B3F14 /* Networking.swift */; };
-		ADCB723C253B4A15007B3F14 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB723B253B4A15007B3F14 /* Module.swift */; };
-		ADD0164E25485A2D00B0C13C /* HunterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0164D25485A2D00B0C13C /* HunterTextField.swift */; };
-		ADD016532548657200B0C13C /* Array+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD016522548657200B0C13C /* Array+Get.swift */; };
-		ADD0165825486BA300B0C13C /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0165725486BA300B0C13C /* UserRegister.swift */; };
-		ADD0165E25486BC300B0C13C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0165D25486BC300B0C13C /* Validation.swift */; };
-		ADD0166625486BD900B0C13C /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0166525486BD900B0C13C /* TextValidator.swift */; };
-		ADD0166C25486BF400B0C13C /* FieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0166B25486BF400B0C13C /* FieldViewModel.swift */; };
-		ADD0167425486C0A00B0C13C /* RegistryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0167325486C0A00B0C13C /* RegistryPresenter.swift */; };
-		ADD0167925486C8400B0C13C /* LocalSignUpFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0167825486C8400B0C13C /* LocalSignUpFactory.swift */; };
-		ADD0168125486CA900B0C13C /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0168025486CA900B0C13C /* String+Localizable.swift */; };
-		ADD0168925486CF900B0C13C /* LocalSignUpFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0168825486CF900B0C13C /* LocalSignUpFlow.swift */; };
-		ADD0168E25486D4E00B0C13C /* LocalSignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0168D25486D4E00B0C13C /* LocalSignUpRouter.swift */; };
-		ADDA769D2547879300CB11F0 /* RegisterGuestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */; };
-		ADDA76B925478BB400CB11F0 /* LocalSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA76B725478BB400CB11F0 /* LocalSignUpViewController.swift */; };
-		ADDA76BA25478BB400CB11F0 /* LocalSignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDA76B825478BB400CB11F0 /* LocalSignUpViewController.xib */; };
+		ADE0820625506CDC0046ACC5 /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A525506CDB0046ACC5 /* HomeFlow.swift */; };
+		ADE0820725506CDC0046ACC5 /* HomeCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A625506CDB0046ACC5 /* HomeCaseUse.swift */; };
+		ADE0820825506CDC0046ACC5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A725506CDB0046ACC5 /* HomeCoordinator.swift */; };
+		ADE0820925506CDC0046ACC5 /* LaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A925506CDB0046ACC5 /* LaunchCoordinator.swift */; };
+		ADE0820A25506CDC0046ACC5 /* LaunchCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081AA25506CDB0046ACC5 /* LaunchCaseUse.swift */; };
+		ADE0820B25506CDC0046ACC5 /* LaunchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081AB25506CDB0046ACC5 /* LaunchFlow.swift */; };
+		ADE0820C25506CDC0046ACC5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081AD25506CDB0046ACC5 /* Networking.swift */; };
+		ADE0820D25506CDC0046ACC5 /* JoinGameCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081B025506CDB0046ACC5 /* JoinGameCaseUse.swift */; };
+		ADE0820E25506CDC0046ACC5 /* JoinGameFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081B125506CDB0046ACC5 /* JoinGameFlow.swift */; };
+		ADE0820F25506CDC0046ACC5 /* JoinGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081B225506CDB0046ACC5 /* JoinGameCoordinator.swift */; };
+		ADE0821025506CDC0046ACC5 /* CreateGameCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081B425506CDB0046ACC5 /* CreateGameCaseUse.swift */; };
+		ADE0821125506CDC0046ACC5 /* CreateGameFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081B525506CDB0046ACC5 /* CreateGameFlow.swift */; };
+		ADE0821225506CDC0046ACC5 /* CreateGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081B625506CDB0046ACC5 /* CreateGameCoordinator.swift */; };
+		ADE0821325506CDC0046ACC5 /* RegisterMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081B825506CDB0046ACC5 /* RegisterMethod.swift */; };
+		ADE0821425506CDC0046ACC5 /* GuestFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081B925506CDB0046ACC5 /* GuestFlow.swift */; };
+		ADE0821525506CDC0046ACC5 /* LocalSignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081BB25506CDB0046ACC5 /* LocalSignUpCoordinator.swift */; };
+		ADE0821625506CDC0046ACC5 /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081BC25506CDB0046ACC5 /* UserRegister.swift */; };
+		ADE0821725506CDC0046ACC5 /* LocalSignUpFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081BD25506CDB0046ACC5 /* LocalSignUpFlow.swift */; };
+		ADE0821825506CDC0046ACC5 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081BF25506CDB0046ACC5 /* AuthenticationCoordinator.swift */; };
+		ADE0821925506CDC0046ACC5 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081C125506CDB0046ACC5 /* Validation.swift */; };
+		ADE0821A25506CDC0046ACC5 /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081C225506CDB0046ACC5 /* TextValidator.swift */; };
+		ADE0821B25506CDC0046ACC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE081C425506CDB0046ACC5 /* Assets.xcassets */; };
+		ADE0821C25506CDC0046ACC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE081C525506CDB0046ACC5 /* LaunchScreen.storyboard */; };
+		ADE0821D25506CDC0046ACC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081C725506CDB0046ACC5 /* AppDelegate.swift */; };
+		ADE0821E25506CDC0046ACC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081C825506CDB0046ACC5 /* SceneDelegate.swift */; };
+		ADE0821F25506CDC0046ACC5 /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081CB25506CDB0046ACC5 /* HomeFactory.swift */; };
+		ADE0822025506CDC0046ACC5 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE081CC25506CDB0046ACC5 /* HomeViewController.xib */; };
+		ADE0822125506CDC0046ACC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081CD25506CDB0046ACC5 /* HomeViewController.swift */; };
+		ADE0822225506CDC0046ACC5 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081CE25506CDB0046ACC5 /* HomeRouter.swift */; };
+		ADE0822325506CDC0046ACC5 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081CF25506CDB0046ACC5 /* HomePresenter.swift */; };
+		ADE0822425506CDC0046ACC5 /* JoinGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081D225506CDB0046ACC5 /* JoinGamePresenter.swift */; };
+		ADE0822525506CDC0046ACC5 /* JoinGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE081D325506CDB0046ACC5 /* JoinGameViewController.xib */; };
+		ADE0822625506CDC0046ACC5 /* JoinGameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081D425506CDB0046ACC5 /* JoinGameFactory.swift */; };
+		ADE0822725506CDC0046ACC5 /* JoinGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081D525506CDB0046ACC5 /* JoinGameRouter.swift */; };
+		ADE0822825506CDC0046ACC5 /* JoinGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081D625506CDB0046ACC5 /* JoinGameViewController.swift */; };
+		ADE0822925506CDC0046ACC5 /* CreateGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE081D825506CDC0046ACC5 /* CreateGameViewController.xib */; };
+		ADE0822A25506CDC0046ACC5 /* CreateGameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081D925506CDC0046ACC5 /* CreateGameFactory.swift */; };
+		ADE0822B25506CDC0046ACC5 /* CreateGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081DA25506CDC0046ACC5 /* CreateGamePresenter.swift */; };
+		ADE0822C25506CDC0046ACC5 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081DB25506CDC0046ACC5 /* CreateGameViewController.swift */; };
+		ADE0822D25506CDC0046ACC5 /* CreateGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081DC25506CDC0046ACC5 /* CreateGameRouter.swift */; };
+		ADE0822E25506CDC0046ACC5 /* RegisterGuestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081DE25506CDC0046ACC5 /* RegisterGuestPresenter.swift */; };
+		ADE0822F25506CDC0046ACC5 /* GuestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE081DF25506CDC0046ACC5 /* GuestViewController.xib */; };
+		ADE0823025506CDC0046ACC5 /* GuestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081E025506CDC0046ACC5 /* GuestFactory.swift */; };
+		ADE0823125506CDC0046ACC5 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081E125506CDC0046ACC5 /* GuestViewController.swift */; };
+		ADE0823225506CDC0046ACC5 /* iOSGuestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081E225506CDC0046ACC5 /* iOSGuestFactory.swift */; };
+		ADE0823325506CDC0046ACC5 /* GuestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081E325506CDC0046ACC5 /* GuestRouter.swift */; };
+		ADE0823425506CDC0046ACC5 /* LocalSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081E525506CDC0046ACC5 /* LocalSignUpViewController.swift */; };
+		ADE0823525506CDC0046ACC5 /* LocalSignUpFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081E625506CDC0046ACC5 /* LocalSignUpFactory.swift */; };
+		ADE0823625506CDC0046ACC5 /* RegistryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081E725506CDC0046ACC5 /* RegistryPresenter.swift */; };
+		ADE0823725506CDC0046ACC5 /* LocalSignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE081E825506CDC0046ACC5 /* LocalSignUpViewController.xib */; };
+		ADE0823825506CDC0046ACC5 /* LocalSignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081E925506CDC0046ACC5 /* LocalSignUpRouter.swift */; };
+		ADE0823925506CDC0046ACC5 /* FieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081EA25506CDC0046ACC5 /* FieldViewModel.swift */; };
+		ADE0823A25506CDC0046ACC5 /* AuthenticationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081EC25506CDC0046ACC5 /* AuthenticationModule.swift */; };
+		ADE0823B25506CDC0046ACC5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081EE25506CDC0046ACC5 /* LoginViewController.swift */; };
+		ADE0823C25506CDC0046ACC5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081EF25506CDC0046ACC5 /* AuthenticationViewController.swift */; };
+		ADE0823D25506CDC0046ACC5 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081F225506CDC0046ACC5 /* Module.swift */; };
+		ADE0823E25506CDC0046ACC5 /* HunterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081F625506CDC0046ACC5 /* HunterButton.swift */; };
+		ADE0823F25506CDC0046ACC5 /* HunterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081F725506CDC0046ACC5 /* HunterTextField.swift */; };
+		ADE0824025506CDC0046ACC5 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081F925506CDC0046ACC5 /* String+Localizable.swift */; };
+		ADE0824125506CDC0046ACC5 /* UIStackView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081FA25506CDC0046ACC5 /* UIStackView+Subviews.swift */; };
+		ADE0824225506CDC0046ACC5 /* NSLayoutConstraint+Activate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081FB25506CDC0046ACC5 /* NSLayoutConstraint+Activate.swift */; };
+		ADE0824325506CDC0046ACC5 /* Array+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081FC25506CDC0046ACC5 /* Array+Get.swift */; };
+		ADE0824425506CDC0046ACC5 /* UIColor+Hexadecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081FD25506CDC0046ACC5 /* UIColor+Hexadecimal.swift */; };
+		ADE0824525506CDC0046ACC5 /* UIView+Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081FE25506CDC0046ACC5 /* UIView+Initialize.swift */; };
+		ADE0824625506CDC0046ACC5 /* UIView+Centered.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081FF25506CDC0046ACC5 /* UIView+Centered.swift */; };
+		ADE0824725506CDC0046ACC5 /* UIViewController+AddingSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE0820025506CDC0046ACC5 /* UIViewController+AddingSubviews.swift */; };
+		ADE0824825506CDC0046ACC5 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE0820225506CDC0046ACC5 /* Router.swift */; };
+		ADE0824925506CDC0046ACC5 /* TextFieldHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE0820425506CDC0046ACC5 /* TextFieldHandler.swift */; };
+		ADE0824A25506CDC0046ACC5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE0820525506CDC0046ACC5 /* Color.swift */; };
+		ADE0825A25506F390046ACC5 /* TextValidator+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE0825925506F390046ACC5 /* TextValidator+Repository.swift */; };
 		B360CEBC1BB327E616411986 /* Pods_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118BCF7AD09771CAD36D8BB2 /* Pods_Hunter.framework */; };
 		C19F7AC29346E9949FDF9596 /* Pods_Hunter_HunterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0414FC799329DCE8482D95DC /* Pods_Hunter_HunterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -100,10 +109,6 @@
 		63CDBA3B5252C7FD3354783A /* Pods_HunterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HunterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E21C80B6614721D3F1E68F9 /* Pods-Hunter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hunter.debug.xcconfig"; path = "Target Support Files/Pods-Hunter/Pods-Hunter.debug.xcconfig"; sourceTree = "<group>"; };
 		AD4A0B90251C11A000DC9900 /* Hunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD4A0B93251C11A000DC9900 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AD4A0B95251C11A000DC9900 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AD4A0B9C251C11A100DC9900 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AD4A0B9F251C11A100DC9900 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD4A0BA1251C11A100DC9900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD4A0BA6251C11A100DC9900 /* HunterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HunterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4A0BAA251C11A100DC9900 /* HunterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterTests.swift; sourceTree = "<group>"; };
@@ -111,63 +116,76 @@
 		AD4A0BB1251C11A100DC9900 /* HunterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HunterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterUITests.swift; sourceTree = "<group>"; };
 		AD4A0BB7251C11A100DC9900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD4C8FCE252BDFC100AA2AB4 /* GuestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuestViewController.xib; sourceTree = "<group>"; };
-		AD5646E0254842C900BEBFB7 /* LocalSignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpCoordinator.swift; sourceTree = "<group>"; };
-		ADA78285251C1840005840AB /* AuthenticationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModule.swift; sourceTree = "<group>"; };
-		ADA78299251C1902005840AB /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
-		ADA782A2251C19F0005840AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		ADA782AF251C1A2A005840AB /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
-		ADA782B6251C1ACF005840AB /* UIView+Initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Initialize.swift"; sourceTree = "<group>"; };
-		ADA782BE251C1C02005840AB /* UIStackView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Subviews.swift"; sourceTree = "<group>"; };
-		ADA782C3251C1C6F005840AB /* NSLayoutConstraint+Activate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Activate.swift"; sourceTree = "<group>"; };
-		ADA782C9251C2290005840AB /* HunterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterButton.swift; sourceTree = "<group>"; };
-		ADA782D1251C242B005840AB /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		ADA782D6251C247B005840AB /* UIColor+Hexadecimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hexadecimal.swift"; sourceTree = "<group>"; };
-		ADA782DB251C299D005840AB /* UIView+Centered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Centered.swift"; sourceTree = "<group>"; };
-		ADADF665252299FF003364C7 /* TextFieldHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHandler.swift; sourceTree = "<group>"; };
-		ADADF6752522CBC9003364C7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		ADADF67A2522CD9F003364C7 /* GuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
-		ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSGuestFactory.swift; sourceTree = "<group>"; };
-		ADADF6842522CDED003364C7 /* GuestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFactory.swift; sourceTree = "<group>"; };
-		ADADF6892522CE1E003364C7 /* GuestFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFlow.swift; sourceTree = "<group>"; };
-		ADADF68E2522CE83003364C7 /* GuestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestRouter.swift; sourceTree = "<group>"; };
-		ADADF69E2522CF15003364C7 /* RegisterMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMethod.swift; sourceTree = "<group>"; };
-		ADAE6F39254F74E20048C90A /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		ADAE6F41254F74EC0048C90A /* HomeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlow.swift; sourceTree = "<group>"; };
-		ADAE6F46254F74F40048C90A /* HomeCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCaseUse.swift; sourceTree = "<group>"; };
-		ADAE6F4F254F758A0048C90A /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
-		ADAE6F54254F75960048C90A /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		ADAE6F59254F75A60048C90A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		ADAE6F5A254F75A60048C90A /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		ADAE6F60254F75B40048C90A /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
-		ADAE6F6E254F7C550048C90A /* CreateGameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameCoordinator.swift; sourceTree = "<group>"; };
-		ADAE6F76254F7C5B0048C90A /* CreateGameFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameFlow.swift; sourceTree = "<group>"; };
-		ADAE6F7B254F7C720048C90A /* CreateGameCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameCaseUse.swift; sourceTree = "<group>"; };
-		ADAE6F82254F7DBB0048C90A /* CreateGameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameRouter.swift; sourceTree = "<group>"; };
-		ADAE6F87254F7DC60048C90A /* CreateGameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameFactory.swift; sourceTree = "<group>"; };
-		ADAE6F8C254F7DCC0048C90A /* CreateGamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGamePresenter.swift; sourceTree = "<group>"; };
-		ADAE6F91254F7DD60048C90A /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
-		ADAE6F92254F7DD60048C90A /* CreateGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateGameViewController.xib; sourceTree = "<group>"; };
-		ADC1AA462547725900036470 /* LaunchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchFlow.swift; sourceTree = "<group>"; };
-		ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCaseUse.swift; sourceTree = "<group>"; };
-		ADCB7220253B304C007B3F14 /* UIViewController+AddingSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddingSubviews.swift"; sourceTree = "<group>"; };
-		ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCoordinator.swift; sourceTree = "<group>"; };
-		ADCB7232253B44B5007B3F14 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		ADCB723B253B4A15007B3F14 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
-		ADD0164D25485A2D00B0C13C /* HunterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterTextField.swift; sourceTree = "<group>"; };
-		ADD016522548657200B0C13C /* Array+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Get.swift"; sourceTree = "<group>"; };
-		ADD0165725486BA300B0C13C /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
-		ADD0165D25486BC300B0C13C /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
-		ADD0166525486BD900B0C13C /* TextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
-		ADD0166B25486BF400B0C13C /* FieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldViewModel.swift; sourceTree = "<group>"; };
-		ADD0167325486C0A00B0C13C /* RegistryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryPresenter.swift; sourceTree = "<group>"; };
-		ADD0167825486C8400B0C13C /* LocalSignUpFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpFactory.swift; sourceTree = "<group>"; };
-		ADD0168025486CA900B0C13C /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
-		ADD0168825486CF900B0C13C /* LocalSignUpFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpFlow.swift; sourceTree = "<group>"; };
-		ADD0168D25486D4E00B0C13C /* LocalSignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpRouter.swift; sourceTree = "<group>"; };
-		ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterGuestPresenter.swift; sourceTree = "<group>"; };
-		ADDA76B725478BB400CB11F0 /* LocalSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSignUpViewController.swift; sourceTree = "<group>"; };
-		ADDA76B825478BB400CB11F0 /* LocalSignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalSignUpViewController.xib; sourceTree = "<group>"; };
+		ADE081A525506CDB0046ACC5 /* HomeFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFlow.swift; sourceTree = "<group>"; };
+		ADE081A625506CDB0046ACC5 /* HomeCaseUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCaseUse.swift; sourceTree = "<group>"; };
+		ADE081A725506CDB0046ACC5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		ADE081A925506CDB0046ACC5 /* LaunchCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchCoordinator.swift; sourceTree = "<group>"; };
+		ADE081AA25506CDB0046ACC5 /* LaunchCaseUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchCaseUse.swift; sourceTree = "<group>"; };
+		ADE081AB25506CDB0046ACC5 /* LaunchFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchFlow.swift; sourceTree = "<group>"; };
+		ADE081AD25506CDB0046ACC5 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		ADE081B025506CDB0046ACC5 /* JoinGameCaseUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGameCaseUse.swift; sourceTree = "<group>"; };
+		ADE081B125506CDB0046ACC5 /* JoinGameFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGameFlow.swift; sourceTree = "<group>"; };
+		ADE081B225506CDB0046ACC5 /* JoinGameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGameCoordinator.swift; sourceTree = "<group>"; };
+		ADE081B425506CDB0046ACC5 /* CreateGameCaseUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameCaseUse.swift; sourceTree = "<group>"; };
+		ADE081B525506CDB0046ACC5 /* CreateGameFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameFlow.swift; sourceTree = "<group>"; };
+		ADE081B625506CDB0046ACC5 /* CreateGameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameCoordinator.swift; sourceTree = "<group>"; };
+		ADE081B825506CDB0046ACC5 /* RegisterMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterMethod.swift; sourceTree = "<group>"; };
+		ADE081B925506CDB0046ACC5 /* GuestFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestFlow.swift; sourceTree = "<group>"; };
+		ADE081BB25506CDB0046ACC5 /* LocalSignUpCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSignUpCoordinator.swift; sourceTree = "<group>"; };
+		ADE081BC25506CDB0046ACC5 /* UserRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
+		ADE081BD25506CDB0046ACC5 /* LocalSignUpFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSignUpFlow.swift; sourceTree = "<group>"; };
+		ADE081BF25506CDB0046ACC5 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		ADE081C125506CDB0046ACC5 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		ADE081C225506CDB0046ACC5 /* TextValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
+		ADE081C425506CDB0046ACC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADE081C625506CDB0046ACC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ADE081C725506CDB0046ACC5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ADE081C825506CDB0046ACC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ADE081CB25506CDB0046ACC5 /* HomeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		ADE081CC25506CDB0046ACC5 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		ADE081CD25506CDB0046ACC5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ADE081CE25506CDB0046ACC5 /* HomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		ADE081CF25506CDB0046ACC5 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		ADE081D225506CDB0046ACC5 /* JoinGamePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGamePresenter.swift; sourceTree = "<group>"; };
+		ADE081D325506CDB0046ACC5 /* JoinGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinGameViewController.xib; sourceTree = "<group>"; };
+		ADE081D425506CDB0046ACC5 /* JoinGameFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGameFactory.swift; sourceTree = "<group>"; };
+		ADE081D525506CDB0046ACC5 /* JoinGameRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGameRouter.swift; sourceTree = "<group>"; };
+		ADE081D625506CDB0046ACC5 /* JoinGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGameViewController.swift; sourceTree = "<group>"; };
+		ADE081D825506CDC0046ACC5 /* CreateGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateGameViewController.xib; sourceTree = "<group>"; };
+		ADE081D925506CDC0046ACC5 /* CreateGameFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameFactory.swift; sourceTree = "<group>"; };
+		ADE081DA25506CDC0046ACC5 /* CreateGamePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGamePresenter.swift; sourceTree = "<group>"; };
+		ADE081DB25506CDC0046ACC5 /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
+		ADE081DC25506CDC0046ACC5 /* CreateGameRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameRouter.swift; sourceTree = "<group>"; };
+		ADE081DE25506CDC0046ACC5 /* RegisterGuestPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterGuestPresenter.swift; sourceTree = "<group>"; };
+		ADE081DF25506CDC0046ACC5 /* GuestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuestViewController.xib; sourceTree = "<group>"; };
+		ADE081E025506CDC0046ACC5 /* GuestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestFactory.swift; sourceTree = "<group>"; };
+		ADE081E125506CDC0046ACC5 /* GuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
+		ADE081E225506CDC0046ACC5 /* iOSGuestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSGuestFactory.swift; sourceTree = "<group>"; };
+		ADE081E325506CDC0046ACC5 /* GuestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestRouter.swift; sourceTree = "<group>"; };
+		ADE081E525506CDC0046ACC5 /* LocalSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSignUpViewController.swift; sourceTree = "<group>"; };
+		ADE081E625506CDC0046ACC5 /* LocalSignUpFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSignUpFactory.swift; sourceTree = "<group>"; };
+		ADE081E725506CDC0046ACC5 /* RegistryPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistryPresenter.swift; sourceTree = "<group>"; };
+		ADE081E825506CDC0046ACC5 /* LocalSignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalSignUpViewController.xib; sourceTree = "<group>"; };
+		ADE081E925506CDC0046ACC5 /* LocalSignUpRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSignUpRouter.swift; sourceTree = "<group>"; };
+		ADE081EA25506CDC0046ACC5 /* FieldViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldViewModel.swift; sourceTree = "<group>"; };
+		ADE081EC25506CDC0046ACC5 /* AuthenticationModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationModule.swift; sourceTree = "<group>"; };
+		ADE081EE25506CDC0046ACC5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ADE081EF25506CDC0046ACC5 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		ADE081F225506CDC0046ACC5 /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		ADE081F625506CDC0046ACC5 /* HunterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HunterButton.swift; sourceTree = "<group>"; };
+		ADE081F725506CDC0046ACC5 /* HunterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HunterTextField.swift; sourceTree = "<group>"; };
+		ADE081F925506CDC0046ACC5 /* String+Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		ADE081FA25506CDC0046ACC5 /* UIStackView+Subviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Subviews.swift"; sourceTree = "<group>"; };
+		ADE081FB25506CDC0046ACC5 /* NSLayoutConstraint+Activate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Activate.swift"; sourceTree = "<group>"; };
+		ADE081FC25506CDC0046ACC5 /* Array+Get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Get.swift"; sourceTree = "<group>"; };
+		ADE081FD25506CDC0046ACC5 /* UIColor+Hexadecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hexadecimal.swift"; sourceTree = "<group>"; };
+		ADE081FE25506CDC0046ACC5 /* UIView+Initialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Initialize.swift"; sourceTree = "<group>"; };
+		ADE081FF25506CDC0046ACC5 /* UIView+Centered.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Centered.swift"; sourceTree = "<group>"; };
+		ADE0820025506CDC0046ACC5 /* UIViewController+AddingSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddingSubviews.swift"; sourceTree = "<group>"; };
+		ADE0820225506CDC0046ACC5 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		ADE0820425506CDC0046ACC5 /* TextFieldHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldHandler.swift; sourceTree = "<group>"; };
+		ADE0820525506CDC0046ACC5 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		ADE0825925506F390046ACC5 /* TextValidator+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextValidator+Repository.swift"; sourceTree = "<group>"; };
 		B22C1F04A2DEDEB70B975CC0 /* Pods-Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hunter.release.xcconfig"; path = "Target Support Files/Pods-Hunter/Pods-Hunter.release.xcconfig"; sourceTree = "<group>"; };
 		C9AE6D3A76F45A65280B1283 /* Pods-HunterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.release.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.release.xcconfig"; sourceTree = "<group>"; };
 		E909DD6C60921D71CC7A7787 /* Pods-HunterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.debug.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,12 +244,12 @@
 		AD4A0B92251C11A000DC9900 /* Hunter */ = {
 			isa = PBXGroup;
 			children = (
-				ADCB7240253B4A97007B3F14 /* App */,
-				AD9064C4251C1715005DC31D /* Engine */,
-				ADA78284251C182E005840AB /* Flows */,
-				AD9064C3251C1711005DC31D /* Utils */,
+				ADE081F025506CDC0046ACC5 /* App */,
+				ADE081A325506CDB0046ACC5 /* Engine */,
+				ADE081C925506CDB0046ACC5 /* Flows */,
+				ADE081C325506CDB0046ACC5 /* Resources */,
+				ADE081F325506CDC0046ACC5 /* Utils */,
 				AD4A0BA1251C11A100DC9900 /* Info.plist */,
-				AD9064C5251C171A005DC31D /* Resources */,
 			);
 			path = Hunter;
 			sourceTree = "<group>";
@@ -254,276 +272,301 @@
 			path = HunterUITests;
 			sourceTree = "<group>";
 		};
-		AD9064C3251C1711005DC31D /* Utils */ = {
+		ADE081A325506CDB0046ACC5 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				ADADF6742522CBBF003364C7 /* Navigation */,
-				ADADF664252299F8003364C7 /* Handlers */,
-				ADA782B4251C1AB3005840AB /* UI */,
-				ADA782D1251C242B005840AB /* Color.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		AD9064C4251C1715005DC31D /* Engine */ = {
-			isa = PBXGroup;
-			children = (
-				ADAE6F69254F7C1F0048C90A /* Game */,
-				ADAE6F35254F74CF0048C90A /* Home */,
-				ADD0165C25486BBD00B0C13C /* Validation */,
-				ADC1AA50254772AE00036470 /* LocalSignUp */,
-				ADCB7231253B44AA007B3F14 /* Networking */,
-				ADCB7228253B3A0E007B3F14 /* Launch */,
-				ADADF6732522CAAF003364C7 /* Guest */,
-				ADA7828F251C18D8005840AB /* Authentication */,
+				ADE081A425506CDB0046ACC5 /* Home */,
+				ADE081A825506CDB0046ACC5 /* Launch */,
+				ADE081AC25506CDB0046ACC5 /* Networking */,
+				ADE081AE25506CDB0046ACC5 /* Game */,
+				ADE081B725506CDB0046ACC5 /* Guest */,
+				ADE081BA25506CDB0046ACC5 /* LocalSignUp */,
+				ADE081BE25506CDB0046ACC5 /* Authentication */,
+				ADE081C025506CDB0046ACC5 /* Validation */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
 		};
-		AD9064C5251C171A005DC31D /* Resources */ = {
+		ADE081A425506CDB0046ACC5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				AD4A0B93251C11A000DC9900 /* AppDelegate.swift */,
-				AD4A0B95251C11A000DC9900 /* SceneDelegate.swift */,
-				AD4A0B9E251C11A100DC9900 /* LaunchScreen.storyboard */,
-				AD4A0B9C251C11A100DC9900 /* Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		ADA78284251C182E005840AB /* Flows */ = {
-			isa = PBXGroup;
-			children = (
-				ADAE6F80254F7DA60048C90A /* Game */,
-				ADAE6F4E254F757D0048C90A /* Home */,
-				ADDA76B625478A3800CB11F0 /* LocalSignUp */,
-				ADADF66D2522CA90003364C7 /* Guest */,
-				ADA7828D251C18C9005840AB /* Authentication */,
-			);
-			path = Flows;
-			sourceTree = "<group>";
-		};
-		ADA7828D251C18C9005840AB /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				ADA78285251C1840005840AB /* AuthenticationModule.swift */,
-				ADA782A1251C19DA005840AB /* Controllers */,
-			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
-		ADA7828F251C18D8005840AB /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				ADA78299251C1902005840AB /* AuthenticationCoordinator.swift */,
-			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
-		ADA782A1251C19DA005840AB /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				ADA782A2251C19F0005840AB /* LoginViewController.swift */,
-				ADA782AF251C1A2A005840AB /* AuthenticationViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		ADA782B4251C1AB3005840AB /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				ADA782C8251C227C005840AB /* Hunter */,
-				ADA782B5251C1AB6005840AB /* Extensions */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		ADA782B5251C1AB6005840AB /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				ADA782B6251C1ACF005840AB /* UIView+Initialize.swift */,
-				ADA782BE251C1C02005840AB /* UIStackView+Subviews.swift */,
-				ADA782C3251C1C6F005840AB /* NSLayoutConstraint+Activate.swift */,
-				ADA782DB251C299D005840AB /* UIView+Centered.swift */,
-				ADA782D6251C247B005840AB /* UIColor+Hexadecimal.swift */,
-				ADCB7220253B304C007B3F14 /* UIViewController+AddingSubviews.swift */,
-				ADD016522548657200B0C13C /* Array+Get.swift */,
-				ADD0168025486CA900B0C13C /* String+Localizable.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		ADA782C8251C227C005840AB /* Hunter */ = {
-			isa = PBXGroup;
-			children = (
-				ADA782C9251C2290005840AB /* HunterButton.swift */,
-				ADD0164D25485A2D00B0C13C /* HunterTextField.swift */,
-			);
-			path = Hunter;
-			sourceTree = "<group>";
-		};
-		ADADF664252299F8003364C7 /* Handlers */ = {
-			isa = PBXGroup;
-			children = (
-				ADADF665252299FF003364C7 /* TextFieldHandler.swift */,
-			);
-			path = Handlers;
-			sourceTree = "<group>";
-		};
-		ADADF66D2522CA90003364C7 /* Guest */ = {
-			isa = PBXGroup;
-			children = (
-				ADADF68E2522CE83003364C7 /* GuestRouter.swift */,
-				ADADF6842522CDED003364C7 /* GuestFactory.swift */,
-				ADADF67F2522CDC9003364C7 /* iOSGuestFactory.swift */,
-				ADDA769C2547879300CB11F0 /* RegisterGuestPresenter.swift */,
-				ADADF67A2522CD9F003364C7 /* GuestViewController.swift */,
-				AD4C8FCE252BDFC100AA2AB4 /* GuestViewController.xib */,
-			);
-			path = Guest;
-			sourceTree = "<group>";
-		};
-		ADADF6732522CAAF003364C7 /* Guest */ = {
-			isa = PBXGroup;
-			children = (
-				ADADF6892522CE1E003364C7 /* GuestFlow.swift */,
-				ADADF69E2522CF15003364C7 /* RegisterMethod.swift */,
-			);
-			path = Guest;
-			sourceTree = "<group>";
-		};
-		ADADF6742522CBBF003364C7 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				ADADF6752522CBC9003364C7 /* Router.swift */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
-		ADAE6F35254F74CF0048C90A /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				ADAE6F39254F74E20048C90A /* HomeCoordinator.swift */,
-				ADAE6F41254F74EC0048C90A /* HomeFlow.swift */,
-				ADAE6F46254F74F40048C90A /* HomeCaseUse.swift */,
+				ADE081A525506CDB0046ACC5 /* HomeFlow.swift */,
+				ADE081A625506CDB0046ACC5 /* HomeCaseUse.swift */,
+				ADE081A725506CDB0046ACC5 /* HomeCoordinator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		ADAE6F4E254F757D0048C90A /* Home */ = {
+		ADE081A825506CDB0046ACC5 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				ADAE6F60254F75B40048C90A /* HomeRouter.swift */,
-				ADAE6F4F254F758A0048C90A /* HomeFactory.swift */,
-				ADAE6F54254F75960048C90A /* HomePresenter.swift */,
-				ADAE6F59254F75A60048C90A /* HomeViewController.swift */,
-				ADAE6F5A254F75A60048C90A /* HomeViewController.xib */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		ADAE6F69254F7C1F0048C90A /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				ADAE6F6A254F7C280048C90A /* Create */,
-			);
-			path = Game;
-			sourceTree = "<group>";
-		};
-		ADAE6F6A254F7C280048C90A /* Create */ = {
-			isa = PBXGroup;
-			children = (
-				ADAE6F6E254F7C550048C90A /* CreateGameCoordinator.swift */,
-				ADAE6F76254F7C5B0048C90A /* CreateGameFlow.swift */,
-				ADAE6F7B254F7C720048C90A /* CreateGameCaseUse.swift */,
-			);
-			path = Create;
-			sourceTree = "<group>";
-		};
-		ADAE6F80254F7DA60048C90A /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				ADAE6F81254F7DA90048C90A /* Create */,
-			);
-			path = Game;
-			sourceTree = "<group>";
-		};
-		ADAE6F81254F7DA90048C90A /* Create */ = {
-			isa = PBXGroup;
-			children = (
-				ADAE6F82254F7DBB0048C90A /* CreateGameRouter.swift */,
-				ADAE6F87254F7DC60048C90A /* CreateGameFactory.swift */,
-				ADAE6F8C254F7DCC0048C90A /* CreateGamePresenter.swift */,
-				ADAE6F91254F7DD60048C90A /* CreateGameViewController.swift */,
-				ADAE6F92254F7DD60048C90A /* CreateGameViewController.xib */,
-			);
-			path = Create;
-			sourceTree = "<group>";
-		};
-		ADC1AA50254772AE00036470 /* LocalSignUp */ = {
-			isa = PBXGroup;
-			children = (
-				AD5646E0254842C900BEBFB7 /* LocalSignUpCoordinator.swift */,
-				ADD0168825486CF900B0C13C /* LocalSignUpFlow.swift */,
-				ADD0165725486BA300B0C13C /* UserRegister.swift */,
-			);
-			path = LocalSignUp;
-			sourceTree = "<group>";
-		};
-		ADCB7228253B3A0E007B3F14 /* Launch */ = {
-			isa = PBXGroup;
-			children = (
-				ADCB7229253B3A40007B3F14 /* LaunchCoordinator.swift */,
-				ADC1AA462547725900036470 /* LaunchFlow.swift */,
-				ADC1AA4B2547727100036470 /* LaunchCaseUse.swift */,
+				ADE081A925506CDB0046ACC5 /* LaunchCoordinator.swift */,
+				ADE081AA25506CDB0046ACC5 /* LaunchCaseUse.swift */,
+				ADE081AB25506CDB0046ACC5 /* LaunchFlow.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
 		};
-		ADCB7231253B44AA007B3F14 /* Networking */ = {
+		ADE081AC25506CDB0046ACC5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				ADCB7232253B44B5007B3F14 /* Networking.swift */,
+				ADE081AD25506CDB0046ACC5 /* Networking.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		ADCB723A253B4A0A007B3F14 /* Module */ = {
+		ADE081AE25506CDB0046ACC5 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				ADCB723B253B4A15007B3F14 /* Module.swift */,
+				ADE081AF25506CDB0046ACC5 /* Join */,
+				ADE081B325506CDB0046ACC5 /* Create */,
 			);
-			path = Module;
+			path = Game;
 			sourceTree = "<group>";
 		};
-		ADCB7240253B4A97007B3F14 /* App */ = {
+		ADE081AF25506CDB0046ACC5 /* Join */ = {
 			isa = PBXGroup;
 			children = (
-				ADCB723A253B4A0A007B3F14 /* Module */,
+				ADE081B025506CDB0046ACC5 /* JoinGameCaseUse.swift */,
+				ADE081B125506CDB0046ACC5 /* JoinGameFlow.swift */,
+				ADE081B225506CDB0046ACC5 /* JoinGameCoordinator.swift */,
 			);
-			path = App;
+			path = Join;
 			sourceTree = "<group>";
 		};
-		ADD0165C25486BBD00B0C13C /* Validation */ = {
+		ADE081B325506CDB0046ACC5 /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				ADD0165D25486BC300B0C13C /* Validation.swift */,
-				ADD0166525486BD900B0C13C /* TextValidator.swift */,
+				ADE081B425506CDB0046ACC5 /* CreateGameCaseUse.swift */,
+				ADE081B525506CDB0046ACC5 /* CreateGameFlow.swift */,
+				ADE081B625506CDB0046ACC5 /* CreateGameCoordinator.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		ADE081B725506CDB0046ACC5 /* Guest */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081B825506CDB0046ACC5 /* RegisterMethod.swift */,
+				ADE081B925506CDB0046ACC5 /* GuestFlow.swift */,
+			);
+			path = Guest;
+			sourceTree = "<group>";
+		};
+		ADE081BA25506CDB0046ACC5 /* LocalSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081BB25506CDB0046ACC5 /* LocalSignUpCoordinator.swift */,
+				ADE081BC25506CDB0046ACC5 /* UserRegister.swift */,
+				ADE081BD25506CDB0046ACC5 /* LocalSignUpFlow.swift */,
+			);
+			path = LocalSignUp;
+			sourceTree = "<group>";
+		};
+		ADE081BE25506CDB0046ACC5 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081BF25506CDB0046ACC5 /* AuthenticationCoordinator.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		ADE081C025506CDB0046ACC5 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081C125506CDB0046ACC5 /* Validation.swift */,
+				ADE081C225506CDB0046ACC5 /* TextValidator.swift */,
+				ADE0825925506F390046ACC5 /* TextValidator+Repository.swift */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
 		};
-		ADDA76B625478A3800CB11F0 /* LocalSignUp */ = {
+		ADE081C325506CDB0046ACC5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ADD0167825486C8400B0C13C /* LocalSignUpFactory.swift */,
-				ADD0167325486C0A00B0C13C /* RegistryPresenter.swift */,
-				ADD0166B25486BF400B0C13C /* FieldViewModel.swift */,
-				ADDA76B725478BB400CB11F0 /* LocalSignUpViewController.swift */,
-				ADDA76B825478BB400CB11F0 /* LocalSignUpViewController.xib */,
-				ADD0168D25486D4E00B0C13C /* LocalSignUpRouter.swift */,
+				ADE081C425506CDB0046ACC5 /* Assets.xcassets */,
+				ADE081C525506CDB0046ACC5 /* LaunchScreen.storyboard */,
+				ADE081C725506CDB0046ACC5 /* AppDelegate.swift */,
+				ADE081C825506CDB0046ACC5 /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ADE081C925506CDB0046ACC5 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081CA25506CDB0046ACC5 /* Home */,
+				ADE081D025506CDB0046ACC5 /* Game */,
+				ADE081DD25506CDC0046ACC5 /* Guest */,
+				ADE081E425506CDC0046ACC5 /* LocalSignUp */,
+				ADE081EB25506CDC0046ACC5 /* Authentication */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		ADE081CA25506CDB0046ACC5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081CB25506CDB0046ACC5 /* HomeFactory.swift */,
+				ADE081CC25506CDB0046ACC5 /* HomeViewController.xib */,
+				ADE081CD25506CDB0046ACC5 /* HomeViewController.swift */,
+				ADE081CE25506CDB0046ACC5 /* HomeRouter.swift */,
+				ADE081CF25506CDB0046ACC5 /* HomePresenter.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ADE081D025506CDB0046ACC5 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081D125506CDB0046ACC5 /* Join */,
+				ADE081D725506CDB0046ACC5 /* Create */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		ADE081D125506CDB0046ACC5 /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081D225506CDB0046ACC5 /* JoinGamePresenter.swift */,
+				ADE081D325506CDB0046ACC5 /* JoinGameViewController.xib */,
+				ADE081D425506CDB0046ACC5 /* JoinGameFactory.swift */,
+				ADE081D525506CDB0046ACC5 /* JoinGameRouter.swift */,
+				ADE081D625506CDB0046ACC5 /* JoinGameViewController.swift */,
+			);
+			path = Join;
+			sourceTree = "<group>";
+		};
+		ADE081D725506CDB0046ACC5 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081D825506CDC0046ACC5 /* CreateGameViewController.xib */,
+				ADE081D925506CDC0046ACC5 /* CreateGameFactory.swift */,
+				ADE081DA25506CDC0046ACC5 /* CreateGamePresenter.swift */,
+				ADE081DB25506CDC0046ACC5 /* CreateGameViewController.swift */,
+				ADE081DC25506CDC0046ACC5 /* CreateGameRouter.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		ADE081DD25506CDC0046ACC5 /* Guest */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081DE25506CDC0046ACC5 /* RegisterGuestPresenter.swift */,
+				ADE081DF25506CDC0046ACC5 /* GuestViewController.xib */,
+				ADE081E025506CDC0046ACC5 /* GuestFactory.swift */,
+				ADE081E125506CDC0046ACC5 /* GuestViewController.swift */,
+				ADE081E225506CDC0046ACC5 /* iOSGuestFactory.swift */,
+				ADE081E325506CDC0046ACC5 /* GuestRouter.swift */,
+			);
+			path = Guest;
+			sourceTree = "<group>";
+		};
+		ADE081E425506CDC0046ACC5 /* LocalSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081E525506CDC0046ACC5 /* LocalSignUpViewController.swift */,
+				ADE081E625506CDC0046ACC5 /* LocalSignUpFactory.swift */,
+				ADE081E725506CDC0046ACC5 /* RegistryPresenter.swift */,
+				ADE081E825506CDC0046ACC5 /* LocalSignUpViewController.xib */,
+				ADE081E925506CDC0046ACC5 /* LocalSignUpRouter.swift */,
+				ADE081EA25506CDC0046ACC5 /* FieldViewModel.swift */,
 			);
 			path = LocalSignUp;
+			sourceTree = "<group>";
+		};
+		ADE081EB25506CDC0046ACC5 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081EC25506CDC0046ACC5 /* AuthenticationModule.swift */,
+				ADE081ED25506CDC0046ACC5 /* Controllers */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		ADE081ED25506CDC0046ACC5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081EE25506CDC0046ACC5 /* LoginViewController.swift */,
+				ADE081EF25506CDC0046ACC5 /* AuthenticationViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ADE081F025506CDC0046ACC5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081F125506CDC0046ACC5 /* Module */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		ADE081F125506CDC0046ACC5 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081F225506CDC0046ACC5 /* Module.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		ADE081F325506CDC0046ACC5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081F425506CDC0046ACC5 /* UI */,
+				ADE0820125506CDC0046ACC5 /* Navigation */,
+				ADE0820325506CDC0046ACC5 /* Handlers */,
+				ADE0820525506CDC0046ACC5 /* Color.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ADE081F425506CDC0046ACC5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081F525506CDC0046ACC5 /* Hunter */,
+				ADE081F825506CDC0046ACC5 /* Extensions */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		ADE081F525506CDC0046ACC5 /* Hunter */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081F625506CDC0046ACC5 /* HunterButton.swift */,
+				ADE081F725506CDC0046ACC5 /* HunterTextField.swift */,
+			);
+			path = Hunter;
+			sourceTree = "<group>";
+		};
+		ADE081F825506CDC0046ACC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081F925506CDC0046ACC5 /* String+Localizable.swift */,
+				ADE081FA25506CDC0046ACC5 /* UIStackView+Subviews.swift */,
+				ADE081FB25506CDC0046ACC5 /* NSLayoutConstraint+Activate.swift */,
+				ADE081FC25506CDC0046ACC5 /* Array+Get.swift */,
+				ADE081FD25506CDC0046ACC5 /* UIColor+Hexadecimal.swift */,
+				ADE081FE25506CDC0046ACC5 /* UIView+Initialize.swift */,
+				ADE081FF25506CDC0046ACC5 /* UIView+Centered.swift */,
+				ADE0820025506CDC0046ACC5 /* UIViewController+AddingSubviews.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ADE0820125506CDC0046ACC5 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				ADE0820225506CDC0046ACC5 /* Router.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		ADE0820325506CDC0046ACC5 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				ADE0820425506CDC0046ACC5 /* TextFieldHandler.swift */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 		BC749D5EA1166B2913CDFEAD /* Frameworks */ = {
@@ -657,12 +700,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD4A0BA0251C11A100DC9900 /* LaunchScreen.storyboard in Resources */,
-				AD4A0B9D251C11A100DC9900 /* Assets.xcassets in Resources */,
-				ADAE6F94254F7DD60048C90A /* CreateGameViewController.xib in Resources */,
-				ADAE6F5C254F75A60048C90A /* HomeViewController.xib in Resources */,
-				ADDA76BA25478BB400CB11F0 /* LocalSignUpViewController.xib in Resources */,
-				AD4C8FCF252BDFC100AA2AB4 /* GuestViewController.xib in Resources */,
+				ADE0823725506CDC0046ACC5 /* LocalSignUpViewController.xib in Resources */,
+				ADE0822525506CDC0046ACC5 /* JoinGameViewController.xib in Resources */,
+				ADE0821B25506CDC0046ACC5 /* Assets.xcassets in Resources */,
+				ADE0821C25506CDC0046ACC5 /* LaunchScreen.storyboard in Resources */,
+				ADE0822925506CDC0046ACC5 /* CreateGameViewController.xib in Resources */,
+				ADE0822025506CDC0046ACC5 /* HomeViewController.xib in Resources */,
+				ADE0822F25506CDC0046ACC5 /* GuestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,72 +834,69 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADD0167425486C0A00B0C13C /* RegistryPresenter.swift in Sources */,
-				ADADF666252299FF003364C7 /* TextFieldHandler.swift in Sources */,
-				ADADF6852522CDED003364C7 /* GuestFactory.swift in Sources */,
-				ADCB723C253B4A15007B3F14 /* Module.swift in Sources */,
-				ADC1AA4C2547727100036470 /* LaunchCaseUse.swift in Sources */,
-				ADAE6F3A254F74E20048C90A /* HomeCoordinator.swift in Sources */,
-				ADA782C4251C1C6F005840AB /* NSLayoutConstraint+Activate.swift in Sources */,
-				ADD0168E25486D4E00B0C13C /* LocalSignUpRouter.swift in Sources */,
-				ADCB7233253B44B5007B3F14 /* Networking.swift in Sources */,
-				ADDA769D2547879300CB11F0 /* RegisterGuestPresenter.swift in Sources */,
-				ADA782BF251C1C02005840AB /* UIStackView+Subviews.swift in Sources */,
-				ADD0168925486CF900B0C13C /* LocalSignUpFlow.swift in Sources */,
-				ADAE6F7C254F7C720048C90A /* CreateGameCaseUse.swift in Sources */,
-				AD5646E1254842C900BEBFB7 /* LocalSignUpCoordinator.swift in Sources */,
-				ADA782B7251C1ACF005840AB /* UIView+Initialize.swift in Sources */,
-				ADD0168125486CA900B0C13C /* String+Localizable.swift in Sources */,
-				ADAE6F6F254F7C550048C90A /* CreateGameCoordinator.swift in Sources */,
-				ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */,
-				ADD0166C25486BF400B0C13C /* FieldViewModel.swift in Sources */,
-				ADAE6F93254F7DD60048C90A /* CreateGameViewController.swift in Sources */,
-				ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */,
-				ADA782CA251C2290005840AB /* HunterButton.swift in Sources */,
-				ADAE6F5B254F75A60048C90A /* HomeViewController.swift in Sources */,
-				AD5646E1254842C900BEBFB7 /* LocalSignUpCoordinator.swift in Sources */,
-				ADA782B7251C1ACF005840AB /* UIView+Initialize.swift in Sources */,
-				ADD0168125486CA900B0C13C /* String+Localizable.swift in Sources */,
-				ADADF69F2522CF15003364C7 /* RegisterMethod.swift in Sources */,
-				ADD0166C25486BF400B0C13C /* FieldViewModel.swift in Sources */,
-				ADADF6802522CDC9003364C7 /* iOSGuestFactory.swift in Sources */,
-				ADA782CA251C2290005840AB /* HunterButton.swift in Sources */,
-				ADADF68F2522CE83003364C7 /* GuestRouter.swift in Sources */,
-				ADCB7221253B304C007B3F14 /* UIViewController+AddingSubviews.swift in Sources */,
-				ADA782D2251C242B005840AB /* Color.swift in Sources */,
-				AD4A0B94251C11A000DC9900 /* AppDelegate.swift in Sources */,
-				ADC1AA472547725900036470 /* LaunchFlow.swift in Sources */,
-				ADD0164E25485A2D00B0C13C /* HunterTextField.swift in Sources */,
-				ADAE6F55254F75960048C90A /* HomePresenter.swift in Sources */,
-				ADAE6F88254F7DC60048C90A /* CreateGameFactory.swift in Sources */,
-				ADA78286251C1840005840AB /* AuthenticationModule.swift in Sources */,
-				ADAE6F50254F758A0048C90A /* HomeFactory.swift in Sources */,
-				ADA78286251C1840005840AB /* AuthenticationModule.swift in Sources */,
-				ADD0167925486C8400B0C13C /* LocalSignUpFactory.swift in Sources */,
-				ADD016532548657200B0C13C /* Array+Get.swift in Sources */,
-				ADA782D7251C247B005840AB /* UIColor+Hexadecimal.swift in Sources */,
-				ADADF6762522CBC9003364C7 /* Router.swift in Sources */,
-				ADD0166625486BD900B0C13C /* TextValidator.swift in Sources */,
-				ADA782B0251C1A2A005840AB /* AuthenticationViewController.swift in Sources */,
-				ADDA76B925478BB400CB11F0 /* LocalSignUpViewController.swift in Sources */,
-				ADAE6F77254F7C5B0048C90A /* CreateGameFlow.swift in Sources */,
-				AD4A0B96251C11A000DC9900 /* SceneDelegate.swift in Sources */,
-				ADAE6F83254F7DBB0048C90A /* CreateGameRouter.swift in Sources */,
-				ADAE6F61254F75B40048C90A /* HomeRouter.swift in Sources */,
-				ADAE6F47254F74F40048C90A /* HomeCaseUse.swift in Sources */,
-				ADAE6F8D254F7DCC0048C90A /* CreateGamePresenter.swift in Sources */,
-				ADD0165E25486BC300B0C13C /* Validation.swift in Sources */,
-				ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */,
-				ADAE6F42254F74EC0048C90A /* HomeFlow.swift in Sources */,
-				AD4A0B96251C11A000DC9900 /* SceneDelegate.swift in Sources */,
-				ADD0165E25486BC300B0C13C /* Validation.swift in Sources */,
-				ADADF67B2522CD9F003364C7 /* GuestViewController.swift in Sources */,
-				ADD0165825486BA300B0C13C /* UserRegister.swift in Sources */,
-				ADA782DC251C299D005840AB /* UIView+Centered.swift in Sources */,
-				ADA782A3251C19F0005840AB /* LoginViewController.swift in Sources */,
-				ADA7829A251C1902005840AB /* AuthenticationCoordinator.swift in Sources */,
-				ADADF68A2522CE1E003364C7 /* GuestFlow.swift in Sources */,
-				ADCB722A253B3A40007B3F14 /* LaunchCoordinator.swift in Sources */,
+				ADE0822C25506CDC0046ACC5 /* CreateGameViewController.swift in Sources */,
+				ADE0822125506CDC0046ACC5 /* HomeViewController.swift in Sources */,
+				ADE0821D25506CDC0046ACC5 /* AppDelegate.swift in Sources */,
+				ADE0823F25506CDC0046ACC5 /* HunterTextField.swift in Sources */,
+				ADE0820B25506CDC0046ACC5 /* LaunchFlow.swift in Sources */,
+				ADE0821325506CDC0046ACC5 /* RegisterMethod.swift in Sources */,
+				ADE0823125506CDC0046ACC5 /* GuestViewController.swift in Sources */,
+				ADE0821825506CDC0046ACC5 /* AuthenticationCoordinator.swift in Sources */,
+				ADE0822B25506CDC0046ACC5 /* CreateGamePresenter.swift in Sources */,
+				ADE0820725506CDC0046ACC5 /* HomeCaseUse.swift in Sources */,
+				ADE0821F25506CDC0046ACC5 /* HomeFactory.swift in Sources */,
+				ADE0824025506CDC0046ACC5 /* String+Localizable.swift in Sources */,
+				ADE0823225506CDC0046ACC5 /* iOSGuestFactory.swift in Sources */,
+				ADE0823925506CDC0046ACC5 /* FieldViewModel.swift in Sources */,
+				ADE0820925506CDC0046ACC5 /* LaunchCoordinator.swift in Sources */,
+				ADE0821E25506CDC0046ACC5 /* SceneDelegate.swift in Sources */,
+				ADE0824725506CDC0046ACC5 /* UIViewController+AddingSubviews.swift in Sources */,
+				ADE0820D25506CDC0046ACC5 /* JoinGameCaseUse.swift in Sources */,
+				ADE0822725506CDC0046ACC5 /* JoinGameRouter.swift in Sources */,
+				ADE0824A25506CDC0046ACC5 /* Color.swift in Sources */,
+				ADE0821225506CDC0046ACC5 /* CreateGameCoordinator.swift in Sources */,
+				ADE0824125506CDC0046ACC5 /* UIStackView+Subviews.swift in Sources */,
+				ADE0824325506CDC0046ACC5 /* Array+Get.swift in Sources */,
+				ADE0820A25506CDC0046ACC5 /* LaunchCaseUse.swift in Sources */,
+				ADE0823625506CDC0046ACC5 /* RegistryPresenter.swift in Sources */,
+				ADE0822425506CDC0046ACC5 /* JoinGamePresenter.swift in Sources */,
+				ADE0821125506CDC0046ACC5 /* CreateGameFlow.swift in Sources */,
+				ADE0824425506CDC0046ACC5 /* UIColor+Hexadecimal.swift in Sources */,
+				ADE0823425506CDC0046ACC5 /* LocalSignUpViewController.swift in Sources */,
+				ADE0823025506CDC0046ACC5 /* GuestFactory.swift in Sources */,
+				ADE0821A25506CDC0046ACC5 /* TextValidator.swift in Sources */,
+				ADE0822825506CDC0046ACC5 /* JoinGameViewController.swift in Sources */,
+				ADE0821425506CDC0046ACC5 /* GuestFlow.swift in Sources */,
+				ADE0820625506CDC0046ACC5 /* HomeFlow.swift in Sources */,
+				ADE0824625506CDC0046ACC5 /* UIView+Centered.swift in Sources */,
+				ADE0824225506CDC0046ACC5 /* NSLayoutConstraint+Activate.swift in Sources */,
+				ADE0820F25506CDC0046ACC5 /* JoinGameCoordinator.swift in Sources */,
+				ADE0823C25506CDC0046ACC5 /* AuthenticationViewController.swift in Sources */,
+				ADE0820825506CDC0046ACC5 /* HomeCoordinator.swift in Sources */,
+				ADE0825A25506F390046ACC5 /* TextValidator+Repository.swift in Sources */,
+				ADE0821525506CDC0046ACC5 /* LocalSignUpCoordinator.swift in Sources */,
+				ADE0822E25506CDC0046ACC5 /* RegisterGuestPresenter.swift in Sources */,
+				ADE0823A25506CDC0046ACC5 /* AuthenticationModule.swift in Sources */,
+				ADE0823E25506CDC0046ACC5 /* HunterButton.swift in Sources */,
+				ADE0822225506CDC0046ACC5 /* HomeRouter.swift in Sources */,
+				ADE0820C25506CDC0046ACC5 /* Networking.swift in Sources */,
+				ADE0822D25506CDC0046ACC5 /* CreateGameRouter.swift in Sources */,
+				ADE0824525506CDC0046ACC5 /* UIView+Initialize.swift in Sources */,
+				ADE0822A25506CDC0046ACC5 /* CreateGameFactory.swift in Sources */,
+				ADE0821025506CDC0046ACC5 /* CreateGameCaseUse.swift in Sources */,
+				ADE0823525506CDC0046ACC5 /* LocalSignUpFactory.swift in Sources */,
+				ADE0823D25506CDC0046ACC5 /* Module.swift in Sources */,
+				ADE0820E25506CDC0046ACC5 /* JoinGameFlow.swift in Sources */,
+				ADE0824925506CDC0046ACC5 /* TextFieldHandler.swift in Sources */,
+				ADE0821625506CDC0046ACC5 /* UserRegister.swift in Sources */,
+				ADE0824825506CDC0046ACC5 /* Router.swift in Sources */,
+				ADE0823B25506CDC0046ACC5 /* LoginViewController.swift in Sources */,
+				ADE0822625506CDC0046ACC5 /* JoinGameFactory.swift in Sources */,
+				ADE0822325506CDC0046ACC5 /* HomePresenter.swift in Sources */,
+				ADE0823825506CDC0046ACC5 /* LocalSignUpRouter.swift in Sources */,
+				ADE0823325506CDC0046ACC5 /* GuestRouter.swift in Sources */,
+				ADE0821925506CDC0046ACC5 /* Validation.swift in Sources */,
+				ADE0821725506CDC0046ACC5 /* LocalSignUpFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,10 +932,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AD4A0B9E251C11A100DC9900 /* LaunchScreen.storyboard */ = {
+		ADE081C525506CDB0046ACC5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AD4A0B9F251C11A100DC9900 /* Base */,
+				ADE081C625506CDB0046ACC5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
