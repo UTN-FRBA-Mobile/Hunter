@@ -17,6 +17,18 @@ class JoinGameViewResolver: JoinGameFactory {
         controller.codeTextField.isSecureTextEntry = gameCodeField.isSecure
         controller.codeTextField.validationBlock = { try gameCodeField.validation.validate($0 ?? "") }
         controller.validate = { try controller.codeTextField.validate() }
+        controller.joinButton.setTitle("Join Game", for: .normal)
+        controller.joinButton.setup {
+            caseUse.join(with: controller.codeTextField.text ?? "") { result in
+                switch result {
+                case .success(let game):
+                    print("Game \(game)")
+                    onCreated()
+                case .failure(let error):
+                    print("Hunter Error: \(error)")
+                }
+            }
+        }
         return controller
     }
 }

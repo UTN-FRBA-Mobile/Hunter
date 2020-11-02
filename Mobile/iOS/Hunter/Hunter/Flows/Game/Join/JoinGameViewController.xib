@@ -26,7 +26,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xpf-Ri-d6r" customClass="HunterButton" customModule="Hunter" customModuleProvider="target">
-                    <rect key="frame" x="184" y="486" width="46" height="30"/>
+                    <rect key="frame" x="32" y="486" width="350" height="30"/>
                     <state key="normal" title="Button"/>
                 </button>
             </subviews>
@@ -38,7 +38,7 @@
                 <constraint firstItem="yky-cB-Fvb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="QlZ-OG-W2l"/>
                 <constraint firstItem="Xpf-Ri-d6r" firstAttribute="top" secondItem="yky-cB-Fvb" secondAttribute="bottom" constant="16" id="S4m-iC-CSq"/>
                 <constraint firstItem="yky-cB-Fvb" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="YbK-LT-RwV"/>
-                <constraint firstItem="Xpf-Ri-d6r" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="h1k-cn-T82"/>
+                <constraint firstItem="Xpf-Ri-d6r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="h1k-cn-T82"/>
                 <constraint firstItem="Xpf-Ri-d6r" firstAttribute="centerX" secondItem="yky-cB-Fvb" secondAttribute="centerX" id="qSn-nq-ZsE"/>
             </constraints>
             <point key="canvasLocation" x="80" y="93"/>

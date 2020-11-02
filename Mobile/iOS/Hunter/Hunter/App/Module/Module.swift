@@ -66,7 +66,7 @@ fileprivate extension Module {
     func sendHome() {
         let viewResolver = HomeViewResolver()
         let router = HomeRouter(navigation: dependencies.navigation, factory: viewResolver)
-        let home = Home(newGameFlow: createNewGame, joinGameFlow: joinGame)
+        let home = Home(newGameFlow: createNewGame, joinGameFlow: sentToJoinAGame)
         let coordinator = HomeCoordinator(flow: router, caseUse: home)
         coordinator.start()
     }
@@ -83,9 +83,14 @@ fileprivate extension Module {
     func sendToActiveGame() {
         print("Hunter: Send to your Active Game")
     }
-    
-    #warning("Missing implementation of Join Game!")
-    func joinGame() { print("Hunter: Join Game") }
+
+    func sentToJoinAGame() {
+        let viewResolver = JoinGameViewResolver()
+        let router = JoinGameRouter(navigation: dependencies.navigation, factory: viewResolver)
+        let joinGame = JoinGame()
+        let coordinator = JoinGameCoordinator(flow: router, caseUse: joinGame, onComplete: sendToActiveGame)
+        coordinator.start()
+    }
 }
 
 #warning("We need to put final implementation!")
