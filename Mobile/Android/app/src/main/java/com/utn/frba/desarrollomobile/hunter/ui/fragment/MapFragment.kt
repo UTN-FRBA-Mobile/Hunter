@@ -29,8 +29,13 @@ class MapFragment : BaseLocationFragment(R.layout.fragment_map) {
 
     private lateinit var googleMap: GoogleMap
 
-    override fun init(savedInstanceState: Bundle?) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         map.onCreate(savedInstanceState)
+
+    }
+
+    override fun init() {
         map.getMapAsync { onMapReady(it) }
     }
 
