@@ -11,7 +11,7 @@ public class Module<Nav: UINavigationController, Net: Networking> {
     private let dependencies: Dependencies<Nav, Net>
     public init(_ dependencies: Dependencies<Nav, Net>) { self.dependencies = dependencies }
 
-    func launch() { onUserDidAuthenticated() } //checkAuthentication() }
+    func launch() { checkAuthentication() }
 }
 
 fileprivate extension Module {
