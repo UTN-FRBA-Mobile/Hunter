@@ -14,10 +14,8 @@ class LocalSignUpViewController: UIViewController {
         super.viewDidLoad()
         signUpButton.applyBorders()
     }
-}
-
-extension LocalSignUpViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    
+    private func performAValidation() {
         do {
             try validate()
             signUpButton.isEnabled = true
@@ -26,6 +24,10 @@ extension LocalSignUpViewController: UITextFieldDelegate {
             print("We need to show validation!")
         }
     }
+}
+
+extension LocalSignUpViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) { performAValidation() }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
