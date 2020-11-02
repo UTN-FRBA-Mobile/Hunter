@@ -11,12 +11,22 @@ public class Module<Nav: UINavigationController, Net: Networking> {
     private let dependencies: Dependencies<Nav, Net>
     public init(_ dependencies: Dependencies<Nav, Net>) { self.dependencies = dependencies }
 
-    func launch() { checkAuthentication() }
+    func launch() { showLoginFlow() }
 }
 
 fileprivate extension Module {
+    
+    func showLoginFlow() {
+        let viewResolver = LoginViewResolver()
+        let router = LoginRouter(navigation: dependencies.navigation, factory: viewResolver)
+        let login = Login(onWasAuthenticated: sendHome)
+        let coordinator = LoginCoordinator(flow: router, caseUse: login, onIsANewUser: showGuestFlow)
+        coordinator.start()
+    }
+    
     /// Step One: We check if the user was already authenticated (Have a local token)
     #warning("We need to use a secure storage such as Keychain")
+    @available(*, deprecated, message: "Post Mvp")
     func checkAuthentication() {
         let authentication = LocalAuthenticationRepository(key: "userToken",
                                                            save: UserDefaults.standard.set,
@@ -41,7 +51,7 @@ fileprivate extension Module {
     }
     
     func startRegistryWithEmail() {
-        let signUp = SignUpWithEmail()
+        let signUp = SignUpWithEmail(onWasRegistered: sendHome)
         let viewResolver = LocalSignUpViewResolver()
         let router = LocalSignUpRouter(navigation: dependencies.navigation, factory: viewResolver)
         let coordinator = LocalSignUpCoordinator(flow: router, caseUse: signUp)
@@ -50,10 +60,10 @@ fileprivate extension Module {
     
     func startAuthenticate(with token: Token) {
         #warning("For now we send to Home")
-        onUserDidAuthenticated()
+        sendHome()
     }
     
-    func onUserDidAuthenticated() {
+    func sendHome() {
         let viewResolver = HomeViewResolver()
         let router = HomeRouter(navigation: dependencies.navigation, factory: viewResolver)
         let home = Home(newGameFlow: createNewGame, joinGameFlow: joinGame)
