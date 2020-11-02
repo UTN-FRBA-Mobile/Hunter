@@ -10,7 +10,7 @@ fun AppCompatActivity.showFragment(
     addToBackStack: Boolean,
     clearStack: Boolean = false
 ) {
-    doShowFragment(supportFragmentManager, fragment, addToBackStack, clearStack)
+    doShowFragment(supportFragmentManager, fragment, R.id.fragment_container, addToBackStack, clearStack)
 }
 
 fun Fragment.showFragment(
@@ -18,12 +18,17 @@ fun Fragment.showFragment(
     addToBackStack: Boolean,
     clearStack: Boolean = false
 ) {
-    doShowFragment(parentFragmentManager, fragment, addToBackStack, clearStack)
+    doShowFragment(parentFragmentManager, fragment, R.id.fragment_container, addToBackStack, clearStack)
 }
-
+/*
+fun Fragment.showFragment( fragment : Fragment, fragmentContainer: Int, addToBackStack: Boolean, clearStack: Boolean) {
+    doShowFragment(parentFragmentManager, fragment, fragmentContainer, addToBackStack, clearStack)
+}
+*/
 private fun doShowFragment(
     fragmentManager: FragmentManager,
     fragment: Fragment,
+    fragmentContainer: Int,
     addToBackStack: Boolean,
     clearStack: Boolean
 ) {
@@ -35,7 +40,7 @@ private fun doShowFragment(
         R.anim.slide_in_left_no_alpha,
         R.anim.slide_out_right_no_alpha
     )
-    transaction.replace(R.id.fragment_container, fragment)
+    transaction.replace(fragmentContainer, fragment)
     if (addToBackStack) {
         transaction.addToBackStack(null)
     }
