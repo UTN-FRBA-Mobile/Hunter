@@ -1,8 +1,6 @@
-//  Created by Hunter on 28/09/2020.
-
 import Foundation
 
-class GuestCoordinator<CaseUse: GuestCaseUse, Flow: GuestFlow> {
+class HomeCoordinator<CaseUse: HomeCaseUse, Flow: HomeFlow> {
     let flow: Flow
     let caseUse: CaseUse
     
@@ -11,5 +9,5 @@ class GuestCoordinator<CaseUse: GuestCaseUse, Flow: GuestFlow> {
         self.caseUse = caseUse
     }
     
-    func start() { flow.showGuestScreen(with: caseUse) }
+    func start() { flow.sendHome(with: caseUse) }
 }
