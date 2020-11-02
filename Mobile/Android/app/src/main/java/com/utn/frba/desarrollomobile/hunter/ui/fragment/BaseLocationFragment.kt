@@ -117,9 +117,6 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
 
         checkGPSPermissions()
 
-        init()
-
-        hideLoading()
     }
 
     @SuppressLint("MissingPermission")
@@ -135,6 +132,9 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
                 UPDATE_DISTANCE,
                 locationListener
             )
+            init()
+
+            hideLoading()
         } else {
             PermissionHandler.requestPermissions(
                 this,
@@ -169,6 +169,12 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
                 UPDATE_DISTANCE,
                 locationListener
             )
+            init()
+
+            hideLoading()
+        } else {
+            //TODO avisar que se necesita el permiso
+            showError()
         }
     }
 
