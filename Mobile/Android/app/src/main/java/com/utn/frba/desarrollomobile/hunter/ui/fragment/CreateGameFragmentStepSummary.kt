@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.graphics.drawable.toBitmap
-import androidx.lifecycle.Observer
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -16,9 +16,7 @@ import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
 import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_clue.*
-import kotlinx.android.synthetic.main.fragment_create_game_step_add_image.*
 import kotlinx.android.synthetic.main.fragment_create_game_step_summary.*
-import kotlinx.android.synthetic.main.fragment_create_game_step_summary.imagePreview
 import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -74,14 +72,15 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
     private fun createGame() {
         uploadImage()
         var callSetGameResponse =
-            APIAdapter.createConection()?.setGame(20,
+            APIAdapter.getAPI().setGame(
+                20,
                 0.toFloat(),
                 0.toFloat(),
                 arrayOf<String>(game_clue_edit_text.text.toString()),
                 emptyArray<Int>(),
                 "")
 
-        callSetGameResponse?.enqueue(object : Callback<Game> {
+        callSetGameResponse.enqueue(object : Callback<Game> {
             override fun onFailure(call: Call<Game>, t: Throwable) {
                 print("throw Message" + t.message)
                 register_password_confirmation.error = "Error reading JSON"
