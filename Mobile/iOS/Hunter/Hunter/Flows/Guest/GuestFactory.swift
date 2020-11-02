@@ -4,5 +4,5 @@ import Foundation
 import UIKit
 
 protocol GuestFactory {
-    func guestController<Cu: GuestCaseUse>(_ caseUse: Cu) -> UIViewController
+    func guestController() -> UIViewController
 }

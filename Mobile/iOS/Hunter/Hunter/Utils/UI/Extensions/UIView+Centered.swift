@@ -23,3 +23,19 @@ extension UIView {
         return self
     }
 }
+
+extension UIView {
+    @discardableResult
+    func flexible(for axis: NSLayoutConstraint.Axis,
+                  spacing: CGFloat = 0,
+                  with view: UIView) -> Self {
+        switch axis {
+        case .horizontal:
+            leftAnchor.constraint(greaterThanOrEqualTo: view.leftAnchor, constant: spacing).activate()
+        case .vertical:
+            topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: spacing).activate()
+        @unknown default: break
+        }
+        return self
+    }
+}

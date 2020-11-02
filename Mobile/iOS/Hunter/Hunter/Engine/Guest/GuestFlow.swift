@@ -3,5 +3,5 @@
 import Foundation
 
 protocol GuestFlow {
-    func showGuestScreen<Cu: GuestCaseUse>(with caseUse: Cu)
+    func showGuestScreen()
 }
