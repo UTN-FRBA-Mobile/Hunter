@@ -45,7 +45,7 @@ class MapFragment : BaseLocationFragment(R.layout.fragment_map) {
         googleMap.uiSettings.isRotateGesturesEnabled = false
 
         drawCircle(target)
-        centerMapForLocation(target, true, false)
+        centerMapForLocation(target, animate = true)
     }
 
     private fun drawCircle(targetLocation: Location) {
@@ -60,18 +60,18 @@ class MapFragment : BaseLocationFragment(R.layout.fragment_map) {
 
     private fun centerMapForLocation(
         location: Location,
-        useDefaultZoom: Boolean,
+        zoom: Float? = null,
         animate: Boolean
     ) {
         val locationAsLatLng = LatLng(location.latitude, location.longitude);
-        centerMapForLatLng(locationAsLatLng, useDefaultZoom, animate);
+        centerMapForLatLng(locationAsLatLng, zoom, animate);
     }
 
-    private fun centerMapForLatLng(location: LatLng, useDefaultZoom: Boolean, animate: Boolean) {
-        val cameraUpdate: CameraUpdate = if (useDefaultZoom) {
+    private fun centerMapForLatLng(location: LatLng, zoom: Float? = null, animate: Boolean) {
+        val cameraUpdate: CameraUpdate = if (zoom == null) {
             CameraUpdateFactory.newLatLngZoom(location, 15f)
         } else {
-            CameraUpdateFactory.newLatLng(location)
+            CameraUpdateFactory.newLatLngZoom(location, zoom)
         }
         if (animate) {
             googleMap.animateCamera(cameraUpdate)
