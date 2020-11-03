@@ -108,8 +108,11 @@ class MapFragment : BaseLocationFragment(R.layout.fragment_map) {
     override fun onLocationUpdated(actualLocation: Location) {
         //target - actual <= radio entonces remove MapFragment
         if (target.distanceTo(actualLocation) <= TARGET_RADIUS) {
+
             removeFragment()
-            showFragment(CompassFragment(), true)
+            showFragment(CompassFragment().apply {
+                arguments = Bundle().apply { putInt(GAME_ID, game.id.toString().toInt()) }
+            }, true)
         }
     }
 }

@@ -115,6 +115,8 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
             latitude = game.latitude.toDouble()
         }
 
+        //TODO para que se suscriba a los push del juego
+//        FirebaseMessaging.getInstance().subscribeToTopic(game.id)
         checkGPSPermissions()
 
     }

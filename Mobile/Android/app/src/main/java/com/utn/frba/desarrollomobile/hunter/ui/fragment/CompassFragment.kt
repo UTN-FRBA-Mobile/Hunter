@@ -3,13 +3,13 @@ package com.utn.frba.desarrollomobile.hunter.ui.fragment
 import android.content.Context
 import android.hardware.*
 import android.location.Location
+import android.os.Bundle
+import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.Window
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
-import android.widget.Toast
-import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AlertDialog
 import com.squareup.picasso.Picasso
 import com.utn.frba.desarrollomobile.hunter.R
@@ -72,7 +72,9 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
 
 
     private fun goToMapFragment() {
-        showFragment(MapFragment(), true)
+        showFragment(MapFragment().apply {
+            arguments = Bundle().apply { putInt(GAME_ID, game.id.toString().toInt()) }
+        }, true)
     }
 
     override fun onResume() {
@@ -101,13 +103,18 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
             val distance = target.distanceTo(actualLocation)
             when {
                 distance > TARGET_RADIUS -> {
+
+                    Log.d("HUNTER", "distance > TARGET_RADIUS")
                     goToMapFragment()
                 }
                 distance <= CLUE_RADIUS -> {
+                    Log.d("HUNTER", "distance <= TARGET_RADIUS")
+
                     showClueButton.visibility = VISIBLE
-                    Toast.makeText(context, "ESTAS MUY CERCA! PEDI PISTA!", LENGTH_LONG).show()
                 }
                 else -> {
+                    Log.d("HUNTER", "else")
+
                     showClueButton.visibility = GONE
                 }
             }
@@ -129,7 +136,10 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
         dialogView.clueImage.layoutParams.width =
             (resources.displayMetrics.widthPixels * 0.8).toInt()
 
-        Picasso.get().load(game.photo).into(dialogView.clueImage)
+        if (!game.photo.isNullOrEmpty()) {
+            Picasso.get().load(game.photo).into(dialogView.clueImage)
+            dialogView.clueImage.visibility = VISIBLE
+        }
 
         alert.show()
     }

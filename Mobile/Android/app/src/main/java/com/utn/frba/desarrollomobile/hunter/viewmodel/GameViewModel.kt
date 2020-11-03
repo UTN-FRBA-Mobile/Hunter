@@ -13,13 +13,13 @@ class GameViewModel : ViewModel() {
 
     fun getGame(gameId: Int): MutableLiveData<Resource<Game>> {
 
-        repository.getGame(gameId, gameLiveData)
+        val gameLoaded =
+            gameLiveData.value?.let { it.isSuccessful && it.data?.id == gameId } ?: run { false }
+
+        if (!gameLoaded) {
+            repository.getGame(gameId, gameLiveData)
+        }
 
         return gameLiveData
     }
-
-    //TODO for debugging
-//    Location(GPS_PROVIDER).apply {
-//        longitude = -58.514911; latitude = -34.641733
-//    })
 }
