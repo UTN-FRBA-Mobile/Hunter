@@ -55,6 +55,7 @@
     <string name="show_clue">Ver Pista!</string>
     <string name="register">Registrarme</string>
     <string name="login">Ingresar</string>
+    <string name="default_notification_channel_id">all</string>
 
 
     <string name="next">Siguiente</string>

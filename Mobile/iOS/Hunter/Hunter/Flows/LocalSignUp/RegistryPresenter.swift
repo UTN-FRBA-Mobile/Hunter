@@ -10,18 +10,18 @@ class RegistryPresenter {
     
     func createInputs() -> [HunterTextField] {
         let name = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_NAME".localize(),
-                                  validation: defaultValidator)
+                                  validation: .defaulted)
         let lastname = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_LASTNAME".localize(),
-                                  validation: defaultValidator)
+                                      validation: .defaulted)
         let alias = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_ALIAS".localize(),
-                                   validation: defaultValidator)
+                                   validation: .defaulted)
         let email = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_EMAIL".localize(),
-                                   validation: defaultValidator)
+                                   validation: .defaulted)
         let password = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_PASSWORD",
-                                      validation: defaultValidator)
+                                      validation: .secure)
         let passwordInput = input(with: password)
         let confirmPassword = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_CONFIRM_PASSWORD",
-                                      validation: defaultValidator)
+                                             validation: .secure)
         let confirmPasswordInput = input(with: confirmPassword) { [weak passwordInput] in
             guard let password = passwordInput?.text else { throw FieldValidation.isEmpty(field: "Confirm Password") }
             guard let value = $0 else { throw FieldValidation.isEmpty(field: "Password") }
@@ -32,17 +32,7 @@ class RegistryPresenter {
         fields.append(confirmPasswordInput)
         return fields
     }
-    
-    private var secureValidator: TextValidator {
-        defaultValidator
-    }
-    
-    private var defaultValidator: TextValidator {
-        TextValidator(validate: .with([
-            .minimum(of: 2)
-        ]))
-    }
-    
+
     func input(with viewModel: FieldViewModel,
                additional validation: @escaping ((String?) throws -> Void) = {_ in }) -> HunterTextField
     {

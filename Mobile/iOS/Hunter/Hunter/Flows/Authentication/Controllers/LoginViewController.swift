@@ -1,82 +1,35 @@
-//  Created by Hunter on 23/09/2020.
-
-
 import UIKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var inputStack: UIStackView!
+    @IBOutlet weak var actionsStack: UIStackView!
     weak var userTextField: UITextField!
     weak var passwordTextField: UITextField!
-    weak var acceptButton: UIButton!
-
-    var onAceppt: (() -> Void) = { }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        setupView()
-    }
+    weak var loginButton: UIButton!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        refreshStatus()
-    }
+    var inputs: [UITextField] { inputStack.subviews.compactMap { $0 as? UITextField } }
     
-    func refreshStatus() {
-        let shouldBeEnabled = userTextField.hasText && passwordTextField.text?.count ?? 0 > 4
-        acceptButton.isEnabled = shouldBeEnabled
-    }
-}
-
-fileprivate extension LoginViewController {
+    var validate: (() throws -> Void) = { }
+    var nextFree: (() -> UITextField?) = { return nil }
     
-    func setupView() {
-        setupContainerView()
-        setupButtonView()
-    }
-    
-    func setupContainerView() {
-        let containerView: UIStackView = UIView.loadFromCode { (stack: UIStackView) in
-            stack.backgroundColor = .clear
-            stack.axis = .vertical
-            stack.spacing = 16.0
-        }
-        let userField: UITextField = textField(returnKey: .next)
-        let passwordField: UITextField = textField(returnKey: .done) { (field) in field.isSecureTextEntry = true }
-        containerView.addArrangedSubviews([userField, passwordField])
-        view.addSubview(containerView.flexible(for: .horizontal,
-                                               spacing: 32.0,
-                                               with: view))
-        userTextField = userField
-        passwordTextField = passwordField
-    }
-    
-    private func textField(returnKey: UIReturnKeyType, customizing: ((UITextField) -> Void) = { _ in }) -> UITextField {
-        UIView.loadFromCode { (textField: UITextField) in
-            customizing(textField)
-            textField.returnKeyType = returnKey
-            textField.delegate = self
-        }
-    }
-    
-    func setupButtonView() {
-        acceptButton = UIView.loadFromCode() { (button: HunterButton) in
-            button.applyBorders()
-            button.setup(forTap: onAceppt)
-            view.addSubview(button)
-            [button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
-             view.rightAnchor.constraint(equalTo: button.rightAnchor, constant: 32),
-             view.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 32)]
-                .activate()
+    private func performAValidation() {
+        do {
+            try validate()
+            loginButton.isEnabled = true
+        } catch {
+            loginButton.isEnabled = false
+            print("We need to show validation!")
         }
     }
 }
 
 extension LoginViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) { refreshStatus() }
+    func textFieldDidEndEditing(_ textField: UITextField) { performAValidation() }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        if textField == userTextField { passwordTextField.becomeFirstResponder() }
+        nextFree()?.becomeFirstResponder()
         return false
     }
 }
