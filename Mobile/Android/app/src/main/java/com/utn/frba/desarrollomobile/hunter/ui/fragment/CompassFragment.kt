@@ -23,7 +23,7 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
 
     // compass arrow degree direction
     private var currentDegree = 0f
-    private val CLUE_RADIUS = 150000
+    private val CLUE_RADIUS = 15
 
     override fun init() {
         mSensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager

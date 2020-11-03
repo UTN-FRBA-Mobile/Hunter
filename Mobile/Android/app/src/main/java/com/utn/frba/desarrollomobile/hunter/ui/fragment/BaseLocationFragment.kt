@@ -55,7 +55,7 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
 
     companion object {
 
-        const val TARGET_RADIUS = 200000.0
+        const val TARGET_RADIUS = 200.0
         const val GAME_ID = "gameID"
     }
 
