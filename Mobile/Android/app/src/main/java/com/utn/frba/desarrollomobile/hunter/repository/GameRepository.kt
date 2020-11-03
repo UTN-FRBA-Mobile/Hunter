@@ -23,7 +23,7 @@ object GameRepository {
             override fun onResponse(call: Call<Game>, response: Response<Game>) {
                 val body = response.body()
                 body?.let {
-                    gameLiveData.postValue(Resource.success(it))
+                    gameLiveData.postValue(Resource.success(it.apply { photo = photo?.trim() }))
                 } ?: run { gameLiveData.postValue(Resource.error("error", null)) }
             }
         }
