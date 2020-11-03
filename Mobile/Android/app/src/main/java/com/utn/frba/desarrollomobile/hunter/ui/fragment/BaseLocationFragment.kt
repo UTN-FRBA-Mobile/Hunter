@@ -19,6 +19,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.messaging.FirebaseMessaging
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
 import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
@@ -115,8 +116,7 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
             latitude = game.latitude.toDouble()
         }
 
-        //TODO para que se suscriba a los push del juego
-//        FirebaseMessaging.getInstance().subscribeToTopic(game.id)
+        FirebaseMessaging.getInstance().subscribeToTopic(game.id.toString())
         checkGPSPermissions()
 
     }
