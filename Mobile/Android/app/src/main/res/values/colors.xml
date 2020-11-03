@@ -7,6 +7,7 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="button_bg_color">@color/colorPrimary</color>
+    <color name="dark_grey">#333333</color>
     <color name="btn_disabled">#CCBEBEBE</color>
     <color name="colorNotificacion">#4CAF50</color>
 </resources>

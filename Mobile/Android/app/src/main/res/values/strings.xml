@@ -60,5 +60,7 @@
 
     <string name="next">Siguiente</string>
     <string name="previous">Anterior</string>
+    <string name="register_alias_helper">"Va a ser tu nickname "</string>
+    <string name="register_email_helper">Es para poder identificarte, no vamos a mandarte spam.</string>
 
 </resources>
