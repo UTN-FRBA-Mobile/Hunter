@@ -30,12 +30,8 @@ class MainActivity : AppCompatActivity() {
         auth.addAuthStateListener { firebaseAuth ->
             hideLoading()
             if(firebaseAuth.currentUser != null) {
-                firebaseAuth.currentUser?.getIdToken(true)?.addOnCompleteListener{task ->
-                    if(task.isSuccessful){
-                        LoginHandler.loginComplete()
-                        Log.d("DEBUG", APIAdapter.Token)
-                    }
-                }
+                LoginHandler.loginComplete()
+                Log.d("DEBUG", APIAdapter.Token)
             // ----
                 goToApp()
             } else {

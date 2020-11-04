@@ -20,7 +20,10 @@ object LoginHandler {
     {
         var auth = FirebaseAuth.getInstance()
         auth.currentUser?.getIdToken(true)?.addOnCompleteListener { token ->
-            APIAdapter.Token = token?.result?.token.toString()
+            if (token.isSuccessful)
+            {
+                APIAdapter.Token = token?.result?.token.toString()
+            }
         }
 
         UID = auth.currentUser?.uid.toString();

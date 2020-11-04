@@ -39,12 +39,6 @@ namespace Hunter.Controllers
         }
 
         [HttpPost]
-        public void SendInvitationTest([FromForm] int game_id)
-        {
-            CloudMessagingService.GameInvitation(Sub, game_id);
-        }
-
-        [HttpPost]
         public void SendInvitations([FromForm] int game_id)
         {
             //CloudMessagingService.GameInvitation(Sub, game_id);
