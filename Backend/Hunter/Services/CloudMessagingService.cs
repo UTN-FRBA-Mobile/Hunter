@@ -40,7 +40,7 @@ namespace Hunter.Services
                 Console.WriteLine("Error Firebase Sending: {0}", ex.Message);
             }
         }
-        
+
         public static void GameEnded(int game_id, Database.User user)
         {
             try
@@ -52,6 +52,29 @@ namespace Hunter.Services
                     {
                         Body = String.Format("El juego ha finalizado. El ganador es: {0} {1}", user.FirstName, user.LastName),
                         Title = String.Format("El juego ha finalizado. El ganador es: {0} {1}", user.FirstName, user.LastName),
+                    },
+                    Data = new Dictionary<string, string>() { ["game_id"] = game_id.ToString() }
+                };
+
+                SendNotification(message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Firebase: {0}", ex.Message);
+            }
+        }
+
+        public static void GameEnded(int game_id, string first_name, string last_name)
+        {
+            try
+            {
+                var message = new Message()
+                {
+                    Topic = game_id.ToString(),
+                    Notification = new Notification()
+                    {
+                        Body = String.Format("El juego ha finalizado. El ganador es: {0} {1}", first_name, last_name),
+                        Title = String.Format("El juego ha finalizado. El ganador es: {0} {1}", first_name, last_name),
                     },
                     Data = new Dictionary<string, string>() {  ["game_id"] = game_id.ToString() }
                 };
@@ -70,11 +93,11 @@ namespace Hunter.Services
             {
                 var message = new Message()
                 {
-                    Topic = sub.ToString(),
+                    Topic = "m11bIBDX8vcfymyIyTvzELB9uqx2",
                     Notification = new Notification()
                     {
-                        Body = "Ha sido invitado a una nueva busqueda del tesoro!",
-                        Title = "Ha sido invitado a una nueva busqueda del tesoro!",
+                        Body = "El ganador es Diego!",
+                        Title = "El juego ha finalizado",
                     },
                     Data = new Dictionary<string, string>() { ["game_id"] = game_id.ToString() }
                 };

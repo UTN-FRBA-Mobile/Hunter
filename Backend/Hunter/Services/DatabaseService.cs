@@ -1,10 +1,7 @@
 ﻿using Hunter.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Hunter.Services
 {
@@ -15,6 +12,27 @@ namespace Hunter.Services
             using (var context = new Database.postgresContext())
             {
                 return ParseUser(context.User.Find(id));
+            }
+        }
+
+        internal static void JoinGame(string sub, int game_id)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
+                var game = context.Game.FirstOrDefault(g => g.Id == game_id);
+
+                if (game == null) throw new Database.GameNotFoundException();
+
+                Database.GameUser gu = new Database.GameUser();
+                gu.GameId = game.Id;
+                gu.UserId = user.Id;
+                context.GameUser.Add(gu);
+
+                context.SaveChanges();
             }
         }
 
@@ -258,6 +276,28 @@ namespace Hunter.Services
                     context.GameUser.Add(gu);
                     CloudMessagingService.GameInvitation(user.Sub, game.Id);
                 }
+
+                context.SaveChanges();
+
+                return ParseGame(game);
+            }
+        }
+
+        internal static Game UpdatePhoto(int game_id, string sub, string photo)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
+                if (user.Sub != sub) throw new Database.UserNotFoundException();
+
+                var game = context.Game.Find(game_id);
+
+                if (game == null) throw new Database.GameNotFoundException();
+
+                game.Photo = photo;
 
                 context.SaveChanges();
 
