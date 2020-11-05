@@ -24,6 +24,12 @@ interface APIService {
         @Field("userIds") userIds: Array<Int>,
         @Field("photo") photo: String) : Call<Game>
 
+    @POST("/api/Game/UpdatePhoto")
+    @FormUrlEncoded
+    fun updatePhoto(
+        @Field("game_id") game_id: Int,
+        @Field("photo") photo: String) : Call<Game>
+
     @POST("/api/Game/Win")
     @FormUrlEncoded
     fun winGame(

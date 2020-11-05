@@ -30,6 +30,7 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
     private val PICK_IMAGE_REQUEST = 100
     private val TAKE_PICTURE__REQUEST = 101
     private val REQUEST_READ_EXTERNAL_STORAGE = 102
+    private var game_id = 0;
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -92,6 +93,7 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
             ) {
                 val body = response?.body()
                 if (body != null) {
+                    game_id = body.id
                     //do your work
                 }
             }

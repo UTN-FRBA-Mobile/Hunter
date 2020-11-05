@@ -26,6 +26,12 @@ namespace Hunter.Controllers
         }
 
         [HttpPost]
+        public Game UpdatePhoto([FromForm] int game_id, [FromForm] string photo)
+        {
+            return DatabaseService.UpdatePhoto(game_id, Sub, photo);
+        }
+
+        [HttpPost]
         public Game Post([FromForm] int durationMins, [FromForm] float latitude, [FromForm] float longitude, [FromForm] string[] clues, [FromForm] int[] userIds, [FromForm] string photo)
         {
             var endDatetime = DateTime.Now.Add(new TimeSpan(0, durationMins, 0));

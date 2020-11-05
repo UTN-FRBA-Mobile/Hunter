@@ -8,7 +8,7 @@ class Game {
     @SerializedName("creatorId")
     var creatorId: Int = 0
     @SerializedName("startDatetime")
-    var startDatetime: String = null
+    var startDatetime: String? = null
     @SerializedName("endDatetime")
     var endDatetime: String? = null
     @SerializedName("latitude")

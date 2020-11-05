@@ -283,6 +283,28 @@ namespace Hunter.Services
             }
         }
 
+        internal static Game UpdatePhoto(int game_id, string sub, string photo)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
+                if (user.Sub != sub) throw new Database.UserNotFoundException();
+
+                var game = context.Game.Find(game_id);
+
+                if (game == null) throw new Database.GameNotFoundException();
+
+                game.Photo = photo;
+
+                context.SaveChanges();
+
+                return ParseGame(game);
+            }
+        }
+
         private static Random random = new Random();
         private static string GenerateRandomCode()
         {
