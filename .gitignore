@@ -36,7 +36,11 @@ proguard/
 # Android Studio captures folder
 captures/
 
+# Visual Studio
+.vs/
+
 # IntelliJ
+.idea
 *.iml
 .idea/workspace.xml
 .idea/tasks.xml
@@ -111,3 +115,11 @@ bld/
 [Bb]in/
 [Oo]bj/
 /Backend/Hunter/.vs/Hunter/DesignTimeBuild/.dtbcache.v2
+
+#iOS
+iOS/Hunter/Hunter.xcodeproj/xcuserdata/*
+*/.DS_Store
+iOS/Hunter/.DS_Store
+xcuserdata/
+iOS/Hunter/Pods
+xcshareddata/
