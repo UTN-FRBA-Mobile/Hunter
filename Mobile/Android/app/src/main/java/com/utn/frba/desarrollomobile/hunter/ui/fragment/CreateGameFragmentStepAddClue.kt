@@ -31,7 +31,7 @@ class CreateGameFragmentStepAddClue : Fragment(R.layout.fragment_create_game_ste
         })
 
         next_button.setOnClickListener {
-            showFragment(CreateGameFragmentStepAddImage(), true)
+            showFragment(CreateGameFragmentStepAddLocation(), true)
         }
 
         refreshStatus( gameViewModel.getClue().value.orEmpty())

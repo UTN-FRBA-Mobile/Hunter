@@ -33,6 +33,7 @@
     <string name="enter_image">Agregue una imagen</string>
     <string name="search">Buscar</string>
     <string name="add_players">Agregar jugadores</string>
+    <string name="add_location">Agregar ubicación</string>
     <string name="summary">Resumen</string>
 
     // Game

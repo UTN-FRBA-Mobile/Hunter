@@ -195,11 +195,11 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
         alert.show();
     }
 
-    protected fun showLoading() {
+    protected open fun showLoading() {
         (activity as MainActivity).showLoading("Ingresando...")
     }
 
-    protected fun hideLoading() {
+    protected open fun hideLoading() {
         (activity as MainActivity).hideLoading()
     }
 
