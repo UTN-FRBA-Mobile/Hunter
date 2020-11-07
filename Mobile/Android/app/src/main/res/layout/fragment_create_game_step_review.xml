@@ -31,12 +31,12 @@
         android:textSize="@dimen/title" />
 
     <Button
-        android:id="@+id/ok_button"
+        android:id="@+id/create_game_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="0"
         android:enabled="true"
-        android:text="@string/ready"
+        android:text="@string/create"
         android:textAlignment="center" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -3,12 +3,15 @@ package com.utn.frba.desarrollomobile.hunter.viewmodel
 import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.utn.frba.desarrollomobile.hunter.service.models.Game
 
 class CreateGameViewModel : ViewModel() {
 
     private val imageLiveData: MutableLiveData<Bitmap> = MutableLiveData()
     private val clueLiveData: MutableLiveData<String> = MutableLiveData()
     private val playersLiveData: MutableLiveData<MutableList<String>> = MutableLiveData()
+    private val gameCreatedLiveData: MutableLiveData<Game> = MutableLiveData()
+    private var game: Game? = null
 
     fun setImage(img: Bitmap) {
         imageLiveData.postValue(img)
@@ -40,5 +43,15 @@ class CreateGameViewModel : ViewModel() {
 
     fun getPlayers(): MutableLiveData<MutableList<String>> {
         return playersLiveData
+    }
+
+    fun setGameCreated(game: Game) {
+        gameCreatedLiveData.postValue(game)
+        this.game = game
+    }
+
+    fun getGameCreated(): Game? {
+        return this.game
+        //return gameCreatedLiveData
     }
 }

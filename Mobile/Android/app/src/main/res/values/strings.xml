@@ -42,6 +42,7 @@
     <string name="game_code">Código de juego</string>
     <string name="game_give_clue">Breve descripcion del lugar donde esta escondido</string>
     <string name="create">Crear</string>
+    <string name="ready">Listo</string>
 
 
     <string name="upload_image_error">"Error al cargar imagen"</string>

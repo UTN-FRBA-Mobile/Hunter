@@ -35,7 +35,7 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
         upload_image_button.setOnClickListener { selectImage() }
         take_photo_button.setOnClickListener { takePhoto() }
         next_button.setOnClickListener {
-            showFragment(CreateGameFragmentStepAddPlayers(), true)
+            showFragment(CreateGameFragmentStepReview(), true)
         }
 
 
