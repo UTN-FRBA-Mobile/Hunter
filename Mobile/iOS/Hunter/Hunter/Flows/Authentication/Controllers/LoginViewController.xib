@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Hunter" customModuleProvider="target">
+            <connections>
+                <outlet property="actionsStack" destination="hvc-hJ-UB8" id="5gZ-zg-Ztq"/>
+                <outlet property="inputStack" destination="hfR-nO-PGy" id="ITb-Eu-NfU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="350" placeholderIntrinsicHeight="200" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-nO-PGy">
+                    <rect key="frame" x="32" y="353" width="350" height="200"/>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="350" placeholderIntrinsicHeight="269" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="hvc-hJ-UB8">
+                    <rect key="frame" x="32" y="577" width="350" height="253"/>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="hfR-nO-PGy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="37g-OP-MZ7"/>
+                <constraint firstItem="hvc-hJ-UB8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hfR-nO-PGy" secondAttribute="bottom" constant="24" id="Qa5-NU-GQ3"/>
+                <constraint firstItem="hvc-hJ-UB8" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Sof-2P-nsG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hvc-hJ-UB8" secondAttribute="bottom" constant="32" id="khI-se-Ant"/>
+                <constraint firstItem="hvc-hJ-UB8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="q95-ev-bva"/>
+                <constraint firstItem="hfR-nO-PGy" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="w5o-S7-X1p"/>
+                <constraint firstItem="hfR-nO-PGy" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="yfg-9D-xrj"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="88"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

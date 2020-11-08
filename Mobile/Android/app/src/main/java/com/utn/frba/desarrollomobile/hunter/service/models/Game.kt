@@ -1,7 +1,6 @@
 package com.utn.frba.desarrollomobile.hunter.service.models
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 class Game {
     @SerializedName("id")
@@ -9,9 +8,9 @@ class Game {
     @SerializedName("creatorId")
     var creatorId: Int = 0
     @SerializedName("startDatetime")
-    var startDatetime: Date? = null
+    var startDatetime: String? = null
     @SerializedName("endDatetime")
-    var endDatetime: Date? = null
+    var endDatetime: String? = null
     @SerializedName("latitude")
     var latitude: Float = 0.toFloat()
     @SerializedName("longitude")
@@ -23,7 +22,7 @@ class Game {
     @SerializedName("winId")
     var winId: Int? = 0
     @SerializedName("winTimestamp")
-    var winTimestamp: Date? = null
+    var winTimestamp: String? = null
     @SerializedName("winCode")
     var winCode: String? = null
     @SerializedName("clues")

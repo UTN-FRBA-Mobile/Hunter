@@ -63,9 +63,14 @@
     <string name="show_clue">Ver Pista!</string>
     <string name="register">Registrarme</string>
     <string name="login">Ingresar</string>
+    <string name="default_notification_channel_id">all</string>
 
 
     <string name="next">Siguiente</string>
     <string name="previous">Anterior</string>
+    <string name="register_alias_helper">"Va a ser tu nickname "</string>
+    <string name="register_email_helper">Es para poder identificarte, no vamos a mandarte spam.</string>
+    <string name="clue_hint">Pista</string>
+    <string name="clue_helper">Esto va a ayudar al jugador a orientarse cuando está cerca</string>
 
 </resources>

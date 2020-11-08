@@ -5,7 +5,10 @@ protocol LocalSignUpCaseUse {
 }
 
 class SignUpWithEmail: LocalSignUpCaseUse {
-    
+    let onWasRegistered: (() -> Void)
+    init(onWasRegistered: @escaping (() -> Void)) {
+        self.onWasRegistered = onWasRegistered
+    }
 }
 
 class LocalSignUpCoordinator<CaseUse: LocalSignUpCaseUse, Flow: LocalSignUpFlow> {

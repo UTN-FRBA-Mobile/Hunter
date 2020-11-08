@@ -8,6 +8,12 @@ namespace Hunter.Controllers
     [ApiController]
     public class UserController : SecuredController
     {
+        [HttpPost]
+        public void JoinGame([FromBody] int game_id)
+        {
+            DatabaseService.JoinGame(Sub, game_id);
+        }
+
         [HttpGet]
         public User Find([FromBody] User user)
         {

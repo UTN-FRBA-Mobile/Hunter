@@ -10,8 +10,8 @@ import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.ui.customviews.LoadingView
-import com.utn.frba.desarrollomobile.hunter.ui.fragment.AppFragment
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.ChooseGameFragment
+import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
 
         loading = LoadingView.create(fragment_container.rootView as ViewGroup, this)
 
@@ -29,12 +28,8 @@ class MainActivity : AppCompatActivity() {
         auth.addAuthStateListener { firebaseAuth ->
             hideLoading()
             if(firebaseAuth.currentUser != null) {
-                firebaseAuth.currentUser?.getIdToken(true)?.addOnCompleteListener{task ->
-                    if(task.isSuccessful){
-                        APIAdapter.Token = task?.result?.token.toString()
-                        Log.d("DEBUG", APIAdapter.Token)
-                    }
-                }
+                LoginHandler.loginComplete()
+                Log.d("DEBUG", APIAdapter.Token)
             // ----
                 goToApp()
             } else {
@@ -44,14 +39,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goToLogin() {
-        supportActionBar?.hide()
-        actionBar?.hide()
         showFragment(LoginFragment(), false)
     }
 
     private fun goToApp() {
-        supportActionBar?.show()
-        actionBar?.show()
         showFragment(ChooseGameFragment(), false)
     }
 
