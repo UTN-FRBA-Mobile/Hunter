@@ -10,9 +10,41 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_weight="0"
-        android:text="@string/summary"
+        android:text="@string/stepReview"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/title" />
+
+    <TextView
+        android:id="@+id/durationPreview"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_weight="0"
         android:textAlignment="center"
         android:textSize="@dimen/title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/latitudePreview"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/longitudePreview"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imagePreview"
@@ -23,7 +55,7 @@
         android:tag="0" />
 
     <TextView
-        android:id="@+id/clue"
+        android:id="@+id/cluePreview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -31,12 +63,12 @@
         android:textSize="@dimen/title" />
 
     <Button
-        android:id="@+id/ok_button"
+        android:id="@+id/create_game_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="0"
         android:enabled="true"
-        android:text="@string/ready"
+        android:text="@string/create"
         android:textAlignment="center" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

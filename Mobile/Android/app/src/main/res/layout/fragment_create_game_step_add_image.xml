@@ -9,9 +9,10 @@
     <TextView
         android:id="@+id/clue_image_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_image"
-        android:textAlignment="center"
+        android:layout_height="48dp"
+        android:layout_weight="0"
+        android:text="@string/stepImage"
+        android:textAlignment="viewStart"
         android:textSize="@dimen/title"
         android:textColor="@color/dark_grey"
         app:layout_constraintLeft_toLeftOf="parent"

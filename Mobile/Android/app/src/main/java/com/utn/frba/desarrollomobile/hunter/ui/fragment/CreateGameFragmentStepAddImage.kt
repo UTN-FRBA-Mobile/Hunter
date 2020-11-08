@@ -35,9 +35,8 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
         upload_image_button.setOnClickListener { selectImage() }
         take_photo_button.setOnClickListener { takePhoto() }
         next_button.setOnClickListener {
-            showFragment(CreateGameFragmentStepAddPlayers(), true)
+            showFragment(CreateGameFragmentStepReview(), true)
         }
-
 
         gameViewModel.getImage().observe(viewLifecycleOwner, Observer { image ->
             refreshStatus(image)
@@ -62,7 +61,7 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
     }
 
     private fun selectImage() {
-        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(requireActivity(), arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_READ_EXTERNAL_STORAGE)
         }
 
