@@ -18,6 +18,11 @@
 		AD0C42AD2550C1E6002DBF5A /* GamePlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0C42AB2550C1E6002DBF5A /* GamePlayViewController.xib */; };
 		AD2175942554F0F600FC8FB7 /* LocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2175932554F0F600FC8FB7 /* LocationCoordinate2D.swift */; };
 		AD2175992554F7EB00FC8FB7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2175982554F7EB00FC8FB7 /* MapKit.framework */; };
+		AD25F009255848B10052DBF6 /* Rest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F008255848B10052DBF6 /* Rest+Response.swift */; };
+		AD25F011255848CC0052DBF6 /* Rest+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F010255848CC0052DBF6 /* Rest+Client.swift */; };
+		AD25F016255849480052DBF6 /* Url+Typed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F015255849480052DBF6 /* Url+Typed.swift */; };
+		AD25F01B2558495D0052DBF6 /* Rest+http.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F01A2558495D0052DBF6 /* Rest+http.swift */; };
+		AD25F02D25584D610052DBF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD25F02C25584D610052DBF6 /* GoogleService-Info.plist */; };
 		AD4A0BAB251C11A100DC9900 /* HunterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BAA251C11A100DC9900 /* HunterTests.swift */; };
 		AD4A0BB6251C11A100DC9900 /* HunterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */; };
 		ADE0820625506CDC0046ACC5 /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A525506CDB0046ACC5 /* HomeFlow.swift */; };
@@ -134,6 +139,11 @@
 		AD0C42AB2550C1E6002DBF5A /* GamePlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamePlayViewController.xib; sourceTree = "<group>"; };
 		AD2175932554F0F600FC8FB7 /* LocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinate2D.swift; sourceTree = "<group>"; };
 		AD2175982554F7EB00FC8FB7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AD25F008255848B10052DBF6 /* Rest+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+Response.swift"; sourceTree = "<group>"; };
+		AD25F010255848CC0052DBF6 /* Rest+Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+Client.swift"; sourceTree = "<group>"; };
+		AD25F015255849480052DBF6 /* Url+Typed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Url+Typed.swift"; sourceTree = "<group>"; };
+		AD25F01A2558495D0052DBF6 /* Rest+http.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+http.swift"; sourceTree = "<group>"; };
+		AD25F02C25584D610052DBF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD4A0B90251C11A000DC9900 /* Hunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4A0BA1251C11A100DC9900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD4A0BA6251C11A100DC9900 /* HunterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HunterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +292,40 @@
 			path = LocationCoordinate;
 			sourceTree = "<group>";
 		};
+		AD25F005255848700052DBF6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				AD25F0072558487F0052DBF6 /* Foundation */,
+				AD25F006255848780052DBF6 /* Network */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		AD25F006255848780052DBF6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AD25F0072558487F0052DBF6 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				ADE081AC25506CDB0046ACC5 /* Networking */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		AD25F01F2558496A0052DBF6 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				AD25F008255848B10052DBF6 /* Rest+Response.swift */,
+				AD25F010255848CC0052DBF6 /* Rest+Client.swift */,
+				AD25F01A2558495D0052DBF6 /* Rest+http.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
 		AD4A0B87251C11A000DC9900 = {
 			isa = PBXGroup;
 			children = (
@@ -307,12 +351,14 @@
 		AD4A0B92251C11A000DC9900 /* Hunter */ = {
 			isa = PBXGroup;
 			children = (
+				AD25F005255848700052DBF6 /* Modules */,
 				ADE081F025506CDC0046ACC5 /* App */,
 				ADE081A325506CDB0046ACC5 /* Engine */,
 				ADE081C925506CDB0046ACC5 /* Flows */,
 				ADE081C325506CDB0046ACC5 /* Resources */,
 				ADE081F325506CDC0046ACC5 /* Utils */,
 				AD4A0BA1251C11A100DC9900 /* Info.plist */,
+				AD25F02C25584D610052DBF6 /* GoogleService-Info.plist */,
 			);
 			path = Hunter;
 			sourceTree = "<group>";
@@ -342,7 +388,6 @@
 				AD0C42842550C088002DBF5A /* GamePlay */,
 				ADE081A425506CDB0046ACC5 /* Home */,
 				ADE081A825506CDB0046ACC5 /* Launch */,
-				ADE081AC25506CDB0046ACC5 /* Networking */,
 				ADE081AE25506CDB0046ACC5 /* Game */,
 				ADE081BE25506CDB0046ACC5 /* Authentication */,
 				ADE081C025506CDB0046ACC5 /* Validation */,
@@ -374,6 +419,8 @@
 			isa = PBXGroup;
 			children = (
 				ADE081AD25506CDB0046ACC5 /* Networking.swift */,
+				AD25F01F2558496A0052DBF6 /* Rest */,
+				AD25F015255849480052DBF6 /* Url+Typed.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -796,6 +843,7 @@
 				ADE0821C25506CDC0046ACC5 /* LaunchScreen.storyboard in Resources */,
 				ADE0822925506CDC0046ACC5 /* CreateGameViewController.xib in Resources */,
 				AD0C42AD2550C1E6002DBF5A /* GamePlayViewController.xib in Resources */,
+				AD25F02D25584D610052DBF6 /* GoogleService-Info.plist in Resources */,
 				ADE0822025506CDC0046ACC5 /* HomeViewController.xib in Resources */,
 				ADE0822F25506CDC0046ACC5 /* GuestViewController.xib in Resources */,
 			);
@@ -926,6 +974,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADE0822C25506CDC0046ACC5 /* CreateGameViewController.swift in Sources */,
+				AD25F016255849480052DBF6 /* Url+Typed.swift in Sources */,
 				ADE0822125506CDC0046ACC5 /* HomeViewController.swift in Sources */,
 				ADE0821D25506CDC0046ACC5 /* AppDelegate.swift in Sources */,
 				ADE0823F25506CDC0046ACC5 /* HunterTextField.swift in Sources */,
@@ -939,7 +988,9 @@
 				ADE0820725506CDC0046ACC5 /* HomeCaseUse.swift in Sources */,
 				ADE08265255076E30046ACC5 /* LoginFlow.swift in Sources */,
 				AD0C42A12550C152002DBF5A /* GamePlayFactory.swift in Sources */,
+				AD25F011255848CC0052DBF6 /* Rest+Client.swift in Sources */,
 				ADE0821F25506CDC0046ACC5 /* HomeFactory.swift in Sources */,
+				AD25F009255848B10052DBF6 /* Rest+Response.swift in Sources */,
 				ADE0824025506CDC0046ACC5 /* String+Localizable.swift in Sources */,
 				AD0C42AC2550C1E6002DBF5A /* GamePlayViewController.swift in Sources */,
 				ADE0823225506CDC0046ACC5 /* iOSGuestFactory.swift in Sources */,
@@ -973,6 +1024,7 @@
 				ADE0823C25506CDC0046ACC5 /* AuthenticationViewController.swift in Sources */,
 				ADE0820825506CDC0046ACC5 /* HomeCoordinator.swift in Sources */,
 				ADE0825A25506F390046ACC5 /* TextValidator+Repository.swift in Sources */,
+				AD25F01B2558495D0052DBF6 /* Rest+http.swift in Sources */,
 				ADE0821525506CDC0046ACC5 /* LocalSignUpCoordinator.swift in Sources */,
 				ADE0822E25506CDC0046ACC5 /* RegisterGuestPresenter.swift in Sources */,
 				ADE0823A25506CDC0046ACC5 /* AuthenticationModule.swift in Sources */,
@@ -1170,12 +1222,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22KT8D9U4G;
 				INFOPLIST_FILE = Hunter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.utn.frba.Hunter;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.utn.frba.team.Hunter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1189,12 +1242,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22KT8D9U4G;
 				INFOPLIST_FILE = Hunter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.utn.frba.Hunter;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.utn.frba.team.Hunter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
