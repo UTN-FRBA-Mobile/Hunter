@@ -10,7 +10,7 @@ namespace Hunter
         public static void Main(string[] args)
         {
             Database.postgresContext.ConnectionString = ComposeConnectionString(Environment.GetEnvironmentVariable("DATABASE_URL"));
-            Services.FirebaseAuthService.API_KEY = Environment.GetEnvironmentVariable("FIREBASE_APIKEY");
+            //Services.CloudMessagingService.API_KEY = Environment.GetEnvironmentVariable("FIREBASE_APIKEY");
             //Database.postgresContext.ConnectionString = "Server=ec2-3-216-92-193.compute-1.amazonaws.com;uid=ouaqzwgabbxhxt;pwd=0687c2478f0521a595632a35a7638252b71b6db73f35badddf40bcc5fdc2153d;Database=d5qpniim1huq2a;";
             CreateHostBuilder(args).Build().Run();
         }

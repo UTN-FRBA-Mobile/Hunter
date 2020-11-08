@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.service.models.User
+import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
 import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Call
@@ -133,10 +134,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                     Toast.makeText(activity, R.string.regiter_error, Toast.LENGTH_SHORT).show()
 
                 } else {
-                    auth.currentUser?.getIdToken(true)?.addOnCompleteListener { token ->
-                        APIAdapter.Token = token?.result?.token.toString()
-                        SaveUserData(user)
-                    }
+                    LoginHandler.loginComplete()
+                    SaveUserData(user)
                 }
             }
     }

@@ -21,18 +21,10 @@ object GameRepository {
             }
 
             override fun onResponse(call: Call<Game>, response: Response<Game>) {
-//                val body = response.body()
-//                body?.let {
-//                    gameLiveData.postValue(Resource.success(it))
-//                } ?: run { gameLiveData.postValue(Resource.error("error", null)) }
-
-                //TODO for debugging
-                gameLiveData.postValue(Resource.success(Game().apply {
-                    longitude = (-58.514911).toFloat(); latitude = (-34.641733).toFloat()
-                    photo =
-                        "https://d500.epimg.net/cincodias/imagenes/2020/06/19/lifestyle/1592554496_568289_1592555393_sumario_normal.jpg"
-                    clues = arrayOf("Fijate cerca del contenedor de basura ;)")
-                }))
+                val body = response.body()
+                body?.let {
+                    gameLiveData.postValue(Resource.success(it.apply { photo = photo?.trim() }))
+                } ?: run { gameLiveData.postValue(Resource.error("error", null)) }
             }
         }
 

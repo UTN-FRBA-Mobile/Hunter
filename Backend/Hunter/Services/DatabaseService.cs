@@ -1,15 +1,41 @@
 ﻿using Hunter.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Hunter.Services
 {
     public class DatabaseService
     {
+        public static User GetUserById(int id)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                return ParseUser(context.User.Find(id));
+            }
+        }
+
+        internal static void JoinGame(string sub, int game_id)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
+                var game = context.Game.FirstOrDefault(g => g.Id == game_id);
+
+                if (game == null) throw new Database.GameNotFoundException();
+
+                Database.GameUser gu = new Database.GameUser();
+                gu.GameId = game.Id;
+                gu.UserId = user.Id;
+                context.GameUser.Add(gu);
+
+                context.SaveChanges();
+            }
+        }
+
         public static User GetUser(string sub)
         {
             using (var context = new Database.postgresContext())
@@ -113,9 +139,12 @@ namespace Hunter.Services
 
                 if (user == null) throw new Database.UserNotFoundException();
 
-                var game = context.Game.Include("Clue").FirstOrDefault(g => g.Id == game_id);
+                var game = context.Game.FirstOrDefault(g => g.Id == game_id);
 
                 if (game == null) throw new Database.GameNotFoundException();
+
+                game.Clues = context.Clue.Where(c => c.GameId == game.Id).Select(c => c.Text).ToArray();
+                game.UserIds = context.GameUser.Where(c => c.GameId == game.Id).Select(c => c.UserId).ToArray();
 
                 if (game.CreatorId != user.Id) game.WinCode = String.Empty;
 
@@ -147,7 +176,7 @@ namespace Hunter.Services
 
                             context.SaveChanges();
 
-                            FirebaseAuthService.GameEnded(game_id, user);
+                            CloudMessagingService.GameEnded(game_id, user);
                         }
                     }
 
@@ -195,7 +224,7 @@ namespace Hunter.Services
                     gu.GameId = game.Id;
                     gu.UserId = user_id;
                     context.GameUser.Add(gu);
-                    FirebaseAuthService.GameInvitation(user.Sub, game.Id);
+                    CloudMessagingService.GameInvitation(user.Sub, game.Id);
                 }
 
                 context.SaveChanges();
@@ -227,6 +256,48 @@ namespace Hunter.Services
                 };
                 
                 context.Game.Add(game);
+
+                context.SaveChanges();
+
+                foreach (string clue in clues)
+                {
+                    Database.Clue c = new Database.Clue();
+                    c.GameId = game.Id;
+                    c.Text = clue;
+                    context.Clue.Add(c);
+                }
+
+                foreach (int user_id in user_ids)
+                {
+                    var u = context.User.Find(user_id);
+                    Database.GameUser gu = new Database.GameUser();
+                    gu.GameId = game.Id;
+                    gu.UserId = user_id;
+                    context.GameUser.Add(gu);
+                    CloudMessagingService.GameInvitation(user.Sub, game.Id);
+                }
+
+                context.SaveChanges();
+
+                return ParseGame(game);
+            }
+        }
+
+        internal static Game UpdatePhoto(int game_id, string sub, string photo)
+        {
+            using (var context = new Database.postgresContext())
+            {
+                var user = context.User.FirstOrDefault(u => u.Sub == sub);
+
+                if (user == null) throw new Database.UserNotFoundException();
+
+                if (user.Sub != sub) throw new Database.UserNotFoundException();
+
+                var game = context.Game.Find(game_id);
+
+                if (game == null) throw new Database.GameNotFoundException();
+
+                game.Photo = photo;
 
                 context.SaveChanges();
 
@@ -273,7 +344,9 @@ namespace Hunter.Services
                 StartDatetime = g.StartDatetime,
                 WinCode = g.WinCode,
                 WinId = g.WinId,
-                WinTimestamp = g.WinTimestamp
+                WinTimestamp = g.WinTimestamp,
+                Clues = g.Clues,
+                UserIds = g.UserIds
             };
         }
     }

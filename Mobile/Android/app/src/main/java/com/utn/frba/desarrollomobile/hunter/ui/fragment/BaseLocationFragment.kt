@@ -19,6 +19,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.messaging.FirebaseMessaging
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
 import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
@@ -54,7 +55,7 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
 
     companion object {
 
-        const val TARGET_RADIUS = 200000.0
+        const val TARGET_RADIUS = 200.0
         const val GAME_ID = "gameID"
     }
 
@@ -115,11 +116,9 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
             latitude = game.latitude.toDouble()
         }
 
+        FirebaseMessaging.getInstance().subscribeToTopic(game.id.toString())
         checkGPSPermissions()
 
-        init()
-
-        hideLoading()
     }
 
     @SuppressLint("MissingPermission")
@@ -135,6 +134,9 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
                 UPDATE_DISTANCE,
                 locationListener
             )
+            init()
+
+            hideLoading()
         } else {
             PermissionHandler.requestPermissions(
                 this,
@@ -169,6 +171,12 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
                 UPDATE_DISTANCE,
                 locationListener
             )
+            init()
+
+            hideLoading()
+        } else {
+            //TODO avisar que se necesita el permiso
+            showError()
         }
     }
 
