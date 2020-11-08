@@ -47,7 +47,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game_step_add_location) {
+class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game_step_add_location), OnMapReadyCallback {
 
     private val GPS_CODE = 1
 
@@ -59,7 +59,7 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
 
     private lateinit var gameViewModel: CreateGameViewModel
 
-    //private lateinit var googleMap: GoogleMap
+    private lateinit var googleMap: GoogleMap
     private lateinit var locationManager: LocationManager
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -83,6 +83,12 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
         gps_button.setOnClickListener {
             showGPSRequest()
         }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        map.onCreate(savedInstanceState)
+        map.getMapAsync(this)
     }
 
     private fun updateUI(location: Location?) {
@@ -192,18 +198,18 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
             }
         }
 
-//    override fun onMapReady(map: GoogleMap?) {
-//        Log.d("DEBUG LOCATION", map?.toString() ?: "No hay")
-//        map ?: return
-//        googleMap = map
-//        map.addMarker(
-//            MarkerOptions()
-//                .position(LatLng(-34.6036844, -58.3815591))
-//                .title("Centro")
-//        )
-//
-//        centerMapForLatLng(LatLng(-34.6036844, -58.3815591))
-//    }
+    override fun onMapReady(map: GoogleMap?) {
+        Log.d("GPS", map?.toString() ?: "No hay")
+        map ?: return
+        googleMap = map
+        map.addMarker(
+            MarkerOptions()
+                .position(LatLng(-34.6036844, -58.3815591))
+                .title("Centro")
+        )
+
+  //      centerMapForLatLng(LatLng(-34.6036844, -58.3815591))
+    }
 //
 //    private fun centerMapForLatLng(location: LatLng) {
 //        var cameraUpdate = CameraUpdateFactory.newLatLng(location)
