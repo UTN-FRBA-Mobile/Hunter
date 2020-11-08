@@ -11,7 +11,10 @@ public class Module<Nav: UINavigationController, Net: Networking> {
     private let dependencies: Dependencies<Nav, Net>
     public init(_ dependencies: Dependencies<Nav, Net>) { self.dependencies = dependencies }
 
-    func launch() { showLoginFlow() }
+    func launch() {
+        //showLoginFlow()
+        sendToActiveGame()
+    }
 }
 
 fileprivate extension Module {
@@ -81,7 +84,11 @@ fileprivate extension Module {
     
     #warning("Missing implementation of Active Game")
     func sendToActiveGame() {
-        print("Hunter: Send to your Active Game")
+        let viewResolver = GamePlayViewResolver()
+        let router = GamePlayRouter(navigation: dependencies.navigation, factory: viewResolver)
+        let gamePlay = GamePlay()
+        let coordinator = GamePlayCoordinator(flow: router, caseUse: gamePlay)
+        coordinator.start()
     }
 
     func sentToJoinAGame() {
