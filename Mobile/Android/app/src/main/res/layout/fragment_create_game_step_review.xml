@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_weight="0"
-        android:text="@string/summary"
-        android:textAlignment="center"
+        android:text="@string/stepReview"
+        android:textAlignment="viewStart"
         android:textSize="@dimen/title" />
 
     <TextView
@@ -19,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_weight="0"
-        android:inputType="number"
         android:textAlignment="center"
         android:textSize="@dimen/title" />
 
@@ -34,18 +33,16 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:inputType="number"
             android:textAlignment="center"
-            android:textSize="@dimen/title" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/longitudePreview"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:inputType="number"
             android:textAlignment="center"
-            android:textSize="@dimen/title" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 

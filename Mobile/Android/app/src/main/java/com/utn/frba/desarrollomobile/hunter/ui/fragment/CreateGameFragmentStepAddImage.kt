@@ -38,7 +38,6 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
             showFragment(CreateGameFragmentStepReview(), true)
         }
 
-
         gameViewModel.getImage().observe(viewLifecycleOwner, Observer { image ->
             refreshStatus(image)
         })

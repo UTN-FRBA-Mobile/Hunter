@@ -44,6 +44,7 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
         var duration: Int? = null
         var location: Location? = null
     }
+    private var creating: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -88,7 +89,8 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
         return game.clue != null &&
                 game.duration != null &&
                 game.location != null &&
-                game.image != null
+                game.image != null &&
+                !creating
     }
 
     private fun updateUI() {
@@ -101,6 +103,7 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
         if (!dataOk()) {
             return
         }
+        creating = true
 
         uploadImage(object : ImageUploadListener {
             override fun onSuccess(uri: String) {
@@ -114,6 +117,7 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
     }
 
     private fun saveNewGame(imageUrl: String) {
+        Log.d("Create Game", "Creando juego")
         var callSetGameResponse =
             APIAdapter.getAPI().setGame(
                 game.duration!!,
@@ -135,7 +139,9 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
             ) {
                 val body = response?.body()
                 if (body != null) {
+                    Log.d("Create Game", "Juego creado")
                     gameViewModel.setGameCreated(body)
+                    onSuccessGameCreated()
                 } else {
                     onCreateGameError("Game not found")
                 }
@@ -159,6 +165,7 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
             val downloadUrl = ref.downloadUrl
 
             downloadUrl.addOnCompleteListener { task ->
+                Log.d("Create Game", "Imagen lista")
                 taskListener.onSuccess(task.result.toString())
             }
 
@@ -212,6 +219,7 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
 
     private fun onSuccessGameCreated() {
         showFragment(CreateGameFragmentStepSummary(), false, true)
+        creating = false
     }
 }
 

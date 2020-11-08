@@ -15,7 +15,7 @@ class CreateGameViewModel : ViewModel() {
 
     private val gameCreatedLiveData: MutableLiveData<Game> = MutableLiveData()
 
-    fun setImage(img: Bitmap) {
+    fun setImage(img: Bitmap?) {
         imageLiveData.postValue(img)
     }
 
@@ -23,7 +23,7 @@ class CreateGameViewModel : ViewModel() {
         return imageLiveData
     }
 
-    fun setClue(clue: String) {
+    fun setClue(clue: String?) {
         clueLiveData.postValue(clue)
     }
 
@@ -39,7 +39,7 @@ class CreateGameViewModel : ViewModel() {
         return locationLiveData
     }
 
-    fun setDuration(value: Int) {
+    fun setDuration(value: Int?) {
         durationLiveData.postValue(value)
     }
 

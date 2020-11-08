@@ -3,26 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_weight="0"
-        android:text="@string/enter_clue"
-        android:textAlignment="center"
+        android:text="@string/stepClue"
+        android:textAlignment="viewStart"
         android:textSize="@dimen/title" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/game_clue_edit_text"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_weight="0"
+        android:layout_marginVertical="15dp"
+        android:hint="@string/duration"
+        android:outlineProvider="bounds"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/duration_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:background="@color/inputLayout"
+            app:helperText="Minutos"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:enabled="true"
+        android:layout_marginVertical="15dp"
         android:hint="@string/game_give_clue"
-        android:inputType="textMultiLine"
-        android:textAlignment="center" />
+        android:outlineProvider="bounds"
+        android:background="@color/inputLayout"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/game_clue_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:enabled="true"
+            android:inputType="textMultiLine"
+            android:textAlignment="center"
+            android:ellipsize="start"
+            android:gravity="center"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_button"
@@ -30,7 +62,8 @@
         android:layout_height="50dp"
         android:layout_weight="0"
         android:enabled="true"
-        android:textAlignment="center"
-        android:text="@string/next" />
+        android:text="@string/next"
+        android:textAlignment="center" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -68,6 +68,7 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
 
         locationManager = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
+        updateUI(null)
         checkGPSPermissions()
 
         gameViewModel.getLocation().observe(viewLifecycleOwner, Observer { location ->
@@ -86,12 +87,16 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
 
     private fun updateUI(location: Location?) {
         if (location != null) {
+            latitudePreview.visibility = View.VISIBLE
+            longitudePreview.visibility = View.VISIBLE
+            loadingGPS.visibility = View.GONE
             latitudePreview.text = location.latitude.toString()
             longitudePreview.text = location.longitude.toString()
             next_button.isEnabled = true
         } else {
-            latitudePreview.text = "GPS OFF"
-            longitudePreview.text = "GPSS OF"
+            latitudePreview.visibility = View.GONE
+            longitudePreview.visibility = View.GONE
+            loadingGPS.visibility = View.VISIBLE
             next_button.isEnabled = false
         }
     }
@@ -109,7 +114,9 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
                 UPDATE_DISTANCE,
                 locationListener
             )
+            locationListener.onProviderEnabled(GPS_PROVIDER)
         } else {
+            locationListener.onProviderDisabled(null)
             PermissionHandler.requestPermissions(
                 this,
                 arrayOf(GPS_FINE_PERMISSION, GPS_COARSE_PERMISSION),
@@ -157,12 +164,14 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
         object : LocationListener {
             override fun onLocationChanged(location: Location?) {
                 if (location !== null) {
+                    updateUI(location)
                     gameViewModel.setLocation(location)
                     Log.d("GPS", "Location Update: ${location.latitude.toString()} - ${location.longitude.toString()}")
                 }
             }
 
             override fun onProviderDisabled(provider: String?) {
+                updateUI(null)
                 gameViewModel.setLocation(null)
                 gps_button.visibility = View.VISIBLE
                 locationPreview.visibility = View.GONE
