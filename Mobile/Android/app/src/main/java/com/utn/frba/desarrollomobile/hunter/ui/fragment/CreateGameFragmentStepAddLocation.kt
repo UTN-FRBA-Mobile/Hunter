@@ -76,7 +76,7 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
         })
 
         next_button.setOnClickListener {
-            locationManager.removeUpdates(locationListener)
+            //locationManager.removeUpdates(locationListener)
             showFragment(CreateGameFragmentStepAddImage(), true)
         }
 
@@ -209,6 +209,16 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
         )
 
   //      centerMapForLatLng(LatLng(-34.6036844, -58.3815591))
+    }
+
+    override fun onStop() {
+        locationManager.removeUpdates(locationListener)
+        super.onStop()
+    }
+
+    override fun onResume() {
+        checkGPSPermissions()
+        super.onResume()
     }
 //
 //    private fun centerMapForLatLng(location: LatLng) {
