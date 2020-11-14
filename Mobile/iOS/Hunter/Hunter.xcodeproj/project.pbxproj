@@ -304,6 +304,8 @@
 		AD25F006255848780052DBF6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				AD25F010255848CC0052DBF6 /* Rest+Client.swift */,
+				AD1E6ABD2558729900823AF4 /* AlamofireClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -320,7 +322,6 @@
 			isa = PBXGroup;
 			children = (
 				AD25F008255848B10052DBF6 /* Rest+Response.swift */,
-				AD25F010255848CC0052DBF6 /* Rest+Client.swift */,
 				AD25F01A2558495D0052DBF6 /* Rest+http.swift */,
 			);
 			path = Rest;

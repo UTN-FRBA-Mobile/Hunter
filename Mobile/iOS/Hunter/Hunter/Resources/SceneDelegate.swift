@@ -1,10 +1,12 @@
 import Firebase
+import FirebaseAuth
 import IQKeyboardManagerSwift
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var listener: Any?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -26,9 +28,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func start<Navigation: UINavigationController>(_ nav: Navigation) {
-        let client = RestClient()
+        let client = AlamofireClient()
         let module = Module(Module.Dependencies(navigation: nav,
                                                 networking: client))
+        #warning("We need to move this piece of code to Authentication Flow")
+        listener = Auth.auth().addStateDidChangeListener { (_, possibleUser) in
+            possibleUser?.getIDToken(completion: { (token, _) in
+                guard let token = token else { return }
+                client.setToken(token)
+            })
+        }
         module.launch()
     }
 

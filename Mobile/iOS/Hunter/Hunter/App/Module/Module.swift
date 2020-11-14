@@ -54,7 +54,8 @@ fileprivate extension Module {
     }
     
     func startRegistryWithEmail() {
-        let signUp = SignUpWithEmail(onWasRegistered: sendHome)
+        let createUser = CreateUser(networking: dependencies.networking)
+        let signUp = SignUpWithEmail(service: createUser, onWasRegistered: sendHome)
         let viewResolver = LocalSignUpViewResolver()
         let router = LocalSignUpRouter(navigation: dependencies.navigation, factory: viewResolver)
         let coordinator = LocalSignUpCoordinator(flow: router, caseUse: signUp)
