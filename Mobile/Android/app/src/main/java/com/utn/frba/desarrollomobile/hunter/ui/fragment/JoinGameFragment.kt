@@ -7,6 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.utn.frba.desarrollomobile.hunter.R
+import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.BaseLocationFragment.Companion.GAME_ID
 import com.utn.frba.desarrollomobile.hunter.viewmodel.GameViewModel
@@ -49,5 +50,10 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
     private fun routeToGame() {
         TODO("Missing routing")
 //        showFragment(DummyFragment(), addToBackStack = false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(getString(R.string.join_game_title))
     }
 }

@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setToolbar()
+
         loading = LoadingView.create(fragment_container.rootView as ViewGroup, this)
 
         val auth = FirebaseAuth.getInstance()
@@ -36,6 +38,26 @@ class MainActivity : AppCompatActivity() {
                 goToLogin()
             }
         }
+    }
+
+    private fun setToolbar() {
+
+        hunterToolbar.setNavigationIcon(R.drawable.ic_arrow_back) //todo poner el asset correspondiente
+
+        setSupportActionBar(hunterToolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
+
+        hunterToolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    fun setToolbarTitle(title: String) {
+        hunterToolbarText.text = title
     }
 
     private fun goToLogin() {

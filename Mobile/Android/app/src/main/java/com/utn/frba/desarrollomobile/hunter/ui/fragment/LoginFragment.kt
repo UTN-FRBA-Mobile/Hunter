@@ -7,10 +7,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
-import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
-import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
 import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
+import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -90,5 +90,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     LoginHandler.loginComplete()
                 }
             }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(getString(R.string.login_title))
     }
 }

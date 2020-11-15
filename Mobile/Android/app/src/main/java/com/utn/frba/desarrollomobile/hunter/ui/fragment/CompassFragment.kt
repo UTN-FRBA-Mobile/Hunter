@@ -13,6 +13,7 @@ import android.view.animation.RotateAnimation
 import androidx.appcompat.app.AlertDialog
 import com.squareup.picasso.Picasso
 import com.utn.frba.desarrollomobile.hunter.R
+import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import kotlinx.android.synthetic.main.dialog_clue_layout.view.*
 import kotlinx.android.synthetic.main.fragment_compass.*
@@ -79,6 +80,7 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
 
     override fun onResume() {
         super.onResume()
+        setToolbarTitle(getString(R.string.compass_title))
         // for the system's orientation sensor registered listeners
         mSensorManager?.registerListener(
             this, mSensorManager?.getDefaultSensor(Sensor.TYPE_ORIENTATION),

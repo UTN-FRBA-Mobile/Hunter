@@ -2,7 +2,6 @@ package com.utn.frba.desarrollomobile.hunter.ui.fragment
 
 import android.graphics.Bitmap
 import android.location.Location
-import android.net.sip.SipSession
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,21 +12,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.utn.frba.desarrollomobile.hunter.R
+import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
-import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
-import kotlinx.android.synthetic.main.dialog_clue_layout.view.*
-import kotlinx.android.synthetic.main.fragment_create_game_step_add_clue.*
 import kotlinx.android.synthetic.main.fragment_create_game_step_review.*
-import kotlinx.android.synthetic.main.fragment_create_game_step_summary.*
-import kotlinx.android.synthetic.main.fragment_create_game_step_summary.clue
 import kotlinx.android.synthetic.main.fragment_create_game_step_summary.imagePreview
-import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -220,6 +213,11 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
     private fun onSuccessGameCreated() {
         showFragment(CreateGameFragmentStepSummary(), false, true)
         creating = false
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(getString(R.string.stepReview))
     }
 }
 

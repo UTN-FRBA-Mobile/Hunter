@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.utn.frba.desarrollomobile.hunter.R
+import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 
 fun AppCompatActivity.showFragment(
     fragment: Fragment,
@@ -55,4 +56,8 @@ fun Fragment.removeFragment() {
         parentFragmentManager.beginTransaction().remove(it).commit()
         parentFragmentManager.popBackStack()
     }
+}
+
+fun Fragment.setToolbarTitle(title: String) {
+    (activity as MainActivity).setToolbarTitle(title)
 }
