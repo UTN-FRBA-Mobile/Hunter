@@ -1,5 +1,4 @@
 import Firebase
-import FirebaseAuth
 import IQKeyboardManagerSwift
 import UIKit
 
@@ -29,15 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func start<Navigation: UINavigationController>(_ nav: Navigation) {
         let client = AlamofireClient()
-        let module = Module(Module.Dependencies(navigation: nav,
-                                                networking: client))
-        #warning("We need to move this piece of code to Authentication Flow")
-        listener = Auth.auth().addStateDidChangeListener { (_, possibleUser) in
-            possibleUser?.getIDToken(completion: { (token, _) in
-                guard let token = token else { return }
-                client.setToken(token)
-            })
-        }
+        let module = Module(Module.Dependencies(navigation: nav, networking: client))
         module.launch()
     }
 

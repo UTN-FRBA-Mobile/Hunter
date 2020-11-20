@@ -25,6 +25,13 @@
 		AD25F02D25584D610052DBF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD25F02C25584D610052DBF6 /* GoogleService-Info.plist */; };
 		AD4A0BAB251C11A100DC9900 /* HunterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BAA251C11A100DC9900 /* HunterTests.swift */; };
 		AD4A0BB6251C11A100DC9900 /* HunterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */; };
+		AD67E51425601FF900B69FBF /* PermissionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E51325601FF900B69FBF /* PermissionRouter.swift */; };
+		AD67E51C2560201B00B69FBF /* PermissionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E51B2560201B00B69FBF /* PermissionFactory.swift */; };
+		AD67E5212560205F00B69FBF /* PermissionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E5202560205F00B69FBF /* PermissionPresenter.swift */; };
+		AD67E527256023EC00B69FBF /* PermissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E526256023EC00B69FBF /* PermissionCoordinator.swift */; };
+		AD67E53A2560241A00B69FBF /* PermissionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E5392560241A00B69FBF /* PermissionFlow.swift */; };
+		ADBAADA8256064D40034A2C0 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBAADA6256064D40034A2C0 /* PermissionViewController.swift */; };
+		ADBAADA9256064D40034A2C0 /* PermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADBAADA7256064D40034A2C0 /* PermissionViewController.xib */; };
 		ADE0820625506CDC0046ACC5 /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A525506CDB0046ACC5 /* HomeFlow.swift */; };
 		ADE0820725506CDC0046ACC5 /* HomeCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A625506CDB0046ACC5 /* HomeCaseUse.swift */; };
 		ADE0820825506CDC0046ACC5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A725506CDB0046ACC5 /* HomeCoordinator.swift */; };
@@ -152,6 +159,13 @@
 		AD4A0BB1251C11A100DC9900 /* HunterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HunterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterUITests.swift; sourceTree = "<group>"; };
 		AD4A0BB7251C11A100DC9900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD67E51325601FF900B69FBF /* PermissionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRouter.swift; sourceTree = "<group>"; };
+		AD67E51B2560201B00B69FBF /* PermissionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionFactory.swift; sourceTree = "<group>"; };
+		AD67E5202560205F00B69FBF /* PermissionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPresenter.swift; sourceTree = "<group>"; };
+		AD67E526256023EC00B69FBF /* PermissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCoordinator.swift; sourceTree = "<group>"; };
+		AD67E5392560241A00B69FBF /* PermissionFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionFlow.swift; sourceTree = "<group>"; };
+		ADBAADA6256064D40034A2C0 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
+		ADBAADA7256064D40034A2C0 /* PermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionViewController.xib; sourceTree = "<group>"; };
 		ADE081A525506CDB0046ACC5 /* HomeFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFlow.swift; sourceTree = "<group>"; };
 		ADE081A625506CDB0046ACC5 /* HomeCaseUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCaseUse.swift; sourceTree = "<group>"; };
 		ADE081A725506CDB0046ACC5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -382,9 +396,31 @@
 			path = HunterUITests;
 			sourceTree = "<group>";
 		};
+		AD67E51225601FE800B69FBF /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				AD67E51325601FF900B69FBF /* PermissionRouter.swift */,
+				AD67E51B2560201B00B69FBF /* PermissionFactory.swift */,
+				AD67E5202560205F00B69FBF /* PermissionPresenter.swift */,
+				ADBAADA6256064D40034A2C0 /* PermissionViewController.swift */,
+				ADBAADA7256064D40034A2C0 /* PermissionViewController.xib */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		AD67E525256023E000B69FBF /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				AD67E526256023EC00B69FBF /* PermissionCoordinator.swift */,
+				AD67E5392560241A00B69FBF /* PermissionFlow.swift */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
 		ADE081A325506CDB0046ACC5 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				AD67E525256023E000B69FBF /* Permission */,
 				AD2175922554F0E100FC8FB7 /* LocationCoordinate */,
 				AD0C42842550C088002DBF5A /* GamePlay */,
 				ADE081A425506CDB0046ACC5 /* Home */,
@@ -509,6 +545,7 @@
 		ADE081C925506CDB0046ACC5 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				AD67E51225601FE800B69FBF /* Permission */,
 				AD0C42972550C134002DBF5A /* GamePlay */,
 				ADE082692550784F0046ACC5 /* Login */,
 				ADE081CA25506CDB0046ACC5 /* Home */,
@@ -842,6 +879,7 @@
 				ADE0822525506CDC0046ACC5 /* JoinGameViewController.xib in Resources */,
 				ADE0821B25506CDC0046ACC5 /* Assets.xcassets in Resources */,
 				ADE0821C25506CDC0046ACC5 /* LaunchScreen.storyboard in Resources */,
+				ADBAADA9256064D40034A2C0 /* PermissionViewController.xib in Resources */,
 				ADE0822925506CDC0046ACC5 /* CreateGameViewController.xib in Resources */,
 				AD0C42AD2550C1E6002DBF5A /* GamePlayViewController.xib in Resources */,
 				AD25F02D25584D610052DBF6 /* GoogleService-Info.plist in Resources */,
@@ -991,6 +1029,7 @@
 				AD0C42A12550C152002DBF5A /* GamePlayFactory.swift in Sources */,
 				AD25F011255848CC0052DBF6 /* Rest+Client.swift in Sources */,
 				ADE0821F25506CDC0046ACC5 /* HomeFactory.swift in Sources */,
+				ADBAADA8256064D40034A2C0 /* PermissionViewController.swift in Sources */,
 				AD25F009255848B10052DBF6 /* Rest+Response.swift in Sources */,
 				ADE0824025506CDC0046ACC5 /* String+Localizable.swift in Sources */,
 				AD0C42AC2550C1E6002DBF5A /* GamePlayViewController.swift in Sources */,
@@ -1002,6 +1041,7 @@
 				ADE0824725506CDC0046ACC5 /* UIViewController+AddingSubviews.swift in Sources */,
 				AD0C42A62550C1A4002DBF5A /* GamePlayPresenter.swift in Sources */,
 				ADE0820D25506CDC0046ACC5 /* JoinGameCaseUse.swift in Sources */,
+				AD67E5212560205F00B69FBF /* PermissionPresenter.swift in Sources */,
 				ADE0822725506CDC0046ACC5 /* JoinGameRouter.swift in Sources */,
 				ADE0824A25506CDC0046ACC5 /* Color.swift in Sources */,
 				ADE0821225506CDC0046ACC5 /* CreateGameCoordinator.swift in Sources */,
@@ -1018,6 +1058,7 @@
 				ADE0822825506CDC0046ACC5 /* JoinGameViewController.swift in Sources */,
 				ADE0821425506CDC0046ACC5 /* GuestFlow.swift in Sources */,
 				ADE0820625506CDC0046ACC5 /* HomeFlow.swift in Sources */,
+				AD67E527256023EC00B69FBF /* PermissionCoordinator.swift in Sources */,
 				ADE0824625506CDC0046ACC5 /* UIView+Centered.swift in Sources */,
 				ADE0824225506CDC0046ACC5 /* NSLayoutConstraint+Activate.swift in Sources */,
 				ADE0820F25506CDC0046ACC5 /* JoinGameCoordinator.swift in Sources */,
@@ -1031,14 +1072,17 @@
 				ADE0823A25506CDC0046ACC5 /* AuthenticationModule.swift in Sources */,
 				ADE0823E25506CDC0046ACC5 /* HunterButton.swift in Sources */,
 				ADE0822225506CDC0046ACC5 /* HomeRouter.swift in Sources */,
+				AD67E51C2560201B00B69FBF /* PermissionFactory.swift in Sources */,
 				ADE0820C25506CDC0046ACC5 /* Networking.swift in Sources */,
 				ADE08260255076710046ACC5 /* LoginCoordinator.swift in Sources */,
 				AD0C42862550C094002DBF5A /* GamePlayCoordinator.swift in Sources */,
 				ADE0822D25506CDC0046ACC5 /* CreateGameRouter.swift in Sources */,
 				ADE0824525506CDC0046ACC5 /* UIView+Initialize.swift in Sources */,
 				ADE0822A25506CDC0046ACC5 /* CreateGameFactory.swift in Sources */,
+				AD67E51425601FF900B69FBF /* PermissionRouter.swift in Sources */,
 				ADE0821025506CDC0046ACC5 /* CreateGameCaseUse.swift in Sources */,
 				AD0C42992550C143002DBF5A /* GamePlayRouter.swift in Sources */,
+				AD67E53A2560241A00B69FBF /* PermissionFlow.swift in Sources */,
 				ADE0823525506CDC0046ACC5 /* LocalSignUpFactory.swift in Sources */,
 				ADE0823D25506CDC0046ACC5 /* Module.swift in Sources */,
 				ADE0820E25506CDC0046ACC5 /* JoinGameFlow.swift in Sources */,
