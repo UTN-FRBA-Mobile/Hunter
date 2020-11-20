@@ -108,6 +108,7 @@
 		ADE0828025507AAE0046ACC5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE0827E25507AAE0046ACC5 /* LoginViewController.swift */; };
 		ADE0828125507AAE0046ACC5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE0827F25507AAE0046ACC5 /* LoginViewController.xib */; };
 		ADE08289255086EF0046ACC5 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE08288255086EF0046ACC5 /* LoginPresenter.swift */; };
+		ADEA2B362567FD9B00C890BB /* AlamofireClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA2B352567FD9B00C890BB /* AlamofireClient.swift */; };
 		B360CEBC1BB327E616411986 /* Pods_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118BCF7AD09771CAD36D8BB2 /* Pods_Hunter.framework */; };
 		C19F7AC29346E9949FDF9596 /* Pods_Hunter_HunterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0414FC799329DCE8482D95DC /* Pods_Hunter_HunterUITests.framework */; };
 /* End PBXBuildFile section */
@@ -242,6 +243,7 @@
 		ADE0827E25507AAE0046ACC5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ADE0827F25507AAE0046ACC5 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		ADE08288255086EF0046ACC5 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		ADEA2B352567FD9B00C890BB /* AlamofireClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireClient.swift; sourceTree = "<group>"; };
 		B22C1F04A2DEDEB70B975CC0 /* Pods-Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hunter.release.xcconfig"; path = "Target Support Files/Pods-Hunter/Pods-Hunter.release.xcconfig"; sourceTree = "<group>"; };
 		C9AE6D3A76F45A65280B1283 /* Pods-HunterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.release.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.release.xcconfig"; sourceTree = "<group>"; };
 		E909DD6C60921D71CC7A7787 /* Pods-HunterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HunterTests.debug.xcconfig"; path = "Target Support Files/Pods-HunterTests/Pods-HunterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -318,8 +320,8 @@
 		AD25F006255848780052DBF6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				ADEA2B352567FD9B00C890BB /* AlamofireClient.swift */,
 				AD25F010255848CC0052DBF6 /* Rest+Client.swift */,
-				AD1E6ABD2558729900823AF4 /* AlamofireClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1031,6 +1033,7 @@
 				ADE0821F25506CDC0046ACC5 /* HomeFactory.swift in Sources */,
 				ADBAADA8256064D40034A2C0 /* PermissionViewController.swift in Sources */,
 				AD25F009255848B10052DBF6 /* Rest+Response.swift in Sources */,
+				ADEA2B362567FD9B00C890BB /* AlamofireClient.swift in Sources */,
 				ADE0824025506CDC0046ACC5 /* String+Localizable.swift in Sources */,
 				AD0C42AC2550C1E6002DBF5A /* GamePlayViewController.swift in Sources */,
 				ADE0823225506CDC0046ACC5 /* iOSGuestFactory.swift in Sources */,

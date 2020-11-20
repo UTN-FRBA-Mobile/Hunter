@@ -24,7 +24,7 @@ fileprivate extension Module {
         let viewResolver = LoginViewResolver()
         let router = LoginRouter(navigation: dependencies.navigation, factory: viewResolver)
         let login = Login(onWasAuthenticated: sendHome)
-        let coordinator = LoginCoordinator(flow: router, caseUse: login, onIsANewUser: showGuestFlow)
+        let coordinator = LoginCoordinator(flow: router, caseUse: login, onIsANewUser: startRegistryWithEmail)
         coordinator.start()
     }
     
