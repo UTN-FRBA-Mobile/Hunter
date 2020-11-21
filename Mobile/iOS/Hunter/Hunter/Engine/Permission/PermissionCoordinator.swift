@@ -15,6 +15,6 @@ class PermissionCoordinator<Flow: PermissionFlow> {
     }
     
     func askForPermission() {
-        flow.showEnablePermission(onAccept: actions.accept, onCancel: actions.decline)
+        flow.showEnablePermission(with: actions)
     }
 }

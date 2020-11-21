@@ -11,8 +11,8 @@ class PermissionRouter<Nav: UINavigationController,
         self.factory = factory
     }
     
-    func showEnablePermission(onAccept: @escaping (() -> Void), onCancel: @escaping (() -> Void)) {
-        present(factory.askForPermissionScreen(with: ActionsForDecision(accept: onAccept, decline: onCancel)))
+    func showEnablePermission(with actions: ActionsForDecision) {
+        present(factory.askForPermissionScreen(with: actions))
     }
 }
 

@@ -12,12 +12,16 @@ class GamePlayRouter<Nav: UINavigationController,
     }
     
     func showMap<Cu: GamePlayCaseUse>(with caseUse: Cu,
-                                      onUserLocationDidChanged: ((LocationCoordinate2D) -> Void)) {
+                                      onUserLocationDidChanged: @escaping ((LocationCoordinate2D) -> Void)) {
         show(factory.mapScreen(with: caseUse, onUserLocationDidChanged: onUserLocationDidChanged))
     }
     
-    #warning("Not implemented!")
-    func showCloseToGoal<Cu: GamePlayCaseUse>(with caseUse: Cu) {
-        print("Not implemented yet!")
+    func showCloseToGoal<Cu: GamePlayCaseUse>(with caseUse: Cu,
+                                              onUserLocationDidChanged: @escaping ((LocationCoordinate2D) -> Void)) {
+        present(factory.nearToGoalScreen(with: caseUse, onUserLocationDidChanged: onUserLocationDidChanged))
+    }
+    
+    func sendUserBackToMapView() {
+        navigation.topViewController?.dismiss(animated: true)
     }
 }

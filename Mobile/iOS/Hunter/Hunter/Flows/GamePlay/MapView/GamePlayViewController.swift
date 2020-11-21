@@ -5,6 +5,7 @@ import CoreLocation
 class GamePlayViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    var beforeDie: (() -> Void) = {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,8 @@ class GamePlayViewController: UIViewController {
     }
 
     private func cleanOverlays() { mapView.removeOverlays(mapView.overlays) }
+    
+    deinit { beforeDie() }
 }
 
 extension GamePlayViewController: MKMapViewDelegate {
@@ -29,7 +32,7 @@ extension GamePlayViewController: MKMapViewDelegate {
     -> MKOverlayRenderer {
         guard let circle = overlay as? MKCircle else { return MKOverlayRenderer(overlay: overlay) }
         let renderer = MKCircleRenderer(overlay: circle)
-        renderer.fillColor = Color.Hunter.darkBlue
+        renderer.fillColor = Color.Hunter.green
         renderer.alpha = 0.2
         return renderer
     }

@@ -9,10 +9,17 @@ class GamePlayCoordinator<CaseUse: GamePlayCaseUse, Flow: GamePlayFlow> {
         self.caseUse = caseUse
     }
     
-    func start() { flow.showMap(with: caseUse, onUserLocationDidChanged: handleNewLocation) }
+    func start() { flow.showMap(with: caseUse, onUserLocationDidChanged: checkIfItsNearToGoal) }
     
-    func handleNewLocation(_ location: LocationCoordinate2D) {
-        guard caseUse.isNearToGoal(with: location) else { return }
-        flow.showCloseToGoal(with: caseUse)
+    func checkIfItsNearToGoal(_ location: LocationCoordinate2D) {
+        guard caseUse.DidUserChangedZone(with: location) else { return }
+        
+        flow.showCloseToGoal(with: caseUse, onUserLocationDidChanged: checkIfItsFarFromGoal)
+    }
+    
+    func checkIfItsFarFromGoal(_ location: LocationCoordinate2D) {
+        guard caseUse.DidUserChangedZone(with: location) else { return }
+        
+        flow.sendUserBackToMapView()
     }
 }

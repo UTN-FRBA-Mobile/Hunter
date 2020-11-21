@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import Firebase
+import MapKit
 
 public class Module<Nav: UINavigationController, Net: Networking> {
     
@@ -14,7 +15,8 @@ public class Module<Nav: UINavigationController, Net: Networking> {
     public init(_ dependencies: Dependencies<Nav, Net>) { self.dependencies = dependencies }
 
     func launch() {
-        checkAuthentication()
+        //checkAuthentication()
+        sendToActiveGame()
     }
 }
 
@@ -61,7 +63,8 @@ fileprivate extension Module {
     func sendHome() {
         let viewResolver = HomeViewResolver()
         let router = HomeRouter(navigation: dependencies.navigation, factory: viewResolver)
-        let home = Home(newGameFlow: createNewGame, joinGameFlow: sentToJoinAGame)
+        // createNewGame
+        let home = Home(newGameFlow: openSettings, joinGameFlow: sentToJoinAGame)
         let coordinator = HomeCoordinator(flow: router, caseUse: home)
         coordinator.start()
     }
@@ -74,14 +77,35 @@ fileprivate extension Module {
         coordinator.start()
     }
     
-    func sendToActiveGame() {
-        let popToRoot = { let _ = self.dependencies.navigation.popToRootViewController(animated: true) }
-        let locationPermission = LocationPermission()
-        let requestUserLocation = {
-            let startGame = { self.showGame(with: locationPermission) }
-            locationPermission.requestUserLocation(ActionsForDecision(accept: startGame, decline: popToRoot))
+    func sendToActiveGame() { checkGpsPermissions()  }
+    
+    var gpsPermissionsWasAsked: Bool { UserDefaults.standard.bool(forKey: "AskedForGpsPermissions") }
+    
+    func checkGpsPermissions() {
+        gpsPermissionsWasAsked ? requestUserLocation() : askGpsPermissionForFirstTime()
+    }
+    
+    func askGpsPermissionForFirstTime() {
+        let request = {
+            UserDefaults.standard.setValue(true, forKey: "AskedForGpsPermissions")
+            self.requestUserLocation()
         }
-        let responseToAsk = ActionsForDecision(accept: requestUserLocation, decline: popToRoot)
+        askForGpsPermissions(onAccept: request)
+    }
+    
+    func requestUserLocation() {
+        let askForGps = { self.askForGpsPermissions(onAccept: self.openSettings) }
+        let locationPermission = LocationPermission()
+        let startGame = { self.showGame(with: locationPermission) }
+        locationPermission.requestUserLocation(ActionsForDecision(accept: startGame, decline: askForGps))
+    }
+    
+    func popToRoot() {
+        let _ = dependencies.navigation.popToRootViewController(animated: true)
+    }
+    
+    func askForGpsPermissions(onAccept agreeBlock: @escaping (() -> Void)) {
+        let responseToAsk = ActionsForDecision(accept: agreeBlock, decline: popToRoot)
         let presenter = LocationPermissionPresenter()
         let viewResolver = PermissionViewResolver(presenter: presenter)
         let router = PermissionRouter(navigation: dependencies.navigation, factory: viewResolver)
@@ -89,10 +113,19 @@ fileprivate extension Module {
         coordinator.askForPermission()
     }
     
+    func openSettings() {
+        guard let appSettings = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(appSettings, options: [:]) { (finished) in
+            if finished { print("Fleto termino guachinn!") }
+        }
+    }
+    
     func showGame(with locationPermission: LocationPermission) {
         let viewResolver = GamePlayViewResolver()
         let router = GamePlayRouter(navigation: dependencies.navigation, factory: viewResolver)
-        let gamePlay = GamePlay()
+        
+        let gamePlay = GamePlay(.secondHome, zoneRadius: 15) { $0.distance(from: $1) }
+        
         let coordinator = GamePlayCoordinator(flow: router, caseUse: gamePlay)
         coordinator.start()
     }
@@ -134,6 +167,12 @@ fileprivate extension Module {
     }
 }
 
+
+struct GPSActions {
+    let onShouldRequest: (() -> Void)
+    let wasAnsweredBefore: ActionsForDecision
+}
+
 import MapKit
 import CoreLocation
 class LocationPermission: NSObject {
@@ -145,14 +184,32 @@ class LocationPermission: NSObject {
     
     let manager = CLLocationManager()
     
-    var state: LocationPermission.State { parseTo(manager.authorizationStatus) }
+    var state: LocationPermission.State {
+        if #available(iOS 14.0, *) {
+            return parseTo(manager.authorizationStatus)
+        } else {
+            return parseTo(CLLocationManager.authorizationStatus())
+        }
+    }
     
     private func parseTo(_ authorizationStatus: CLAuthorizationStatus) -> LocationPermission.State {
+        print("Fleto CL Auth Status -> \(authorizationStatus)")
         switch authorizationStatus {
-        case .authorizedAlways, .authorizedWhenInUse: return .granted
-        case .denied, .restricted: return .denied
-        case .notDetermined: return .shouldAsk
-        default: return .denied
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("Fleto Authorized")
+            return .granted
+        case .denied:
+            print("Fleto Denied")
+            return .denied
+        case .restricted:
+            print("Fleto Restricted")
+            return .denied
+        case .notDetermined:
+            print("Fleto Not Determinated!")
+            return .shouldAsk
+        default:
+            print("Fleto Other!")
+            return .denied
         }
     }
     
@@ -169,6 +226,7 @@ class LocationPermission: NSObject {
     }
     
     private var status: Status = .defined
+    
     func requestUserLocation(_ actions: ActionsForDecision) {
         guard status == .defined else { return }
         status = .requesting(actions)
@@ -176,11 +234,12 @@ class LocationPermission: NSObject {
         manager.requestWhenInUseAuthorization()
     }
 }
+
 extension LocationPermission: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch status {
         case .requesting(let actions):
-            switch parseTo(manager.authorizationStatus) {
+            switch state {
             case .granted: actions.accept()
             case .denied: actions.decline()
             default: break

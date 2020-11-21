@@ -17,12 +17,13 @@
 		AD0C42AC2550C1E6002DBF5A /* GamePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0C42AA2550C1E6002DBF5A /* GamePlayViewController.swift */; };
 		AD0C42AD2550C1E6002DBF5A /* GamePlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0C42AB2550C1E6002DBF5A /* GamePlayViewController.xib */; };
 		AD2175942554F0F600FC8FB7 /* LocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2175932554F0F600FC8FB7 /* LocationCoordinate2D.swift */; };
-		AD2175992554F7EB00FC8FB7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2175982554F7EB00FC8FB7 /* MapKit.framework */; };
 		AD25F009255848B10052DBF6 /* Rest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F008255848B10052DBF6 /* Rest+Response.swift */; };
 		AD25F011255848CC0052DBF6 /* Rest+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F010255848CC0052DBF6 /* Rest+Client.swift */; };
 		AD25F016255849480052DBF6 /* Url+Typed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F015255849480052DBF6 /* Url+Typed.swift */; };
 		AD25F01B2558495D0052DBF6 /* Rest+http.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F01A2558495D0052DBF6 /* Rest+http.swift */; };
 		AD25F02D25584D610052DBF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD25F02C25584D610052DBF6 /* GoogleService-Info.plist */; };
+		AD42894525688E3700629510 /* CompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42894325688E3700629510 /* CompassViewController.swift */; };
+		AD42894625688E3700629510 /* CompassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD42894425688E3700629510 /* CompassViewController.xib */; };
 		AD4A0BAB251C11A100DC9900 /* HunterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BAA251C11A100DC9900 /* HunterTests.swift */; };
 		AD4A0BB6251C11A100DC9900 /* HunterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */; };
 		AD67E51425601FF900B69FBF /* PermissionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E51325601FF900B69FBF /* PermissionRouter.swift */; };
@@ -30,6 +31,13 @@
 		AD67E5212560205F00B69FBF /* PermissionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E5202560205F00B69FBF /* PermissionPresenter.swift */; };
 		AD67E527256023EC00B69FBF /* PermissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E526256023EC00B69FBF /* PermissionCoordinator.swift */; };
 		AD67E53A2560241A00B69FBF /* PermissionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E5392560241A00B69FBF /* PermissionFlow.swift */; };
+		AD8E5F2025696A1D009BEBA2 /* Double+Geometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E5F1F25696A1D009BEBA2 /* Double+Geometric.swift */; };
+		AD8E5F2825696A34009BEBA2 /* CLLocation+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E5F2725696A34009BEBA2 /* CLLocation+Helpers.swift */; };
+		AD8E5F3125696ABC009BEBA2 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E5F3025696ABC009BEBA2 /* Adapter.swift */; };
+		AD8E5F3725696B12009BEBA2 /* UserLocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E5F3625696B12009BEBA2 /* UserLocationTracker.swift */; };
+		AD8E5F4025696B78009BEBA2 /* LocationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E5F3F25696B78009BEBA2 /* LocationAdapter.swift */; };
+		ADA89EB9256817D100AC2063 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2175982554F7EB00FC8FB7 /* MapKit.framework */; };
+		ADA89EBC256817D200AC2063 /* Pods_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118BCF7AD09771CAD36D8BB2 /* Pods_Hunter.framework */; };
 		ADBAADA8256064D40034A2C0 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBAADA6256064D40034A2C0 /* PermissionViewController.swift */; };
 		ADBAADA9256064D40034A2C0 /* PermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADBAADA7256064D40034A2C0 /* PermissionViewController.xib */; };
 		ADE0820625506CDC0046ACC5 /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A525506CDB0046ACC5 /* HomeFlow.swift */; };
@@ -109,7 +117,6 @@
 		ADE0828125507AAE0046ACC5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE0827F25507AAE0046ACC5 /* LoginViewController.xib */; };
 		ADE08289255086EF0046ACC5 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE08288255086EF0046ACC5 /* LoginPresenter.swift */; };
 		ADEA2B362567FD9B00C890BB /* AlamofireClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEA2B352567FD9B00C890BB /* AlamofireClient.swift */; };
-		B360CEBC1BB327E616411986 /* Pods_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118BCF7AD09771CAD36D8BB2 /* Pods_Hunter.framework */; };
 		C19F7AC29346E9949FDF9596 /* Pods_Hunter_HunterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0414FC799329DCE8482D95DC /* Pods_Hunter_HunterUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +159,8 @@
 		AD25F015255849480052DBF6 /* Url+Typed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Url+Typed.swift"; sourceTree = "<group>"; };
 		AD25F01A2558495D0052DBF6 /* Rest+http.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+http.swift"; sourceTree = "<group>"; };
 		AD25F02C25584D610052DBF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AD42894325688E3700629510 /* CompassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassViewController.swift; sourceTree = "<group>"; };
+		AD42894425688E3700629510 /* CompassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompassViewController.xib; sourceTree = "<group>"; };
 		AD4A0B90251C11A000DC9900 /* Hunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4A0BA1251C11A100DC9900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD4A0BA6251C11A100DC9900 /* HunterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HunterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +174,13 @@
 		AD67E5202560205F00B69FBF /* PermissionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPresenter.swift; sourceTree = "<group>"; };
 		AD67E526256023EC00B69FBF /* PermissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCoordinator.swift; sourceTree = "<group>"; };
 		AD67E5392560241A00B69FBF /* PermissionFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionFlow.swift; sourceTree = "<group>"; };
+		AD8E5F1F25696A1D009BEBA2 /* Double+Geometric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Geometric.swift"; sourceTree = "<group>"; };
+		AD8E5F2725696A34009BEBA2 /* CLLocation+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Helpers.swift"; sourceTree = "<group>"; };
+		AD8E5F3025696ABC009BEBA2 /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
+		AD8E5F3625696B12009BEBA2 /* UserLocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationTracker.swift; sourceTree = "<group>"; };
+		AD8E5F3F25696B78009BEBA2 /* LocationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAdapter.swift; sourceTree = "<group>"; };
+		ADA89ED82568183A00AC2063 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADA89EDD2568185800AC2063 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBAADA6256064D40034A2C0 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		ADBAADA7256064D40034A2C0 /* PermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionViewController.xib; sourceTree = "<group>"; };
 		ADE081A525506CDB0046ACC5 /* HomeFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFlow.swift; sourceTree = "<group>"; };
@@ -254,8 +270,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD2175992554F7EB00FC8FB7 /* MapKit.framework in Frameworks */,
-				B360CEBC1BB327E616411986 /* Pods_Hunter.framework in Frameworks */,
+				ADA89EBC256817D200AC2063 /* Pods_Hunter.framework in Frameworks */,
+				ADA89EB9256817D100AC2063 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,8 +310,8 @@
 				AD0C42982550C143002DBF5A /* GamePlayRouter.swift */,
 				AD0C42A02550C152002DBF5A /* GamePlayFactory.swift */,
 				AD0C42A52550C1A4002DBF5A /* GamePlayPresenter.swift */,
-				AD0C42AA2550C1E6002DBF5A /* GamePlayViewController.swift */,
-				AD0C42AB2550C1E6002DBF5A /* GamePlayViewController.xib */,
+				AD42894025688E0400629510 /* MapView */,
+				AD42894125688E0E00629510 /* CompassView */,
 			);
 			path = GamePlay;
 			sourceTree = "<group>";
@@ -329,6 +345,8 @@
 		AD25F0072558487F0052DBF6 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				AD8E5F3525696B07009BEBA2 /* Location */,
+				AD8E5F2F25696AB1009BEBA2 /* Common */,
 				ADE081AC25506CDB0046ACC5 /* Networking */,
 			);
 			path = Foundation;
@@ -341,6 +359,24 @@
 				AD25F01A2558495D0052DBF6 /* Rest+http.swift */,
 			);
 			path = Rest;
+			sourceTree = "<group>";
+		};
+		AD42894025688E0400629510 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				AD0C42AA2550C1E6002DBF5A /* GamePlayViewController.swift */,
+				AD0C42AB2550C1E6002DBF5A /* GamePlayViewController.xib */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		AD42894125688E0E00629510 /* CompassView */ = {
+			isa = PBXGroup;
+			children = (
+				AD42894325688E3700629510 /* CompassViewController.swift */,
+				AD42894425688E3700629510 /* CompassViewController.xib */,
+			);
+			path = CompassView;
 			sourceTree = "<group>";
 		};
 		AD4A0B87251C11A000DC9900 = {
@@ -417,6 +453,39 @@
 				AD67E5392560241A00B69FBF /* PermissionFlow.swift */,
 			);
 			path = Permission;
+			sourceTree = "<group>";
+		};
+		AD8E5F1E256969F5009BEBA2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E5F1F25696A1D009BEBA2 /* Double+Geometric.swift */,
+				AD8E5F2725696A34009BEBA2 /* CLLocation+Helpers.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AD8E5F2F25696AB1009BEBA2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E5F3025696ABC009BEBA2 /* Adapter.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AD8E5F3525696B07009BEBA2 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E5F3625696B12009BEBA2 /* UserLocationTracker.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		AD8E5F3E25696B71009BEBA2 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E5F3F25696B78009BEBA2 /* LocationAdapter.swift */,
+			);
+			path = Adapters;
 			sourceTree = "<group>";
 		};
 		ADE081A325506CDB0046ACC5 /* Engine */ = {
@@ -650,6 +719,8 @@
 		ADE081F025506CDC0046ACC5 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				AD8E5F3E25696B71009BEBA2 /* Adapters */,
+				AD8E5F1E256969F5009BEBA2 /* Extension */,
 				ADE081F125506CDC0046ACC5 /* Module */,
 			);
 			path = App;
@@ -747,6 +818,8 @@
 		BC749D5EA1166B2913CDFEAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADA89EDD2568185800AC2063 /* Alamofire.framework */,
+				ADA89ED82568183A00AC2063 /* Alamofire.framework */,
 				AD2175982554F7EB00FC8FB7 /* MapKit.framework */,
 				118BCF7AD09771CAD36D8BB2 /* Pods_Hunter.framework */,
 				0414FC799329DCE8482D95DC /* Pods_Hunter_HunterUITests.framework */,
@@ -879,6 +952,7 @@
 				ADE0828125507AAE0046ACC5 /* LoginViewController.xib in Resources */,
 				ADE0823725506CDC0046ACC5 /* LocalSignUpViewController.xib in Resources */,
 				ADE0822525506CDC0046ACC5 /* JoinGameViewController.xib in Resources */,
+				AD42894625688E3700629510 /* CompassViewController.xib in Resources */,
 				ADE0821B25506CDC0046ACC5 /* Assets.xcassets in Resources */,
 				ADE0821C25506CDC0046ACC5 /* LaunchScreen.storyboard in Resources */,
 				ADBAADA9256064D40034A2C0 /* PermissionViewController.xib in Resources */,
@@ -1015,8 +1089,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADE0822C25506CDC0046ACC5 /* CreateGameViewController.swift in Sources */,
+				AD8E5F2025696A1D009BEBA2 /* Double+Geometric.swift in Sources */,
 				AD25F016255849480052DBF6 /* Url+Typed.swift in Sources */,
 				ADE0822125506CDC0046ACC5 /* HomeViewController.swift in Sources */,
+				AD42894525688E3700629510 /* CompassViewController.swift in Sources */,
 				ADE0821D25506CDC0046ACC5 /* AppDelegate.swift in Sources */,
 				ADE0823F25506CDC0046ACC5 /* HunterTextField.swift in Sources */,
 				ADE0820B25506CDC0046ACC5 /* LaunchFlow.swift in Sources */,
@@ -1025,8 +1101,10 @@
 				ADE0821825506CDC0046ACC5 /* AuthenticationCoordinator.swift in Sources */,
 				ADE0826B255078570046ACC5 /* LoginRouter.swift in Sources */,
 				AD0C428E2550C0A1002DBF5A /* GamePlayCaseUse.swift in Sources */,
+				AD8E5F3125696ABC009BEBA2 /* Adapter.swift in Sources */,
 				ADE0822B25506CDC0046ACC5 /* CreateGamePresenter.swift in Sources */,
 				ADE0820725506CDC0046ACC5 /* HomeCaseUse.swift in Sources */,
+				AD8E5F3725696B12009BEBA2 /* UserLocationTracker.swift in Sources */,
 				ADE08265255076E30046ACC5 /* LoginFlow.swift in Sources */,
 				AD0C42A12550C152002DBF5A /* GamePlayFactory.swift in Sources */,
 				AD25F011255848CC0052DBF6 /* Rest+Client.swift in Sources */,
@@ -1052,6 +1130,7 @@
 				ADE0824325506CDC0046ACC5 /* Array+Get.swift in Sources */,
 				ADE0820A25506CDC0046ACC5 /* LaunchCaseUse.swift in Sources */,
 				ADE0823625506CDC0046ACC5 /* RegistryPresenter.swift in Sources */,
+				AD8E5F2825696A34009BEBA2 /* CLLocation+Helpers.swift in Sources */,
 				ADE0822425506CDC0046ACC5 /* JoinGamePresenter.swift in Sources */,
 				ADE0821125506CDC0046ACC5 /* CreateGameFlow.swift in Sources */,
 				ADE0824425506CDC0046ACC5 /* UIColor+Hexadecimal.swift in Sources */,
@@ -1077,6 +1156,7 @@
 				ADE0822225506CDC0046ACC5 /* HomeRouter.swift in Sources */,
 				AD67E51C2560201B00B69FBF /* PermissionFactory.swift in Sources */,
 				ADE0820C25506CDC0046ACC5 /* Networking.swift in Sources */,
+				AD8E5F4025696B78009BEBA2 /* LocationAdapter.swift in Sources */,
 				ADE08260255076710046ACC5 /* LoginCoordinator.swift in Sources */,
 				AD0C42862550C094002DBF5A /* GamePlayCoordinator.swift in Sources */,
 				ADE0822D25506CDC0046ACC5 /* CreateGameRouter.swift in Sources */,

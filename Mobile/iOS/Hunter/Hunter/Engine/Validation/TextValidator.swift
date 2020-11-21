@@ -37,9 +37,9 @@ extension TextValidator {
         func validate(_ value: String) throws {
             switch self {
             case .minimum(of: let minimum):
-                guard value.count > minimum else { throw VError.needMoreCharacters }
+                guard value.count >= minimum else { throw VError.needMoreCharacters }
             case .maximum(of: let maximum):
-                guard value.count < maximum else { throw VError.excessCharacters }
+                guard value.count <= maximum else { throw VError.excessCharacters }
             case .avoidPattern(let pattern):
                 guard !value.contains(pattern) else { throw VError.cantContain(pattern: pattern)}
             case .contains(let pattern):
