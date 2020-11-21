@@ -17,15 +17,35 @@ class CompassViewController: UIViewController {
     
     private var lastAngle: CGFloat = 0
     private var lastDistance: CLLocationDistance = 0
-    
+
+    private var adjAngle: CGFloat {
+        guard let window = UIApplication.shared.windows.first?.windowScene else { return 0 }
+        
+        switch window.interfaceOrientation {
+        case .landscapeLeft:
+            return 90
+        case .landscapeRight:
+            return -90
+        case .portrait, .unknown:
+            return 0
+        case .portraitUpsideDown:
+            return -180
+        @unknown default:
+            return 0
+        }
+    }
+
     private func recalculateSize() {
+
         lastDistance = target.toLocation.distance(from: location)
     }
     
     private func recalculateDirections() {
-        let headingR = Measurement(value: heading.trueHeading, unit: UnitAngle.degrees).converted(to: UnitAngle.radians).value
+        
         let dirRadiant = location.bearing(with: target.toLocation)
-        lastAngle = CGFloat(dirRadiant - headingR)
+        let originalHeading = (dirRadiant - CGFloat(heading.trueHeading).toRadians)
+        lastAngle = CGFloat(adjAngle.toRadians + originalHeading)
+        
         UIView.animate(withDuration: 0.3) {
             self.arrowImageView.transform = CGAffineTransform(rotationAngle: self.lastAngle)
         }

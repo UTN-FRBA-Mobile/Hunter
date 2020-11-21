@@ -3,21 +3,22 @@ import MapKit
 
 extension CLLocation {
     
-    func bearing(with location: CLLocation) -> Double {
+    func bearing(with destination: CLLocation) -> CGFloat {
         
         let lat1 = coordinate.latitude.toRadians
         let lon1 = coordinate.longitude.toRadians
         
-        let lat2 = location.coordinate.latitude.toRadians
-        let lon2 = location.coordinate.longitude.toRadians
+        let lat2 = destination.coordinate.latitude.toRadians
+        let lon2 = destination.coordinate.longitude.toRadians
         
         let dLon = lon2 - lon1
         
         let y = sin(dLon) * cos(lat2)
         let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon)
         
-        return atan2(y, x).toDegrees
+        return CGFloat(atan2(y, x))
     }
+
 }
 
 extension CLLocationCoordinate2D {
