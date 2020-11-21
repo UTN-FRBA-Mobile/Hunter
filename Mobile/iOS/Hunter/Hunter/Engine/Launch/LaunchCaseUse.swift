@@ -9,7 +9,8 @@ struct Launch: LaunchCaseUse {
     let handleNonExistentUser: (() -> Void)
     
     func checkStatus(onHaveLocalToken: @escaping ((Token) -> Void)) {
-        let token = service.wasAuthenticated()
-        token.count > 0 ? onHaveLocalToken(token) : handleNonExistentUser()
+        service.wasAuthenticated { token in
+            token.count > 0 ? onHaveLocalToken(token) : handleNonExistentUser()
+        }
     }
 }

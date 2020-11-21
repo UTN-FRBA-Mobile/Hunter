@@ -19,7 +19,10 @@ class LoginViewResolver: LoginFactory {
             $0.applyBorders()
             $0.delegate = controller
         }
-        let loginButton: UIButton = UIView.loadFromCode { (btn: HunterButton) in
+        fields.first?.text = "test@hunter.com"
+        fields.last?.text = "123456"
+        
+        let loginButton: HunterButton = UIView.loadFromCode { (btn: HunterButton) in
             btn.setTitle("Login", for: .normal)
             btn.isEnabled = false
             btn.setup {
@@ -52,6 +55,9 @@ class LoginViewResolver: LoginFactory {
         controller.actionsStack.addArrangedSubview(loginButton)
         controller.loginButton = loginButton
         controller.actionsStack.addArrangedSubview(signUpButton)
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            loginButton.onTap()
+        }
         return controller
     }
 }

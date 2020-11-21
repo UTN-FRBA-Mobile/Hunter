@@ -8,7 +8,10 @@ target 'Hunter' do
   # Pods for Hunter
 
   pod 'IQKeyboardManagerSwift'
-
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Alamofire'
+  
   target 'HunterTests' do
     inherit! :search_paths
     # Pods for testing
