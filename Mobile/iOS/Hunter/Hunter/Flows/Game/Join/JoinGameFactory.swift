@@ -19,7 +19,9 @@ class JoinGameViewResolver: JoinGameFactory {
         controller.validate = { try controller.codeTextField.validate() }
         controller.joinButton.setTitle("Join Game", for: .normal)
         controller.joinButton.setup {
+            controller.view.backgroundColor = Color.Hunter.darkBlue
             caseUse.join(with: controller.codeTextField.text ?? "") { result in
+                controller.view.backgroundColor = Color.Hunter.white
                 switch result {
                 case .success(let game):
                     print("Game \(game)")

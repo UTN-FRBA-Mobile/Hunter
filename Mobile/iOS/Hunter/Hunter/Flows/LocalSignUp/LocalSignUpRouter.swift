@@ -12,6 +12,6 @@ class LocalSignUpRouter<Nav: UINavigationController,
     }
     
     func sendUserToRegister<Cu: LocalSignUpCaseUse>(with caseUse: Cu) {
-        show(factory.LocalSignUpScreen())
+        show(factory.LocalSignUpScreen(with: caseUse))
     }
 }

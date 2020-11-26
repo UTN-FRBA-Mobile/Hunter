@@ -6,17 +6,6 @@
     android:layout_margin="10dp"
     android:orientation="vertical">
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/clue_title"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:textColor="@color/dark_grey"-->
-    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_weight="0"-->
-    <!--        android:text="@string/stepClue"-->
-    <!--        android:textAlignment="viewStart"-->
-    <!--        android:textSize="@dimen/title" />-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/durationTextInputLayout"

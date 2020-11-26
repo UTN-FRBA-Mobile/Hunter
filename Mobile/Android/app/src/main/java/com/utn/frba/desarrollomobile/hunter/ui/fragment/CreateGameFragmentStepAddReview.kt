@@ -97,6 +97,7 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
             return
         }
         creating = true
+        updateUI()
 
         uploadImage(object : ImageUploadListener {
             override fun onSuccess(uri: String) {
@@ -172,38 +173,6 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
         }
     }
 
-/*    private fun updateGameImage(url: String) {
-        Log.d("Create Game", "Actualizando Juego")
-        val game: Game? = gameViewModel.getGameCreated()
-        if (game != null) {
-            var callSetGameResponse =
-                APIAdapter.getAPI().setGame(
-                    20,
-                    game.latitude,
-                    game.longitude,
-                    game.clues,
-                    game.userIds,
-                    url
-                )
-
-            callSetGameResponse.enqueue(object : Callback<Game> {
-                override fun onFailure(call: Call<Game>, t: Throwable) {
-                    onCreateGameError(t.message.orEmpty())
-                }
-
-                override fun onResponse(call: Call<Game>, response: Response<Game>) {
-                    val body = response?.body()
-                    if (body != null) {
-                        gameViewModel.setGameCreated(body)
-                        onSuccessGameCreated()
-                    } else {
-                        onCreateGameError("Game not found")
-                    }
-                }
-            })
-        }
-    }*/
-
     private fun onCreateGameError(msg: String) {
         Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
         Log.d("Create Game", msg)
@@ -212,7 +181,6 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
 
     private fun onSuccessGameCreated() {
         showFragment(CreateGameFragmentStepSummary(), false, true)
-        creating = false
     }
 
     override fun onResume() {

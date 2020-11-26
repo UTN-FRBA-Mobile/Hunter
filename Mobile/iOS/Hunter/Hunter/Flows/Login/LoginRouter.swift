@@ -13,6 +13,6 @@ class LoginRouter<Nav: UINavigationController,
     func showLogin<Cu>(with caseuse: Cu,
                        ifIsANewUser: @escaping (() -> Void))
     where Cu : LoginCaseUse {
-        show(factory.loginScreen(with:caseuse, startGuestFlow: ifIsANewUser))
+        replaceAll(with: factory.loginScreen(with:caseuse, startGuestFlow: ifIsANewUser))
     }
 }
