@@ -24,6 +24,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.utn.frba.desarrollomobile.hunter.BuildConfig
 import com.utn.frba.desarrollomobile.hunter.R
+import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_image.*
@@ -165,6 +166,11 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
                 Toast.makeText(activity, "Permiso concedido", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(getString(R.string.stepImage))
     }
 
 }

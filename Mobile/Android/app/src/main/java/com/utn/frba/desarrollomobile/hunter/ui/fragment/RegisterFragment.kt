@@ -7,10 +7,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.service.models.User
-import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
 import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
+import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
 import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -138,5 +139,10 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                     SaveUserData(user)
                 }
             }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(getString(R.string.register_title))
     }
 }

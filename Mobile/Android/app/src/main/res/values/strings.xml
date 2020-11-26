@@ -72,5 +72,9 @@
     <string name="register_email_helper">Es para poder identificarte, no vamos a mandarte spam.</string>
     <string name="clue_hint">Pista</string>
     <string name="clue_helper">Esto va a ayudar al jugador a orientarse cuando está cerca</string>
+    <string name="home_title">Inicio</string>
+    <string name="join_game_title">Unirse a un Juego!</string>
+    <string name="map_title">Mapa hacia el Tesoro</string>
+    <string name="compass_title">Brújula hacia el Tesoro</string>
 
 </resources>

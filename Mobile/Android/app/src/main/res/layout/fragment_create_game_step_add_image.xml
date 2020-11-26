@@ -6,19 +6,6 @@
     android:layout_margin="10dp"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/clue_image_title"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_weight="0"
-        android:text="@string/stepImage"
-        android:textAlignment="viewStart"
-        android:textSize="@dimen/title"
-        android:textColor="@color/dark_grey"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/middle_guideline"
         android:layout_width="wrap_content"
@@ -26,7 +13,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".5" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/upload_image_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -36,7 +23,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@id/middle_guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clue_image_title" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/take_photo_button"
@@ -49,7 +36,7 @@
         app:layout_constraintStart_toStartOf="@id/middle_guideline"
         app:layout_constraintTop_toTopOf="@id/upload_image_button" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/imagePreview"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -63,7 +50,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/upload_image_button" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/next_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

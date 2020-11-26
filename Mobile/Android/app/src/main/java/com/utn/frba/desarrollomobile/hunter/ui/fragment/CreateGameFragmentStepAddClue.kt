@@ -3,17 +3,15 @@ package com.utn.frba.desarrollomobile.hunter.ui.fragment
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.utn.frba.desarrollomobile.hunter.R
+import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_clue.*
-import kotlinx.android.synthetic.main.fragment_create_game_step_add_image.*
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_image.next_button
 
 class CreateGameFragmentStepAddClue : Fragment(R.layout.fragment_create_game_step_add_clue) {
@@ -78,6 +76,11 @@ class CreateGameFragmentStepAddClue : Fragment(R.layout.fragment_create_game_ste
 
     private fun updateUI() {
         next_button.isEnabled = duration != null && clue != null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(getString(R.string.stepClue))
     }
 }
 

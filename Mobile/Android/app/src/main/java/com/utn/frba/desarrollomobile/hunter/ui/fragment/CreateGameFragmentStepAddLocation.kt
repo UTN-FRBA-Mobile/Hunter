@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
@@ -14,38 +13,16 @@ import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.gms.maps.CameraUpdate
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapFragment
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.Circle
-import com.google.android.gms.maps.model.CircleOptions
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.utn.frba.desarrollomobile.hunter.R
-import com.utn.frba.desarrollomobile.hunter.extensions.removeFragment
+import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
-import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
-import com.utn.frba.desarrollomobile.hunter.service.models.User
-import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import com.utn.frba.desarrollomobile.hunter.utils.PermissionHandler
 import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_image.next_button
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_location.*
-import kotlinx.android.synthetic.main.fragment_create_game_step_add_location.latitudePreview
-import kotlinx.android.synthetic.main.fragment_create_game_step_add_location.longitudePreview
-import kotlinx.android.synthetic.main.fragment_create_game_step_add_location.map
-import kotlinx.android.synthetic.main.fragment_create_game_step_review.*
-import kotlinx.android.synthetic.main.fragment_map.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game_step_add_location), OnMapReadyCallback {
 
@@ -217,6 +194,7 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
     }
 
     override fun onResume() {
+        setToolbarTitle(getString(R.string.stepLocation))
         checkGPSPermissions()
         super.onResume()
     }
