@@ -16,6 +16,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
@@ -24,7 +28,8 @@ import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_image.next_button
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_location.*
 
-class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game_step_add_location), OnMapReadyCallback {
+class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game_step_add_location),
+    OnMapReadyCallback {
 
     private val GPS_CODE = 1
 
