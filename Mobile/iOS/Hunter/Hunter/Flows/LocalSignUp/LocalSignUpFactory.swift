@@ -38,11 +38,12 @@ class LocalSignUpViewResolver: LocalSignUpFactory {
                 print("HDebug: No pudimos crear el usuario")
             }
         }
+
         return controller
     }
 }
 
-extension Array where Element == HunterTextField {
+private extension Array where Element == HunterTextField {
     func text(at position: Int) throws -> String {
         guard let field = get(at: position), field.hasText else { throw DummyError.value }
         return field.text ?? ""

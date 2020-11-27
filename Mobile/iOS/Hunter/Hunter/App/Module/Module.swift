@@ -14,10 +14,7 @@ public class Module<Nav: UINavigationController, Net: Networking> {
     private let dependencies: Dependencies<Nav, Net>
     public init(_ dependencies: Dependencies<Nav, Net>) { self.dependencies = dependencies }
 
-    func launch() {
-        //checkAuthentication()
-        sendToActiveGame()
-    }
+    func launch() { checkAuthentication() }
 }
 
 fileprivate extension Module {
@@ -47,7 +44,8 @@ fileprivate extension Module {
     }
     
     func startRegistryWithEmail() {
-        let createUser = CreateUser(networking: dependencies.networking)
+        let createUser = DoubleRegistration(first: RegisterUserService(),
+                                            second: CreateUser(networking: dependencies.networking))
         let signUp = SignUpWithEmail(service: createUser, onWasRegistered: sendHome)
         let viewResolver = LocalSignUpViewResolver()
         let router = LocalSignUpRouter(navigation: dependencies.navigation, factory: viewResolver)
@@ -70,6 +68,7 @@ fileprivate extension Module {
     }
     
     func createNewGame() {
+        try? Auth.auth().signOut()
         let viewResolver = CreateGameViewResolver()
         let router = CreateGameRouter(navigation: dependencies.navigation, factory: viewResolver)
         let createGame = CreateGame(imageProvider: LocaliOSImageModule())
@@ -115,9 +114,7 @@ fileprivate extension Module {
     
     func openSettings() {
         guard let appSettings = URL(string: UIApplication.openSettingsURLString) else { return }
-        UIApplication.shared.open(appSettings, options: [:]) { (finished) in
-            if finished { print("Fleto termino guachinn!") }
-        }
+        UIApplication.shared.open(appSettings, options: [:]) { _ in }
     }
     
     func showGame(with locationPermission: LocationPermission) {
@@ -153,11 +150,13 @@ class LocaliOSImageModule: ImageCaseUse {
 
 fileprivate extension Module {
     private typealias Method = (RegisterMethod, SingleAction<Void>)
+
+    @available(*, unavailable)
     func showGuestFlow() {
         #warning("We need to wire methods!")
         #warning("Maybe Case use/Coordinator was necesary to see what methods are available to authenticate")
-        let googleAuth: Method = (.google, { _ in print("Google!") })
-        let facebookAuth: Method = (.facebook, { _ in print("Facebook!") })
+        let googleAuth: Method = (.google, { _ in })
+        let facebookAuth: Method = (.facebook, { _ in })
         let emailAuth: Method = (.email, { _ in self.startRegistryWithEmail() })
         let methods: [Method] = [googleAuth, facebookAuth, emailAuth]
         let presenter = RegisterGuestPresenter(methods: methods)
@@ -193,22 +192,16 @@ class LocationPermission: NSObject {
     }
     
     private func parseTo(_ authorizationStatus: CLAuthorizationStatus) -> LocationPermission.State {
-        print("Fleto CL Auth Status -> \(authorizationStatus)")
         switch authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
-            print("Fleto Authorized")
             return .granted
         case .denied:
-            print("Fleto Denied")
             return .denied
         case .restricted:
-            print("Fleto Restricted")
             return .denied
         case .notDetermined:
-            print("Fleto Not Determinated!")
             return .shouldAsk
         default:
-            print("Fleto Other!")
             return .denied
         }
     }

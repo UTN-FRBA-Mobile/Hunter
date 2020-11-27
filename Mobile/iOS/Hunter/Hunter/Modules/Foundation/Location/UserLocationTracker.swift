@@ -56,7 +56,7 @@ extension UserLocationTracker {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("We shoudl handle Error: \(error)")
+        print("We should handle Error: \(error)")
     }
     
 }

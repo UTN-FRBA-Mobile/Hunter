@@ -18,7 +18,6 @@
 		AD0C42AD2550C1E6002DBF5A /* GamePlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0C42AB2550C1E6002DBF5A /* GamePlayViewController.xib */; };
 		AD2175942554F0F600FC8FB7 /* LocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2175932554F0F600FC8FB7 /* LocationCoordinate2D.swift */; };
 		AD25F009255848B10052DBF6 /* Rest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F008255848B10052DBF6 /* Rest+Response.swift */; };
-		AD25F011255848CC0052DBF6 /* Rest+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F010255848CC0052DBF6 /* Rest+Client.swift */; };
 		AD25F016255849480052DBF6 /* Url+Typed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F015255849480052DBF6 /* Url+Typed.swift */; };
 		AD25F01B2558495D0052DBF6 /* Rest+http.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25F01A2558495D0052DBF6 /* Rest+http.swift */; };
 		AD25F02D25584D610052DBF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD25F02C25584D610052DBF6 /* GoogleService-Info.plist */; };
@@ -40,6 +39,8 @@
 		ADA89EBC256817D200AC2063 /* Pods_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118BCF7AD09771CAD36D8BB2 /* Pods_Hunter.framework */; };
 		ADBAADA8256064D40034A2C0 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBAADA6256064D40034A2C0 /* PermissionViewController.swift */; };
 		ADBAADA9256064D40034A2C0 /* PermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADBAADA7256064D40034A2C0 /* PermissionViewController.xib */; };
+		ADC057672569AC8300F416F9 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC057662569AC8300F416F9 /* SignUpService.swift */; };
+		ADC0576D2569ACDF00F416F9 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC0576C2569ACDF00F416F9 /* RegistrationService.swift */; };
 		ADE0820625506CDC0046ACC5 /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A525506CDB0046ACC5 /* HomeFlow.swift */; };
 		ADE0820725506CDC0046ACC5 /* HomeCaseUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A625506CDB0046ACC5 /* HomeCaseUse.swift */; };
 		ADE0820825506CDC0046ACC5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE081A725506CDB0046ACC5 /* HomeCoordinator.swift */; };
@@ -155,7 +156,6 @@
 		AD2175932554F0F600FC8FB7 /* LocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinate2D.swift; sourceTree = "<group>"; };
 		AD2175982554F7EB00FC8FB7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AD25F008255848B10052DBF6 /* Rest+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+Response.swift"; sourceTree = "<group>"; };
-		AD25F010255848CC0052DBF6 /* Rest+Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+Client.swift"; sourceTree = "<group>"; };
 		AD25F015255849480052DBF6 /* Url+Typed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Url+Typed.swift"; sourceTree = "<group>"; };
 		AD25F01A2558495D0052DBF6 /* Rest+http.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+http.swift"; sourceTree = "<group>"; };
 		AD25F02C25584D610052DBF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -183,6 +183,8 @@
 		ADA89EDD2568185800AC2063 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBAADA6256064D40034A2C0 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		ADBAADA7256064D40034A2C0 /* PermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionViewController.xib; sourceTree = "<group>"; };
+		ADC057662569AC8300F416F9 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
+		ADC0576C2569ACDF00F416F9 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		ADE081A525506CDB0046ACC5 /* HomeFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFlow.swift; sourceTree = "<group>"; };
 		ADE081A625506CDB0046ACC5 /* HomeCaseUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCaseUse.swift; sourceTree = "<group>"; };
 		ADE081A725506CDB0046ACC5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 		AD25F005255848700052DBF6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ADC0576B2569ACCE00F416F9 /* Firebase */,
 				AD25F0072558487F0052DBF6 /* Foundation */,
 				AD25F006255848780052DBF6 /* Network */,
 			);
@@ -337,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				ADEA2B352567FD9B00C890BB /* AlamofireClient.swift */,
-				AD25F010255848CC0052DBF6 /* Rest+Client.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -488,6 +490,14 @@
 			path = Adapters;
 			sourceTree = "<group>";
 		};
+		ADC0576B2569ACCE00F416F9 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				ADC0576C2569ACDF00F416F9 /* RegistrationService.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		ADE081A325506CDB0046ACC5 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +587,7 @@
 				ADE081BB25506CDB0046ACC5 /* LocalSignUpCoordinator.swift */,
 				ADE081BC25506CDB0046ACC5 /* UserRegister.swift */,
 				ADE081BD25506CDB0046ACC5 /* LocalSignUpFlow.swift */,
+				ADC057662569AC8300F416F9 /* SignUpService.swift */,
 			);
 			path = LocalSignUp;
 			sourceTree = "<group>";
@@ -1094,6 +1105,7 @@
 				ADE0822125506CDC0046ACC5 /* HomeViewController.swift in Sources */,
 				AD42894525688E3700629510 /* CompassViewController.swift in Sources */,
 				ADE0821D25506CDC0046ACC5 /* AppDelegate.swift in Sources */,
+				ADC0576D2569ACDF00F416F9 /* RegistrationService.swift in Sources */,
 				ADE0823F25506CDC0046ACC5 /* HunterTextField.swift in Sources */,
 				ADE0820B25506CDC0046ACC5 /* LaunchFlow.swift in Sources */,
 				ADE0821325506CDC0046ACC5 /* RegisterMethod.swift in Sources */,
@@ -1107,7 +1119,6 @@
 				AD8E5F3725696B12009BEBA2 /* UserLocationTracker.swift in Sources */,
 				ADE08265255076E30046ACC5 /* LoginFlow.swift in Sources */,
 				AD0C42A12550C152002DBF5A /* GamePlayFactory.swift in Sources */,
-				AD25F011255848CC0052DBF6 /* Rest+Client.swift in Sources */,
 				ADE0821F25506CDC0046ACC5 /* HomeFactory.swift in Sources */,
 				ADBAADA8256064D40034A2C0 /* PermissionViewController.swift in Sources */,
 				AD25F009255848B10052DBF6 /* Rest+Response.swift in Sources */,
@@ -1151,6 +1162,7 @@
 				AD25F01B2558495D0052DBF6 /* Rest+http.swift in Sources */,
 				ADE0821525506CDC0046ACC5 /* LocalSignUpCoordinator.swift in Sources */,
 				ADE0822E25506CDC0046ACC5 /* RegisterGuestPresenter.swift in Sources */,
+				ADC057672569AC8300F416F9 /* SignUpService.swift in Sources */,
 				ADE0823A25506CDC0046ACC5 /* AuthenticationModule.swift in Sources */,
 				ADE0823E25506CDC0046ACC5 /* HunterButton.swift in Sources */,
 				ADE0822225506CDC0046ACC5 /* HomeRouter.swift in Sources */,

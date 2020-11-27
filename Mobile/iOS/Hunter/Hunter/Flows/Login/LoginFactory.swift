@@ -55,9 +55,9 @@ class LoginViewResolver: LoginFactory {
         controller.actionsStack.addArrangedSubview(loginButton)
         controller.loginButton = loginButton
         controller.actionsStack.addArrangedSubview(signUpButton)
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            loginButton.onTap()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+//            loginButton.onTap()
+//        }
         return controller
     }
 }

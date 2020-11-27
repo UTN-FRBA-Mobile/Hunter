@@ -13,23 +13,35 @@ class LoginViewController: UIViewController {
     var validate: (() throws -> Void) = { }
     var nextFree: (() -> UITextField?) = { return nil }
     
+    private var allCompleted: Bool = false
+    
     private func performAValidation() {
         do {
             try validate()
             loginButton.isEnabled = true
         } catch {
             loginButton.isEnabled = false
-            print("We need to show validation!")
+            #warning("We need to show validation!")
+            if allCompleted {
+                return
+            }
         }
     }
 }
 
 extension LoginViewController: UITextFieldDelegate {
+
     func textFieldDidEndEditing(_ textField: UITextField) { performAValidation() }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        nextFree()?.becomeFirstResponder()
+        if let nextTextField = nextFree() {
+            nextTextField.becomeFirstResponder()
+            allCompleted = false
+        } else {
+            allCompleted = true
+        }
+
         return false
     }
 }

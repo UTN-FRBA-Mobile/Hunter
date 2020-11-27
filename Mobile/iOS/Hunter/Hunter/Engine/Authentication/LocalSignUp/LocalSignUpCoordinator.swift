@@ -4,22 +4,6 @@ protocol LocalSignUpCaseUse {
     func signUp(with registry: UserRegister, onCompletion: @escaping ActionResult<NoReply, Error>)
 }
 
-protocol SignUpService {
-    func signUp(with registry: UserRegister, onCompletion: @escaping ActionResult<NoReply, Error>)
-}
-
-class CreateUser: SignUpService {
-    let networking: Networking
-    let endpoint: String = "/api/User/Post"
-    init(networking: Networking) { self.networking = networking }
-    
-    func signUp(with registry: UserRegister, onCompletion: @escaping ActionResult<NoReply, Error>) {
-        let resource = Http(urlTyped: URL.Typed.business(endpoint: endpoint),
-                            method: Http.Method.post(body: registry))
-        networking.call(resource, onCompletion)
-    }
-}
-
 class SignUpWithEmail: LocalSignUpCaseUse {
     let onWasRegistered: (() -> Void)
     let service: SignUpService

@@ -20,7 +20,7 @@ class JoinGameViewController: UIViewController {
             joinButton.isEnabled = true
         } catch {
             joinButton.isEnabled = false
-            print("We need to show validation!")
+            #warning("Missing Show Validation!")
         }
     }
 }

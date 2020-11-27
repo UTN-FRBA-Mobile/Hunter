@@ -9,6 +9,7 @@ class LocalSignUpViewController: UIViewController {
     
     var validate: (() throws -> Void) = { }
     var nextFree: (() -> UITextField?) = { return nil }
+    private var allCompleted: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +22,27 @@ class LocalSignUpViewController: UIViewController {
             signUpButton.isEnabled = true
         } catch {
             signUpButton.isEnabled = false
-            print("We need to show validation!")
+            #warning("Missing Show Validation")
+            if allCompleted {
+                return
+            }
         }
     }
 }
 
 extension LocalSignUpViewController: UITextFieldDelegate {
+    
     func textFieldDidEndEditing(_ textField: UITextField) { performAValidation() }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        nextFree()?.becomeFirstResponder()
+        if let nextTextField = nextFree() {
+            nextTextField.becomeFirstResponder()
+            allCompleted = false
+        } else {
+            allCompleted = true
+        }
+
         return false
     }
 }
