@@ -26,6 +26,7 @@
 		AD4A0BAB251C11A100DC9900 /* HunterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BAA251C11A100DC9900 /* HunterTests.swift */; };
 		AD4A0BB6251C11A100DC9900 /* HunterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */; };
 		AD5DABB225708E13004E06A7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD5DABB125708E13004E06A7 /* Localizable.strings */; };
+		AD5DABBA25709166004E06A7 /* HunterLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB925709166004E06A7 /* HunterLoading.swift */; };
 		AD67E51425601FF900B69FBF /* PermissionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E51325601FF900B69FBF /* PermissionRouter.swift */; };
 		AD67E51C2560201B00B69FBF /* PermissionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E51B2560201B00B69FBF /* PermissionFactory.swift */; };
 		AD67E5212560205F00B69FBF /* PermissionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E5202560205F00B69FBF /* PermissionPresenter.swift */; };
@@ -171,6 +172,7 @@
 		AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterUITests.swift; sourceTree = "<group>"; };
 		AD4A0BB7251C11A100DC9900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD5DABB125708E13004E06A7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		AD5DABB925709166004E06A7 /* HunterLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterLoading.swift; sourceTree = "<group>"; };
 		AD67E51325601FF900B69FBF /* PermissionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRouter.swift; sourceTree = "<group>"; };
 		AD67E51B2560201B00B69FBF /* PermissionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionFactory.swift; sourceTree = "<group>"; };
 		AD67E5202560205F00B69FBF /* PermissionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPresenter.swift; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 			children = (
 				ADE081F625506CDC0046ACC5 /* HunterButton.swift */,
 				ADE081F725506CDC0046ACC5 /* HunterTextField.swift */,
+				AD5DABB925709166004E06A7 /* HunterLoading.swift */,
 			);
 			path = Hunter;
 			sourceTree = "<group>";
@@ -1126,6 +1129,7 @@
 				ADE0821F25506CDC0046ACC5 /* HomeFactory.swift in Sources */,
 				ADBAADA8256064D40034A2C0 /* PermissionViewController.swift in Sources */,
 				AD25F009255848B10052DBF6 /* Rest+Response.swift in Sources */,
+				AD5DABBA25709166004E06A7 /* HunterLoading.swift in Sources */,
 				ADEA2B362567FD9B00C890BB /* AlamofireClient.swift in Sources */,
 				ADE0824025506CDC0046ACC5 /* String+Localizable.swift in Sources */,
 				AD0C42AC2550C1E6002DBF5A /* GamePlayViewController.swift in Sources */,

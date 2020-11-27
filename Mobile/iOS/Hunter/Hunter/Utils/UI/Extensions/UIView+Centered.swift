@@ -5,9 +5,15 @@ import UIKit
 
 extension UIView {
     @discardableResult func center(to view: UIView) -> [NSLayoutConstraint] {
-        [centerXAnchor.constraint(equalTo: view.centerXAnchor),
-         centerYAnchor.constraint(equalTo: view.centerYAnchor)]
-            .activate()
+        [centerX(to: view), centerY(to: view)] .activate()
+    }
+    
+    @discardableResult func centerX(to view: UIView) -> NSLayoutConstraint {
+        centerXAnchor.constraint(equalTo: view.centerXAnchor)
+    }
+    
+    @discardableResult func centerY(to view: UIView) -> NSLayoutConstraint {
+        centerYAnchor.constraint(equalTo: view.centerYAnchor)
     }
     
     @discardableResult func toEdges(of view: UIView) -> [NSLayoutConstraint] {
@@ -25,6 +31,7 @@ extension UIView {
 }
 
 extension UIView {
+
     @discardableResult
     func flexible(for axis: NSLayoutConstraint.Axis,
                   spacing: CGFloat = 0,

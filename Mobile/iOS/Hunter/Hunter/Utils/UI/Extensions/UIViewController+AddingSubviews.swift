@@ -23,3 +23,17 @@ extension UIViewController {
         }
     }
 }
+
+
+extension UIView {
+    
+    @discardableResult
+    func addInside<View: UIView>(centerFlexible aView: View,
+                                 axis: [NSLayoutConstraint.Axis]) -> View {
+        let view = aView.asSubview(of: self)
+        axis.forEach { view.flexible(for: $0, with: self) }
+        view.center(to: self)
+        return aView
+    }
+    
+}
