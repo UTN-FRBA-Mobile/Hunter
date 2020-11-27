@@ -18,6 +18,7 @@ import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
+import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_review.*
 import kotlinx.android.synthetic.main.fragment_create_game_step_summary.imagePreview
@@ -92,7 +93,7 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
 
     private fun createGame() {
         Log.d("Create Game", "Creando Juego")
-
+        showLoading()
         if (!dataOk()) {
             return
         }
@@ -174,18 +175,28 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
     }
 
     private fun onCreateGameError(msg: String) {
+        hideLoading()
         Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
         Log.d("Create Game", msg)
         showFragment(ChooseGameFragment(), false, true)
     }
 
     private fun onSuccessGameCreated() {
+        hideLoading()
         showFragment(CreateGameFragmentStepSummary(), false, true)
     }
 
     override fun onResume() {
         super.onResume()
         setToolbarTitle(getString(R.string.stepReview))
+    }
+
+    private fun showLoading() {
+        (activity as MainActivity).showLoading("Ingresando...")
+    }
+
+    private fun hideLoading() {
+        (activity as MainActivity).hideLoading()
     }
 }
 

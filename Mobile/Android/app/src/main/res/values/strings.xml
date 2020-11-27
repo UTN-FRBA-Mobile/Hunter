@@ -76,5 +76,6 @@
     <string name="join_game_title">Unirse a un Juego!</string>
     <string name="map_title">Mapa hacia el Tesoro</string>
     <string name="compass_title">Brújula hacia el Tesoro</string>
+    <string name="clue_duration_helper">Esto es en minutos</string>
 
 </resources>

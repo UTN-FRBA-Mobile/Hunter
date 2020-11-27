@@ -16,6 +16,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.maps.CameraUpdate
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
@@ -41,7 +43,7 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
 
     private lateinit var gameViewModel: CreateGameViewModel
 
-    private lateinit var googleMap: GoogleMap
+    private var googleMap: GoogleMap? = null
     private lateinit var locationManager: LocationManager
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -80,6 +82,8 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
             loadingGPS.visibility = View.GONE
             latitudePreview.text = location.latitude.toString()
             longitudePreview.text = location.longitude.toString()
+            drawPinForLocation(location)
+            centerMapForLocation(location, animate = true)
             next_button.isEnabled = true
         } else {
             latitudePreview.visibility = View.GONE
@@ -154,7 +158,10 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
                 if (location !== null) {
                     updateUI(location)
                     gameViewModel.setLocation(location)
-                    Log.d("GPS", "Location Update: ${location.latitude.toString()} - ${location.longitude.toString()}")
+                    Log.d(
+                        "GPS",
+                        "Location Update: ${location.latitude.toString()} - ${location.longitude.toString()}"
+                    )
                 }
             }
 
@@ -163,12 +170,10 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
                 gameViewModel.setLocation(null)
                 gps_button.visibility = View.VISIBLE
                 locationPreview.visibility = View.GONE
-                Toast.makeText(context, "GPS DISABLE", Toast.LENGTH_SHORT).show()
                 Log.d("GPS", "onProviderDisabled")
             }
 
             override fun onProviderEnabled(provider: String?) {
-                Toast.makeText(context, "GPS ENABLED", Toast.LENGTH_SHORT).show()
                 gps_button.visibility = View.GONE
                 locationPreview.visibility = View.VISIBLE
                 Log.d("GPS", "onProviderENabled")
@@ -182,33 +187,56 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
 
     override fun onMapReady(map: GoogleMap?) {
         Log.d("GPS", map?.toString() ?: "No hay")
-        map ?: return
-        googleMap = map
-        map.addMarker(
-            MarkerOptions()
-                .position(LatLng(-34.6036844, -58.3815591))
-                .title("Centro")
-        )
-
-  //      centerMapForLatLng(LatLng(-34.6036844, -58.3815591))
+        map?.let { googleMap = it }
     }
 
     override fun onStop() {
         locationManager.removeUpdates(locationListener)
+        map.onStop()
         super.onStop()
     }
 
+    override fun onStart() {
+        map.onStart()
+        super.onStart()
+    }
+
     override fun onResume() {
+        map.onResume()
         setToolbarTitle(getString(R.string.stepLocation))
         checkGPSPermissions()
         super.onResume()
     }
-//
-//    private fun centerMapForLatLng(location: LatLng) {
-//        var cameraUpdate = CameraUpdateFactory.newLatLng(location)
-//        googleMap.animateCamera(cameraUpdate)
-//
-//    }
 
+    private fun centerMapForLocation(
+        location: Location,
+        zoom: Float? = null,
+        animate: Boolean
+    ) {
+        val locationAsLatLng = LatLng(location.latitude, location.longitude);
+        centerMapForLatLng(locationAsLatLng, zoom, animate);
+    }
 
+    private fun centerMapForLatLng(location: LatLng, zoom: Float? = null, animate: Boolean) {
+        val cameraUpdate: CameraUpdate = if (zoom == null) {
+            CameraUpdateFactory.newLatLngZoom(location, 15f)
+        } else {
+            CameraUpdateFactory.newLatLngZoom(location, zoom)
+        }
+        if (animate) {
+            googleMap?.animateCamera(cameraUpdate)
+        } else {
+            googleMap?.moveCamera(cameraUpdate)
+        }
+
+    }
+
+    private fun drawPinForLocation(location: Location) {
+        googleMap?.clear()
+        googleMap?.addMarker(
+            MarkerOptions()
+                .position(LatLng(location.latitude, location.longitude))
+                .title("Ubicacion del Tesoro")
+        )
+    }
 }

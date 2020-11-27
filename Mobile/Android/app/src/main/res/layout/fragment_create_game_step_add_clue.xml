@@ -11,10 +11,11 @@
         android:id="@+id/durationTextInputLayout"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0"
         android:layout_marginVertical="15dp"
         android:hint="@string/duration"
+        app:helperText="@string/clue_duration_helper"
         android:outlineProvider="bounds"
         >
 
@@ -29,13 +30,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/durationTextInputLayout"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:layout_marginVertical="15dp"
         android:hint="@string/game_give_clue"
         android:outlineProvider="bounds"
-        >
+        app:helperText="@string/clue_helper"
+        app:layout_constraintBottom_toTopOf="@+id/next_button"
+        app:layout_constraintTop_toBottomOf="@id/durationTextInputLayout"
+        app:layout_constraintVertical_bias="0.0">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -43,11 +45,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:enabled="true"
-            android:inputType="textMultiLine"
-            android:textAlignment="center"
             android:ellipsize="start"
-            android:gravity="center"/>
+            android:enabled="true"
+            android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
