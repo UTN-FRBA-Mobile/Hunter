@@ -25,6 +25,7 @@
 		AD42894625688E3700629510 /* CompassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD42894425688E3700629510 /* CompassViewController.xib */; };
 		AD4A0BAB251C11A100DC9900 /* HunterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BAA251C11A100DC9900 /* HunterTests.swift */; };
 		AD4A0BB6251C11A100DC9900 /* HunterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */; };
+		AD5DABB225708E13004E06A7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD5DABB125708E13004E06A7 /* Localizable.strings */; };
 		AD67E51425601FF900B69FBF /* PermissionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E51325601FF900B69FBF /* PermissionRouter.swift */; };
 		AD67E51C2560201B00B69FBF /* PermissionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E51B2560201B00B69FBF /* PermissionFactory.swift */; };
 		AD67E5212560205F00B69FBF /* PermissionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E5202560205F00B69FBF /* PermissionPresenter.swift */; };
@@ -169,6 +170,7 @@
 		AD4A0BB1251C11A100DC9900 /* HunterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HunterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4A0BB5251C11A100DC9900 /* HunterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunterUITests.swift; sourceTree = "<group>"; };
 		AD4A0BB7251C11A100DC9900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD5DABB125708E13004E06A7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD67E51325601FF900B69FBF /* PermissionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRouter.swift; sourceTree = "<group>"; };
 		AD67E51B2560201B00B69FBF /* PermissionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionFactory.swift; sourceTree = "<group>"; };
 		AD67E5202560205F00B69FBF /* PermissionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPresenter.swift; sourceTree = "<group>"; };
@@ -620,6 +622,7 @@
 				ADE081C525506CDB0046ACC5 /* LaunchScreen.storyboard */,
 				ADE081C725506CDB0046ACC5 /* AppDelegate.swift */,
 				ADE081C825506CDB0046ACC5 /* SceneDelegate.swift */,
+				AD5DABB125708E13004E06A7 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				ADE0821C25506CDC0046ACC5 /* LaunchScreen.storyboard in Resources */,
 				ADBAADA9256064D40034A2C0 /* PermissionViewController.xib in Resources */,
 				ADE0822925506CDC0046ACC5 /* CreateGameViewController.xib in Resources */,
+				AD5DABB225708E13004E06A7 /* Localizable.strings in Resources */,
 				AD0C42AD2550C1E6002DBF5A /* GamePlayViewController.xib in Resources */,
 				AD25F02D25584D610052DBF6 /* GoogleService-Info.plist in Resources */,
 				ADE0822025506CDC0046ACC5 /* HomeViewController.xib in Resources */,

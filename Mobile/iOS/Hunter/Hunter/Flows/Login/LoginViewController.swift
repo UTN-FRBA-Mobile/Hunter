@@ -15,6 +15,11 @@ class LoginViewController: UIViewController {
     
     private var allCompleted: Bool = false
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     private func performAValidation() {
         do {
             try validate()

@@ -14,6 +14,13 @@ class LocalSignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpButton.applyBorders()
+        titleLabel.text = "WELCOME_TO_HUNTER".localize()
+        signUpButton.setTitle("REGISTER_BUTTON_SIGNUP".localize(), for: .normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func performAValidation() {

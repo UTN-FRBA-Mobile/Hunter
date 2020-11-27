@@ -23,7 +23,7 @@ class LoginViewResolver: LoginFactory {
         fields.last?.text = "123456"
         
         let loginButton: HunterButton = UIView.loadFromCode { (btn: HunterButton) in
-            btn.setTitle("Login", for: .normal)
+            btn.setTitle("LOGIN".localize(), for: .normal)
             btn.isEnabled = false
             btn.setup {
                 controller.view.backgroundColor = Color.Hunter.darkBlue
@@ -48,7 +48,7 @@ class LoginViewResolver: LoginFactory {
             }
         }
         let signUpButton: UIButton = UIView.loadFromCode { (btn: HunterButton) in
-            btn.setTitle("Sign Up!", for: .normal)
+            btn.setTitle("SIGN_UP".localize(), for: .normal)
             btn.isEnabled = true
             btn.setup(forTap: startGuestFlow)
         }

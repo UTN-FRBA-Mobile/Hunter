@@ -17,10 +17,10 @@ class RegistryPresenter {
                                    validation: .defaulted)
         let email = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_EMAIL".localize(),
                                    validation: .defaulted)
-        let password = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_PASSWORD",
+        let password = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_PASSWORD".localize(),
                                       validation: .secure)
         let passwordInput = input(with: password)
-        let confirmPassword = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_CONFIRM_PASSWORD",
+        let confirmPassword = FieldViewModel(placeholder: "REGISTER_FIELD_PLACEHOLDER_CONFIRM_PASSWORD".localize(),
                                              validation: .secure)
         let confirmPasswordInput = input(with: confirmPassword) { [weak passwordInput] in
             guard let password = passwordInput?.text else { throw FieldValidation.isEmpty(field: "Confirm Password") }

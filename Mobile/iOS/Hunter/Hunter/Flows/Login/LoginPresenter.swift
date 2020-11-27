@@ -7,7 +7,7 @@ struct LoginPresenter {
     func createInputs() -> [HunterTextField] {
         let email = FieldViewModel(placeholder: "LOGIN_FIELD_PLACEHOLDER_EMAIL".localize(),
                                    validation: .defaulted)
-        let password = FieldViewModel(placeholder: "LOGIN_FIELD_PLACEHOLDER_PASSWORD",
+        let password = FieldViewModel(placeholder: "LOGIN_FIELD_PLACEHOLDER_PASSWORD".localize(),
                                       validation: .secure)
         let passwordInput = input(with: password)
         var fields = [email].map { input(with: $0) }
