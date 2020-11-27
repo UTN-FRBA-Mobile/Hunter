@@ -15,7 +15,7 @@ class HunterTextField: UITextField {
         setupUI()
     }
     
-    private func setupUI() {
+    func setupUI() {
         layer.borderColor = Color.Hunter.green.cgColor
     }
     

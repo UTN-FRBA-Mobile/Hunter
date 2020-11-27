@@ -19,14 +19,15 @@ class JoinGameViewResolver: JoinGameFactory {
         controller.validate = { try controller.codeTextField.validate() }
         controller.joinButton.setTitle("Join Game", for: .normal)
         controller.joinButton.setup {
-            controller.view.backgroundColor = Color.Hunter.darkBlue
+            let spinner = HunterLoading().fullScreen(of: controller.view).startLoading()
             caseUse.join(with: controller.codeTextField.text ?? "") { result in
-                controller.view.backgroundColor = Color.Hunter.white
+                spinner.stopLoading()
                 switch result {
                 case .success(let game):
                     print("Game \(game)")
                     onCreated()
                 case .failure(let error):
+                    controller.showToast(with: "El código es invalido, prueba con otro!")
                     print("Hunter Error: \(error)")
                 }
             }

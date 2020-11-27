@@ -7,7 +7,8 @@ protocol JoinGameCaseUse {
 class JoinGame: JoinGameCaseUse {
     func join(with code: String, onCompletion: @escaping ActionResult<Game, Error>) {
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            onCompletion(.success(Game()))
+            onCompletion(.failure(DummyError.value))
+//            onCompletion(.success(Game()))
         }
     }
 }

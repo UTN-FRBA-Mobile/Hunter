@@ -26,11 +26,11 @@ class LoginViewResolver: LoginFactory {
             btn.setTitle("LOGIN".localize(), for: .normal)
             btn.isEnabled = false
             btn.setup {
-                controller.view.backgroundColor = Color.Hunter.darkBlue
+                let spinner = HunterLoading().fullScreen(of: controller.view).startLoading()
                 let email = controller.inputs.first?.text ?? ""
                 let password = controller.inputs.last?.text ?? ""
                 caseuse.authenticate(with: email, and: password) { result in
-                    controller.view.backgroundColor = Color.Hunter.white
+                    spinner.stopLoading()
                     switch result {
                     case .success(_):
                         break

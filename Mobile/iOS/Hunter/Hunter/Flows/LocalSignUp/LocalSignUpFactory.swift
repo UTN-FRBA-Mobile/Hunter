@@ -22,12 +22,14 @@ class LocalSignUpViewResolver: LocalSignUpFactory {
         }
         controller.signUpButton.setup {
             do {
+                let spinner = HunterLoading().fullScreen(of: controller.view).startLoading()
                 caseUse.signUp(with: UserRegister(firstName: try fields.text(at: 0),
                                                   lastName: try fields.text(at: 1),
                                                   alias: try fields.text(at: 2),
                                                   email: try fields.text(at: 3),
                                                   password: try fields.text(at: 4)))
                 { (result) in
+                    spinner.stopLoading()
                     switch result {
                     case .success(_): return
                     case .failure(let error):
