@@ -1,9 +1,9 @@
 package com.utn.frba.desarrollomobile.hunter.ui.activity
-
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.utn.frba.desarrollomobile.hunter.LoginFragment
 import com.utn.frba.desarrollomobile.hunter.R
@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity() {
                 goToLogin()
             }
         }
+
+
+        NotificationManagerCompat.from(this).cancelAll()
     }
 
     private fun goToLogin() {
