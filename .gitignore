@@ -110,7 +110,6 @@ launchSettings.json
 [Rr]eleases/
 x64/
 x86/
-build/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -123,3 +122,4 @@ iOS/Hunter/.DS_Store
 xcuserdata/
 iOS/Hunter/Pods
 xcshareddata/
+Mobile/iOS/Hunter/Pods

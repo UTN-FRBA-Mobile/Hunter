@@ -12,11 +12,13 @@ import com.google.firebase.messaging.RemoteMessage
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 
-
 class MessagingService : FirebaseMessagingService() {
+
+    companion object { var NOTIFICACTION_ID = 0 }
 
     override  fun onMessageReceived(remoteMessage: RemoteMessage) {
         if (remoteMessage.data.isNotEmpty()) {
+            NOTIFICACTION_ID += 1
             sendNotification(remoteMessage.notification?.title!!,
                 remoteMessage.notification?.body!!,
                 remoteMessage.data?.getValue("game_id").toString()!!
@@ -42,10 +44,11 @@ class MessagingService : FirebaseMessagingService() {
 
         val notificationIntent = Intent(this,  MainActivity::class.java)
         notificationIntent.putExtra("game_id", game_id)
+        /*notificationIntent.putExtra("notification_id", NOTIFICACTION_ID.toString())*/
 
         val pendingIntent = PendingIntent.getActivity(
             this,
-            0, notificationIntent, 0
+            NOTIFICACTION_ID, notificationIntent, 0
         )
 
         val newMessageNotification = NotificationCompat.Builder(this, R.string.default_notification_channel_id.toString())
@@ -58,8 +61,7 @@ class MessagingService : FirebaseMessagingService() {
         //startForeground(1, newMessageNotification);
 
         NotificationManagerCompat.from(this).apply {
-            notify(1, newMessageNotification)
+            notify(NOTIFICACTION_ID, newMessageNotification)
         }
-
     }
 }

@@ -43,25 +43,7 @@ namespace Hunter.Services
 
         public static void GameEnded(int game_id, Database.User user)
         {
-            try
-            {
-                var message = new Message()
-                {
-                    Topic = game_id.ToString(),
-                    Notification = new Notification()
-                    {
-                        Body = String.Format("El juego ha finalizado. El ganador es: {0} {1}", user.FirstName, user.LastName),
-                        Title = String.Format("El juego ha finalizado. El ganador es: {0} {1}", user.FirstName, user.LastName),
-                    },
-                    Data = new Dictionary<string, string>() { ["game_id"] = game_id.ToString() }
-                };
-
-                SendNotification(message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error Firebase: {0}", ex.Message);
-            }
+            GameEnded(game_id, user.FirstName, user.LastName);
         }
 
         public static void GameEnded(int game_id, string first_name, string last_name)
@@ -73,8 +55,8 @@ namespace Hunter.Services
                     Topic = game_id.ToString(),
                     Notification = new Notification()
                     {
-                        Body = String.Format("El juego ha finalizado. El ganador es: {0} {1}", first_name, last_name),
-                        Title = String.Format("El juego ha finalizado. El ganador es: {0} {1}", first_name, last_name),
+                        Body = String.Format("El ganador es: {0} {1}", first_name, last_name),
+                        Title = String.Format("El juego ha finalizado!"),
                     },
                     Data = new Dictionary<string, string>() {  ["game_id"] = game_id.ToString() }
                 };
@@ -93,11 +75,11 @@ namespace Hunter.Services
             {
                 var message = new Message()
                 {
-                    Topic = "m11bIBDX8vcfymyIyTvzELB9uqx2",
+                    Topic = sub,
                     Notification = new Notification()
                     {
-                        Body = "El ganador es Diego!",
-                        Title = "El juego ha finalizado",
+                        Body = "Ha sido invitado a una nueva búsqueda del tesoro!",
+                        Title = "Importante!",
                     },
                     Data = new Dictionary<string, string>() { ["game_id"] = game_id.ToString() }
                 };

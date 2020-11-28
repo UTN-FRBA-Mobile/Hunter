@@ -1,5 +1,8 @@
 import Foundation
 import UIKit
+import FirebaseAuth
+import Firebase
+import MapKit
 
 public class Module<Nav: UINavigationController, Net: Networking> {
     
@@ -11,7 +14,10 @@ public class Module<Nav: UINavigationController, Net: Networking> {
     private let dependencies: Dependencies<Nav, Net>
     public init(_ dependencies: Dependencies<Nav, Net>) { self.dependencies = dependencies }
 
-    func launch() { showLoginFlow() }
+    func launch() {
+        //checkAuthentication()
+        sendToActiveGame()
+    }
 }
 
 fileprivate extension Module {
@@ -20,38 +26,29 @@ fileprivate extension Module {
         let viewResolver = LoginViewResolver()
         let router = LoginRouter(navigation: dependencies.navigation, factory: viewResolver)
         let login = Login(onWasAuthenticated: sendHome)
-        let coordinator = LoginCoordinator(flow: router, caseUse: login, onIsANewUser: showGuestFlow)
+        let coordinator = LoginCoordinator(flow: router, caseUse: login, onIsANewUser: startRegistryWithEmail)
         coordinator.start()
     }
     
     /// Step One: We check if the user was already authenticated (Have a local token)
-    #warning("We need to use a secure storage such as Keychain")
-    @available(*, deprecated, message: "Post Mvp")
     func checkAuthentication() {
+        let searchForToken: ((String, @escaping ((Token) -> Void)) -> Void) = { (key, callback) in
+            Auth.auth().addStateDidChangeListener { (_, possibleUser) in
+                guard let user = possibleUser else { return callback("") }
+                user.getIDToken { (token, _) in callback(token ?? "") }
+            }
+        }
         let authentication = LocalAuthenticationRepository(key: "userToken",
-                                                           save: UserDefaults.standard.set,
-                                                           load: UserDefaults.standard.string)
+                                                           save: { (_,_) in },
+                                                           load: searchForToken)
         Launch(service: authentication,
-               handleNonExistentUser: showGuestFlow)
+               handleNonExistentUser: showLoginFlow)
             .checkStatus(onHaveLocalToken: startAuthenticate)
     }
     
-    private typealias Method = (RegisterMethod, SingleAction<Void>)
-    func showGuestFlow() {
-        #warning("We need to wire methods!")
-        #warning("Maybe Case use/Coordinator was necesary to see what methods are available to authenticate")
-        let googleAuth: Method = (.google, { _ in print("Google!") })
-        let facebookAuth: Method = (.facebook, { _ in print("Facebook!") })
-        let emailAuth: Method = (.email, { _ in self.startRegistryWithEmail() })
-        let methods: [Method] = [googleAuth, facebookAuth, emailAuth]
-        let presenter = RegisterGuestPresenter(methods: methods)
-        let viewResolver = iOSGuestFactory(presenter: presenter)
-        let router = GuestRouter(navigation: dependencies.navigation, factory: viewResolver)
-        router.showGuestScreen()
-    }
-    
     func startRegistryWithEmail() {
-        let signUp = SignUpWithEmail(onWasRegistered: sendHome)
+        let createUser = CreateUser(networking: dependencies.networking)
+        let signUp = SignUpWithEmail(service: createUser, onWasRegistered: sendHome)
         let viewResolver = LocalSignUpViewResolver()
         let router = LocalSignUpRouter(navigation: dependencies.navigation, factory: viewResolver)
         let coordinator = LocalSignUpCoordinator(flow: router, caseUse: signUp)
@@ -59,14 +56,15 @@ fileprivate extension Module {
     }
     
     func startAuthenticate(with token: Token) {
-        #warning("For now we send to Home")
+        dependencies.networking.setToken(token)
         sendHome()
     }
     
     func sendHome() {
         let viewResolver = HomeViewResolver()
         let router = HomeRouter(navigation: dependencies.navigation, factory: viewResolver)
-        let home = Home(newGameFlow: createNewGame, joinGameFlow: sentToJoinAGame)
+        // createNewGame
+        let home = Home(newGameFlow: openSettings, joinGameFlow: sentToJoinAGame)
         let coordinator = HomeCoordinator(flow: router, caseUse: home)
         coordinator.start()
     }
@@ -79,9 +77,57 @@ fileprivate extension Module {
         coordinator.start()
     }
     
-    #warning("Missing implementation of Active Game")
-    func sendToActiveGame() {
-        print("Hunter: Send to your Active Game")
+    func sendToActiveGame() { checkGpsPermissions()  }
+    
+    var gpsPermissionsWasAsked: Bool { UserDefaults.standard.bool(forKey: "AskedForGpsPermissions") }
+    
+    func checkGpsPermissions() {
+        gpsPermissionsWasAsked ? requestUserLocation() : askGpsPermissionForFirstTime()
+    }
+    
+    func askGpsPermissionForFirstTime() {
+        let request = {
+            UserDefaults.standard.setValue(true, forKey: "AskedForGpsPermissions")
+            self.requestUserLocation()
+        }
+        askForGpsPermissions(onAccept: request)
+    }
+    
+    func requestUserLocation() {
+        let askForGps = { self.askForGpsPermissions(onAccept: self.openSettings) }
+        let locationPermission = LocationPermission()
+        let startGame = { self.showGame(with: locationPermission) }
+        locationPermission.requestUserLocation(ActionsForDecision(accept: startGame, decline: askForGps))
+    }
+    
+    func popToRoot() {
+        let _ = dependencies.navigation.popToRootViewController(animated: true)
+    }
+    
+    func askForGpsPermissions(onAccept agreeBlock: @escaping (() -> Void)) {
+        let responseToAsk = ActionsForDecision(accept: agreeBlock, decline: popToRoot)
+        let presenter = LocationPermissionPresenter()
+        let viewResolver = PermissionViewResolver(presenter: presenter)
+        let router = PermissionRouter(navigation: dependencies.navigation, factory: viewResolver)
+        let coordinator = PermissionCoordinator(flow: router, actions: responseToAsk)
+        coordinator.askForPermission()
+    }
+    
+    func openSettings() {
+        guard let appSettings = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(appSettings, options: [:]) { (finished) in
+            if finished { print("Fleto termino guachinn!") }
+        }
+    }
+    
+    func showGame(with locationPermission: LocationPermission) {
+        let viewResolver = GamePlayViewResolver()
+        let router = GamePlayRouter(navigation: dependencies.navigation, factory: viewResolver)
+        
+        let gamePlay = GamePlay(.secondHome, zoneRadius: 15) { $0.distance(from: $1) }
+        
+        let coordinator = GamePlayCoordinator(flow: router, caseUse: gamePlay)
+        coordinator.start()
     }
 
     func sentToJoinAGame() {
@@ -103,4 +149,109 @@ class LocaliOSImageModule: ImageCaseUse {
     func userWantsToUploadPhoto(_ callback: @escaping ((ImageResultFlow) -> Void)) {
         callback(.didSelectAn(UIImage()))
     }
+}
+
+fileprivate extension Module {
+    private typealias Method = (RegisterMethod, SingleAction<Void>)
+    func showGuestFlow() {
+        #warning("We need to wire methods!")
+        #warning("Maybe Case use/Coordinator was necesary to see what methods are available to authenticate")
+        let googleAuth: Method = (.google, { _ in print("Google!") })
+        let facebookAuth: Method = (.facebook, { _ in print("Facebook!") })
+        let emailAuth: Method = (.email, { _ in self.startRegistryWithEmail() })
+        let methods: [Method] = [googleAuth, facebookAuth, emailAuth]
+        let presenter = RegisterGuestPresenter(methods: methods)
+        let viewResolver = iOSGuestFactory(presenter: presenter)
+        let router = GuestRouter(navigation: dependencies.navigation, factory: viewResolver)
+        router.showGuestScreen()
+    }
+}
+
+
+struct GPSActions {
+    let onShouldRequest: (() -> Void)
+    let wasAnsweredBefore: ActionsForDecision
+}
+
+import MapKit
+import CoreLocation
+class LocationPermission: NSObject {
+    enum State {
+        case shouldAsk
+        case granted
+        case denied
+    }
+    
+    let manager = CLLocationManager()
+    
+    var state: LocationPermission.State {
+        if #available(iOS 14.0, *) {
+            return parseTo(manager.authorizationStatus)
+        } else {
+            return parseTo(CLLocationManager.authorizationStatus())
+        }
+    }
+    
+    private func parseTo(_ authorizationStatus: CLAuthorizationStatus) -> LocationPermission.State {
+        print("Fleto CL Auth Status -> \(authorizationStatus)")
+        switch authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("Fleto Authorized")
+            return .granted
+        case .denied:
+            print("Fleto Denied")
+            return .denied
+        case .restricted:
+            print("Fleto Restricted")
+            return .denied
+        case .notDetermined:
+            print("Fleto Not Determinated!")
+            return .shouldAsk
+        default:
+            print("Fleto Other!")
+            return .denied
+        }
+    }
+    
+    enum Status: Equatable {
+        case defined
+        case requesting(ActionsForDecision)
+        static func ==(_ lhs: Status,_ rhs: Status) -> Bool {
+            switch (lhs,rhs) {
+            case (.defined, .defined): return true
+            case (.requesting(_), .requesting(_)): return true
+            default: return false
+            }
+        }
+    }
+    
+    private var status: Status = .defined
+    
+    func requestUserLocation(_ actions: ActionsForDecision) {
+        guard status == .defined else { return }
+        status = .requesting(actions)
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+    }
+}
+
+extension LocationPermission: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch status {
+        case .requesting(let actions):
+            switch state {
+            case .granted: actions.accept()
+            case .denied: actions.decline()
+            default: break
+            }
+        default:
+            #warning("Maybe we need to post a notification in order to see if we are going to ask the user to turn on the gps!")
+            break
+        }
+    }
+}
+
+
+struct LocationPermissionPresenter: PermissionPresenter {
+    
 }

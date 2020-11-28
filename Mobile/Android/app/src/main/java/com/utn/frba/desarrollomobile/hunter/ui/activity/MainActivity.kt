@@ -1,9 +1,9 @@
 package com.utn.frba.desarrollomobile.hunter.ui.activity
-
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.utn.frba.desarrollomobile.hunter.LoginFragment
 import com.utn.frba.desarrollomobile.hunter.R
@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setToolbar()
+
         loading = LoadingView.create(fragment_container.rootView as ViewGroup, this)
 
         val auth = FirebaseAuth.getInstance()
@@ -36,6 +38,29 @@ class MainActivity : AppCompatActivity() {
                 goToLogin()
             }
         }
+
+
+        NotificationManagerCompat.from(this).cancelAll()
+    }
+
+    private fun setToolbar() {
+
+        hunterToolbar.setNavigationIcon(R.drawable.ic_arrow_back) //todo poner el asset correspondiente
+
+        setSupportActionBar(hunterToolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
+
+        hunterToolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    fun setToolbarTitle(title: String) {
+        hunterToolbarText.text = title
     }
 
     private fun goToLogin() {

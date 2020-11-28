@@ -34,9 +34,9 @@ namespace Hunter.Controllers
         }
 
         [HttpGet]
-        public Game[] History()
+        public Game[] History(int page, int countPerPage)
         {
-            return DatabaseService.GetGames(Sub);
+            return DatabaseService.GetGames(Sub, page, countPerPage);
         }
     }
 }
