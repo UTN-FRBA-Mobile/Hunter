@@ -1,6 +1,0 @@
-framework module Pods_Hunter {
-  umbrella header "Pods-Hunter-umbrella.h"
-
-  export *
-  module * { export * }
-}

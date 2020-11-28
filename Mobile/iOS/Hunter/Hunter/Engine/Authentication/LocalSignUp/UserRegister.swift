@@ -1,8 +1,8 @@
 import Foundation
 
-struct UserRegister {
-    let name: String
-    let lastname: String
+struct UserRegister: Encodable {
+    let firstName: String
+    let lastName: String
     let alias: String
     let email: String
     let password: String

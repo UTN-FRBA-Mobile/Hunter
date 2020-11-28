@@ -26,14 +26,14 @@ struct Authentication: Decodable {
 typealias Token = String
 
 protocol LocalAuthenticationChecker {
-    func wasAuthenticated() -> String
+    func wasAuthenticated(onComplete: @escaping ((String) -> Void)) -> Void
     func userPassAuthentication(with value: String)
 }
 
 struct LocalAuthenticationRepository: LocalAuthenticationChecker {
     let key: String
     let save: ((Token, String) -> Void)
-    let load: ((String) -> Token?)
-    func wasAuthenticated() -> String { load(key) ?? "" }
+    let load: ((String, @escaping ((Token) -> Void)) -> Void)
+    func wasAuthenticated(onComplete: @escaping ((Token) -> Void)) -> Void { load(key, onComplete) }
     func userPassAuthentication(with value: String) { save(value, key) }
 }

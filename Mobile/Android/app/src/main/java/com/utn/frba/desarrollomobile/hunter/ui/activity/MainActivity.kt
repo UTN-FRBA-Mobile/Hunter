@@ -10,7 +10,6 @@ import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.ui.customviews.LoadingView
-import com.utn.frba.desarrollomobile.hunter.ui.fragment.AppFragment
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.ChooseGameFragment
 import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,7 +21,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
+
+        setToolbar()
 
         loading = LoadingView.create(fragment_container.rootView as ViewGroup, this)
 
@@ -43,15 +43,31 @@ class MainActivity : AppCompatActivity() {
         NotificationManagerCompat.from(this).cancelAll()
     }
 
+    private fun setToolbar() {
+
+        hunterToolbar.setNavigationIcon(R.drawable.ic_arrow_back) //todo poner el asset correspondiente
+
+        setSupportActionBar(hunterToolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+            setDisplayShowTitleEnabled(false)
+        }
+
+        hunterToolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    fun setToolbarTitle(title: String) {
+        hunterToolbarText.text = title
+    }
+
     private fun goToLogin() {
-        supportActionBar?.hide()
-        actionBar?.hide()
         showFragment(LoginFragment(), false)
     }
 
     private fun goToApp() {
-        supportActionBar?.show()
-        actionBar?.show()
         showFragment(ChooseGameFragment(), false)
     }
 

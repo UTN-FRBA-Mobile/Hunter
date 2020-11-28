@@ -12,6 +12,7 @@ import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.removeFragment
+import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import kotlinx.android.synthetic.main.fragment_map.*
 
@@ -82,6 +83,7 @@ class MapFragment : BaseLocationFragment(R.layout.fragment_map) {
 
     override fun onResume() {
         map.onResume()
+        setToolbarTitle(getString(R.string.map_title))
         super.onResume()
     }
 
