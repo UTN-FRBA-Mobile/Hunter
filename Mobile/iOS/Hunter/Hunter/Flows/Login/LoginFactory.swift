@@ -35,7 +35,7 @@ class LoginViewResolver: LoginFactory {
                     case .success(_):
                         break
                     case .failure(let error):
-                        print("Error: \(error)")
+                        controller.showToast(with: error.localizedDescription, on: .top)
                     }
                 }
             }

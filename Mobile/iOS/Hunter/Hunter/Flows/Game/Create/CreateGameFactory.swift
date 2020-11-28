@@ -3,13 +3,13 @@ import UIKit
 
 protocol CreateGameFactory {
     func createGameScreen<Cu: CreateGameCaseUse>(with caseUse: Cu,
-                                                 onCreated: @escaping (() -> Void)) -> UIViewController
+                                                 onCreated: @escaping ((Game) -> Void)) -> UIViewController
 }
 
 class CreateGameViewResolver: CreateGameFactory {
     
     func createGameScreen<Cu: CreateGameCaseUse>(with caseUse: Cu,
-                                                 onCreated: @escaping (() -> Void)) -> UIViewController {
+                                                 onCreated: @escaping ((Game) -> Void)) -> UIViewController {
         let controller = CreateGameViewController()
         _ = controller.view
         let presenter = CreateGamePresenter()
@@ -19,7 +19,7 @@ class CreateGameViewResolver: CreateGameFactory {
             print("Hunter: Create Game. With Clue: \(controller.clue ?? "")")
             caseUse.create(with: controller.clue) { result in
                 switch result {
-                case .success(_): onCreated()
+                case .success(let game): onCreated(game)
                 case .failure(let error): print("Hunter Error \(error)")
                 }
             }

@@ -11,7 +11,7 @@ class JoinGameRouter<Nav: UINavigationController,
         self.factory = factory
     }
     
-    func sendToJoinGame<Cu>(with caseUse: Cu, onComplete: @escaping (() -> Void)) where Cu : JoinGameCaseUse {
-        show(factory.JoinGameScreen(with: caseUse, onCreated: onComplete))
+    func sendToJoinGame<Cu>(with caseUse: Cu, onComplete: @escaping ((Game) -> Void)) where Cu : JoinGameCaseUse {
+        replaceLeavingHomeAnd(factory.JoinGameScreen(with: caseUse, onJoined: onComplete))
     }
 }

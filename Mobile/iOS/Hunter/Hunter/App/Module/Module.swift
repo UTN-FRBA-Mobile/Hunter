@@ -61,8 +61,7 @@ fileprivate extension Module {
     func sendHome() {
         let viewResolver = HomeViewResolver()
         let router = HomeRouter(navigation: dependencies.navigation, factory: viewResolver)
-        // createNewGame
-        let home = Home(newGameFlow: openSettings, joinGameFlow: sentToJoinAGame)
+        let home = Home(newGameFlow: createNewGame, joinGameFlow: sentToJoinAGame)
         let coordinator = HomeCoordinator(flow: router, caseUse: home)
         coordinator.start()
     }
@@ -76,26 +75,29 @@ fileprivate extension Module {
         coordinator.start()
     }
     
-    func sendToActiveGame() { checkGpsPermissions()  }
+    func sendToActiveGame(_ game: Game) {
+        checkGpsPermissions(for: game)
+    }
     
     var gpsPermissionsWasAsked: Bool { UserDefaults.standard.bool(forKey: "AskedForGpsPermissions") }
     
-    func checkGpsPermissions() {
-        gpsPermissionsWasAsked ? requestUserLocation() : askGpsPermissionForFirstTime()
+    func checkGpsPermissions(for game: Game) {
+        let startGame = { self.requestUserLocation(with: game) }
+        gpsPermissionsWasAsked ? startGame() : askGpsPermissionForFirstTime(startGame)
     }
     
-    func askGpsPermissionForFirstTime() {
+    func askGpsPermissionForFirstTime(_ completion: @escaping (() -> Void)) {
         let request = {
             UserDefaults.standard.setValue(true, forKey: "AskedForGpsPermissions")
-            self.requestUserLocation()
+            completion()
         }
         askForGpsPermissions(onAccept: request)
     }
     
-    func requestUserLocation() {
+    func requestUserLocation(with game: Game) {
         let askForGps = { self.askForGpsPermissions(onAccept: self.openSettings) }
         let locationPermission = LocationPermission()
-        let startGame = { self.showGame(with: locationPermission) }
+        let startGame = { self.showGame(game, with: locationPermission) }
         locationPermission.requestUserLocation(ActionsForDecision(accept: startGame, decline: askForGps))
     }
     
@@ -117,11 +119,11 @@ fileprivate extension Module {
         UIApplication.shared.open(appSettings, options: [:]) { _ in }
     }
     
-    func showGame(with locationPermission: LocationPermission) {
+    func showGame(_ game: Game, with locationPermission: LocationPermission) {
         let viewResolver = GamePlayViewResolver()
         let router = GamePlayRouter(navigation: dependencies.navigation, factory: viewResolver)
-        
-        let gamePlay = GamePlay(.secondHome, zoneRadius: 15) { $0.distance(from: $1) }
+        let goal = LocationCoordinate2D(latitude: game.latitude, longitude: game.longitude)
+        let gamePlay = GamePlay(goal, zoneRadius: 15) { $0.distance(from: $1) }
         
         let coordinator = GamePlayCoordinator(flow: router, caseUse: gamePlay)
         coordinator.start()
@@ -130,7 +132,9 @@ fileprivate extension Module {
     func sentToJoinAGame() {
         let viewResolver = JoinGameViewResolver()
         let router = JoinGameRouter(navigation: dependencies.navigation, factory: viewResolver)
-        let joinGame = JoinGame()
+        //let service = JoinGameRestService(networking: dependencies.networking)
+        let service = JoinGameMockService(game: .mainGame)
+        let joinGame = JoinGame(service: service)
         let coordinator = JoinGameCoordinator(flow: router, caseUse: joinGame, onComplete: sendToActiveGame)
         coordinator.start()
     }

@@ -12,7 +12,7 @@ class CreateGameRouter<Nav: UINavigationController,
     }
     
     func sendToCreateGame<Cu: CreateGameCaseUse>(with caseUse: Cu,
-                                                 onComplete: @escaping (() -> Void)) {
+                                                 onComplete: @escaping ((Game) -> Void)) {
         show(factory.createGameScreen(with: caseUse, onCreated: onComplete))
     }
 }

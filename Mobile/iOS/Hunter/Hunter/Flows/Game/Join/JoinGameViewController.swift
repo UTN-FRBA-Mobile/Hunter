@@ -14,17 +14,30 @@ class JoinGameViewController: UIViewController {
         joinButton.isEnabled = false
     }
     
-    private func performAValidation() {
+    private func displayError() {
+        showToast(with: "El código debe tener por lo menos 4 caracteres!", on: .top)
+    }
+    
+    private func perfomValidation(_ onError: @escaping (() -> Void) = {}) {
         do {
             try validate()
             joinButton.isEnabled = true
         } catch {
             joinButton.isEnabled = false
-            #warning("Missing Show Validation!")
+            onError()
         }
     }
 }
 
 extension JoinGameViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) { performAValidation() }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        perfomValidation()
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) { perfomValidation(displayError) }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool { true }
 }

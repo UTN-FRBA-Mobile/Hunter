@@ -13,7 +13,7 @@ class GamePlayRouter<Nav: UINavigationController,
     
     func showMap<Cu: GamePlayCaseUse>(with caseUse: Cu,
                                       onUserLocationDidChanged: @escaping ((LocationCoordinate2D) -> Void)) {
-        show(factory.mapScreen(with: caseUse, onUserLocationDidChanged: onUserLocationDidChanged))
+        replaceLeavingHomeAnd(factory.mapScreen(with: caseUse, onUserLocationDidChanged: onUserLocationDidChanged))
     }
     
     func showCloseToGoal<Cu: GamePlayCaseUse>(with caseUse: Cu,
