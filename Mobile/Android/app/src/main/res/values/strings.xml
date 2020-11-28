@@ -25,14 +25,21 @@
     <string name="regiter_error">Error En la regitración</string>
 
     // Create Game
+    <string name="stepClue">Paso 1/4</string>
+    <string name="stepLocation">Paso 2/4</string>
+    <string name="stepImage">Paso 3/4</string>
+    <string name="stepReview">Paso 4/4</string>
+
     <string name="game_create">Crear Juego</string>
-    <string name="upload_image">Subir imagen</string>
-    <string name="take_photo">Tomar foto</string>
+    <string name="upload_image">Galeria</string>
+    <string name="take_photo">Camara</string>
     <string name="select_image">Seleccionar una imagen</string>
     <string name="enter_clue">Ingrese una pista</string>
     <string name="enter_image">Agregue una imagen</string>
     <string name="search">Buscar</string>
+    <string name="duration">Duración</string>
     <string name="add_players">Agregar jugadores</string>
+    <string name="add_location">Agregar ubicación</string>
     <string name="summary">Resumen</string>
 
     // Game
@@ -40,8 +47,9 @@
 
     <string name="play">Jugar!</string>
     <string name="game_code">Código de juego</string>
-    <string name="game_give_clue">Breve descripcion del lugar donde esta escondido</string>
+    <string name="game_give_clue">Pista</string>
     <string name="create">Crear</string>
+    <string name="ready">Listo</string>
 
 
     <string name="upload_image_error">"Error al cargar imagen"</string>
@@ -60,5 +68,14 @@
 
     <string name="next">Siguiente</string>
     <string name="previous">Anterior</string>
+    <string name="register_alias_helper">"Va a ser tu nickname "</string>
+    <string name="register_email_helper">Es para poder identificarte, no vamos a mandarte spam.</string>
+    <string name="clue_hint">Pista</string>
+    <string name="clue_helper">Esto va a ayudar al jugador a orientarse cuando está cerca</string>
+    <string name="home_title">Inicio</string>
+    <string name="join_game_title">Unirse a un Juego!</string>
+    <string name="map_title">Mapa hacia el Tesoro</string>
+    <string name="compass_title">Brújula hacia el Tesoro</string>
+    <string name="clue_duration_helper">Esto es en minutos</string>
 
 </resources>
