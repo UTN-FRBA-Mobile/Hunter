@@ -9,22 +9,21 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/durationTextInputLayout"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
         android:layout_marginVertical="15dp"
+        android:layout_weight="0"
         android:hint="@string/duration"
-        app:helperText="@string/clue_duration_helper"
         android:outlineProvider="bounds"
-        >
+        app:helperText="@string/clue_duration_helper"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/duration_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="number"
-            app:helperText="Minutos"/>
+            app:helperText="Minutos" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,17 +49,15 @@
             android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <Button
         android:id="@+id/next_button"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="0"
         android:enabled="true"
         android:text="@string/next"
-        android:textAlignment="center" />
-
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

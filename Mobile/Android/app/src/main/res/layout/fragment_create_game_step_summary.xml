@@ -8,27 +8,50 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:text="@string/summary"
+        android:text="@string/game_created"
         android:textAlignment="center"
         android:textSize="@dimen/title" />
-
-    <ImageView
-        android:id="@+id/imagePreview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:scaleType="fitCenter"
-        android:tag="0" />
 
     <TextView
-        android:id="@+id/clue"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="@string/qr_download"
+        android:textAlignment="center"
+        android:textSize="@dimen/tableText" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/qr"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:textAlignment="center"
-        android:textSize="@dimen/title" />
+        />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imagePreview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="2"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        android:tag="0" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/clue"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="@dimen/title" />-->
+    <Button
+        android:id="@+id/download_qr"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0"
+        android:enabled="true"
+        android:text="@string/download_qr_button"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/ok_button"

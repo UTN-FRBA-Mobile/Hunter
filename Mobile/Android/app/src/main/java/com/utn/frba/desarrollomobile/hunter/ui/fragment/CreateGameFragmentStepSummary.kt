@@ -13,6 +13,8 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
+import com.google.zxing.BarcodeFormat
+import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
@@ -37,12 +39,22 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
 
         gameViewModel = ViewModelProvider(requireActivity()).get(CreateGameViewModel::class.java)
 
-        gameViewModel.getImage().observe(viewLifecycleOwner, Observer { image ->
-            imagePreview.setImageBitmap(image)
-        })
+//        gameViewModel.getImage().observe(viewLifecycleOwner, Observer { image ->
+//            imagePreview.setImageBitmap(image)
+//        })
+//
+//        gameViewModel.getClue().observe(viewLifecycleOwner, Observer { text ->
+//            clue.text = text
+//        })
 
-        gameViewModel.getClue().observe(viewLifecycleOwner, Observer { text ->
-            clue.text = text
+        gameViewModel.getGameCreated().observe(viewLifecycleOwner, Observer { game ->
+            try {
+                val barcodeEncoder = BarcodeEncoder()
+                val bitmap: Bitmap = barcodeEncoder.encodeBitmap(game.winCode, BarcodeFormat.QR_CODE, qr.width, qr.height)
+                qr.setImageBitmap(bitmap)
+            } catch (e: Exception) {
+                Log.d("Game Summary", e.message)
+            }
         })
 
         ok_button.setOnClickListener {
