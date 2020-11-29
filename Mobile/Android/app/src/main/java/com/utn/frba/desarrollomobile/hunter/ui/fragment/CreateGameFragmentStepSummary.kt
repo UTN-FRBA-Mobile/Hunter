@@ -1,7 +1,10 @@
 package com.utn.frba.desarrollomobile.hunter.ui.fragment
 
+import android.content.ContentValues
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -28,6 +31,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_step_summary) {
 
@@ -48,17 +55,42 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
 //        })
 
         gameViewModel.getGameCreated().observe(viewLifecycleOwner, Observer { game ->
+                updateUI(game)
+        })
+
+
+        ok_button.setOnClickListener {
+            showFragment(ChooseGameFragment(), false, true)
+        }
+
+    }
+
+    private fun updateUI(game: Game?) {
+        if(game != null) {
             try {
                 val barcodeEncoder = BarcodeEncoder()
                 val bitmap: Bitmap = barcodeEncoder.encodeBitmap(game.winCode, BarcodeFormat.QR_CODE, 512, 512)
                 qr.setImageBitmap(bitmap)
+
+                download_qr.setOnClickListener {
+                    val storageDir: File? = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                    val file = File.createTempFile("win_qr_${game.id}_", ".jpg", storageDir)
+
+                    val fOut = FileOutputStream(file)
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut)
+                    fOut.flush()
+                    fOut.close()
+
+                }
+
+                join_code.text = "El codigo para unirse es: ${game.id}"
             } catch (e: Exception) {
                 Log.d("Game Summary", e.message)
             }
-        })
-
-        ok_button.setOnClickListener {
-            showFragment(ChooseGameFragment(), false, true)
+        } else {
+            join_code.text = "No hay juego creado"
+            qr.setBackgroundResource(0)
+            download_qr.setOnClickListener(null)
         }
     }
 
