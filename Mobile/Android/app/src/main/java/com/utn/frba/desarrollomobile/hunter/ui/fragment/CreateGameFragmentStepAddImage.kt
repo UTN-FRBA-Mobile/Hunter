@@ -22,6 +22,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.play.core.splitinstall.ac
 import com.utn.frba.desarrollomobile.hunter.BuildConfig
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
@@ -30,6 +31,7 @@ import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_image.*
 import java.io.File
 import java.io.IOException
+import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -135,7 +137,8 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
                     val filePath = data.data
 
                     if (filePath != null) {
-                        BitmapFactory.decodeFile(filePath.path, BitmapFactory.Options())?.also { bitmap ->
+                        val imageStream = activity?.contentResolver?.openInputStream(filePath);
+                        BitmapFactory.decodeStream(imageStream).also { bitmap ->
                             gameViewModel.setImage(bitmap)
                         }
                     }
