@@ -14,7 +14,8 @@ import com.utn.frba.desarrollomobile.hunter.service.MessagingService
 object LoginHandler {
     private lateinit var auth: FirebaseAuth
 
-    public var UID = ""
+    var UID = ""
+    var USERID = 0
 
     fun loginComplete()
     {

@@ -79,5 +79,11 @@
     <string name="clue_duration_helper">Esto es en minutos</string>
     <string name="share_game">Compartir Juego</string>
     <string name="game_invitation">"Te invitamos a participar en una nueva búsqueda del tesoro! Unite al juego con este ID: "</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="game_lost">Perdí!</string>
+    <string name="history_game">Ver Mis Juegos</string>
+    <string name="game_win">Gané!!!</string>
+    <string name="historyGame">Historial de Juegos</string>
 
 </resources>
