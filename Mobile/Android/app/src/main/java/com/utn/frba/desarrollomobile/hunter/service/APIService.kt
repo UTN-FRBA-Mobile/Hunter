@@ -47,9 +47,9 @@ interface APIService {
     @POST("/api/User/Post")
     fun setUser(@Body user: User): Call<User>
 
-    @POST("/api/User/JoinGame")
-    fun joinGame(@Body game_id : Int) : Call<ResponseBody>
-
     @GET("/api/User/Find")
     fun findUser(@Body user: User): Call<User>
+
+    @POST("/api/User/JoinGame")
+    fun joinGame(@Body game_id: Int): Call<ResponseBody>
 }

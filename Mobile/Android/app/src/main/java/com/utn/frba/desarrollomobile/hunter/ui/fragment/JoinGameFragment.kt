@@ -4,18 +4,17 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
-import com.utn.frba.desarrollomobile.hunter.service.models.User
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.BaseLocationFragment.Companion.GAME_ID
 import com.utn.frba.desarrollomobile.hunter.viewmodel.GameViewModel
 import kotlinx.android.synthetic.main.fragment_choose_game.join_game_button
 import kotlinx.android.synthetic.main.fragment_join_game.*
-import kotlinx.android.synthetic.main.fragment_register.*
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -49,7 +48,25 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
     private fun searchGame() {
         val gameCode = join_code_edit_text.text
 
-        joinGame(gameCode.toString().toInt());
+        var callJoinGameResponse =
+            APIAdapter.getAPI().joinGame(gameCode.toString().toInt())
+
+        callJoinGameResponse.enqueue(object : Callback<ResponseBody> {
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                print("throw Message" + t.message)
+                Toast.makeText(context, "Error reading JSON", Toast.LENGTH_LONG).show()
+            }
+
+            override fun onResponse(
+                call: Call<ResponseBody>,
+                response: Response<ResponseBody>
+            ) {
+                val body = response?.body()
+                if (body != null) {
+                    //do your work
+                }
+            }
+        })
 
         showFragment(MapFragment().apply {
             arguments = Bundle().apply { putInt(GAME_ID, gameCode.toString().toInt()) }
@@ -64,7 +81,7 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
         callJoinGameResponse.enqueue(object : Callback<ResponseBody> {
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 print("throw Message" + t.message)
-                register_password_confirmation.error = "Error reading JSON"
+                Toast.makeText(context, "Error reading JSON", Toast.LENGTH_LONG).show()
             }
 
             override fun onResponse(

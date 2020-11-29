@@ -107,6 +107,7 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
                 locationListener
             )
             locationListener.onProviderEnabled(GPS_PROVIDER)
+            gameViewModel.setLocation(locationManager.getLastKnownLocation(GPS_PROVIDER))
         } else {
             locationListener.onProviderDisabled(null)
             PermissionHandler.requestPermissions(
@@ -136,6 +137,8 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
                     requireContext(),
                     arrayOf(GPS_COARSE_PERMISSION, GPS_FINE_PERMISSION)
                 )
+
+                gameViewModel.setLocation(locationManager.getLastKnownLocation(GPS_PROVIDER))
 
                 locationManager.requestLocationUpdates(
                     GPS_PROVIDER,
