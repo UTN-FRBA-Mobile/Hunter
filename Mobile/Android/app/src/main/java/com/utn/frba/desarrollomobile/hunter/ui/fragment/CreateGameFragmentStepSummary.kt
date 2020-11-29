@@ -68,12 +68,11 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
 
                 }
 
-                join_code.text = "El codigo para unirse es: ${game.id}"
+                join_code.text = resources.getString(R.string.access_code, game.id)
             } catch (e: Exception) {
                 Log.d("Game Summary", e.message)
             }
         } else {
-            join_code.text = "No hay juego creado"
             qr.setBackgroundResource(0)
             download_qr.setOnClickListener(null)
         }
