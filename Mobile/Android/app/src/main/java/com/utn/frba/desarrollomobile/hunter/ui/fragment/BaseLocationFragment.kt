@@ -209,6 +209,10 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
 
     protected open fun hideLoading() {
         (activity as MainActivity).hideLoading()
+        actualLocation = locationManager.getLastKnownLocation(GPS_PROVIDER)
+        actualLocation?.let {
+            onLocationUpdated(it)
+        }
     }
 
     override fun onStop() {

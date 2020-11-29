@@ -54,7 +54,6 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
         callJoinGameResponse.enqueue(object : Callback<ResponseBody> {
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 print("throw Message" + t.message)
-                register_password_confirmation.error = "Error Join Game"
             }
 
             override fun onResponse(
