@@ -44,6 +44,7 @@
     <string name="game_created">Tu juego ha sido creado</string>
     <string name="qr_download">imprime el codigo qr o el codigo para que el ganador finalice el juego</string>
     <string name="download_qr_button">Descargar codigo</string>
+    <string name="access_code">El codigo para unirse es: %1$d</string>
 
     // Game
     <string name="game_join">Unirse a un Juego</string>
