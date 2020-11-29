@@ -2,6 +2,7 @@ package com.utn.frba.desarrollomobile.hunter.service
 
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
 import com.utn.frba.desarrollomobile.hunter.service.models.User
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -48,4 +49,7 @@ interface APIService {
 
     @GET("/api/User/Find")
     fun findUser(@Body user: User): Call<User>
+
+    @POST("/api/User/JoinGame")
+    fun joinGame(@Body game_id: Int): Call<ResponseBody>
 }

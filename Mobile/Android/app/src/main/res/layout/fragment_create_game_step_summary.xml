@@ -31,6 +31,15 @@
         android:textSize="@dimen/title" />
 
     <Button
+        android:id="@+id/share_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0"
+        android:enabled="true"
+        android:text="@string/share_game"
+        android:textAlignment="center" />
+
+    <Button
         android:id="@+id/ok_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
