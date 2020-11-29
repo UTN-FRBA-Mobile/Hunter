@@ -50,7 +50,7 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
         gameViewModel.getGameCreated().observe(viewLifecycleOwner, Observer { game ->
             try {
                 val barcodeEncoder = BarcodeEncoder()
-                val bitmap: Bitmap = barcodeEncoder.encodeBitmap(game.winCode, BarcodeFormat.QR_CODE, qr.width, qr.height)
+                val bitmap: Bitmap = barcodeEncoder.encodeBitmap(game.winCode, BarcodeFormat.QR_CODE, 512, 512)
                 qr.setImageBitmap(bitmap)
             } catch (e: Exception) {
                 Log.d("Game Summary", e.message)
