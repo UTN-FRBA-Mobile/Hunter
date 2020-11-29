@@ -88,5 +88,11 @@
     <string name="history_game">Ver Mis Juegos</string>
     <string name="game_win">Gané!!!</string>
     <string name="historyGame">Historial de Juegos</string>
+    <string name="title_activity_scan_q_r">ScanQRActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 
 </resources>
