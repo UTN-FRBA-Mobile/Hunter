@@ -77,5 +77,7 @@
     <string name="map_title">Mapa hacia el Tesoro</string>
     <string name="compass_title">Brújula hacia el Tesoro</string>
     <string name="clue_duration_helper">Esto es en minutos</string>
+    <string name="share_game">Compartir Juego</string>
+    <string name="game_invitation">"Te invitamos a participar en una nueva búsqueda del tesoro! \r\n Unite al juego con este ID: "</string>
 
 </resources>

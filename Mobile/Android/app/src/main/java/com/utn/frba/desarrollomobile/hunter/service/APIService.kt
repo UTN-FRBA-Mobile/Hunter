@@ -52,4 +52,7 @@ interface APIService {
 
     @GET("/api/User/Find")
     fun findUser(@Body user: User): Call<User>
+
+    @POST("/api/User/JoinGame")
+    fun joinGame(@Body game_id: Int): Call<ResponseBody>
 }
