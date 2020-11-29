@@ -105,7 +105,7 @@ namespace Hunter.Services
             }
         }
 
-        public static Game[] GetGames(string sub)
+        public static Game[] GetGames(string sub, int page = 1, int countPerPage = 100)
         {
             using (var context = new Database.postgresContext())
             {
@@ -115,7 +115,7 @@ namespace Hunter.Services
 
                 var game_ids = context.GameUser.Where(gu => gu.UserId == user.Id).Select(gu => gu.GameId);
 
-                return context.Game.Where(g => game_ids.Contains(g.Id) && g.Ended).Select(g => ParseGame(g)).ToArray();
+                return context.Game.Where(g => game_ids.Contains(g.Id) && g.Ended).Select(g => ParseGame(g)).OrderBy(x => x.StartDatetime).Take(countPerPage).Skip(countPerPage * (page -1)).ToArray();
             }
         }
 

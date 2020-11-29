@@ -74,6 +74,29 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
         }, true)
     }
 
+    private fun joinGame(gameId : Int)
+    {
+        var callJoinGameResponse =
+            APIAdapter.getAPI().joinGame(gameId)
+
+        callJoinGameResponse.enqueue(object : Callback<ResponseBody> {
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                print("throw Message" + t.message)
+                register_password_confirmation.error = "Error reading JSON"
+            }
+
+            override fun onResponse(
+                call: Call<ResponseBody>,
+                response: Response<ResponseBody>
+            ) {
+                val body = response?.body()
+                if (body != null) {
+                    //do your work
+                }
+            }
+        })
+    }
+
     private fun routeToGame() {
         TODO("Missing routing")
 //        showFragment(DummyFragment(), addToBackStack = false)
