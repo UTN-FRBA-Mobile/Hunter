@@ -1,10 +1,10 @@
 package com.utn.frba.desarrollomobile.hunter.ui.fragment
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
-import android.content.Intent
+import android.os.Environment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
