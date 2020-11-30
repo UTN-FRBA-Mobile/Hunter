@@ -19,3 +19,11 @@
 "REGISTER_FIELD_PLACEHOLDER_PASSWORD" = "Password";
 "REGISTER_FIELD_PLACEHOLDER_CONFIRM_PASSWORD" = "Confirmar Password";
 "REGISTER_BUTTON_SIGNUP" = "Crear Usuario";
+
+// MARK: - Permissions
+// Mark: Location
+
+"PERMISSION_LOCATION_TITLE" = "Necesitamos Permisos de Localización";
+"PERMISSION_LOCATION_MESSAGE" = "Es realmente necesario para poder ayudarte a encontrar tu objectivo!";
+"PERMISSION_LOCATION_ACCEPT_TITLE" = "Aceptar";
+"PERMISSION_LOCATION_REJECT_TITLE" = "Rechazar";

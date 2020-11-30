@@ -17,7 +17,7 @@ class UserLocationTracker: NSObject, CLLocationManagerDelegate {
         
         onNewLocation = block
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
     }
@@ -26,7 +26,7 @@ class UserLocationTracker: NSObject, CLLocationManagerDelegate {
         
         onNewHeading = block
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.headingFilter = 5
         locationManager.startUpdatingHeading()
     }

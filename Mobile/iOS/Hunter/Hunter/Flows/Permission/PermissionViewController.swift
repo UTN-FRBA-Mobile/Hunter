@@ -2,22 +2,28 @@ import UIKit
 
 class PermissionViewController: UIViewController {
 
+    // MARK: - Attributes
+    
     @IBOutlet private (set) weak var containerView: UIView!
     @IBOutlet private (set) weak var titleLabel: UILabel!
     @IBOutlet private (set) weak var subtitleLabel: UILabel!
-    @IBOutlet private weak var leftButton: HunterButton!
-    @IBOutlet private weak var rightButton: HunterButton!
+    @IBOutlet private (set) weak var leftButton: HunterButton!
+    @IBOutlet private (set) weak var rightButton: HunterButton!
     
+    // MARK: - ViewController Function
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        containerView.backgroundColor = Color.Hunter.white
-        containerView.layer.cornerRadius = containerView.bounds.size.height / 0.1
-        containerView.layer.borderWidth = 1.0
-        containerView.layer.borderColor = Color.Hunter.darkBlue.cgColor
+        
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
+        subtitleLabel.numberOfLines = 0
         leftButton.applyBorders()
         rightButton.applyBorders()
     }
     
+    // MARK: - Public Functions
+
     func setup(_ actions: ActionsForDecision) {
         leftButton.isEnabled = true
         leftButton.setup(forTap: dismiss(andPerform: actions.decline))
@@ -28,7 +34,10 @@ class PermissionViewController: UIViewController {
         rightButton.setup(forTap: dismiss(andPerform: actions.accept))
     }
     
+    // MARK: - Private Functions
+    
     private func dismiss(andPerform block: @escaping (()->Void)) -> (() -> Void) {
         { [weak self] in self?.dismiss(animated: true, completion: block) }
     }
+    
 }

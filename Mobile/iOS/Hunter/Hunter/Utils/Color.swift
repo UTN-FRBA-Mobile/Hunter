@@ -3,9 +3,18 @@
 import Foundation
 import UIKit
 
-struct Color {}
+struct Color {
+    
+    private init() {}
+    
+}
 extension Color {
     struct Hunter {
+        
+        private init() {}
+        
+        // MARK: - Colors
+        
         static var black: UIColor { UIColor(with: "#44444") }
         static var darkBlue: UIColor { UIColor(with: "#1E2C35") }
         static var green: UIColor { UIColor(with: "#538b2a") }

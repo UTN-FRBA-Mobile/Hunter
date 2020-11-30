@@ -78,5 +78,8 @@ extension LocationPermission: CLLocationManagerDelegate {
 }
 
 struct LocationPermissionPresenter: PermissionPresenter {
-    
+    let title: String = "PERMISSION_LOCATION_TITLE".localize()
+    let message: String = "PERMISSION_LOCATION_MESSAGE".localize()
+    let acceptTitle: String = "PERMISSION_LOCATION_ACCEPT_TITLE".localize()
+    let rejectTitle: String = "PERMISSION_LOCATION_REJECT_TITLE".localize()
 }

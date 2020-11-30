@@ -10,7 +10,7 @@ protocol Loading {
 class HunterLoading: UIView {
     
     private (set) weak var spinner: UIActivityIndicatorView!
-    private (set) weak var descriptionLabel: UILabel!
+    private (set) weak var descriptionLabel: PaddingLabel!
     private let defaultText: String = "Cargando..."
     
     init() {
@@ -18,8 +18,10 @@ class HunterLoading: UIView {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.tintColor = Color.Hunter.green
+        spinner.color = Color.Hunter.green
         
-        let label = UILabel()
+        let label = PaddingLabel()
+        label.contentInsets = .init(top: 4, left: 8, bottom: 4, right: 8)
         label.isHidden = true
         label.translatesAutoresizingMaskIntoConstraints = false
         
