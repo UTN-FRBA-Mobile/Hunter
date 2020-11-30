@@ -16,7 +16,43 @@ Una vez creado el juego, se podrá compartir con otros usuarios para que se unan
 * Login de Usuario
 * Creación de Usuario
 * Creación de Juego
-![alt text](https://web.telegram.org/ea3d0605-5fcc-401a-b88f-a18d0e0507c8)
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775887.jpg?alt=media)
+
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775899.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775900.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775901.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775902.jpg?alt=media)
+
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775903.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775904.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775905.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775906.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775907.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775908.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775909.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775910.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775911.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775912.jpg?alt=media)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775913.jpg?alt=media)
+
+
+
+
 https://web.telegram.org/a830ad8e-c1bf-4f99-b564-d2dfa453c4f3)
 https://web.telegram.org/11060136-acc5-4186-92e7-3dfdb3accdc6)
 ![alt text](https://web.telegram.org/d8c45701-a651-4436-9e59-b25a4bcbc4c0)
