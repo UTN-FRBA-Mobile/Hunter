@@ -4,18 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
+import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
 import com.utn.frba.desarrollomobile.hunter.service.models.User
 import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
+import com.utn.frba.desarrollomobile.hunter.viewmodel.GameViewModel
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.view_listitem_win_game.view.*
 import retrofit2.Call
@@ -25,6 +30,7 @@ import retrofit2.Response
 class HistoryFragment : Fragment(R.layout.fragment_history) {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var gameViewModel: GameViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,7 +61,13 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         var myDataset = ArrayList<Game>().toMutableList()
 
         val viewManager = LinearLayoutManager(this.context)
-        var viewAdapter = GamesAdapter(myDataset)
+
+        gameViewModel = ViewModelProvider(requireActivity()).get(GameViewModel::class.java)
+
+        var viewAdapter = GamesAdapter(myDataset) { game ->
+            gameViewModel.setGame(game)
+            showFragment(HistoryDetailFragment(), true)
+        }
 
         val callGameHistoryResponse =
             APIAdapter.getAPI().getMyHistoryGames()
@@ -74,7 +86,10 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                 body?.let {
                     myDataset = it.toMutableList()
 
-                    viewAdapter = GamesAdapter(myDataset)
+                    viewAdapter = GamesAdapter(myDataset) { game ->
+                        gameViewModel.setGame(game)
+                        showFragment(HistoryDetailFragment(), true)
+                    }
 
                     recyclerView = recycler_history_games.apply {
                         layoutManager = viewManager
@@ -110,36 +125,48 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
     }
 }
 
-class GamesAdapter(private val myDataset: MutableList<Game>) :
+class GamesAdapter(
+    private val myDataset: MutableList<Game>,
+    private val onGameClickedListener: (Game) -> Unit
+) :
     RecyclerView.Adapter<GamesAdapter.MyViewHolder>() {
 
     override fun getItemCount() = myDataset.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-                .inflate(R.layout.view_listitem_win_game, parent, false)
+            .inflate(R.layout.view_listitem_win_game, parent, false)
         return MyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bindGame(myDataset[position])
-    }
+        val game = myDataset[position]
 
-    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view){
+        with(holder) {
 
-        fun bindGame(game: Game) {
-            itemView.game_date.text = game.endDatetime?.substring(0, 10)
+            gameParent.setOnClickListener { onGameClickedListener.invoke(game) }
+
+            gameDate.text = game.endDatetime?.substring(0, 10)
             if (game.winId == LoginHandler.USERID) {
-                itemView.game_winner.text = "GANÉ!!!"
+                gameWinner.text = "GANÉ!!!"
             } else {
-                itemView.game_winner.text = "Perdí..."
+                gameWinner.text = "Perdí..."
             }
 
             if (!game.photo.isNullOrEmpty()) {
                 try {
-                    Picasso.get().load(game.photo).into(itemView.game_photo)
-                } catch (e:Exception) {}
+                    Picasso.get().load(game.photo).into(gamePhoto)
+                } catch (e: Exception) {
+                }
             }
         }
+
+    }
+
+    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val gameParent: ViewGroup = view.game_item_parent
+        val gameDate: TextView = view.game_date
+        val gameWinner: TextView = view.game_winner
+        val gamePhoto: ImageView = view.game_photo
     }
 }
