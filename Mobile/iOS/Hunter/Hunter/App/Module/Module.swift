@@ -81,14 +81,15 @@ fileprivate extension Module {
     }
     
     func sendToActiveGame(_ game: Game) {
-        checkGpsPermissions(for: game)
+    let startGame: ((LocationPermission) -> Void) = { self.showGame(game, with: $0) }
+        let requestLocation = { self.requestUserLocation(to: startGame) }
+        checkGpsPermissions(for: requestLocation)
     }
     
     var gpsPermissionsWasAsked: Bool { UserDefaults.standard.bool(forKey: "AskedForGpsPermissions") }
     
-    func checkGpsPermissions(for game: Game) {
-        let startGame = { self.requestUserLocation(with: game) }
-        gpsPermissionsWasAsked ? startGame() : askGpsPermissionForFirstTime(startGame)
+    func checkGpsPermissions(for action: @escaping (() -> Void)) {
+        gpsPermissionsWasAsked ? action() : askGpsPermissionForFirstTime(action)
     }
     
     func askGpsPermissionForFirstTime(_ completion: @escaping (() -> Void)) {
@@ -99,11 +100,11 @@ fileprivate extension Module {
         askForGpsPermissions(onAccept: request)
     }
     
-    func requestUserLocation(with game: Game) {
+    func requestUserLocation(to performAction: @escaping ((LocationPermission) -> Void)) {
         let askForGps = { self.askForGpsPermissions(onAccept: self.openSettings) }
         let locationPermission = LocationPermission()
-        let startGame = { self.showGame(game, with: locationPermission) }
-        locationPermission.requestUserLocation(ActionsForDecision(accept: startGame, decline: askForGps))
+        let fireAction = { performAction(locationPermission) }
+        locationPermission.requestUserLocation(ActionsForDecision(accept: fireAction, decline: askForGps))
     }
     
     func popToRoot() {
@@ -145,18 +146,6 @@ fileprivate extension Module {
     }
 }
 
-#warning("We need to put final implementation!")
-class LocaliOSImageModule: ImageCaseUse {
-
-    func userWantsToTakePhoto(_ callback: @escaping ((ImageResultFlow) -> Void)) {
-        callback(.didSelectAn(UIImage()))
-    }
-
-    func userWantsToUploadPhoto(_ callback: @escaping ((ImageResultFlow) -> Void)) {
-        callback(.didSelectAn(UIImage()))
-    }
-}
-
 fileprivate extension Module {
     private typealias Method = (RegisterMethod, SingleAction<Void>)
 
@@ -173,87 +162,4 @@ fileprivate extension Module {
         let router = GuestRouter(navigation: dependencies.navigation, factory: viewResolver)
         router.showGuestScreen()
     }
-}
-
-
-struct GPSActions {
-    let onShouldRequest: (() -> Void)
-    let wasAnsweredBefore: ActionsForDecision
-}
-
-import MapKit
-import CoreLocation
-class LocationPermission: NSObject {
-    enum State {
-        case shouldAsk
-        case granted
-        case denied
-    }
-    
-    let manager = CLLocationManager()
-    
-    var state: LocationPermission.State {
-        if #available(iOS 14.0, *) {
-            return parseTo(manager.authorizationStatus)
-        } else {
-            return parseTo(CLLocationManager.authorizationStatus())
-        }
-    }
-    
-    private func parseTo(_ authorizationStatus: CLAuthorizationStatus) -> LocationPermission.State {
-        switch authorizationStatus {
-        case .authorizedAlways, .authorizedWhenInUse:
-            return .granted
-        case .denied:
-            return .denied
-        case .restricted:
-            return .denied
-        case .notDetermined:
-            return .shouldAsk
-        default:
-            return .denied
-        }
-    }
-    
-    enum Status: Equatable {
-        case defined
-        case requesting(ActionsForDecision)
-        static func ==(_ lhs: Status,_ rhs: Status) -> Bool {
-            switch (lhs,rhs) {
-            case (.defined, .defined): return true
-            case (.requesting(_), .requesting(_)): return true
-            default: return false
-            }
-        }
-    }
-    
-    private var status: Status = .defined
-    
-    func requestUserLocation(_ actions: ActionsForDecision) {
-        guard status == .defined else { return }
-        status = .requesting(actions)
-        manager.delegate = self
-        manager.requestWhenInUseAuthorization()
-    }
-}
-
-extension LocationPermission: CLLocationManagerDelegate {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch status {
-        case .requesting(let actions):
-            switch state {
-            case .granted: actions.accept()
-            case .denied: actions.decline()
-            default: break
-            }
-        default:
-            #warning("Maybe we need to post a notification in order to see if we are going to ask the user to turn on the gps!")
-            break
-        }
-    }
-}
-
-
-struct LocationPermissionPresenter: PermissionPresenter {
-    
 }
