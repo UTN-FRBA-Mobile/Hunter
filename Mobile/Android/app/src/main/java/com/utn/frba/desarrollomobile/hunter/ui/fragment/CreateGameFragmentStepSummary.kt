@@ -5,10 +5,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Environment
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -18,14 +17,13 @@ import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
+import com.utn.frba.desarrollomobile.hunter.utils.PermissionHandler
 import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_summary.*
-import java.io.File
-import java.io.FileOutputStream
 
 class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_step_summary) {
 
-    private  val REQUEST_WRITE_EXTERNAL_STORAGE = 100
+    private val REQUEST_WRITE_EXTERNAL_STORAGE = 220
     private lateinit var gameViewModel: CreateGameViewModel
     private var game: Game? = null
 
@@ -54,11 +52,18 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
                 qr.setImageBitmap(bitmap)
 
                 download_qr.setOnClickListener {
-                    if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_WRITE_EXTERNAL_STORAGE)
+                    if (PermissionHandler.arePermissionsGranted(
+                            requireContext(),
+                            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        )
+                    ) {
+                        downloadQR(game!!)
                     } else {
-
-                        downloadQR(this.game!!)
+                        PermissionHandler.requestPermissions(
+                            this,
+                            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                            REQUEST_WRITE_EXTERNAL_STORAGE
+                        )
                     }
                 }
 
@@ -84,13 +89,13 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
     }
 
     private fun downloadQR(game: Game) {
-        val storageDir: File? = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-        val file = File.createTempFile("win_qr_${game.id}_", ".jpg", storageDir)
-
-        val fOut = FileOutputStream(file)
-        qr.drawable.toBitmap().compress(Bitmap.CompressFormat.JPEG, 100, fOut)
-        fOut.flush()
-        fOut.close()
+        val yourBitmap = qr.drawable.toBitmap()
+        MediaStore.Images.Media.insertImage(
+            requireContext().contentResolver,
+            yourBitmap,
+            "Hunter_win_qr_${game.id}.jpg",
+            "QR del Tesoro ${game.id}"
+        )
 
         Toast.makeText(context, "QR Descagado. Revisá tu directorio de descargas.", Toast.LENGTH_LONG).show()
     }
@@ -103,10 +108,8 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        when (requestCode) {
-            REQUEST_WRITE_EXTERNAL_STORAGE -> {
-                downloadQR(this.game!!)
-            }
+        if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            downloadQR(game!!)
         }
     }
 }

@@ -6,23 +6,19 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.play.core.splitinstall.ac
 import com.utn.frba.desarrollomobile.hunter.BuildConfig
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
@@ -31,7 +27,6 @@ import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_add_image.*
 import java.io.File
 import java.io.IOException
-import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -112,14 +107,21 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
     private fun selectImage() {
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(requireActivity(), arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_READ_EXTERNAL_STORAGE)
-        }
+        } else {
 
-        Intent(Intent.ACTION_GET_CONTENT).also { getContentIntent ->
-            getContentIntent.type = "image/*"
-            startActivityForResult(Intent.createChooser(getContentIntent, "Select a file"), PICK_IMAGE_REQUEST)
+            openGallery()
         }
     }
 
+    private fun openGallery() {
+        Intent(Intent.ACTION_GET_CONTENT).also { getContentIntent ->
+            getContentIntent.type = "image/*"
+            startActivityForResult(
+                Intent.createChooser(getContentIntent, "Select a file"),
+                PICK_IMAGE_REQUEST
+            )
+        }
+    }
 
     private fun loadImage(image: Bitmap) {
         try {
@@ -171,6 +173,7 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
 
         when (requestCode) {
             REQUEST_READ_EXTERNAL_STORAGE -> {
+                openGallery()
                 Toast.makeText(activity, "Permiso concedido", Toast.LENGTH_LONG).show()
             }
             REQUEST_CAMERA_PERMISSION -> {
