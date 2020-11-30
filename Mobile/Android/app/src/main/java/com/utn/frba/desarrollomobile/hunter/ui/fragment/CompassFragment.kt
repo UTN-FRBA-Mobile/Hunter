@@ -102,22 +102,24 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
                 Double.valueOf(altitude).toFloat(),
                 System.currentTimeMillis()
             )
-            val distance = target.distanceTo(actualLocation)
-            when {
-                distance > TARGET_RADIUS -> {
+            target?.let {
+                val distance = it.distanceTo(actualLocation)
+                when {
+                    distance > TARGET_RADIUS -> {
 
-                    Log.d("HUNTER", "distance > TARGET_RADIUS")
-                    goToMapFragment()
-                }
-                distance <= CLUE_RADIUS -> {
-                    Log.d("HUNTER", "distance <= TARGET_RADIUS")
+                        Log.d("HUNTER", "distance > TARGET_RADIUS")
+                        goToMapFragment()
+                    }
+                    distance <= CLUE_RADIUS -> {
+                        Log.d("HUNTER", "distance <= TARGET_RADIUS")
 
-                    showClueButton.visibility = VISIBLE
-                }
-                else -> {
-                    Log.d("HUNTER", "else")
+                        showClueButton.visibility = VISIBLE
+                    }
+                    else -> {
+                        Log.d("HUNTER", "else")
 
-                    showClueButton.visibility = GONE
+                        showClueButton.visibility = GONE
+                    }
                 }
             }
         }

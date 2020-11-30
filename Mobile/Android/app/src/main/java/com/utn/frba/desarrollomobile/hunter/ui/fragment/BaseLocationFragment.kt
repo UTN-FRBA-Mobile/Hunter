@@ -34,7 +34,7 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
     private lateinit var locationListener: LocationListener
 
     protected var actualLocation: Location? = null
-    protected lateinit var target: Location
+    protected var target: Location? = null
 
     //PERMISSION
     private val GPS_CODE = 1
@@ -209,6 +209,24 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
 
     protected open fun hideLoading() {
         (activity as MainActivity).hideLoading()
+    }
+
+    @SuppressLint("MissingPermission")
+    override fun onResume() {
+        if (PermissionHandler.arePermissionsGranted(
+                requireContext(),
+                arrayOf(GPS_FINE_PERMISSION, GPS_COARSE_PERMISSION)
+            )
+        ) {
+            actualLocation = locationManager.getLastKnownLocation(GPS_PROVIDER)
+
+            actualLocation?.let { actualLoc ->
+                target?.let {
+                    onLocationUpdated(actualLoc)
+                }
+            }
+        }
+        super.onResume()
     }
 
     override fun onStop() {

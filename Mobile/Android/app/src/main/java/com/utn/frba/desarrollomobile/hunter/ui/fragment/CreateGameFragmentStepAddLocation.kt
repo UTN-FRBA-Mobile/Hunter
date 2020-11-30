@@ -12,9 +12,10 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdate
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -46,21 +47,17 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
     private var googleMap: GoogleMap? = null
     private lateinit var locationManager: LocationManager
 
+    private var actualLocation: Location? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         gameViewModel = ViewModelProvider(requireActivity()).get(CreateGameViewModel::class.java)
 
         locationManager = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-        updateUI(null)
-        checkGPSPermissions()
-
-        gameViewModel.getLocation().observe(viewLifecycleOwner, Observer { location ->
-            updateUI(location)
-        })
+        updateUI(actualLocation)
 
         next_button.setOnClickListener {
-            //locationManager.removeUpdates(locationListener)
             showFragment(CreateGameFragmentStepAddImage(), true)
         }
 
@@ -73,22 +70,23 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
         super.onActivityCreated(savedInstanceState)
         map.onCreate(savedInstanceState)
         map.getMapAsync(this)
+
     }
 
     private fun updateUI(location: Location?) {
         if (location != null) {
-            latitudePreview.visibility = View.VISIBLE
-            longitudePreview.visibility = View.VISIBLE
-            loadingGPS.visibility = View.GONE
+            latitudePreview.visibility = VISIBLE
+            longitudePreview.visibility = VISIBLE
+            loadingGPS.visibility = GONE
             latitudePreview.text = location.latitude.toString()
             longitudePreview.text = location.longitude.toString()
             drawPinForLocation(location)
             centerMapForLocation(location, animate = true)
             next_button.isEnabled = true
         } else {
-            latitudePreview.visibility = View.GONE
-            longitudePreview.visibility = View.GONE
-            loadingGPS.visibility = View.VISIBLE
+            latitudePreview.visibility = GONE
+            longitudePreview.visibility = GONE
+            loadingGPS.visibility = VISIBLE
             next_button.isEnabled = false
         }
     }
@@ -106,10 +104,12 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
                 UPDATE_DISTANCE,
                 locationListener
             )
-            locationListener.onProviderEnabled(GPS_PROVIDER)
-            gameViewModel.setLocation(locationManager.getLastKnownLocation(GPS_PROVIDER))
+
+            actualLocation = locationManager.getLastKnownLocation(GPS_PROVIDER)
+            gameViewModel.setLocation(actualLocation)
+            updateUI(actualLocation)
+
         } else {
-            locationListener.onProviderDisabled(null)
             PermissionHandler.requestPermissions(
                 this,
                 arrayOf(GPS_FINE_PERMISSION, GPS_COARSE_PERMISSION),
@@ -138,7 +138,10 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
                     arrayOf(GPS_COARSE_PERMISSION, GPS_FINE_PERMISSION)
                 )
 
-                gameViewModel.setLocation(locationManager.getLastKnownLocation(GPS_PROVIDER))
+                actualLocation = locationManager.getLastKnownLocation(GPS_PROVIDER)
+                gameViewModel.setLocation(actualLocation)
+
+                updateUI(actualLocation)
 
                 locationManager.requestLocationUpdates(
                     GPS_PROVIDER,
@@ -169,7 +172,6 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
             }
 
             override fun onProviderDisabled(provider: String?) {
-                updateUI(null)
                 gameViewModel.setLocation(null)
                 gps_button.visibility = View.VISIBLE
                 locationPreview.visibility = View.GONE
@@ -190,7 +192,10 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
 
     override fun onMapReady(map: GoogleMap?) {
         Log.d("GPS", map?.toString() ?: "No hay")
-        map?.let { googleMap = it }
+        map?.let {
+            googleMap = it
+            checkGPSPermissions()
+        }
     }
 
     override fun onStop() {
@@ -207,7 +212,19 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
     override fun onResume() {
         map.onResume()
         setToolbarTitle(getString(R.string.stepLocation))
-        checkGPSPermissions()
+        googleMap?.let {
+            checkGPSPermissions()
+        }
+        locationManager = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        if (!locationManager.isProviderEnabled(GPS_PROVIDER)) {
+            gps_button.visibility = VISIBLE
+            locationPreview.visibility = GONE
+        } else {
+            gps_button.visibility = GONE
+            locationPreview.visibility = VISIBLE
+        }
+        updateUI(actualLocation)
         super.onResume()
     }
 
