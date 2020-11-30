@@ -14,16 +14,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clueCloseBtn">
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:fillViewport="true"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/clueCloseBtn">-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/clueCloseBtn"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -49,5 +50,5 @@
                 app:layout_constraintTop_toBottomOf="@id/clueImage"
                 tools:text="texti" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    <!--    </ScrollView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
