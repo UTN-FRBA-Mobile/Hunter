@@ -67,7 +67,7 @@ fileprivate extension Module {
     }
     
     func createNewGame() {
-        try? Auth.auth().signOut()
+//        try? Auth.auth().signOut()
         let viewResolver = CreateGameViewResolver()
         let router = CreateGameRouter(navigation: dependencies.navigation, factory: viewResolver)
         let createGame = CreateGame(imageProvider: LocaliOSImageModule())
@@ -132,8 +132,8 @@ fileprivate extension Module {
     func sentToJoinAGame() {
         let viewResolver = JoinGameViewResolver()
         let router = JoinGameRouter(navigation: dependencies.navigation, factory: viewResolver)
-        //let service = JoinGameRestService(networking: dependencies.networking)
-        let service = JoinGameMockService(game: .mainGame)
+        let service = JoinGameRestService(networking: dependencies.networking)
+        //let service = JoinGameMockService(game: .mainGame)
         let joinGame = JoinGame(service: service)
         let coordinator = JoinGameCoordinator(flow: router, caseUse: joinGame, onComplete: sendToActiveGame)
         coordinator.start()
