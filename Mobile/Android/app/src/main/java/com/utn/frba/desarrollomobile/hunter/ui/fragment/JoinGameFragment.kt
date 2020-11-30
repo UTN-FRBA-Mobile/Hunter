@@ -1,5 +1,6 @@
 package com.utn.frba.desarrollomobile.hunter.ui.fragment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +11,7 @@ import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
+import com.utn.frba.desarrollomobile.hunter.service.models.Game
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.BaseLocationFragment.Companion.GAME_ID
 import com.utn.frba.desarrollomobile.hunter.viewmodel.GameViewModel
 import kotlinx.android.synthetic.main.fragment_choose_game.join_game_button
@@ -47,6 +49,38 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
 
     private fun searchGame() {
         val gameCode = join_code_edit_text.text
+
+        val activity = this.activity
+
+        var callGetGameResponse =
+            APIAdapter.getAPI().getGame(gameCode.toString().toInt())
+
+        callGetGameResponse.enqueue(object : Callback<Game> {
+            override fun onFailure(call: Call<Game>, t: Throwable) {
+                print("throw Message" + t.message)
+            }
+
+            override fun onResponse(
+                call: Call<Game>,
+                response: Response<Game>
+            ) {
+                val body = response?.body()
+                if (body != null) {
+                    body.let {
+                        if(it.ended == true) {
+                            val alert: AlertDialog?
+                            val builder = AlertDialog.Builder(requireContext())
+                            builder.setMessage("El juego al que se intenta unir ya ha finalizado")
+                                .setCancelable(false)
+                                .setPositiveButton("OK") { _, _ ->
+                                    showFragment(ChooseGameFragment(), true, true)
+                                }
+                            alert = builder.create();
+                            alert.show();
+                        }}
+                }
+            }
+        })
 
         var callJoinGameResponse =
             APIAdapter.getAPI().joinGame(gameCode.toString().toInt())
