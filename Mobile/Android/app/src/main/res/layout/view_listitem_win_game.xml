@@ -21,12 +21,14 @@
 
         <TextView
             android:id="@+id/game_date"
+            android:textSize="22sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""/>
 
         <TextView
             android:id="@+id/game_winner"
+            android:textSize="22sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
