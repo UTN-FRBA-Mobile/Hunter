@@ -1,19 +1,11 @@
 import Foundation
 
 protocol LoginAuthentication {
-    func authenticate<SM: Encodable, M: Decodable>(with serviceModel: SM,
-                                                   onCompletion: ActionResult<M, Error>)
+    func authenticate(with serviceModel: LoginServiceModel,
+                      onCompletion: @escaping ActionResult<NoReply, Error>)
 }
 
-struct LoginServiceModel { let email, password: String }
-
-class RestLoginService: LoginAuthentication {
-    func authenticate<SM, M>(with serviceModel: SM, onCompletion: (Result<M, Error>) -> Void)
-    where SM : Encodable, M : Decodable
-    {
-        
-    }
-}
+struct LoginServiceModel: Codable { let email, password: String }
 
 protocol LoginCaseUse {
     func authenticate(with email: String,
@@ -22,20 +14,18 @@ protocol LoginCaseUse {
 }
 
 class Login: LoginCaseUse {
-    let onWasAuthenticated: (() -> Void)
+    let service: LoginAuthentication
     
-    init(onWasAuthenticated: @escaping (() -> Void)) {
-        self.onWasAuthenticated = onWasAuthenticated
+    init(service: LoginAuthentication) {
+        self.service = service
     }
     
     func authenticate(with email: String,
                       and password: String,
                       onCompletion: @escaping ActionResult<NoReply, Error>) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            onCompletion(.success(NoReply()))
-            self.onWasAuthenticated()
-        }
+        
+        let serviceModel = LoginServiceModel(email: email, password: password)
+        service.authenticate(with: serviceModel, onCompletion: onCompletion)
     }
 }
 

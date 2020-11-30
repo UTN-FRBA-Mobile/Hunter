@@ -18,8 +18,16 @@ class GamePlayCoordinator<CaseUse: GamePlayCaseUse, Flow: GamePlayFlow> {
     }
     
     func checkIfItsFarFromGoal(_ location: LocationCoordinate2D) {
+        if didWin(with: location) {
+            return flow.sendUserToWinnerScreen()
+        }
+        
         guard caseUse.DidUserChangedZone(with: location) else { return }
         
         flow.sendUserBackToMapView()
+    }
+    
+    func didWin(with location: LocationCoordinate2D) -> Bool {
+        caseUse.goal.distance(from: location) <= 1
     }
 }

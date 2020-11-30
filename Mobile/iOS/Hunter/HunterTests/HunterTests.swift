@@ -1,10 +1,3 @@
-//
-//  HunterTests.swift
-//  HunterTests
-//
-//  Created by Hunter on 23/09/2020.
-//
-
 import XCTest
 @testable import Hunter
 

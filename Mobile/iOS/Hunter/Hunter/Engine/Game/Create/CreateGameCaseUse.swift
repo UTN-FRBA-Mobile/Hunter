@@ -3,7 +3,7 @@ import Foundation
 protocol CreateGameCaseUse {
     var imageProvider: ImageCaseUse { get set }
     func saveImage(_ coded: String)
-    func create(with clue: String?, onCompletion: ActionResult<NoReply, Error>)
+    func create(with clue: String?, onCompletion: ActionResult<Game, Error>)
 }
 
 class CreateGame: CreateGameCaseUse {
@@ -15,7 +15,7 @@ class CreateGame: CreateGameCaseUse {
     
     func saveImage(_ coded: String) { status = .withGoal(image: coded) }
     
-    func create(with clue: String?, onCompletion: ActionResult<NoReply, Error>) {
+    func create(with clue: String?, onCompletion: ActionResult<Game, Error>) {
         switch status {
         case .initialize:
             #warning("To be changed!")
@@ -23,7 +23,7 @@ class CreateGame: CreateGameCaseUse {
         case .withGoal(image: let codedImage):
             print("Hunter: image -> \(codedImage) and clue: \(clue ?? "")")
             #warning("Put service!")
-            onCompletion(.success(NoReply()))
+            onCompletion(.success(Game.mainGame))
         }
     }
 }

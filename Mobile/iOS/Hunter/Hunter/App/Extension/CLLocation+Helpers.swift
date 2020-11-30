@@ -25,18 +25,6 @@ extension CLLocationCoordinate2D {
     
     var toLocation: CLLocation { CLLocation(latitude: latitude, longitude: longitude) }
     
-    func trunc(_ digit: Double) -> CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude.trunc(for: 6), longitude: longitude.trunc(for: 6))
-    }
-    
-}
-
-extension CLLocationDegrees {
-    
-    func trunc(for places: Double) -> CLLocationDegrees {
-        truncl(self * divisor(places)) / divisor(places)
-    }
-    
 }
 
 extension LocationCoordinate2D {

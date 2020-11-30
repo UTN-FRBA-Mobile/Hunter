@@ -1,0 +1,29 @@
+// MARK: - Common
+
+"WELCOME_TO_HUNTER" = "Bienvenidos a Hunter!";
+"LOGIN" = "Ingresar";
+"SIGN_UP" = "Registrarse";
+
+// MARK: - Login
+
+"LOGIN_FIELD_PLACEHOLDER_EMAIL" = "Email";
+"LOGIN_FIELD_PLACEHOLDER_PASSWORD" = "Password";
+
+
+// MARK: - Register Screen
+
+"REGISTER_FIELD_PLACEHOLDER_NAME" = "Nombre";
+"REGISTER_FIELD_PLACEHOLDER_LASTNAME" = "Apellido";
+"REGISTER_FIELD_PLACEHOLDER_ALIAS" = "Alias";
+"REGISTER_FIELD_PLACEHOLDER_EMAIL" = "Email";
+"REGISTER_FIELD_PLACEHOLDER_PASSWORD" = "Password";
+"REGISTER_FIELD_PLACEHOLDER_CONFIRM_PASSWORD" = "Confirmar Password";
+"REGISTER_BUTTON_SIGNUP" = "Crear Usuario";
+
+// MARK: - Permissions
+// Mark: Location
+
+"PERMISSION_LOCATION_TITLE" = "Necesitamos Permisos de Localización";
+"PERMISSION_LOCATION_MESSAGE" = "Es realmente necesario para poder ayudarte a encontrar tu objectivo!";
+"PERMISSION_LOCATION_ACCEPT_TITLE" = "Aceptar";
+"PERMISSION_LOCATION_REJECT_TITLE" = "Rechazar";

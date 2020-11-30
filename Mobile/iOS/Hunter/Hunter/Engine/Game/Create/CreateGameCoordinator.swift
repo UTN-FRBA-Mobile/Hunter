@@ -3,9 +3,9 @@ import Foundation
 class CreateGameCoordinator<CaseUse: CreateGameCaseUse, Flow: CreateGameFlow> {
     let flow: Flow
     let caseUse: CaseUse
-    let onGameCreated: (() -> Void)
+    let onGameCreated: ((Game) -> Void)
     
-    init(flow: Flow, caseUse: CaseUse, onCreated: @escaping (() -> Void)) {
+    init(flow: Flow, caseUse: CaseUse, onCreated: @escaping ((Game) -> Void)) {
         self.flow = flow
         self.caseUse = caseUse
         self.onGameCreated = onCreated

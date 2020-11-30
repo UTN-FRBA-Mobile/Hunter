@@ -12,11 +12,17 @@ extension Router {
         navigation.setViewControllers([controller], animated: animated)
     }
     
-    func replaceLast(with controller: UIViewController, animated: Bool = true) {
+    func replaceLeavingHomeAnd(_ controller: UIViewController, animated: Bool = true) {
+        
         guard navigation.viewControllers.count >= 1 else { return }
-        var controllers = navigation.viewControllers.dropLast()
-        controllers.append(controller)
-        navigation.setViewControllers(Array(controllers), animated: animated)
+        
+        navigation.pushViewController(controller, animated: true)
+        
+        guard let root = navigation.viewControllers.first else { return }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            navigation.setViewControllers([root, controller], animated: false)
+        }
     }
     
     func show(_ controller: UIViewController, animated: Bool = true) {
@@ -25,7 +31,9 @@ extension Router {
     
     func pop(animated: Bool = true) { navigation.popViewController(animated: animated) }
     
-    func popToRoot(animated: Bool = true) { navigation.popToRootViewController(animated: animated) }
+    func popToRoot(animated: Bool) { navigation.popToRootViewController(animated: animated) }
+    
+    func popToRoot() { popToRoot(animated: true) }
     
     func present(_ controller: UIViewController, style: UIModalPresentationStyle = .fullScreen, animated: Bool = true) {
         controller.modalPresentationStyle = style
