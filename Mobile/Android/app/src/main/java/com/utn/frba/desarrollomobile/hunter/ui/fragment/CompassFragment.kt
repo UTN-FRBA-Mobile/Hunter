@@ -1,6 +1,5 @@
 package com.utn.frba.desarrollomobile.hunter.ui.fragment
 
-import android.R.attr
 import android.content.Context
 import android.content.Intent
 import android.hardware.*
@@ -24,11 +23,11 @@ import com.utn.frba.desarrollomobile.hunter.service.models.User
 import com.utn.frba.desarrollomobile.hunter.utils.LoginHandler
 import kotlinx.android.synthetic.main.dialog_clue_layout.view.*
 import kotlinx.android.synthetic.main.fragment_compass.*
-import kotlinx.android.synthetic.main.fragment_register.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.Double
+import java.text.DecimalFormat
 
 
 class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorEventListener {
@@ -177,6 +176,11 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
             )
             target?.let {
                 val distance = it.distanceTo(actualLocation)
+
+                distanceTextView.text = getString(
+                    R.string.compass_distance,
+                    DecimalFormat("#.##").format(distance).toString()
+                )
                 when {
                     distance > TARGET_RADIUS -> {
 
