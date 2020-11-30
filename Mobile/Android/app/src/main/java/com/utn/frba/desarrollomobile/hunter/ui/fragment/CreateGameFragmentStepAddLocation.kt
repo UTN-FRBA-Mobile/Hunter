@@ -194,7 +194,7 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
         Log.d("GPS", map?.toString() ?: "No hay")
         map?.let {
             googleMap = it
-          it.uiSettings.setAllGesturesEnabled(false)
+            it.uiSettings.setAllGesturesEnabled(false)
             checkGPSPermissions()
         }
     }
