@@ -14,6 +14,18 @@ class JoinGameViewController: UIViewController {
         joinButton.isEnabled = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        codeTextField.becomeFirstResponder()
+    }
+    
     private func displayError() {
         showToast(with: "El código debe tener por lo menos 4 caracteres!", on: .top)
     }
@@ -39,5 +51,8 @@ extension JoinGameViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) { perfomValidation(displayError) }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool { true }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 }

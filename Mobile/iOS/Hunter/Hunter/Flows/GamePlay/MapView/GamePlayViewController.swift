@@ -13,6 +13,12 @@ class GamePlayViewController: UIViewController {
         mapView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     func display(_ objective: CLLocationCoordinate2D, animated: Bool = true) {
         cleanOverlays()
         let circle = MKCircle(center: objective, radius: 2000)

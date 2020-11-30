@@ -24,4 +24,9 @@ class GamePlayRouter<Nav: UINavigationController,
     func sendUserBackToMapView() {
         navigation.topViewController?.dismiss(animated: true)
     }
+    
+    func sendUserToWinnerScreen() {
+        self.replaceLeavingHomeAnd(self.factory.winnerScreen(onComplete: self.popToRoot))
+        navigation.topViewController?.dismiss(animated: true)
+    }
 }

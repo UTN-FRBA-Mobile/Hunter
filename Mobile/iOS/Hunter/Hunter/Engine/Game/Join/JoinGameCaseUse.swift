@@ -40,7 +40,7 @@ class JoinGameRestService: JoinGameService {
 class JoinGameMockService: JoinGameService {
     let game: Game
     
-    init(game: Game = .mainGame) {
+    init(game: Game) {
         self.game = game
     }
     

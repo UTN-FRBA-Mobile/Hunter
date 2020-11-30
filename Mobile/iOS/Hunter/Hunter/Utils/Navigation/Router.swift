@@ -31,7 +31,9 @@ extension Router {
     
     func pop(animated: Bool = true) { navigation.popViewController(animated: animated) }
     
-    func popToRoot(animated: Bool = true) { navigation.popToRootViewController(animated: animated) }
+    func popToRoot(animated: Bool) { navigation.popToRootViewController(animated: animated) }
+    
+    func popToRoot() { popToRoot(animated: true) }
     
     func present(_ controller: UIViewController, style: UIModalPresentationStyle = .fullScreen, animated: Bool = true) {
         controller.modalPresentationStyle = style
