@@ -23,12 +23,12 @@ class AlamofireClient: Networking {
                         callback(.failure(response.error ?? DummyError.value))
                         return
                     }
+
                     callback(.success(model))
                 }
             }
         } catch let error {
-            print("HDebug - \(error)")
-            #warning("We should throw an error!")
+            callback(.failure(error))
         }
     }
     

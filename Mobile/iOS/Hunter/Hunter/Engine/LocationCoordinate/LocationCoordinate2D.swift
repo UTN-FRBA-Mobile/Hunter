@@ -11,9 +11,11 @@ struct LocationCoordinate2D {
 }
 
 extension LocationCoordinate2D {
-    
+
     static var mainHome: LocationCoordinate2D {
-        LocationCoordinate2D(latitude: -34.5838088, longitude: -58.4757028)
+        // -34.58361984851203
+        // -58.47369960231983
+        LocationCoordinate2D(latitude: -34.58361984851203, longitude: -58.47369960231983)
     }
     
     static var secondHome: LocationCoordinate2D {

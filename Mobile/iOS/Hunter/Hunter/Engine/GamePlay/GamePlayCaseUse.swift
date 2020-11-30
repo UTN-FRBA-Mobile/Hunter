@@ -27,12 +27,13 @@ class GamePlay: GamePlayCaseUse {
     }
     
     func DidUserChangedZone(with location: LocationCoordinate2D) -> Bool {
+        let distance = calculateDistance(goal, location)
         switch state {
         case .unspecific, .distant:
-            guard calculateDistance(goal, location) <  zoneRadius else { return false }
+            guard distance < zoneRadius else { return false }
             self.state = .near(location)
         case .near(_):
-            guard calculateDistance(goal, location) > zoneRadius else { return false }
+            guard distance > zoneRadius else { return false }
             self.state = .distant
         }
         return true
