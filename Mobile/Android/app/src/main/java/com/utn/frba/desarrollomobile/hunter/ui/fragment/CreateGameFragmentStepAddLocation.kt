@@ -190,7 +190,10 @@ class CreateGameFragmentStepAddLocation : Fragment(R.layout.fragment_create_game
 
     override fun onMapReady(map: GoogleMap?) {
         Log.d("GPS", map?.toString() ?: "No hay")
-        map?.let { googleMap = it }
+        map?.let {
+            googleMap = it
+            it.uiSettings.setAllGesturesEnabled(false)
+        }
     }
 
     override fun onStop() {
