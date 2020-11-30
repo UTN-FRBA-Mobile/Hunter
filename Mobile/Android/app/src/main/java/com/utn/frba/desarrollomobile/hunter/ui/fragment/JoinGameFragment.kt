@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.utn.frba.desarrollomobile.hunter.R
@@ -15,6 +14,7 @@ import com.utn.frba.desarrollomobile.hunter.ui.fragment.BaseLocationFragment.Com
 import com.utn.frba.desarrollomobile.hunter.viewmodel.GameViewModel
 import kotlinx.android.synthetic.main.fragment_choose_game.join_game_button
 import kotlinx.android.synthetic.main.fragment_join_game.*
+import kotlinx.android.synthetic.main.fragment_register.*
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -54,7 +54,6 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
         callJoinGameResponse.enqueue(object : Callback<ResponseBody> {
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 print("throw Message" + t.message)
-                Toast.makeText(context, "Error reading JSON", Toast.LENGTH_LONG).show()
             }
 
             override fun onResponse(
@@ -72,7 +71,7 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
             arguments = Bundle().apply { putInt(GAME_ID, gameCode.toString().toInt()) }
         }, true)
     }
-  
+
     override fun onResume() {
         super.onResume()
         setToolbarTitle(getString(R.string.join_game_title))
