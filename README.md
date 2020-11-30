@@ -6,15 +6,15 @@ Una vez creado el juego, se podrá compartir con otros usuarios para que se unan
 
 ## Permisos
 
-La aplicación pedirá permisos de:
-Acceso a Internet
-GPS (Mapa y User Location)
-Cámara
-Almacenamiento en dispositivo
+* La aplicación pedirá permisos de:
+* Acceso a Internet
+* GPS (Mapa y User Location)
+* Cámara
+* Almacenamiento en dispositivo
 
 ## Flujos de la aplicación
-Login de Usuario
-Creación de Usuario
-Creación de Juego
-Ver Historiales de Juego anteriores
-Unirse al Juego
+* Login de Usuario
+* Creación de Usuario
+* Creación de Juego
+* Ver Historiales de Juego anteriores
+* Unirse al Juego
