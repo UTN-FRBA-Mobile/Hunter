@@ -42,8 +42,8 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
     private val GPS_COARSE_PERMISSION = Manifest.permission.ACCESS_COARSE_LOCATION
     private val GPS_PROVIDER = LocationManager.GPS_PROVIDER
 
-    private val UPDATE_TIME = 5000L
-    private val UPDATE_DISTANCE = 10f
+    private val UPDATE_TIME = 2000L
+    private val UPDATE_DISTANCE = 2f
 
     private lateinit var gameViewModel: GameViewModel
     protected var gameID: Int = 0
