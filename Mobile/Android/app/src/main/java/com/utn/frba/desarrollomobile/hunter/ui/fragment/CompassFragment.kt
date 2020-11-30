@@ -94,7 +94,7 @@ class CompassFragment : BaseLocationFragment(R.layout.fragment_compass), SensorE
                             val ended: Boolean = it.ended ?: false
                             val winID: Int = it.winId ?: 0
                             if (ended && winID == LoginHandler.USERID)
-                                showFragment(WinFragment(), true)
+                                showFragment(WinFragment(), true, true)
                             //else
                             //    showFragment()
                         }
