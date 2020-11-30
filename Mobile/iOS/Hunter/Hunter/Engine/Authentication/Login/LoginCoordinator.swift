@@ -15,11 +15,9 @@ protocol LoginCaseUse {
 
 class Login: LoginCaseUse {
     let service: LoginAuthentication
-    let onWasAuthenticated: (() -> Void)
     
-    init(service: LoginAuthentication, onWasAuthenticated: @escaping (() -> Void)) {
+    init(service: LoginAuthentication) {
         self.service = service
-        self.onWasAuthenticated = onWasAuthenticated
     }
     
     func authenticate(with email: String,
@@ -27,15 +25,7 @@ class Login: LoginCaseUse {
                       onCompletion: @escaping ActionResult<NoReply, Error>) {
         
         let serviceModel = LoginServiceModel(email: email, password: password)
-        service.authenticate(with: serviceModel) { [weak self] result in
-            switch result {
-            case .success(_):
-                self?.onWasAuthenticated()
-            default:
-                break
-            }
-            onCompletion(result)
-        }
+        service.authenticate(with: serviceModel, onCompletion: onCompletion)
     }
 }
 

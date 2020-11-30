@@ -22,7 +22,7 @@ fileprivate extension Module {
     func showLoginFlow() {
         let viewResolver = LoginViewResolver()
         let router = LoginRouter(navigation: dependencies.navigation, factory: viewResolver)
-        let login = Login(service: FirebaseLoginService() ,onWasAuthenticated: sendHome)
+        let login = Login(service: FirebaseLoginService())
         let coordinator = LoginCoordinator(flow: router, caseUse: login, onIsANewUser: startRegistryWithEmail)
         coordinator.start()
     }
@@ -31,7 +31,10 @@ fileprivate extension Module {
     func checkAuthentication() {
         let searchForToken: ((String, @escaping ((Token) -> Void)) -> Void) = { (key, callback) in
             Auth.auth().addStateDidChangeListener { (_, possibleUser) in
-                guard let user = possibleUser else { return callback("") }
+                guard let user = possibleUser else {
+                    return callback("")
+                }
+                
                 user.getIDToken { (token, _) in callback(token ?? "") }
             }
         }
@@ -46,7 +49,7 @@ fileprivate extension Module {
     func startRegistryWithEmail() {
         let createUser = DoubleRegistration(first: RegisterUserService(),
                                             second: CreateUser(networking: dependencies.networking))
-        let signUp = SignUpWithEmail(service: createUser, onWasRegistered: sendHome)
+        let signUp = SignUpWithEmail(service: createUser)
         let viewResolver = LocalSignUpViewResolver()
         let router = LocalSignUpRouter(navigation: dependencies.navigation, factory: viewResolver)
         let coordinator = LocalSignUpCoordinator(flow: router, caseUse: signUp)
@@ -67,7 +70,9 @@ fileprivate extension Module {
     }
     
     func createNewGame() {
-//        try? Auth.auth().signOut()
+        try? Auth.auth().signOut()
+        return
+
         let viewResolver = CreateGameViewResolver()
         let router = CreateGameRouter(navigation: dependencies.navigation, factory: viewResolver)
         let createGame = CreateGame(imageProvider: LocaliOSImageModule())
@@ -132,8 +137,8 @@ fileprivate extension Module {
     func sentToJoinAGame() {
         let viewResolver = JoinGameViewResolver()
         let router = JoinGameRouter(navigation: dependencies.navigation, factory: viewResolver)
-        let service = JoinGameRestService(networking: dependencies.networking)
-        //let service = JoinGameMockService(game: .mainGame)
+        //let service = JoinGameRestService(networking: dependencies.networking)
+        let service = JoinGameMockService(game: .mainGame)
         let joinGame = JoinGame(service: service)
         let coordinator = JoinGameCoordinator(flow: router, caseUse: joinGame, onComplete: sendToActiveGame)
         coordinator.start()
