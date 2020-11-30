@@ -38,7 +38,6 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
             callGetUserResponse.enqueue(object : Callback<User> {
                 override fun onFailure(call: Call<User>, t: Throwable) {
                     print("throw Message" + t.message)
-                    register_password_confirmation.error = "Error reading JSON"
                 }
 
                 override fun onResponse(
@@ -64,7 +63,6 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         callGameHistoryResponse.enqueue(object : Callback<ArrayList<Game>> {
             override fun onFailure(call: Call<ArrayList<Game>>, t: Throwable) {
                 print("throw Message" + t.message)
-                register_password_confirmation.error = "Error reading JSON"
             }
 
             override fun onResponse(
