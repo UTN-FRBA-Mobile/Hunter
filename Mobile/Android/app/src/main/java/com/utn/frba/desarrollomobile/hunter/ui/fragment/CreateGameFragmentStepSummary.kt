@@ -5,8 +5,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.os.Environment
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.graphics.drawable.toBitmap
@@ -19,7 +19,6 @@ import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.models.Game
 import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
-import kotlinx.android.synthetic.main.fragment_create_game_step_add_image.view.*
 import kotlinx.android.synthetic.main.fragment_create_game_step_summary.*
 import java.io.File
 import java.io.FileOutputStream
@@ -57,9 +56,10 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
                 download_qr.setOnClickListener {
                     if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                         ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_WRITE_EXTERNAL_STORAGE)
-                    }
+                    } else {
 
-                    downloadQR(this.game!!)
+                        downloadQR(this.game!!)
+                    }
                 }
 
                 join_code.text = resources.getString(R.string.access_code, game?.id)
