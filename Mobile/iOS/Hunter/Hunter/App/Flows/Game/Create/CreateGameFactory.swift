@@ -16,7 +16,6 @@ class CreateGameViewResolver: CreateGameFactory {
         controller.setClue(placeholder: presenter.cluePlaceholder)
         controller.createButton.setTitle(presenter.create, for: .normal)
         controller.createButton.setup {
-            print("Hunter: Create Game. With Clue: \(controller.clue ?? "")")
             caseUse.create(with: controller.clue) { result in
                 switch result {
                 case .success(let game): onCreated(game)
