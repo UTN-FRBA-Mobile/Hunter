@@ -55,6 +55,7 @@ class HistoryDetailFragment : Fragment(R.layout.detail_history_fragment) {
         }
 
         googleMap.uiSettings.isRotateGesturesEnabled = false
+        googleMap.uiSettings.setAllGesturesEnabled(false)
 
         val latitude = game.latitude.toDouble()
         val longitude = game.longitude.toDouble()
