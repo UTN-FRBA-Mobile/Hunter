@@ -10,7 +10,6 @@ import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
 import com.utn.frba.desarrollomobile.hunter.service.APIAdapter
-import com.utn.frba.desarrollomobile.hunter.service.models.User
 import com.utn.frba.desarrollomobile.hunter.ui.fragment.BaseLocationFragment.Companion.GAME_ID
 import com.utn.frba.desarrollomobile.hunter.viewmodel.GameViewModel
 import kotlinx.android.synthetic.main.fragment_choose_game.join_game_button
@@ -49,22 +48,12 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
     private fun searchGame() {
         val gameCode = join_code_edit_text.text
 
-        joinGame(gameCode.toString().toInt());
-
-        showFragment(MapFragment().apply {
-            arguments = Bundle().apply { putInt(GAME_ID, gameCode.toString().toInt()) }
-        }, true)
-    }
-
-    private fun joinGame(gameId : Int)
-    {
         var callJoinGameResponse =
-            APIAdapter.getAPI().joinGame(gameId)
+            APIAdapter.getAPI().joinGame(gameCode.toString().toInt())
 
         callJoinGameResponse.enqueue(object : Callback<ResponseBody> {
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 print("throw Message" + t.message)
-                register_password_confirmation.error = "Error reading JSON"
             }
 
             override fun onResponse(
@@ -77,11 +66,10 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
                 }
             }
         })
-    }
 
-    private fun routeToGame() {
-        TODO("Missing routing")
-//        showFragment(DummyFragment(), addToBackStack = false)
+        showFragment(MapFragment().apply {
+            arguments = Bundle().apply { putInt(GAME_ID, gameCode.toString().toInt()) }
+        }, true)
     }
 
     override fun onResume() {

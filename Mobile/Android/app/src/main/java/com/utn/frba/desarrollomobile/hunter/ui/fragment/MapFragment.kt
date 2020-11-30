@@ -45,18 +45,22 @@ class MapFragment : BaseLocationFragment(R.layout.fragment_map) {
         googleMap.isMyLocationEnabled = true
         googleMap.uiSettings.isRotateGesturesEnabled = false
 
-        drawCircle(target)
-        centerMapForLocation(target, animate = true)
+        target?.let {
+            drawCircle(it)
+            centerMapForLocation(it, animate = true)
+        }
     }
 
     private fun drawCircle(targetLocation: Location) {
-        val circle: Circle = googleMap.addCircle(
-            CircleOptions()
-                .center(LatLng(targetLocation.latitude, targetLocation.longitude))
-                .radius(TARGET_RADIUS)
-                .strokeColor(Color.RED)
-                .fillColor(ContextCompat.getColor(requireContext(), R.color.circle_fill_color))
-        )
+        context?.let {
+            val circle: Circle = googleMap.addCircle(
+                CircleOptions()
+                    .center(LatLng(targetLocation.latitude, targetLocation.longitude))
+                    .radius(TARGET_RADIUS)
+                    .strokeColor(Color.RED)
+                    .fillColor(ContextCompat.getColor(it, R.color.circle_fill_color))
+            )
+        }
     }
 
     private fun centerMapForLocation(
@@ -109,12 +113,14 @@ class MapFragment : BaseLocationFragment(R.layout.fragment_map) {
 
     override fun onLocationUpdated(actualLocation: Location) {
         //target - actual <= radio entonces remove MapFragment
-        if (target.distanceTo(actualLocation) <= TARGET_RADIUS) {
+        target?.let {
+            if (it.distanceTo(actualLocation) <= TARGET_RADIUS) {
 
-            removeFragment()
-            showFragment(CompassFragment().apply {
-                arguments = Bundle().apply { putInt(GAME_ID, game.id.toString().toInt()) }
-            }, true)
+                removeFragment()
+                showFragment(CompassFragment().apply {
+                    arguments = Bundle().apply { putInt(GAME_ID, game.id.toString().toInt()) }
+                }, true)
+            }
         }
     }
 }

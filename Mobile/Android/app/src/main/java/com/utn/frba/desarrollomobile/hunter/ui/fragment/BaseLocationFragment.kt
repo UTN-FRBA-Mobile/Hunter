@@ -34,7 +34,7 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
     private lateinit var locationListener: LocationListener
 
     protected var actualLocation: Location? = null
-    protected lateinit var target: Location
+    protected var target: Location? = null
 
     //PERMISSION
     private val GPS_CODE = 1
@@ -42,8 +42,8 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
     private val GPS_COARSE_PERMISSION = Manifest.permission.ACCESS_COARSE_LOCATION
     private val GPS_PROVIDER = LocationManager.GPS_PROVIDER
 
-    private val UPDATE_TIME = 5000L
-    private val UPDATE_DISTANCE = 10f
+    private val UPDATE_TIME = 2000L
+    private val UPDATE_DISTANCE = 2f
 
     private lateinit var gameViewModel: GameViewModel
     protected var gameID: Int = 0
@@ -204,11 +204,33 @@ abstract class BaseLocationFragment(layoutId: Int) : Fragment(layoutId) {
     }
 
     protected open fun showLoading() {
-        (activity as MainActivity).showLoading("Ingresando...")
+        (activity as MainActivity).showLoading("Cargando...")
     }
 
     protected open fun hideLoading() {
         (activity as MainActivity).hideLoading()
+        actualLocation = locationManager.getLastKnownLocation(GPS_PROVIDER)
+        actualLocation?.let {
+            onLocationUpdated(it)
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    override fun onResume() {
+        if (PermissionHandler.arePermissionsGranted(
+                requireContext(),
+                arrayOf(GPS_FINE_PERMISSION, GPS_COARSE_PERMISSION)
+            )
+        ) {
+            actualLocation = locationManager.getLastKnownLocation(GPS_PROVIDER)
+
+            actualLocation?.let { actualLoc ->
+                target?.let {
+                    onLocationUpdated(actualLoc)
+                }
+            }
+        }
+        super.onResume()
     }
 
     override fun onStop() {

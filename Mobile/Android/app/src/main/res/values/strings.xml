@@ -41,6 +41,10 @@
     <string name="add_players">Agregar jugadores</string>
     <string name="add_location">Agregar ubicación</string>
     <string name="summary">Resumen</string>
+    <string name="game_created">Tu juego ha sido creado</string>
+    <string name="qr_download">imprime el codigo qr o el codigo para que el ganador finalice el juego</string>
+    <string name="download_qr_button">Descargar codigo</string>
+    <string name="access_code">El codigo para unirse es: %1$d</string>
 
     // Game
     <string name="game_join">Unirse a un Juego</string>
@@ -77,5 +81,20 @@
     <string name="map_title">Mapa hacia el Tesoro</string>
     <string name="compass_title">Brújula hacia el Tesoro</string>
     <string name="clue_duration_helper">Esto es en minutos</string>
+    <string name="share_game">Compartir Juego</string>
+    <string name="game_invitation">"Te invitamos a participar en una nueva búsqueda del tesoro! Unite al juego con este ID: "</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="game_lost">Perdí!</string>
+    <string name="history_game">Ver Mis Juegos</string>
+    <string name="game_win">Gané!!!</string>
+    <string name="historyGame">Historial de Juegos</string>
+    <string name="title_activity_scan_q_r">ScanQRActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="scan_qr">Escanear QR</string>
 
 </resources>

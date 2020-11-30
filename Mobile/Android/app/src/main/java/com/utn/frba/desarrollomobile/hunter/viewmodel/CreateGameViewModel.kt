@@ -19,6 +19,10 @@ class CreateGameViewModel : ViewModel() {
         imageLiveData.postValue(img)
     }
 
+    fun getId(): Int? {
+        return gameCreatedLiveData.value?.id
+    }
+
     fun getImage(): MutableLiveData<Bitmap> {
         return imageLiveData
     }

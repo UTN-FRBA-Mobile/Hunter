@@ -10,9 +10,17 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.maps.CameraUpdate
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
+import com.google.zxing.BarcodeFormat
+import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.utn.frba.desarrollomobile.hunter.R
 import com.utn.frba.desarrollomobile.hunter.extensions.setToolbarTitle
 import com.utn.frba.desarrollomobile.hunter.extensions.showFragment
@@ -21,14 +29,13 @@ import com.utn.frba.desarrollomobile.hunter.service.models.Game
 import com.utn.frba.desarrollomobile.hunter.ui.activity.MainActivity
 import com.utn.frba.desarrollomobile.hunter.viewmodel.CreateGameViewModel
 import kotlinx.android.synthetic.main.fragment_create_game_step_review.*
-import kotlinx.android.synthetic.main.fragment_create_game_step_summary.imagePreview
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.util.*
 
-class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step_review) {
+class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step_review), OnMapReadyCallback {
 
     private lateinit var gameViewModel: CreateGameViewModel
     private lateinit var storage: FirebaseStorage
@@ -39,6 +46,7 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
         var location: Location? = null
     }
     private var creating: Boolean = false
+    private var googleMap: GoogleMap? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,20 +64,18 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
         })
 
         gameViewModel.getClue().observe(viewLifecycleOwner, Observer { clue ->
-            cluePreview.text = clue
+            cluePreview.text = "La pista es: ${clue}"
             game.clue = clue
             updateUI()
         })
 
         gameViewModel.getDuration().observe(viewLifecycleOwner, Observer { duration ->
-            durationPreview.text = duration.toString()
+            durationPreview.text = "El juego terminara en: ${duration.toString()} minutos"
             game.duration = duration
             updateUI()
         })
 
         gameViewModel.getLocation().observe(viewLifecycleOwner, Observer { location ->
-            latitudePreview.text = location.latitude.toString()
-            longitudePreview.text = location.longitude.toString()
             game.location = location
             updateUI()
         })
@@ -77,6 +83,73 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
         create_game_button.setOnClickListener {
             createGame()
         }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        map.onCreate(savedInstanceState)
+        map.getMapAsync(this)
+    }
+
+    override fun onMapReady(map: GoogleMap?) {
+        Log.d("GPS", map?.toString() ?: "No hay")
+        map?.let {
+            googleMap = it
+            it.uiSettings.setAllGesturesEnabled(false)
+        }
+
+        if(game.location != null) {
+            centerMapForLocation(game.location!!, animate = true)
+            drawPinForLocation(game.location!!)
+        }
+    }
+
+    override fun onStop() {
+        map.onStop()
+        super.onStop()
+    }
+
+    override fun onStart() {
+        map.onStart()
+        super.onStart()
+    }
+
+    override fun onResume() {
+        map.onResume()
+        setToolbarTitle(getString(R.string.stepReview))
+        super.onResume()
+    }
+
+    private fun centerMapForLocation(
+        location: Location,
+        zoom: Float? = null,
+        animate: Boolean
+    ) {
+        val locationAsLatLng = LatLng(location.latitude, location.longitude);
+        centerMapForLatLng(locationAsLatLng, zoom, animate);
+    }
+
+    private fun centerMapForLatLng(location: LatLng, zoom: Float? = null, animate: Boolean) {
+        val cameraUpdate: CameraUpdate = if (zoom == null) {
+            CameraUpdateFactory.newLatLngZoom(location, 15f)
+        } else {
+            CameraUpdateFactory.newLatLngZoom(location, zoom)
+        }
+        if (animate) {
+            googleMap?.animateCamera(cameraUpdate)
+        } else {
+            googleMap?.moveCamera(cameraUpdate)
+        }
+
+    }
+
+    private fun drawPinForLocation(location: Location) {
+        googleMap?.clear()
+        googleMap?.addMarker(
+            MarkerOptions()
+                .position(LatLng(location.latitude, location.longitude))
+                .title("Ubicacion del Tesoro")
+        )
     }
 
     private fun dataOk(): Boolean {
@@ -186,13 +259,8 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
         showFragment(CreateGameFragmentStepSummary(), false, true)
     }
 
-    override fun onResume() {
-        super.onResume()
-        setToolbarTitle(getString(R.string.stepReview))
-    }
-
     private fun showLoading() {
-        (activity as MainActivity).showLoading("Ingresando...")
+        (activity as MainActivity).showLoading("Creando juego...")
     }
 
     private fun hideLoading() {
