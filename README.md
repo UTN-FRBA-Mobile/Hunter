@@ -13,27 +13,31 @@ Una vez creado el juego, se podrá compartir con otros usuarios para que se unan
 * Almacenamiento en dispositivo
 
 ## Flujos de la aplicación
-* Login de Usuario
+### Login de Usuario
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775911.jpg?alt=media)
-* Creación de Usuario
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775911.jpg?alt=media" width="300">
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775910.jpg?alt=media)
-* Creación de Juego
+### Creación de Usuario
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775909.jpg?alt=media)
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775906.jpg?alt=media)
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775908.jpg?alt=media)
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775907.jpg?alt=media)
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775902.jpg?alt=media)
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775901.jpg?alt=media)
-* Ver Historiales de Juego anteriores
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775910.jpg?alt=media" width="300">
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775913.jpg?alt=media)
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775912.jpg?alt=media)
-* Unirse al Juego
+### Creación de Juego
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775904.jpg?alt=media)
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775899.jpg?alt=media)
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775887.jpg?alt=media)
-![alt text](https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775900.jpg?alt=media)
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775909.jpg?alt=media" width="300">
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775906.jpg?alt=media" width="300">
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775908.jpg?alt=media" width="300">
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775907.jpg?alt=media" width="300">
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775902.jpg?alt=media" width="300">
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775901.jpg?alt=media" width="300">
+
+### Ver Historiales de Juego anteriores
+
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775913.jpg?alt=media" width="300">
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775912.jpg?alt=media" width="300">
+
+### Unirse al Juego
+
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775904.jpg?alt=media" width="300">
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775899.jpg?alt=media" width="300">
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775887.jpg?alt=media" width="300">
+<img src="https://firebasestorage.googleapis.com/v0/b/desarrollo-mobile---hunter.appspot.com/o/fotos%2Fphoto5055719086771775900.jpg?alt=media" width="300">
