@@ -97,7 +97,8 @@ class CreateGameFragmentStepSummary : Fragment(R.layout.fragment_create_game_ste
             "QR del Tesoro ${game.id}"
         )
 
-        Toast.makeText(context, "QR Descagado. Revisá tu directorio de descargas.", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "QR Descargado. Revisá tu carpeta de imágenes.", Toast.LENGTH_LONG)
+            .show()
     }
 
 
