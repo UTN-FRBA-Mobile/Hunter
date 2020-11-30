@@ -36,6 +36,8 @@
 		AD67E53A2560241A00B69FBF /* PermissionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67E5392560241A00B69FBF /* PermissionFlow.swift */; };
 		AD6848C425757FCC005D7AB2 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6848C125757FC5005D7AB2 /* ImageProvider.swift */; };
 		AD6848C525757FCC005D7AB2 /* LocationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6848C325757FCC005D7AB2 /* LocationPermission.swift */; };
+		AD6848CD25759D23005D7AB2 /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6848CC25759D23005D7AB2 /* CGSize+Extensions.swift */; };
+		AD6848D225759D34005D7AB2 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6848D125759D34005D7AB2 /* UIEdgeInsets+Extensions.swift */; };
 		AD8E5F2025696A1D009BEBA2 /* Double+Geometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E5F1F25696A1D009BEBA2 /* Double+Geometric.swift */; };
 		AD8E5F2825696A34009BEBA2 /* CLLocation+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E5F2725696A34009BEBA2 /* CLLocation+Helpers.swift */; };
 		AD8E5F3125696ABC009BEBA2 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E5F3025696ABC009BEBA2 /* Adapter.swift */; };
@@ -186,6 +188,8 @@
 		AD67E5392560241A00B69FBF /* PermissionFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionFlow.swift; sourceTree = "<group>"; };
 		AD6848C125757FC5005D7AB2 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		AD6848C325757FCC005D7AB2 /* LocationPermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPermission.swift; sourceTree = "<group>"; };
+		AD6848CC25759D23005D7AB2 /* CGSize+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Extensions.swift"; sourceTree = "<group>"; };
+		AD6848D125759D34005D7AB2 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		AD8E5F1F25696A1D009BEBA2 /* Double+Geometric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Geometric.swift"; sourceTree = "<group>"; };
 		AD8E5F2725696A34009BEBA2 /* CLLocation+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Helpers.swift"; sourceTree = "<group>"; };
 		AD8E5F3025696ABC009BEBA2 /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
@@ -827,6 +831,8 @@
 				ADE081FE25506CDC0046ACC5 /* UIView+Initialize.swift */,
 				ADE081FF25506CDC0046ACC5 /* UIView+Centered.swift */,
 				ADE0820025506CDC0046ACC5 /* UIViewController+AddingSubviews.swift */,
+				AD6848CC25759D23005D7AB2 /* CGSize+Extensions.swift */,
+				AD6848D125759D34005D7AB2 /* UIEdgeInsets+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1160,6 +1166,7 @@
 				ADE0826B255078570046ACC5 /* LoginRouter.swift in Sources */,
 				AD0C428E2550C0A1002DBF5A /* GamePlayCaseUse.swift in Sources */,
 				AD8E5F3125696ABC009BEBA2 /* Adapter.swift in Sources */,
+				AD6848CD25759D23005D7AB2 /* CGSize+Extensions.swift in Sources */,
 				ADE0822B25506CDC0046ACC5 /* CreateGamePresenter.swift in Sources */,
 				ADE0820725506CDC0046ACC5 /* HomeCaseUse.swift in Sources */,
 				AD8E5F3725696B12009BEBA2 /* UserLocationTracker.swift in Sources */,
@@ -1181,6 +1188,7 @@
 				ADE0824725506CDC0046ACC5 /* UIViewController+AddingSubviews.swift in Sources */,
 				AD0C42A62550C1A4002DBF5A /* GamePlayPresenter.swift in Sources */,
 				ADE0820D25506CDC0046ACC5 /* JoinGameCaseUse.swift in Sources */,
+				AD6848D225759D34005D7AB2 /* UIEdgeInsets+Extensions.swift in Sources */,
 				AD67E5212560205F00B69FBF /* PermissionPresenter.swift in Sources */,
 				ADE0822725506CDC0046ACC5 /* JoinGameRouter.swift in Sources */,
 				ADE0824A25506CDC0046ACC5 /* Color.swift in Sources */,

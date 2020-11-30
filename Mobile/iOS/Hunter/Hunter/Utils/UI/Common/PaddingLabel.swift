@@ -19,19 +19,3 @@ class PaddingLabel: UILabel {
         }
     }
 }
-
-extension UIEdgeInsets {
-    
-    var widthSum: CGFloat { left + right }
-    
-    var heightSum: CGFloat { top + bottom }
-    
-    var sizeSum: CGSize { CGSize(width: widthSum, height: heightSum) }
-    
-}
-
-extension CGSize {
-    func adding(_ size: CGSize) -> CGSize {
-        CGSize(width: width + size.width, height: height + size.height)
-    }
-}
