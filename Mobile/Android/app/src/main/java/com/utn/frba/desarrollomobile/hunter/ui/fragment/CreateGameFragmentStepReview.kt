@@ -93,7 +93,10 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
 
     override fun onMapReady(map: GoogleMap?) {
         Log.d("GPS", map?.toString() ?: "No hay")
-        map?.let { googleMap = it }
+        map?.let {
+            googleMap = it
+            it.uiSettings.setAllGesturesEnabled(false)
+        }
 
         if(game.location != null) {
             centerMapForLocation(game.location!!, animate = true)

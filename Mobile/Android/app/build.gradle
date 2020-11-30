@@ -4,12 +4,25 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+    // Configure only for each module that uses Java 8
+    // language features (either in its source code or
+    // through dependencies).
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // For Kotlin projects
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.utn.frba.desarrollomobile.hunter"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -24,6 +37,10 @@ android {
         }
     }
 
+}
+
+repositories {
+    jcenter()
 }
 
 dependencies {
@@ -43,7 +60,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'com.journeyapps:zxing-android-embedded:3.3.0'
+    implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
 
     def nav_version = "2.3.1"
 
