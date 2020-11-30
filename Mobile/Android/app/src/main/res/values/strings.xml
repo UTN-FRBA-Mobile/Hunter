@@ -97,5 +97,6 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="scan_qr">Escanear QR</string>
     <string name="compass_distance">Estás a %1$s metros del tesoro</string>
+    <string name="game_finished">Juego Terminado</string>
 
 </resources>
