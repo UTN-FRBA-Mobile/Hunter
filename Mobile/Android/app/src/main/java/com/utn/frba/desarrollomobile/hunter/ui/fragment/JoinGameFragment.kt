@@ -72,35 +72,7 @@ class JoinGameFragment: Fragment(R.layout.fragment_join_game) {
             arguments = Bundle().apply { putInt(GAME_ID, gameCode.toString().toInt()) }
         }, true)
     }
-
-    private fun joinGame(gameId : Int)
-    {
-        var callJoinGameResponse =
-            APIAdapter.getAPI().joinGame(gameId)
-
-        callJoinGameResponse.enqueue(object : Callback<ResponseBody> {
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                print("throw Message" + t.message)
-                Toast.makeText(context, "Error reading JSON", Toast.LENGTH_LONG).show()
-            }
-
-            override fun onResponse(
-                call: Call<ResponseBody>,
-                response: Response<ResponseBody>
-            ) {
-                val body = response?.body()
-                if (body != null) {
-                    //do your work
-                }
-            }
-        })
-    }
-
-    private fun routeToGame() {
-        TODO("Missing routing")
-//        showFragment(DummyFragment(), addToBackStack = false)
-    }
-
+  
     override fun onResume() {
         super.onResume()
         setToolbarTitle(getString(R.string.join_game_title))

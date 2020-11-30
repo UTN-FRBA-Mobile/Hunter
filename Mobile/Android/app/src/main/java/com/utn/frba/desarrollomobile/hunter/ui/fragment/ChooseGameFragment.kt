@@ -14,6 +14,7 @@ class ChooseGameFragment: Fragment(R.layout.fragment_choose_game) {
         super.onViewCreated(view, savedInstanceState)
         new_game_button.setOnClickListener { createGame() }
         join_game_button.setOnClickListener { joinAGame() }
+        history_game_button.setOnClickListener { historyGame() }
     }
 
     private fun createGame() {
@@ -21,7 +22,11 @@ class ChooseGameFragment: Fragment(R.layout.fragment_choose_game) {
     }
 
     private fun joinAGame() {
-        showFragment(JoinGameFragment(), false)
+        showFragment(JoinGameFragment(), true)
+    }
+
+    private fun historyGame() {
+        showFragment(HistoryFragment(), true)
     }
 
     override fun onResume() {

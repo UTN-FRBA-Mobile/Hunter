@@ -32,6 +32,15 @@
             android:enabled="true"
             android:gravity="center"
             android:text="@string/game_join" />
+
+        <Button
+            android:id="@+id/history_game_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="10dp"
+            android:enabled="true"
+            android:gravity="center"
+            android:text="@string/history_game" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

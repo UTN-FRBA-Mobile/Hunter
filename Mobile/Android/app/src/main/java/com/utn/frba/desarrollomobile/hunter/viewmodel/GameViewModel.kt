@@ -10,6 +10,7 @@ class GameViewModel : ViewModel() {
 
     private val gameLiveData: MutableLiveData<Resource<Game>> = MutableLiveData()
     private val repository: GameRepository = GameRepository
+    private lateinit var game: Game
 
     fun getGame(gameId: Int): MutableLiveData<Resource<Game>> {
 
@@ -21,5 +22,13 @@ class GameViewModel : ViewModel() {
         }
 
         return gameLiveData
+    }
+
+    fun setGame(game: Game) {
+        this.game = game
+    }
+
+    fun getDetailGame(): Game {
+        return game
     }
 }
