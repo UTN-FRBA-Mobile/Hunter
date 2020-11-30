@@ -22,6 +22,15 @@
         android:textAlignment="center"
         android:textSize="@dimen/tableText" />
 
+    <TextView
+        android:id="@+id/join_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="@string/access_code"
+        android:textAlignment="center"
+        android:textSize="@dimen/tableText" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/qr"
         android:layout_width="match_parent"

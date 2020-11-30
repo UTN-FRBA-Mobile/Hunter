@@ -257,7 +257,7 @@ class CreateGameFragmentStepReview : Fragment(R.layout.fragment_create_game_step
     }
 
     private fun showLoading() {
-        (activity as MainActivity).showLoading("Ingresando...")
+        (activity as MainActivity).showLoading("Creando juego...")
     }
 
     private fun hideLoading() {

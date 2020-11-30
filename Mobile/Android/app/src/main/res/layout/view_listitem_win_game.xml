@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:id="@+id/game_item_parent"
     android:padding="10dp">
 
     <ImageView
@@ -21,12 +22,14 @@
 
         <TextView
             android:id="@+id/game_date"
+            android:textSize="22sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""/>
 
         <TextView
             android:id="@+id/game_winner"
+            android:textSize="22sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"

@@ -41,6 +41,7 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
     private val PICK_IMAGE_REQUEST = 100
     private val TAKE_PICTURE__REQUEST = 101
     private val REQUEST_READ_EXTERNAL_STORAGE = 102
+    private val REQUEST_CAMERA_PERMISSION = 103
     private var photoFile: File? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -70,25 +71,29 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
     }
 
     private fun takePhoto() {
-        try {
-            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-                takePictureIntent.resolveActivity(requireContext().packageManager)?.also {
-                    photoFile = createImageFile()
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA_PERMISSION)
+        } else {
+            try {
+                Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+                    takePictureIntent.resolveActivity(requireContext().packageManager)?.also {
+                        photoFile = createImageFile()
 
-                    photoFile?.also {
-                        val photoURI: Uri = FileProvider.getUriForFile(
-                            requireContext(),
-                            "${BuildConfig.APPLICATION_ID}.fileprovider",
-                            it
-                        )
-                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                        startActivityForResult(takePictureIntent, TAKE_PICTURE__REQUEST)
+                        photoFile?.also {
+                            val photoURI: Uri = FileProvider.getUriForFile(
+                                requireContext(),
+                                "${BuildConfig.APPLICATION_ID}.fileprovider",
+                                it
+                            )
+                            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                            startActivityForResult(takePictureIntent, TAKE_PICTURE__REQUEST)
+                        }
                     }
                 }
+            } catch (ex: Exception) {
+                Log.d("Take Image", ex.message ?: "Error al capturar la foto")
+                showFragment(ChooseGameFragment(), false, true)
             }
-        } catch (ex: Exception) {
-            Log.d("Take Image", ex.message ?: "Error al capturar la foto")
-            showFragment(ChooseGameFragment(), false, true)
         }
     }
 
@@ -167,6 +172,9 @@ class CreateGameFragmentStepAddImage : Fragment(R.layout.fragment_create_game_st
         when (requestCode) {
             REQUEST_READ_EXTERNAL_STORAGE -> {
                 Toast.makeText(activity, "Permiso concedido", Toast.LENGTH_LONG).show()
+            }
+            REQUEST_CAMERA_PERMISSION -> {
+
             }
         }
     }
